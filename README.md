@@ -5,7 +5,7 @@ Team Furebo E-commerce is an E-commerce project worked on by trainees of Andela 
 ## Badges
 
 [![Maintainability]()]()
-[![Code Coverage]()]()
+[![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/Team-furebo-E-commerce-fn/badge.svg?branch=ch-setup-github-actions-to-run-test-%23185172176)](https://coveralls.io/github/atlp-rwanda/Team-furebo-E-commerce-fn?branch=ch-setup-github-actions-to-run-test-%23185172176)
 [![Coverage Status]()]()
 
 ## Description
