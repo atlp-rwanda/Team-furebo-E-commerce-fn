@@ -4,7 +4,8 @@ Team Furebo E-commerce is an E-commerce project worked on by trainees of Andela 
 
 ## Badges
 
-[![Maintainability]()]()
+[![Maintainability](https://api.codeclimate.com/v1/badges/d28dc21ea03126f7cda7/maintainability)](https://codeclimate.com/github/atlp-rwanda/Team-furebo-E-commerce-fn/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d28dc21ea03126f7cda7/test_coverage)](https://codeclimate.com/github/atlp-rwanda/Team-furebo-E-commerce-fn/test_coverage)
 [![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/Team-furebo-E-commerce-fn/badge.svg?branch=ch-setup-github-actions-to-run-test-%23185172176)](https://coveralls.io/github/atlp-rwanda/Team-furebo-E-commerce-fn?branch=ch-setup-github-actions-to-run-test-%23185172176)
 [![Coverage Status]()]()
 
@@ -12,7 +13,8 @@ Team Furebo E-commerce is an E-commerce project worked on by trainees of Andela 
 
 This project is the front-end part of the E-commerce project introduced above.
 
-The app has three types of users; a buyer, a seller and an admin, and it has the following functionalities: 
+The app has three types of users; a buyer, a seller and an admin, and it has the following functionalities:
+
 - User
   - Sign up
   - Log in
