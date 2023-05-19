@@ -6,7 +6,7 @@ module.exports = {
     testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
     testPathIgnorePatterns: ['/node_modules/', '/build/'],
     collectCoverage: true,
-    collectCoverageFrom: ['src/**/*.{js,jsx}',"!src/index.js"],
+    collectCoverageFrom: ['src/**/*.{js,jsx}', '!src/index.js', '!src/stories/**'],
     coverageReporters: ['lcov','text','text-summary'],
     coverageThreshold: {
       global: {

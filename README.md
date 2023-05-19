@@ -104,4 +104,4 @@ Unit testing on this app is setup using the following dependencies
 
 ## Deployed Front-end
 
-- [Team Furebo E-commerce]()
+- [Team Furebo E-commerce](https://fascinating-piroshki-10faa1.netlify.app/)
