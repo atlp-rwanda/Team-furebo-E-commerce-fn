@@ -132,7 +132,7 @@
   align-items: center;
   border-radius: 5px;
 }
-.authFormRight form button {
+.authFormRight form .authButton {
   padding: 10px 30px;
   background: rgb(23, 174, 159);
   color: rgb(243, 243, 243);
@@ -142,6 +142,16 @@
   margin-top: 10px;
   font-weight: bold;
   cursor: pointer;
+}
+.authFormRight form button.link {
+  text-decoration: none;
+  font-size: 15px;
+  border: none;
+  color: blue;
+  background-color: transparent;
+}
+.authFormRight form button:hover {
+cursor: pointer
 }
 
 .verifyPage {
