@@ -1,7 +1,8 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable linebreak-style */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaUserAlt, FaSearch } from 'react-icons/fa';
+import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import { GrLanguage } from 'react-icons/gr';
 
 const Navbar = () => (
