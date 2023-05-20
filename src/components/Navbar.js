@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaUserAlt, FaSearch } from 'react-icons/fa';
 import { GrLanguage } from 'react-icons/gr';
-
+import '../css/navbar/Navbar.css'
 const Navbar = () => (
   <div data-testid="navbar">
     <nav>
@@ -22,17 +22,22 @@ const Navbar = () => (
       </div>
       <div className="right-navbar">
         <div className="dropdown">
-          <button className="dropdown-toggle"><GrLanguage /></button>
+          <button className="dropdown-toggle">
+            <GrLanguage />
+          </button>
           <div className="dropdown-menu">
             <Link to="/english">English</Link>
           </div>
         </div>
         <div className="cart">
-          <span><FaShoppingCart /></span>
-
+          <span>
+            <FaShoppingCart />
+          </span>
         </div>
         <div className="dropdown">
-          <button className="dropdown-toggle"><FaUserAlt /></button>
+          <button className="dropdown-toggle">
+            <FaUserAlt />
+          </button>
           <div className="dropdown-menu">
             <Link to="/login">Login/Signup</Link>
           </div>
