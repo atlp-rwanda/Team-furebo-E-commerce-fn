@@ -9,7 +9,7 @@
     width: 100%;
     max-width: 320px;
   }
-  nav .search-area input[type=text] {
+  nav .search-area input[type='text'] {
     width: 100%;
   }
   nav .dropdown {
@@ -79,7 +79,7 @@ nav .search-area {
   border-radius: 4px;
   width: 500px;
 }
-nav .search-area input[type=text] {
+nav .search-area input[type='text'] {
   flex: 1;
   border: none;
   padding: 8px;

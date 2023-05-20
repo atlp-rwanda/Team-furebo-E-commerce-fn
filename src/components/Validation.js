@@ -31,7 +31,7 @@ import React from 'react';
 //   return errors;
 // };
 
-export const ValidateFistname = (authData) => {
+export const ValidateFistname = authData => {
   const errors = {};
 
   if (authData.firstname === '') {
@@ -41,7 +41,7 @@ export const ValidateFistname = (authData) => {
   return errors;
 };
 
-export const ValidateLastName = (authData) => {
+export const ValidateLastName = authData => {
   const errors = {};
 
   if (authData.lastname === '') {
@@ -51,7 +51,7 @@ export const ValidateLastName = (authData) => {
   return errors;
 };
 
-export const ValidateEmail = (authData) => {
+export const ValidateEmail = authData => {
   const errors = {};
 
   const Email_Pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,3})+$/;
@@ -65,7 +65,7 @@ export const ValidateEmail = (authData) => {
   return errors;
 };
 
-export const ValidatePassword = (authData) => {
+export const ValidatePassword = authData => {
   const errors = {};
 
   const Password_Pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
@@ -73,10 +73,24 @@ export const ValidatePassword = (authData) => {
   if (authData.password === '') {
     errors.password = 'Password is required';
   } else if (!authData.password.match(Password_Pattern)) {
-    errors.password = 'Password should contain atleast one upper character, one lower character, two numbers and not under eight';
+    errors.password =
+      'Password should contain atleast one upper character, one lower character, two numbers and not under eight';
   }
 
   return errors;
 };
-
-// export default Validation;
+export const validateUpdatePassword = authData => {
+  const errors = {};
+  const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+  if (authData.currentPassword === '') {
+    errors.currentPassword = 'Current Password is incorrect';
+  } else if (!authData.currentPassword.match(passwordPattern)) {
+    errors.currentPassword = 'Password format is incorect';
+  }
+  if (authData.newPassword === '') {
+    errors.newPassword = 'New Password is required';
+  } else if (!authData.newPassword.match(passwordPattern)) {
+    errors.newPassword = 'New Password format is incorrect';
+  }
+  return errors;
+};

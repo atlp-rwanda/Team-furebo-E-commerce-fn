@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Auth from './pages/Auth';
 import EmailVerify from './components/EmailVerify';
+import PasswordModification from './components/PasswordModification';
 
 const Layout = () => (
   <>
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Home />,
+      },
+      {
+        path: '/changepassword/:id',
+        element: <PasswordModification />,
       },
     ],
   },
