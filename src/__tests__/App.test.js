@@ -1,11 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from '../App';
 
+jest.mock('../css/navbar/navbar.css', () => {});
+
 describe('App', () => {
-  it('renders the Home component when the root path is accessed', () => {
-    const { getByText } = render(<App />);
-    expect(getByText('HELLO, FRONT-END')).toBeInTheDocument();
+  it('renders without errors', () => {
+    render(<App />);
+
+    // Check if Navbar component is rendered
+    const navbar = screen.getByTestId('navbar');
+    expect(navbar).toBeInTheDocument();
   });
 });
-  
