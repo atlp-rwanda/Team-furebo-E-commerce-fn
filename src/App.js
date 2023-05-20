@@ -7,6 +7,7 @@ import Navbar from './components/NavBar/Navbar';
 import Auth from './pages/Auth';
 import EmailVerify from './components/EmailVerify';
 import PasswordModification from './components/PasswordModification';
+import AddProduct from './components/ProductDetails/AddProduct';
 import DashBoard from './pages/DashBoard';
 import AdminAuth from './pages/AdminAuth';
 import Footer from './components/Footer';
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/addproduct',
+        element: <AddProduct />,
       },
       {
         path: '/authentication',

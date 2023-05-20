@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {
-  updatePassword,
-  updatePasswordSuccess,
-  updateError,
+  addProduct,
+  addProductSuccess,
+  addError,
   clearError,
   clearSuccessCondition,
-} from '../slices/updatePassword';
+} from '../slices/addProductSlice';
 
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
@@ -20,26 +20,24 @@ API.interceptors.request.use(req => {
   return req;
 });
 
-const ModifyPassword = async (authData, params, dispatch) => {
-  dispatch(updatePassword());
+const AddProducts = async (newProduct, dispatch) => {
+  dispatch(addProduct());
   try {
-    const res = await API.patch('/modify-password', authData);
-    dispatch(updatePasswordSuccess(res.data));
+    const res = await API.post('/addProduct', newProduct);
+    dispatch(addProductSuccess(res.data));
 
     setTimeout(() => {
       dispatch(clearSuccessCondition());
     }, [60000]);
   } catch (error) {
-    if (!error.response) {
-      dispatch(updateError(error.message));
-    } else if (!error.response.data.message) {
-      dispatch(updateError(error.response.data));
+    if (error.response.data.message) {
+      dispatch(addError(error.response.data.message));
     } else {
-      dispatch(updateError(error.response.data.message));
+      dispatch(addError(error.response.data));
     }
     setTimeout(() => {
       dispatch(clearError());
     }, [10000]);
   }
 };
-export default ModifyPassword;
+export default AddProducts;

@@ -23,10 +23,20 @@ describe('TEST VIEWING USER ESSENTIAL INFORMATION', () => {
     render(
       <Router>
         <ViewUserEssentialInfo profileData={profileData} />
-      </Router>,
+      </Router>
     );
 
     const viewEssentialElement = screen.getByTestId('viewEssential');
     expect(viewEssentialElement).toBeInTheDocument();
+  });
+
+  it('Should render "unknown" for missing essential information', () => {
+    const profileData = {};
+
+    render(
+      <Router>
+        <ViewUserEssentialInfo profileData={profileData} />
+      </Router>
+    );
   });
 });

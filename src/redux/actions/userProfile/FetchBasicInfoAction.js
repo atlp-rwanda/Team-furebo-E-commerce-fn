@@ -17,10 +17,11 @@ API.interceptors.request.use(req => {
 const fetchUserBasicProfile = async () => {
   try {
     const response = await API.get('/get-user');
+
     return response.data;
   } catch (error) {
     console.error('Error fetching profile data:', error);
-    throw new Error(`Error fetching profile data: ${error.message}`);
+    throw new Error('Error fetching profile data');
   }
 };
 
@@ -30,7 +31,7 @@ const fetchUserProfileImage = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching profile image:', error);
-    throw new Error(`Error fetching profile image: ${error.message}`);
+    throw new Error('Error fetching profile image');
   }
 };
 

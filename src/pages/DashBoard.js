@@ -149,7 +149,12 @@ const DashBoard = () => {
         <div className="togleSidebar">
           <p>
             <BsLayoutSidebarInset />
-            <span className={show ? 'show' : 'hidden'}>Toggle sidebar</span>
+            <span
+              data-testid="toggle-button"
+              className={show ? 'show' : 'hidden'}
+            >
+              Toggle sidebar
+            </span>
           </p>
         </div>
       </div>
