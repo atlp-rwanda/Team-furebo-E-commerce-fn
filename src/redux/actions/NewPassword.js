@@ -7,7 +7,9 @@ import {
   clearSuccessCondition,
 } from '../slices/newPasswordSlice';
 
-const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+const API = axios.create({
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+});
 
 const newPasswordAction = async (authData, dispatch, params, onSuccess) => {
   dispatch(newPasswordReset());

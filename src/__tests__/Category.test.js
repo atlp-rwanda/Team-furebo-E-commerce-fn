@@ -13,7 +13,7 @@ describe('Category TESTS', () => {
         <Provider store={store}>
           <Category data={{ image: 'image-url', category: 'Category Name' }} />
         </Provider>
-      </Router>,
+      </Router>
     );
     const category = screen.getByTestId('Category');
     expect(category).toBeInTheDocument();

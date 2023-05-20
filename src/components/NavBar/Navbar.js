@@ -1,19 +1,22 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FaShoppingCart, FaUserAlt, FaSearch } from 'react-icons/fa';
 import { GrLanguage } from 'react-icons/gr';
-import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowBack, IoMdNotifications } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import '../../css/NavbarStyles/Navbar.css';
+import { act } from 'react-dom/test-utils';
+import fetchNotifications from '../../redux/actions/userProfile/FetchNotification';
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -23,8 +26,10 @@ const Navbar = () => {
   const [crotate, setCrotate] = useState(true);
   const [profile, setProfile] = useState(false);
   const [searchIcon, setSearchIcon] = useState(false);
+  const [notifications, setNotifications] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
 
-  const { userInfo } = useSelector((state) => state.user);
+  const { userInfo } = useSelector(state => state.user);
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
@@ -57,12 +62,30 @@ const Navbar = () => {
     setSearchIcon(false);
   };
 
-  const handleSeach = () => {
+  const handleSearch = () => {
     setSearchIcon(!searchIcon);
     setMenu(false);
     setPageMenu(false);
     setProfile(false);
   };
+  const handleNotification = () => {
+    setShowNotification(!showNotification);
+  };
+
+  useEffect(() => {
+    const getNotifications = async () => {
+      try {
+        const fetchedNotifications = await fetchNotifications();
+        act(() => {
+          setNotifications(fetchedNotifications);
+        });
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      }
+    };
+
+    getNotifications();
+  }, []);
 
   return (
     <div className="navbar" data-testid="navbar">
@@ -72,8 +95,7 @@ const Navbar = () => {
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            pages
-            {' '}
+            pages{' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
@@ -81,12 +103,12 @@ const Navbar = () => {
               <div className="newPageRotate">
                 {currentUserRole && currentUserRole.name === 'admin' && (
                   <Link className="link" to="/dashboard">
-                    <div>dashboard</div>
+                    <li>dashboard</li>
                   </Link>
                 )}
-                <div>Product</div>
+                <li>Product</li>
                 {currentUserRole && currentUserRole.name === 'merchant' && (
-                  <div>collection</div>
+                  <li>collection</li>
                 )}
               </div>
             )}
@@ -97,8 +119,33 @@ const Navbar = () => {
           <MdOutlineKeyboardArrowUp />
         </li>
       </ul>
+      {userInfo && userInfo.userData && (
+        <div className="notification-panel">
+          <li>
+            <IoMdNotifications onClick={handleNotification} />
+          </li>
+          <div>
+            {showNotification && (
+              <div className="dropdown-menu">
+                <span className="notification-title">Notification</span>
+                <hr />
+                {notifications.length > 0 ? (
+                  notifications.map(notification => (
+                    <span className="notification-card" key={notification.id}>
+                      {notification.message}
+                    </span>
+                  ))
+                ) : (
+                  <span>No notifications</span>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="searchIcon">
-        <FaSearch data-testid="search-icon" onClick={handleSeach} />
+        <FaSearch data-testid="search-icon" onClick={handleSearch} />
         {searchIcon && (
           <div className="search2">
             <FaSearch className="searchIcn" />
@@ -140,6 +187,9 @@ const Navbar = () => {
                     </span>
                   </div>
                   <hr />
+                  <Link to="/view-basic" className="profile-link">
+                    Profile
+                  </Link>
                   <button className="logoutButton">Logout</button>
                 </>
               )}
@@ -164,8 +214,7 @@ const Navbar = () => {
         <div className="NavSideBar">
           {userInfo && userInfo.userData && (
             <li onClick={handleRotate} data-testid="pages">
-              pages
-              {' '}
+              pages{' '}
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}

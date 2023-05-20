@@ -12,7 +12,7 @@ const newPasswordSlice = createSlice({
     },
   },
   reducers: {
-    newPasswordReset: (state) => {
+    newPasswordReset: state => {
       state.pending = true;
     },
     newPasswordResetSuccess: (state, action) => {
@@ -25,10 +25,10 @@ const newPasswordSlice = createSlice({
       state.error.condition = true;
       state.error.message = action.payload;
     },
-    clearError: (state) => {
+    clearError: state => {
       state.error.condition = false;
     },
-    clearSuccessCondition: (state) => {
+    clearSuccessCondition: state => {
       state.successCondition = false;
     },
   },

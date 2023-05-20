@@ -12,6 +12,11 @@ import AdminAuth from './pages/AdminAuth';
 import Footer from './components/Footer';
 import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
+import AddUserEssentialInfoPage from './pages/userInfo/AddUserEssentialInfoPage';
+import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
+import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
+import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
+import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
 
 const Layout = () => (
   <>
@@ -46,8 +51,28 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/changepassword/:id',
+        path: '/changepassword',
         element: <PasswordModification />,
+      },
+      {
+        path: '/view-basic',
+        element: <BasicUserInfoPage />,
+      },
+      {
+        path: '/view-essential',
+        element: <EssentialUserInfoPage />,
+      },
+      {
+        path: '/add-essential',
+        element: <AddUserEssentialInfoPage />,
+      },
+      {
+        path: '/update-basic',
+        element: <EditUserBasicPage />,
+      },
+      {
+        path: '/update-essential',
+        element: <EditUserEssentialInfoPage />,
       },
       {
         path: '/AdminRegister',

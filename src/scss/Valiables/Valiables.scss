@@ -1,0 +1,29 @@
+// COLORS
+$blackColor: rgb(9, 9, 9);
+$whiteColor: rgb(243, 243, 243);
+$lightBlueColor: rgb(23, 174, 159);
+$darkBlueColor: #415075;
+
+// FONTS
+$titleFont: Arial, Helvetica, sans-serif;
+$bodyFont: 'Times New Roman', Times, serif;
+
+// button
+@mixin buttonStyles(
+  $color,
+  $fontSize,
+  $border,
+  $borderRadius,
+  $margin,
+  $textColor
+) {
+  padding: 10px 30px;
+  background: $color;
+  color: $textColor;
+  border: $border;
+  border-radius: $borderRadius;
+  font-size: $fontSize;
+  margin-top: $margin;
+  font-weight: bold;
+  cursor: pointer;
+}
