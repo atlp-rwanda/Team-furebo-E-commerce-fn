@@ -1,0 +1,50 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "airbnb",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:react/recommended",
+      "plugin:jest/recommended",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "overrides": [],
+    "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": ["react", "jest", "react-hooks", "import"],
+    "rules": {
+      "react/prop-types": "warn",
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "import/no-extraneous-dependencies": [
+        "warn",
+        {
+          "devDependencies": true,
+          "includeInternal": true
+        }
+      ],
+      "no-unused-vars": [
+        "error",
+        { "varsIgnorePattern": "^React", "argsIgnorePattern": "^_" }
+      ],
+      "import/no-unused-modules": "off",
+      "react/jsx-props-no-spreading": "off",
+      "no-param-reassign": "off",
+      "react/function-component-definition": [
+        2,
+        {
+          "namedComponents": "arrow-function",
+          "unnamedComponents": "arrow-function"
+        }
+      ]
+    }
+}
