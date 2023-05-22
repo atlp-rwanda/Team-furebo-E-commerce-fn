@@ -1,18 +1,17 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/button-has-type */
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SuccessImage from '../assets/images/success.png';
 import { VerifyEmail } from '../redux/actions/signup';
 
-import '../Styles/AuthStyles/Auth.css';
+import '../css/AuthStyles/Auth.css';
 
 const EmailVerify = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  const [validUrl, setValidUrl] = useState(false);
+  const [validUrl, setValidUrl] = useState(true);
 
   const { pending } = useSelector((state) => state.user);
 
@@ -21,7 +20,7 @@ const EmailVerify = () => {
   }, [params]);
 
   return (
-    <>
+    <div data-testid="EmailVerify">
       {validUrl ? (
         <div className="verifyPage">
           <img src={SuccessImage} alt="successImage" className="successImage" />
@@ -31,11 +30,11 @@ const EmailVerify = () => {
           </Link>
         </div>
       ) : (
-        <Fragment className="center">
+        <div className="center">
           {pending ? <span>loading....</span> : <h1>404 Not Found</h1>}
-        </Fragment>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 
