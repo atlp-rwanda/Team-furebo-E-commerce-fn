@@ -25,13 +25,11 @@ const AuthForm = () => {
     password: '',
   });
 
-  const {
-    successCondition, userInfo, error, pending,
-  } = useSelector(
-    (state) => state.user,
+  const { successCondition, userInfo, error, pending } = useSelector(
+    state => state.user
   );
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
@@ -51,7 +49,7 @@ const AuthForm = () => {
     setErrors(ValidatePassword(authData));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (isSignUp) {
@@ -70,7 +68,9 @@ const AuthForm = () => {
     <div className="authForm" data-testid="AuthForm">
       <div className="authFormLeft">
         <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
-        <button onClick={() => setIsSignUp(!isSignUp)}>{isSignUp ? 'Sign In' : 'Sign Up'}</button>
+        <button onClick={() => setIsSignUp(!isSignUp)}>
+          {isSignUp ? 'Sign In' : 'Sign Up'}
+        </button>
       </div>
       <div className="authFormRight">
         <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
@@ -108,7 +108,7 @@ const AuthForm = () => {
           <input
             name="email"
             type="email"
-            placeholder="Email"
+            placeholder="Emai"
             value={authData.email}
             onChange={handleChange}
             onKeyUp={handleValidationEmail}
@@ -137,21 +137,6 @@ const AuthForm = () => {
           <button className="authButton" onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
-          {isSignUp && (
-            <Link to="/AdminRegister">
-              <span>register as admin</span>
-            </Link>
-          )}
-          <p className="mt-4 text-right" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
-            {!isSignUp && (
-            <>
-              <span>Forgot Password? </span>
-              <button className="link" onClick={handleResetPassword}>
-                Reset it
-              </button>
-            </>
-            )}
-          </p>
         </form>
       </div>
     </div>

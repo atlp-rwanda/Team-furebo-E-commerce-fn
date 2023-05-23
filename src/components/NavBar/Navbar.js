@@ -24,7 +24,7 @@ const Navbar = () => {
   const [profile, setProfile] = useState(false);
   const [searchIcon, setSearchIcon] = useState(false);
 
-  const { userInfo } = useSelector((state) => state.user);
+  const { userInfo } = useSelector(state => state.user);
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
@@ -72,8 +72,7 @@ const Navbar = () => {
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            pages
-            {' '}
+            pages{' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
@@ -164,8 +163,7 @@ const Navbar = () => {
         <div className="NavSideBar">
           {userInfo && userInfo.userData && (
             <li onClick={handleRotate} data-testid="pages">
-              pages
-              {' '}
+              pages{' '}
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}
