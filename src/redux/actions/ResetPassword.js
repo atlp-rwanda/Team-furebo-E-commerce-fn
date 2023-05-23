@@ -9,7 +9,7 @@ import {
 } from '../slices/resetPasswordSlice';
 
 const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+  baseURL: 'http://localhost:5000/api',
 });
 
 const resetPassword = async (emailData, dispatch) => {
@@ -30,8 +30,8 @@ const resetPassword = async (emailData, dispatch) => {
     // Dispatch the requestPasswordResetFailure action with an appropriate error message
     dispatch(
       requestPasswordResetFailure(
-        'An error occurred during the password reset request.'
-      )
+        'An error occurred during the password reset request.',
+      ),
     );
 
     if (error.response.data.message) {

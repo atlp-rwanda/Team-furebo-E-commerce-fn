@@ -106,15 +106,41 @@
   font-size: 20px;
   font-weight: 600;
   color: #0d6efd;
-  padding: 10px 0;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navbar .notification-panel .dropdown-menu .notification-title span {
+  border: 2px solid rgba(128, 128, 128, 0.41);
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5s;
+  color: gray;
+}
+.navbar .notification-panel .dropdown-menu .notification-title span:hover {
+  background-color: rgba(128, 128, 128, 0.154);
+  transition: 0.5s;
 }
 .navbar .notification-panel .dropdown-menu .notification-card {
-  background-color: rgba(9, 116, 105, 0.182);
+  background-color: rgba(164, 191, 172, 0.616);
   padding: 10px;
   cursor: pointer;
 }
 .navbar .notification-panel .dropdown-menu .notification-card:hover {
   background-color: green;
+  text-decoration: underline;
+}
+.navbar .notification-panel .dropdown-menu .notification-card2 {
+  background-color: rgba(230, 247, 235, 0.616);
+  padding: 10px;
+  cursor: pointer;
+}
+.navbar .notification-panel .dropdown-menu .notification-card2:hover {
+  text-decoration: underline;
 }
 .navbar .searchIcon {
   display: none;

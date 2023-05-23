@@ -14,7 +14,6 @@ import ChangePasswordAtTimeGiven from './ChangePasswordAtTimeGiven';
 const ViewUserBasicInfo = ({ profileData, profileImage }) => (
   <div data-testid="viewBasic" className="user-profile-container">
     <ChangePasswordAtTimeGiven />
-    {/* <Navigator /> */}
 
     {profileData && (
       <div className="">
@@ -72,10 +71,6 @@ const ViewUserBasicInfo = ({ profileData, profileImage }) => (
             Add your essential information
           </Link>
         )}
-        {/*
-        <Link to="/update-basic" className="update-basic-user-info">
-          Update your basic information
-        </Link> */}
       </div>
     )}
   </div>

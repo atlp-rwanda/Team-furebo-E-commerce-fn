@@ -18,6 +18,7 @@
   color: $whiteColor;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.363);
 
+
   .logo {
     display: flex;
     cursor: pointer;
@@ -90,13 +91,14 @@
         }
       }
     }
+
   }
-  .notification-panel {
+  .notification-panel{
     position: relative;
-    li {
+    li{
       list-style: none;
     }
-    .dropdown-menu {
+    .dropdown-menu{
       display: flex;
       flex-direction: column;
       gap: 1px;
@@ -109,19 +111,48 @@
       left: -120px;
       z-index: 999;
       padding: 5px 0;
-      .notification-title {
+      .notification-title{
         text-align: center;
         font-size: 20px;
         font-weight: 600;
         color: #0d6efd;
-        padding: 10px 0;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        span {
+          border: 2px solid rgba(128, 128, 128, 0.41);
+          padding: 2px 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: 0.5s;
+          color: gray;
+
+          &:hover{
+            background-color: rgba(128, 128, 128, 0.154);
+            transition: 0.5s;
+          }
+        }
       }
-      .notification-card {
+      .notification-card{
         background-color: $green-ligtest-bg-color;
         padding: 10px;
         cursor: pointer;
-        &:hover {
+        &:hover{
           background-color: green;
+          text-decoration: underline;
+        }
+      }
+
+      .notification-card2{
+        background-color: rgba(230, 247, 235, 0.616);
+        padding: 10px;
+        cursor: pointer;
+        &:hover{
+          text-decoration: underline;
         }
       }
     }
@@ -235,7 +266,7 @@
         padding: 30px;
         border-radius: 10px;
 
-        li {
+        li{
           cursor: pointer;
           display: flex;
           justify-content: center;
@@ -256,10 +287,11 @@
           flex-direction: row;
           gap: 10px;
           color: black;
-
+    
           .name {
             font-weight: bold;
           }
+    
         }
 
         hr {
@@ -267,7 +299,7 @@
           background-color: #000;
           color: #000;
         }
-
+    
         .logoutButton {
           border: none;
           padding: 10px;
@@ -378,7 +410,7 @@
         align-items: center;
         font-family: $titleFont;
         font-size: 17px;
-
+        
         &:hover {
           color: rgba(240, 248, 255, 0.754);
         }
@@ -392,7 +424,7 @@
       align-items: center;
       font-family: $titleFont;
       font-size: 17px;
-
+      
       &:hover {
         color: rgba(240, 248, 255, 0.754);
       }

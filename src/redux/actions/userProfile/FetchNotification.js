@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+  baseURL: 'http://localhost:5000/api',
 });
 
-API.interceptors.request.use(req => {
+API.interceptors.request.use((req) => {
   const authToken = localStorage.getItem('currentUser');
   if (authToken) {
     req.headers.Authorization = `Bearer ${JSON.parse(authToken).token}`;

@@ -31,10 +31,6 @@ const BasicUserInfoPage = () => {
     fetchProfileData();
   }, []);
 
-  if (loading) {
-    return <div className="page-in-loading">Wait...</div>;
-  }
-
   return (
     <div data-testid="view-basic-page">
       <ViewUserBasicInfo
