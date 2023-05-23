@@ -13,7 +13,7 @@ const EmailVerify = () => {
   const params = useParams();
   const [validUrl, setValidUrl] = useState(false);
 
-  const { pending } = useSelector((state) => state.user);
+  const { pending } = useSelector(state => state.user);
 
   useEffect(() => {
     VerifyEmail(setValidUrl, params, dispatch);

@@ -13,7 +13,7 @@ const resetPasswordSlice = createSlice({
     userInfo: null,
   },
   reducers: {
-    requestPasswordReset: (state) => {
+    requestPasswordReset: state => {
       state.pending = true;
     },
     requestPasswordResetSuccess: (state, action) => {
@@ -26,10 +26,10 @@ const resetPasswordSlice = createSlice({
       state.error.condition = true;
       state.error.message = action.payload;
     },
-    clearError: (state) => {
+    clearError: state => {
       state.error.condition = false;
     },
-    clearSuccessCondition: (state) => {
+    clearSuccessCondition: state => {
       state.successCondition = false;
     },
   },

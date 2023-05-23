@@ -1,11 +1,28 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import React from 'react';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+} from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 
 import Navbar from '../components/NavBar/Navbar';
+import fetchNotifications from '../redux/actions/userProfile/FetchNotification';
+
+jest.mock('../redux/actions/userProfile/FetchNotification', () => ({
+  __esModule: true,
+  default: jest.fn(() =>
+    Promise.resolve([
+      { id: 1, message: 'Notification 1' },
+      { id: 2, message: 'Notification 2' },
+    ])
+  ),
+}));
 
 describe('Navbar TESTS', () => {
   it('Should render navbar', () => {
@@ -104,5 +121,23 @@ describe('Navbar TESTS', () => {
     fireEvent.click(categoriesDropdown);
 
     expect(screen.queryByTestId('arrowLeft')).toBeNull();
+  });
+   
+  test('renders notifications correctly', async () => {
+    render(
+      <Router>
+        <Provider store={store}>
+          <Navbar />
+        </Provider>
+      </Router>
+    );
+
+    await waitFor(async () => {
+      expect(fetchNotifications).toHaveBeenCalled();
+      await act(async () => {
+        // Wait for state update using act
+        await new Promise(resolve => setTimeout(resolve, 0));
+      });
+    });
   });
 });
