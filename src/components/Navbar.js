@@ -22,17 +22,22 @@ const Navbar = () => (
       </div>
       <div className="right-navbar">
         <div className="dropdown">
-          <button className="dropdown-toggle"><GrLanguage /></button>
+          <button className="dropdown-toggle">
+            <GrLanguage />
+          </button>
           <div className="dropdown-menu">
             <Link to="/english">English</Link>
           </div>
         </div>
         <div className="cart">
-          <span><FaShoppingCart /></span>
-
+          <span>
+            <FaShoppingCart />
+          </span>
         </div>
         <div className="dropdown">
-          <button className="dropdown-toggle"><FaUserAlt /></button>
+          <button className="dropdown-toggle">
+            <FaUserAlt />
+          </button>
           <div className="dropdown-menu">
             <Link to="/login">Login/Signup</Link>
           </div>
