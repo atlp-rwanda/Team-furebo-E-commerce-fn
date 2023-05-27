@@ -1,9 +1,4 @@
 **/node_modules
-**/scss
-
-**/.nyc_output
 **/coverage
-
-
-/.env
-
+**/scss
+**/dist

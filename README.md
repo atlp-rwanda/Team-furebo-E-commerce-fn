@@ -7,6 +7,8 @@ Team Furebo E-commerce is an E-commerce project worked on by trainees of Andela 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d28dc21ea03126f7cda7/maintainability)](https://codeclimate.com/github/atlp-rwanda/Team-furebo-E-commerce-fn/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d28dc21ea03126f7cda7/test_coverage)](https://codeclimate.com/github/atlp-rwanda/Team-furebo-E-commerce-fn/test_coverage)
 [![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/Team-furebo-E-commerce-fn/badge.svg?branch=ch-setup-github-actions-to-run-test-%23185172176)](https://coveralls.io/github/atlp-rwanda/Team-furebo-E-commerce-fn?branch=ch-setup-github-actions-to-run-test-%23185172176)
+[![Netlify](https://api.netlify.com/api/v1/badges/29e6c264-a74e-44c8-a0b8-5d3286d3dd07/deploy-status?branch=Develop)](https://app.netlify.com/sites/fascinating-piroshki-10faa1/deploys)
+[![CI/CD](https://github.com/atlp-rwanda/Team-furebo-E-commerce-fn/actions/workflows/test.yml/badge.svg)](https://github.com/atlp-rwanda/Team-furebo-E-commerce-fn/actions/workflows/test.yml)
 
 ## Description
 
