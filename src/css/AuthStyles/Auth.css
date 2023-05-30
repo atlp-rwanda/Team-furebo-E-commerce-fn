@@ -1,0 +1,184 @@
+.authPage {
+  background: transparent;
+  width: full;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authForm {
+  background: rgb(179, 179, 179);
+  width: 60%;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 5px 20px -10px;
+}
+@media (max-width: 1001px) {
+  .authForm {
+    width: 80%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.authFormLeft {
+  width: 35%;
+  min-width: 200px;
+  padding: 0 0px;
+  background: rgb(23, 174, 159);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 1001px) {
+  .authFormLeft {
+    width: 100%;
+    padding: 30px 0;
+  }
+}
+.authFormLeft h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(243, 243, 243);
+  font-weight: bolder;
+  font-size: 30px;
+}
+@media (max-width: 500px) {
+  .authFormLeft h1 {
+    font-size: 30px;
+  }
+}
+.authFormLeft button {
+  padding: 10px 30px;
+  background: rgb(243, 243, 243);
+  color: rgb(9, 9, 9);
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.authFormRight {
+  width: 65%;
+  min-width: 200px;
+  height: 100%;
+  padding: 70px 0;
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+@media (max-width: 1001px) {
+  .authFormRight {
+    width: 100%;
+  }
+}
+.authFormRight h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+@media (max-width: 500px) {
+  .authFormRight h1 {
+    font-size: 30px;
+  }
+}
+.authFormRight form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.authFormRight form input {
+  background-color: rgba(220, 220, 220, 0.426);
+  width: 80%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.authFormRight form .pending {
+  color: #5bc760;
+}
+.authFormRight form .successDisplay {
+  background-color: #5bc760;
+  width: 80%;
+  padding: 10px 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.authFormRight form .errorDisplay {
+  background-color: #ff6252;
+  width: 80%;
+  padding: 10px 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.authFormRight form button {
+  padding: 10px 30px;
+  background: rgb(23, 174, 159);
+  color: rgb(243, 243, 243);
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.verifyPage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.verifyPage h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+.verifyPage .verifySignInBtn {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: rgb(23, 174, 159);
+  border-radius: 20px;
+  width: 180px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+/*# sourceMappingURL=Auth.css.map */
