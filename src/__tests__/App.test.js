@@ -1,11 +1,22 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import App from '../App';
 
+import store from '../redux/store';
+
+jest.mock('../css/navbar/navbar.css', () => {});
+
 describe('App', () => {
-  it('renders the Home component when the root path is accessed', () => {
-    const { getByText } = render(<App />);
-    expect(getByText('HELLO, FRONT-END')).toBeInTheDocument();
+  it('renders without errors', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+    );
+
+    // Check if Navbar component is rendered
+    const navbar = screen.getByTestId('App');
+    expect(navbar).toBeInTheDocument();
   });
 });
-  

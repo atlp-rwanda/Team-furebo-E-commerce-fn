@@ -1,10 +1,10 @@
-name: Unit Tests
+name: CI/CD
 
 on:
   push:
-    branches: ["Develop"]
+    branches: ['Develop']
   pull_request:
-    branches: ["Develop"]
+    branches: ['Develop']
 
 env:
   REACT_APP_SERVER_URL: https://team-furebo-e-commerce-bn.onrender.com
@@ -40,4 +40,4 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v4.0.0
         env:
-          CC_TEST_REPORTER_ID: "0f994c643098c5170ff39f19aae8b135c283a936c3403694a592b13bd6d72c7e"
+          CC_TEST_REPORTER_ID: '0f994c643098c5170ff39f19aae8b135c283a936c3403694a592b13bd6d72c7e'

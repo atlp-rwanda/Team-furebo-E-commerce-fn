@@ -7,29 +7,29 @@ Team Furebo E-commerce is an E-commerce project worked on by trainees of Andela 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d28dc21ea03126f7cda7/maintainability)](https://codeclimate.com/github/atlp-rwanda/Team-furebo-E-commerce-fn/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d28dc21ea03126f7cda7/test_coverage)](https://codeclimate.com/github/atlp-rwanda/Team-furebo-E-commerce-fn/test_coverage)
 [![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/Team-furebo-E-commerce-fn/badge.svg?branch=ch-setup-github-actions-to-run-test-%23185172176)](https://coveralls.io/github/atlp-rwanda/Team-furebo-E-commerce-fn?branch=ch-setup-github-actions-to-run-test-%23185172176)
-
-
+[![Netlify](https://api.netlify.com/api/v1/badges/29e6c264-a74e-44c8-a0b8-5d3286d3dd07/deploy-status?branch=Develop)](https://app.netlify.com/sites/fascinating-piroshki-10faa1/deploys)
+[![CI/CD](https://github.com/atlp-rwanda/Team-furebo-E-commerce-fn/actions/workflows/test.yml/badge.svg)](https://github.com/atlp-rwanda/Team-furebo-E-commerce-fn/actions/workflows/test.yml)
 ## Description
 
 This project is the front-end part of the E-commerce project introduced above.
 
 The app has three types of users; a buyer, a seller and an admin, and it has the following functionalities:
 
-- User
-  - Sign up
-  - Log in
-- Products
-  - Create a new product
-  - Update an existing product
-  - Delete an existing product
-- Cart
-  - Add items to cart
-  - Update shopping cart
-- Check out
-- Payment
-- Track order status
-- Notifications
-- Public chat
+-   User
+    -   Sign up
+    -   Log in
+-   Products
+    -   Create a new product
+    -   Update an existing product
+    -   Delete an existing product
+-   Cart
+    -   Add items to cart
+    -   Update shopping cart
+-   Check out
+-   Payment
+-   Track order status
+-   Notifications
+-   Public chat
 
 An admin can manage all users ; changing roles and making a user as active or inactive.
 
@@ -39,18 +39,18 @@ A buyer should be able to see all available products on the homepage add items t
 
 ## Key Technologies
 
-- React JS
-- Redux
+-   React JS
+-   Redux
 
 ## Installation
 
-- Clone the repository and install
+-   Clone the repository and install
 
 ```bash
   git clone [https://github.com/atlp-rwanda/Team-furebo-E-commerce-fn.git]
 ```
 
-- Go to folder and install dependencies
+-   Go to folder and install dependencies
 
 ```bash
     cd Team-furebo-E-commerce-fn
@@ -100,8 +100,8 @@ Unit testing on this app is setup using the following dependencies
 
 ## Link to Back-end repository
 
-- [Team Furebo E-commerce back-end](https://github.com/atlp-rwanda/Team-furebo-E-commerce-bn.git)
+-   [Team Furebo E-commerce back-end](https://github.com/atlp-rwanda/Team-furebo-E-commerce-bn.git)
 
 ## Deployed Front-end
 
-- [Team Furebo E-commerce](https://fascinating-piroshki-10faa1.netlify.app/)
+-   [Team Furebo E-commerce](https://fascinating-piroshki-10faa1.netlify.app/)
