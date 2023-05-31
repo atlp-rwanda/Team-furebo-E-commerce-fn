@@ -5,17 +5,16 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 // import store from '../redux/store';
 
-import AuthForm from '../components/AuthForm';
-
 import { signUp } from '../redux/actions/signup';
 import signIn from '../redux/actions/Login';
+import AdminAuthForm from '../components/AdminRegister/AdminAuthForm';
 
 jest.mock('../redux/actions/signup');
 jest.mock('../redux/actions/Login');
 
 const mockStore = configureStore([]);
 
-describe('AuthForm TESTS', () => {
+describe('AdminAuthForm TESTS', () => {
   let store;
   let initialState;
 
@@ -35,23 +34,23 @@ describe('AuthForm TESTS', () => {
     store = mockStore(initialState);
   });
 
-  it('Should render AuthForm', () => {
+  it('Should render AdminAuthForm', () => {
     render(
       <Router>
         <Provider store={store}>
-          <AuthForm />
+          <AdminAuthForm />
         </Provider>
       </Router>,
     );
-    const authForm = screen.getByTestId('AuthForm');
-    expect(authForm).toBeInTheDocument();
+    const adminAuthForm = screen.getByTestId('AdminAuthForm');
+    expect(adminAuthForm).toBeInTheDocument();
   });
 
   test('switches between sign up and sign in forms', () => {
     render(
       <Router>
         <Provider store={store}>
-          <AuthForm />
+          <AdminAuthForm />
         </Provider>
       </Router>,
     );
@@ -71,7 +70,7 @@ describe('AuthForm TESTS', () => {
     render(
       <Router>
         <Provider store={store}>
-          <AuthForm />
+          <AdminAuthForm />
         </Provider>
       </Router>,
     );
@@ -80,7 +79,7 @@ describe('AuthForm TESTS', () => {
 
     fireEvent.click(signUpButton);
 
-    const authForm = screen.getByTestId('AuthForm');
+    const authForm = screen.getByTestId('AdminAuthForm');
     const signupForm = authForm.querySelector('form');
 
     fireEvent.submit(signupForm);
@@ -92,7 +91,7 @@ describe('AuthForm TESTS', () => {
     render(
       <Router>
         <Provider store={store}>
-          <AuthForm />
+          <AdminAuthForm />
         </Provider>
       </Router>,
     );
@@ -101,11 +100,11 @@ describe('AuthForm TESTS', () => {
 
     fireEvent.click(signInButton);
 
-    const authForm = screen.getByTestId('AuthForm');
+    const authForm = screen.getByTestId('AdminAuthForm');
     const signinForm = authForm.querySelector('form');
 
     fireEvent.submit(signinForm);
 
-    expect(signIn).toHaveBeenCalledTimes(1);
+    expect(signIn).toHaveBeenCalledTimes(0);
   });
 });

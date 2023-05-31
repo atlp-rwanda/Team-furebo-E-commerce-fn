@@ -12,7 +12,7 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-API.interceptors.request.use(req => {
+API.interceptors.request.use((req) => {
   if (localStorage.getItem('currentUser')) {
     req.headers.Authorization = `Bearer ${
       JSON.parse(localStorage.getItem('currentUser')).token
@@ -31,10 +31,12 @@ const ModifyPassword = async (authData, params, dispatch) => {
       dispatch(clearSuccessCondition());
     }, [60000]);
   } catch (error) {
-    if (error.response.data.message) {
-      dispatch(updateError(error.response.data.message));
-    } else {
+    if (!error.response) {
+      dispatch(updateError(error.message));
+    } else if (!error.response.data.message) {
       dispatch(updateError(error.response.data));
+    } else {
+      dispatch(updateError(error.response.data.message));
     }
     setTimeout(() => {
       dispatch(clearError());

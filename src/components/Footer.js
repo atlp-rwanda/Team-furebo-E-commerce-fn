@@ -2,7 +2,11 @@ import React from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { IoMdCall } from 'react-icons/io';
 import {
-  BsFacebook, BsInstagram, BsTwitter, BsLinkedin, BsSkype,
+  BsFacebook,
+  BsInstagram,
+  BsTwitter,
+  BsLinkedin,
+  BsSkype,
 } from 'react-icons/bs';
 import paymentOption from '../assets/images/pay.png';
 import '../css/FooterStyles/Footer.css';
@@ -14,10 +18,10 @@ const Footer = () => (
         <h1>Team-Furebo Ecommerce Shop</h1>
         <p>
           Eiusmod officia elit adipisicing labore ut est ex aliqua Lorem. Anim
-          incididunt pariatur enim amet do labore ad in sunt qui Lorem.
-          Proident irure nostrud amet ipsum fugiat quis aliquip quis id non.
-          Ad fugiat culpa aliquip occaecat magna esse elit deserunt nisi ad
-          laborum ea do incididunt.
+          incididunt pariatur enim amet do labore ad in sunt qui Lorem. Proident
+          irure nostrud amet ipsum fugiat quis aliquip quis id non. Ad fugiat
+          culpa aliquip occaecat magna esse elit deserunt nisi ad laborum ea do
+          incididunt.
         </p>
       </div>
       <div className="footer2">
@@ -39,8 +43,8 @@ const Footer = () => (
       <div className="footer4">
         <h2>Our Contacts</h2>
         <p>
-          Excepteur exercitation in fugiat id non eiusmod et esse labore
-          fugiat nulla minim.
+          Excepteur exercitation in fugiat id non eiusmod et esse labore fugiat
+          nulla minim.
         </p>
         <h3>
           <AiOutlineMail />
@@ -62,7 +66,9 @@ const Footer = () => (
     <div className="footerContainer2">
       <hr />
       <div className="footerContainer3">
-        <div className="copyLight">© Copyright 2023 Legends Ecommerce . All rights reserved.</div>
+        <div className="copyLight">
+          © Copyright 2023 Legends Ecommerce . All rights reserved.
+        </div>
         <div>
           <img src={paymentOption} alt="/" />
         </div>
