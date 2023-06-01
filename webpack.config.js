@@ -27,7 +27,10 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        include: path.resolve(__dirname, 'src'),
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'node_modules/react-toastify/dist'),
+        ],
         use: ['style-loader', 'css-loader'],
       },
       {

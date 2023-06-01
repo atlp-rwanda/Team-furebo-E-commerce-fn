@@ -151,11 +151,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
-}
-.verifyPage h1 {
-  font-weight: bold;
-  font-size: 40px;
 }
 .verifyPage .verifySignInBtn {
   border: none;
@@ -175,10 +170,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.center h1 {
-  font-weight: bold;
-  font-size: 40px;
 }
 
 /*# sourceMappingURL=Auth.css.map */

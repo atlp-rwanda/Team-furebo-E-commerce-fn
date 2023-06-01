@@ -12,7 +12,7 @@ describe('App', () => {
     render(
       <Provider store={store}>
         <App />
-      </Provider>,
+      </Provider>
     );
 
     // Check if Navbar component is rendered

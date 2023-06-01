@@ -3,7 +3,7 @@ import {
   updateStart, updateSuccess, updateError, clearError, clearSuccessCondition,
 } from '../slices/signupSlice';
 
-const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+const API = axios.create({ baseURL: 'http://127.0.0.1:5002/api' });
 
 export const signUp = async (authData, dispatch, setAuthData) => {
   dispatch(updateStart());
@@ -19,10 +19,12 @@ export const signUp = async (authData, dispatch, setAuthData) => {
       dispatch(clearSuccessCondition());
     }, [6000]);
   } catch (error) {
-    if (error.response.data.message) {
-      dispatch(updateError(error.response.data.message));
-    } else {
+    if (!error.response) {
+      dispatch(updateError(error.message));
+    } else if (!error.response.data.message) {
       dispatch(updateError(error.response.data));
+    } else {
+      dispatch(updateError(error.response.data.message));
     }
 
     setTimeout(() => {
@@ -44,10 +46,12 @@ export const VerifyEmail = async (setValidUrl, params, dispatch) => {
   } catch (error) {
     setValidUrl(false);
 
-    if (error.response.data.message) {
-      dispatch(updateError(error.response.data.message));
-    } else {
+    if (!error.response) {
+      dispatch(updateError(error.message));
+    } else if (!error.response.data.message) {
       dispatch(updateError(error.response.data));
+    } else {
+      dispatch(updateError(error.response.data.message));
     }
 
     setTimeout(() => {

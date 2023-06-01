@@ -74,7 +74,7 @@ const AuthForm = () => {
               {errors.lastname && <p style={{ color: 'red', fontSize: '10px' }}>{errors.lastname}</p>}
             </>
           )}
-          <input name="email" type="email" placeholder="Emai" value={authData.email} onChange={handleChange} onKeyUp={handleValidationEmail} />
+          <input name="email" type="email" placeholder="Email" value={authData.email} onChange={handleChange} onKeyUp={handleValidationEmail} />
           {errors.email && <p style={{ color: 'red', fontSize: '10px' }}>{errors.email}</p>}
           <input name="password" type="password" placeholder="Password" value={authData.password} onChange={handleChange} onKeyUp={handleValidationPassword} />
           {errors.password && <p style={{ color: 'red', fontSize: '10px' }}>{errors.password}</p>}
@@ -82,6 +82,7 @@ const AuthForm = () => {
           {successCondition && <span className="successDisplay">{userInfo.message}</span>}
           {error.condition && <span className="errorDisplay">{error.message}</span>}
           <button onClick={handleSubmit}>{isSignUp ? 'Sign Up' : 'Sign In'}</button>
+          {isSignUp && <Link to="/AdminRegister"><span>register as admin</span></Link>}
         </form>
       </div>
     </div>
