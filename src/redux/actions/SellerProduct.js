@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import {
+<<<<<<< HEAD
   deleteStart, deleteSuccess, deleteError, updateStart, updateSuccess, updateError,
 } from '../slices/sellerProductSlice';
 
@@ -9,19 +10,36 @@ const API = axios.create({
 });
 
 API.interceptors.request.use((req) => {
+=======
+  deleteStart, deleteSuccess, deleteError,
+} from '../slices/sellerProductSlice';
+
+const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+
+// Get Seller's Products Collection
+
+// Get all products
+
+API.interceptors.request.use(req => {
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   if (localStorage.getItem('token')) {
     req.headers.Authorization = `Bearer ${
       JSON.parse(localStorage.getItem('token'))
     }`;
+<<<<<<< HEAD
     return req;
   }
   toast.warning('Please login', { theme: 'colored' });
+=======
+  }
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   return req;
 });
 
 export const getSellersProducts = async () => {
   try {
     const response = await API.get('/sellerCollection');
+<<<<<<< HEAD
     console.log('sellersProducts', response);
     return response.data;
   } catch (error) {
@@ -35,6 +53,8 @@ export const getSingleProduct = async (productId) => {
     const response = await API.get(`/getProduct/${productId}`);
     // dispatch(deleteSuccess(response.message));
     console.log('singleProducts', response);
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
     return response.data;
   } catch (error) {
     throw new Error(error);
@@ -43,7 +63,11 @@ export const getSingleProduct = async (productId) => {
 
 // Delete Single product
 
+<<<<<<< HEAD
 API.interceptors.request.use((req) => {
+=======
+API.interceptors.request.use(req => {
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   if (localStorage.getItem('token')) {
     req.headers.Authorization = `Bearer ${
       JSON.parse(localStorage.getItem('token'))
@@ -67,6 +91,7 @@ export const deleteProduct = async (product, dispatch, navigate) => {
     toast.error(errorMessage, { theme: 'colored' });
   }
 };
+<<<<<<< HEAD
 
 // Update Single product
 
@@ -95,3 +120,5 @@ export const updateProduct = async (newProduct, dispatch, navigate) => {
     toast.error(errorMessage, { theme: 'colored' });
   }
 };
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)

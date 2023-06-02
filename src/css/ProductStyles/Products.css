@@ -180,11 +180,21 @@
   }
 }
 @media (max-width: 640px){
+<<<<<<< HEAD
 
 }
 @media (max-width: 820px){
   p.price {
       margin-left: 2%;
+=======
+p.price {
+    margin-right: 65%;
+}
+}
+@media (max-width: 768px){
+  p.price {
+      margin-left: 4%;
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   }
 }
 .pagination li {

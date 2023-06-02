@@ -2,7 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
+=======
+import { NavLink, useParams } from 'react-router-dom';
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 import Category from './Category';
 import { Latestproducts } from '../constants/Constant';
 import Logo from '../assets/images/our-logo.png';
@@ -20,7 +24,10 @@ const ProductGrid = () => {
   const [sellerProducts, setSelleProducts] = useState(null);
 
   const dispatch = useDispatch();
+<<<<<<< HEAD
   const navigate = useNavigate();
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   // const navigate = useNavigate();
   useEffect(() => {
     const getProducts = async () => {
@@ -46,7 +53,11 @@ const ProductGrid = () => {
   if (loading) {
     return (
       <div className="message">
+<<<<<<< HEAD
         Retreiving Items
+=======
+        Retriving Items
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
         <span className="animate-bounce">
           {'  '}
           ...
@@ -56,6 +67,7 @@ const ProductGrid = () => {
       </div>
     );
   }
+<<<<<<< HEAD
   if (!localStorage.getItem('token')) {
     navigate('/Authentication');
     return (
@@ -70,6 +82,8 @@ const ProductGrid = () => {
       </div>
     );
   }
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   if (!sellerProducts) {
     return (
       <div className="message">

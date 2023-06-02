@@ -11,6 +11,11 @@ import {
 import { fetchCartItems } from './Cart/ViewCartItemsAction';
 
 const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+<<<<<<< HEAD
+=======
+// const API = axios.create({ baseURL: 'http://localhost:3000/api' });
+
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 const signIn = async (authData, dispatch, navigate, setAuthData) => {
   dispatch(updateStart());
   try {

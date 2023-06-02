@@ -3,9 +3,12 @@
     font-family: 'Baloo Tamma 2', cursive;
     color:black;
   }
+<<<<<<< HEAD
   .latestProductHeader{
     font-size: 30px;
   }
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   .message {
     display: flex;
     flex-direction: column;
@@ -19,10 +22,17 @@
   span.price {
     font-family: 'Baloo Tamma 2', cursive;
     font-weight: 300;
+<<<<<<< HEAD
     font-size: 10px;
   }
 .homePage .latestProducts .latestProductsBody .latestProductCard button {
     padding: 4px 25px;
+=======
+    font-size: 25px;
+  }
+.homePage .latestProducts .latestProductsBody .latestProductCard button {
+    padding: 8px 25px;
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
     background-color: rgb(23, 174, 159);
     color: rgb(243, 243, 243);
     display: flex;

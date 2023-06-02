@@ -5,9 +5,15 @@ export const productSlice = createSlice({
   initialState: {
     userInfo: null,
     successCondition: false,
+<<<<<<< HEAD
     sellerProducts: [],
     singleProduct: null,
     updateProduct: null,
+=======
+    products: null,
+    sellerProducts: [],
+    singleProduct: null,
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
     pending: false,
     error: {
       condition: false,
@@ -23,6 +29,7 @@ export const productSlice = createSlice({
     },
 
     setSingleProduct(state, action) {
+<<<<<<< HEAD
       const productId = action.payload;
       const oneProduct = state.sellerProducts.find((product) => product.id === productId);
 
@@ -57,6 +64,13 @@ export const productSlice = createSlice({
         return {
           ...state,
           updateProduct: oneProduct,
+=======
+      try {
+        const oneProduct = state.sellerProducts.find((product) => product.id === action.payload);
+        return {
+          ...state,
+          singleProduct: oneProduct,
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
         };
       } catch (err) {
         return {
@@ -65,9 +79,12 @@ export const productSlice = createSlice({
         };
       }
     },
+<<<<<<< HEAD
 
     // Delete product
 
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
     deleteStart: (state) => {
       state.pending = true;
     },
@@ -81,6 +98,7 @@ export const productSlice = createSlice({
       state.error.message = action.payload;
       state.pending = false;
     },
+<<<<<<< HEAD
 
     // Update product
 
@@ -97,12 +115,18 @@ export const productSlice = createSlice({
       state.error.message = action.payload;
       state.pending = false;
     },
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   },
 });
 
 export const {
+<<<<<<< HEAD
   setSingleProduct, deleteStart, deleteSuccess, deleteError,
   setUpdateProduct, updateStart, updateSuccess, updateError,
   updateSingleProduct, updateSellerProducts,
+=======
+  setSingleProduct, deleteStart, deleteSuccess, deleteError, updateSellerProducts,
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 } = productSlice.actions;
 export default productSlice.reducer;

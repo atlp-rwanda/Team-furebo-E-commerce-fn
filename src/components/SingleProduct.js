@@ -1,15 +1,29 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Tooltip, Button } from '@material-tailwind/react';
 import Swal from 'sweetalert2';
+<<<<<<< HEAD
 import { deleteProduct, getSingleProduct } from '../redux/actions/SellerProduct';
 import { singleProduct, setUpdateProduct } from '../redux/slices/sellerProductSlice';
 import Logo from '../assets/images/our-logo.png';
 import '../css/SingleProductStyles/SingleProduct.css';
 
 const SingleProduct = () => {
+=======
+import { deleteProduct } from '../redux/actions/SellerProduct';
+import { singleProduct } from '../redux/slices/sellerProductSlice';
+import '../css/SingleProductStyles/SingleProduct.css';
+
+const SingleProduct = () => {
+  const product = useSelector((state) => state.products.singleProduct);
+
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,6 +31,7 @@ const SingleProduct = () => {
   const {
     pending,
   } = useSelector((state) => state.products);
+<<<<<<< HEAD
   const initialProduct = useSelector((state) => state.products.singleProduct);
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
@@ -35,6 +50,8 @@ const SingleProduct = () => {
     };
     fetchData();
   }, []);
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 
   const handleDeleteProduct = async (e) => {
     e.preventDefault();
@@ -49,9 +66,12 @@ const SingleProduct = () => {
         cancelButtonColor: '#3085d6',
         cancelButtonText: 'cancel',
         confirmButtonText: 'Yes delete it',
+<<<<<<< HEAD
         customClass: {
           content: 'warning-window',
         },
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
       }).then((result) => {
         if (result.isConfirmed) {
           deleteProduct(product, dispatch, navigate);
@@ -62,6 +82,7 @@ const SingleProduct = () => {
       toast.error('Sorry Product was not deleted', { theme: 'colored' });
     }
   };
+<<<<<<< HEAD
   const handleUpdateProduct = () => {
     dispatch(setUpdateProduct(product));
     console.log(product);
@@ -78,6 +99,13 @@ const SingleProduct = () => {
         </span>
         <img className="logo-image2" src={Logo} alt="" width="100px" />
         <br />
+=======
+  if (pending) {
+    return (
+      <div className="justify center text-3xl">
+        Loading
+        <span className="animate-bounce">...</span>
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
       </div>
     );
   }
@@ -91,14 +119,23 @@ const SingleProduct = () => {
               <div className="image-container">
                 <img
                   className="image-class"
+<<<<<<< HEAD
                   src={item?.image[0]}
                   alt={item?.name}
+=======
+                  src={item.image[0]}
+                  alt={item.name}
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                 />
               </div>
               <div className="">
                 <div className="right-side-details">
                   <h3 className="name-class">
+<<<<<<< HEAD
                     {item?.name}
+=======
+                    {item.name}
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                   </h3>
                   <p className="description-class">
                     It is important to reiterate that a good product description is an investment
@@ -112,7 +149,11 @@ const SingleProduct = () => {
                         Category:
                         {' '}
                         <span className style={{ fontWeight: 'bold' }}>
+<<<<<<< HEAD
                           {item?.category}
+=======
+                          {item.category}
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                         </span>
                       </p>
                     </li>
@@ -120,13 +161,18 @@ const SingleProduct = () => {
                       <p className="category-class">
                         Quantity:
                         {' '}
+<<<<<<< HEAD
                         <span className style={{ fontWeight: 'bold' }}>{item?.quantity}</span>
+=======
+                        <span className style={{ fontWeight: 'bold' }}>{item.quantity}</span>
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                       </p>
                     </li>
                     <li>
                       <p className="category-class">
                         Created At:
                         {' '}
+<<<<<<< HEAD
                         <span className style={{ fontWeight: 'bold' }}>{new Date(item?.createdAt).toLocaleDateString('en-US')}</span>
                       </p>
                     </li>
@@ -136,6 +182,17 @@ const SingleProduct = () => {
                           Expiration Date:
                           {' '}
                           <span className style={{ fontWeight: 'bold' }}>{new Date(item?.exDate).toLocaleDateString('en-US')}</span>
+=======
+                        <span className style={{ fontWeight: 'bold' }}>{new Date(item.createdAt).toLocaleDateString('en-US')}</span>
+                      </p>
+                    </li>
+                    <li>
+                      {item.exDate ? (
+                        <p className="category-class">
+                          Expiration Date:
+                          {' '}
+                          <span className style={{ fontWeight: 'bold' }}>{new Date(item.exDate).toLocaleDateString('en-US')}</span>
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                         </p>
                       ) : null}
                     </li>
@@ -144,14 +201,22 @@ const SingleProduct = () => {
                         Status:
                         {' '}
                         <span className style={{ fontWeight: 'bold' }}>
+<<<<<<< HEAD
                           {item?.status}
+=======
+                          {item.status}
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                         </span>
                       </p>
                     </li>
                     <p className="price">
                       $
                       {' '}
+<<<<<<< HEAD
                       {item?.price}
+=======
+                      {item.price}
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                     </p>
                   </ul>
                   <div className="actionButtonAll">
@@ -163,7 +228,10 @@ const SingleProduct = () => {
                           size="lg"
                           variant="outlined"
                           ripple
+<<<<<<< HEAD
                           onClick={() => handleUpdateProduct(product)}
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
                         >
                           Update
                         </Button>

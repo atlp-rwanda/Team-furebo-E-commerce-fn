@@ -12,6 +12,14 @@ import AdminAuth from './pages/AdminAuth';
 import Footer from './components/Footer';
 import ResetPasswordform from './components/resetPassword';
 import NewPasswordform from './components/newPassword';
+<<<<<<< HEAD
+=======
+import AddUserEssentialInfoPage from './pages/userInfo/AddUserEssentialInfoPage';
+import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
+import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
+import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
+import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 import VerifyOTPCode from './components/verifyCode';
 import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
@@ -21,6 +29,7 @@ import Checkout from './pages/Checkout';
 import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
 import Completion from './components/payment/Completion';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ProductGrid from './components/SellerProductGrid';
 import SingleProduct from './components/SingleProduct';
 import UpdateProduct from './components/UpdateProduct';
@@ -28,6 +37,10 @@ import UserProfilePage from './pages/userInfo/UserProfilePage';
 import AddEssentialPage from './pages/userInfo/AddEssentialPage';
 =======
 >>>>>>> 25ac1cf (buyer is able to make payment using stripeAPI)
+=======
+import ProductGrid from './components/SellerProductGrid';
+import SingleProduct from './components/SingleProduct';
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 
 const Layout = () => (
   <>
@@ -108,6 +121,7 @@ const router = createBrowserRouter([
         path: '/home',
         element: <Home />,
       },
+<<<<<<< HEAD
       {
         path: '/updateProduct/:id',
         element: <UpdateProduct />,
@@ -120,6 +134,8 @@ const router = createBrowserRouter([
         path: '/add-essential',
         element: <AddEssentialPage />,
       },
+=======
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
     ],
   },
   {

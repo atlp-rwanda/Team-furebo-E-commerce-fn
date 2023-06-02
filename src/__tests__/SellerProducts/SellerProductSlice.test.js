@@ -1,6 +1,10 @@
 import productReducer, {
+<<<<<<< HEAD
   setSingleProduct, deleteStart, deleteSuccess, deleteError,
   updateSingleProduct, setUpdateProduct, updateStart, updateSuccess, updateError,
+=======
+    setSingleProduct, deleteStart, deleteSuccess, deleteError,
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 } from '../../redux/slices/sellerProductSlice';
 
 describe('sellerProductSlice', () => {
@@ -9,10 +13,16 @@ describe('sellerProductSlice', () => {
   beforeEach(() => {
     initialState = {
       userInfo: null,
+<<<<<<< HEAD
       successCondition: false,
       sellerProducts: [],
       singleProduct: null,
       updateProduct: null,
+=======
+      sellerProducts: [],
+      singleProduct: null,
+      successCondition: false,
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
       pending: false,
       error: {
         condition: false,
@@ -39,7 +49,11 @@ describe('sellerProductSlice', () => {
     expect(nextState.userInfo).toEqual(payload);
   });
 
+<<<<<<< HEAD
   it('should handle deleteFailure', () => {
+=======
+  it('should handle newPasswordResetFailure', () => {
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
     const payload = 'An error occurred.';
     const nextState = productReducer(
       initialState,
@@ -77,6 +91,7 @@ describe('sellerProductSlice', () => {
         { id: 2, name: 'Product 2' },
       ],
       singleProduct: null,
+<<<<<<< HEAD
       error: {
         condition: false,
         message: '',
@@ -105,11 +120,17 @@ describe('sellerProductSlice', () => {
       error: null,
     };
     const action = updateSingleProduct({ id: 2, name: 'Updated Product' });
+=======
+      error: null,
+    };
+    const action = setSingleProduct(3);
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
 
     // Act
     const newState = productReducer(initialState, action);
 
     // Assert
+<<<<<<< HEAD
     expect(newState.singleProduct).toEqual({ id: 2, name: 'Updated Product' });
     expect(newState.sellerProducts).toEqual(initialState.sellerProducts);
     expect(newState.error).toEqual(initialState.error);
@@ -185,5 +206,8 @@ describe('sellerProductSlice', () => {
     // Assert
     expect(nextState.updateProduct).toEqual(new Error(errorMessage));
     expect(nextState.error).toEqual({ condition: false, message: errorMessage });
+=======
+    expect(newState.error).toBe(null);
+>>>>>>> 15c6b94 (feat: seller delete product functionality)
   });
 });
