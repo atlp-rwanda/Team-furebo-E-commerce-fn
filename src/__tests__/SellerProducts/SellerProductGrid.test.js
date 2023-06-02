@@ -12,11 +12,15 @@ import configureStore from 'redux-mock-store';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ProductGrid, { handleClick } from '../../components/SellerProductGrid';
 =======
 import ProductGrid from '../../components/SellerProductGrid';
 import { handleClick } from '../../components/SellerProductGrid';
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+import ProductGrid, { handleClick } from '../../components/SellerProductGrid';
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 import { setSingleProduct, productSlice, updateSellerProducts } from '../../redux/slices/sellerProductSlice';
 
 // Create a mock server
@@ -164,6 +168,9 @@ describe('SELLERS PRODUCTS TESTS', () => {
     expect(nextState.singleProduct).toEqual({ id: 2, name: 'Product 2' });
   });
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
   test('should render "Your collection is empty" message when sellerProducts is null', () => {
     // Render the component with sellerProducts as null
     const store = mockStore({
@@ -211,8 +218,11 @@ describe('SELLERS PRODUCTS TESTS', () => {
     // Assert that the error message is rendered
     expect(screen.getByText('Retreiving Items')).toBeInTheDocument();
   });
+<<<<<<< HEAD
 =======
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 });
 //   it('should dispatch singleProduct action when handleClick is called', async () => {
 //     const mockStore = configureStore([]);

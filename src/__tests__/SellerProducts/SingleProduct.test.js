@@ -30,19 +30,27 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       exDate: '01-01-2024',
       quantity: 10,
 <<<<<<< HEAD
+<<<<<<< HEAD
       createdAt: '06-23-2023',
 =======
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+      createdAt: '06-23-2023',
+>>>>>>> 25c6dfb (feat: seller update product functionality)
     };
 
     const store = mockStore({
       products: {
         singleProduct: productData,
 <<<<<<< HEAD
+<<<<<<< HEAD
         loading: false,
 =======
         pending: false,
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+        loading: false,
+>>>>>>> 25c6dfb (feat: seller update product functionality)
       },
     });
 
@@ -58,6 +66,7 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       expect(singleProduct).toBeInTheDocument();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       expect(screen.getByText('Created At:')).toBeInTheDocument();
       expect(screen.getByText('Quantity:')).toBeInTheDocument();
       expect(screen.getByText('Category:')).toBeInTheDocument();
@@ -68,6 +77,12 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       expect(screen.getByText('Category:')).toBeInTheDocument();
       expect(screen.getByText('Expiration Date:')).toBeInTheDocument();
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+      expect(screen.getByText('Created At:')).toBeInTheDocument();
+      expect(screen.getByText('Quantity:')).toBeInTheDocument();
+      expect(screen.getByText('Category:')).toBeInTheDocument();
+      expect(screen.getByText('Status:')).toBeInTheDocument();
+>>>>>>> 25c6dfb (feat: seller update product functionality)
     });
     screen.debug();
   });
@@ -87,10 +102,14 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       products: {
         singleProduct: productData,
 <<<<<<< HEAD
+<<<<<<< HEAD
         loading: false,
 =======
         pending: false,
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+        loading: false,
+>>>>>>> 25c6dfb (feat: seller update product functionality)
       },
     });
     const deleteProduct = jest.fn();
@@ -104,6 +123,7 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       </Provider>,
     );
 <<<<<<< HEAD
+<<<<<<< HEAD
     await waitFor(() => {
     // Find the delete button and click it
       const deleteButton = getByTestId('Delete');
@@ -115,6 +135,13 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
     const deleteButton = getByTestId('Delete');
     fireEvent.click(deleteButton);
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+    await waitFor(() => {
+    // Find the delete button and click it
+      const deleteButton = getByTestId('Delete');
+      fireEvent.click(deleteButton);
+    });
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 
     // Wait for the confirmation dialog to appear
     await waitFor(() => {
@@ -150,10 +177,14 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
     );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const loadingElement = getByText('Please Wait');
 =======
     const loadingElement = getByText('Loading');
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+    const loadingElement = getByText('Please Wait');
+>>>>>>> 25c6dfb (feat: seller update product functionality)
     expect(loadingElement).toBeInTheDocument();
   });
 });

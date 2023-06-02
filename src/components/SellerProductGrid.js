@@ -3,10 +3,14 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 =======
 import { NavLink, useParams } from 'react-router-dom';
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 import Category from './Category';
 import { Latestproducts } from '../constants/Constant';
 import Logo from '../assets/images/our-logo.png';
@@ -25,9 +29,13 @@ const ProductGrid = () => {
 
   const dispatch = useDispatch();
 <<<<<<< HEAD
+<<<<<<< HEAD
   const navigate = useNavigate();
 =======
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+  const navigate = useNavigate();
+>>>>>>> 25c6dfb (feat: seller update product functionality)
   // const navigate = useNavigate();
   useEffect(() => {
     const getProducts = async () => {
@@ -54,10 +62,14 @@ const ProductGrid = () => {
     return (
       <div className="message">
 <<<<<<< HEAD
+<<<<<<< HEAD
         Retreiving Items
 =======
         Retriving Items
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+        Retreiving Items
+>>>>>>> 25c6dfb (feat: seller update product functionality)
         <span className="animate-bounce">
           {'  '}
           ...
@@ -68,6 +80,9 @@ const ProductGrid = () => {
     );
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
   if (!localStorage.getItem('token')) {
     navigate('/Authentication');
     return (
@@ -82,8 +97,11 @@ const ProductGrid = () => {
       </div>
     );
   }
+<<<<<<< HEAD
 =======
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
   if (!sellerProducts) {
     return (
       <div className="message">

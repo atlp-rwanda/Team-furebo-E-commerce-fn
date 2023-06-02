@@ -1,10 +1,15 @@
 import productReducer, {
 <<<<<<< HEAD
+<<<<<<< HEAD
   setSingleProduct, deleteStart, deleteSuccess, deleteError,
   updateSingleProduct, setUpdateProduct, updateStart, updateSuccess, updateError,
 =======
     setSingleProduct, deleteStart, deleteSuccess, deleteError,
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+  setSingleProduct, deleteStart, deleteSuccess, deleteError,
+  updateSingleProduct, setUpdateProduct, updateStart, updateSuccess, updateError,
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 } from '../../redux/slices/sellerProductSlice';
 
 describe('sellerProductSlice', () => {
@@ -13,6 +18,7 @@ describe('sellerProductSlice', () => {
   beforeEach(() => {
     initialState = {
       userInfo: null,
+<<<<<<< HEAD
 <<<<<<< HEAD
       successCondition: false,
       sellerProducts: [],
@@ -23,6 +29,12 @@ describe('sellerProductSlice', () => {
       singleProduct: null,
       successCondition: false,
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+      successCondition: false,
+      sellerProducts: [],
+      singleProduct: null,
+      updateProduct: null,
+>>>>>>> 25c6dfb (feat: seller update product functionality)
       pending: false,
       error: {
         condition: false,
@@ -50,10 +62,14 @@ describe('sellerProductSlice', () => {
   });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   it('should handle deleteFailure', () => {
 =======
   it('should handle newPasswordResetFailure', () => {
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+  it('should handle deleteFailure', () => {
+>>>>>>> 25c6dfb (feat: seller update product functionality)
     const payload = 'An error occurred.';
     const nextState = productReducer(
       initialState,
@@ -92,6 +108,9 @@ describe('sellerProductSlice', () => {
       ],
       singleProduct: null,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
       error: {
         condition: false,
         message: '',
@@ -120,17 +139,23 @@ describe('sellerProductSlice', () => {
       error: null,
     };
     const action = updateSingleProduct({ id: 2, name: 'Updated Product' });
+<<<<<<< HEAD
 =======
       error: null,
     };
     const action = setSingleProduct(3);
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 
     // Act
     const newState = productReducer(initialState, action);
 
     // Assert
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
     expect(newState.singleProduct).toEqual({ id: 2, name: 'Updated Product' });
     expect(newState.sellerProducts).toEqual(initialState.sellerProducts);
     expect(newState.error).toEqual(initialState.error);
@@ -206,8 +231,11 @@ describe('sellerProductSlice', () => {
     // Assert
     expect(nextState.updateProduct).toEqual(new Error(errorMessage));
     expect(nextState.error).toEqual({ condition: false, message: errorMessage });
+<<<<<<< HEAD
 =======
     expect(newState.error).toBe(null);
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
   });
 });

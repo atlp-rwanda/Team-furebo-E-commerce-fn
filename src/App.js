@@ -33,6 +33,7 @@ import Completion from './components/payment/Completion';
 import ProductGrid from './components/SellerProductGrid';
 import SingleProduct from './components/SingleProduct';
 import UpdateProduct from './components/UpdateProduct';
+<<<<<<< HEAD
 import UserProfilePage from './pages/userInfo/UserProfilePage';
 import AddEssentialPage from './pages/userInfo/AddEssentialPage';
 =======
@@ -41,6 +42,8 @@ import AddEssentialPage from './pages/userInfo/AddEssentialPage';
 import ProductGrid from './components/SellerProductGrid';
 import SingleProduct from './components/SingleProduct';
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 
 const Layout = () => (
   <>
@@ -122,10 +125,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
       {
         path: '/updateProduct/:id',
         element: <UpdateProduct />,
       },
+<<<<<<< HEAD
       {
         path: '/view-profile',
         element: <UserProfilePage />,
@@ -136,6 +143,8 @@ const router = createBrowserRouter([
       },
 =======
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
     ],
   },
   {

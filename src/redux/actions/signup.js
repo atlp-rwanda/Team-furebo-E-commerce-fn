@@ -10,9 +10,12 @@ import {
 
 const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 15c6b94 (feat: seller delete product functionality)
+=======
+>>>>>>> 25c6dfb (feat: seller update product functionality)
 export const signUp = async (authData, dispatch, setAuthData) => {
   dispatch(updateStart());
   try {
