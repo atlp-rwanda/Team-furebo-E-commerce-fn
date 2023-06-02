@@ -27,6 +27,7 @@ import UpdateProduct from '../components/UpdateProduct';
 import UserProfilePage from '../pages/userInfo/UserProfilePage';
 import AddEssentialPage from '../pages/userInfo/AddEssentialPage';
 import PrivateRoutes from '../PrivateRoutes';
+import CategoryGrid from '../components/CategoryNavBar/CategoryGrid';
 
 const Layout = () => (
   <>
@@ -66,19 +67,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/Authentication/requestResetPassword',
-        element: (
-          <PrivateRoutes>
-            <ResetPasswordform />
-          </PrivateRoutes>
-        ),
+        element: <ResetPasswordform />,
       },
       {
         path: '/reset-password/:id',
-        element: (
-          <PrivateRoutes>
-            <NewPasswordform />
-          </PrivateRoutes>
-        ),
+        element: <NewPasswordform />,
       },
       {
         path: '/home',
@@ -182,6 +175,12 @@ const router = createBrowserRouter([
           <PrivateRoutes>
             <UpdateProduct />
           </PrivateRoutes>
+        ),
+      },
+      {
+        path: '/category/:category',
+        element: (
+          <CategoryGrid />
         ),
       },
     ],

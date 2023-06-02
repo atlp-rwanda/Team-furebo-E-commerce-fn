@@ -27,8 +27,10 @@ import {
   markNotifications,
   markAllNotifications,
 } from '../../redux/actions/markNotifications/MarkNotifications';
+import updateCategory from '../../redux/slices/fetchProductSlice';
 import Logo from '../../assets/images/our-logo.png';
 import ViewWishlistButton from '../Wishlist/ViewWishListButton';
+import fetchAllProducts from '../../redux/actions/FetchProduct';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -46,7 +48,10 @@ const Navbar = () => {
 
   const { userInfo } = useSelector((state) => state.user);
   const { wishlistItems } = useSelector((state) => state.viewWishlist);
-
+  const availableProductsData = JSON.parse(localStorage.getItem('availableProducts'));
+  const availableProducts = availableProductsData?.data?.items;
+  const categories = availableProducts?.map((product) => product?.category);
+  const uniqueCategories = [...new Set(categories)];
   const { cartItems } = useSelector((state) => state.viewCartItems);
 
   const currentUserRole = userInfo?.userData?.role
@@ -95,6 +100,11 @@ const Navbar = () => {
     setShowNotification(false);
   };
 
+  const handleCategory = (pr) => {
+    dispatch(updateCategory(pr));
+    console.log('category', pr);
+  };
+
   const handleSeach = () => {
     setSearchIcon(!searchIcon);
     setMenu(false);
@@ -124,6 +134,10 @@ const Navbar = () => {
 
     getNotifications();
   });
+
+  useEffect(() => {
+    fetchAllProducts(1, 8, dispatch);
+  }, [dispatch]);
 
   const [lastNotification, setLastNotification] = useState(null);
 
@@ -205,9 +219,28 @@ const Navbar = () => {
             )}
           </li>
         )}
-        <li>
+      </ul>
+      <ul>
+        <li onClick={handleCRotate}>
           CATEGORIES
-          <MdOutlineKeyboardArrowUp />
+          {' '}
+          <MdOutlineKeyboardArrowUp
+            className={!crotate ? 'arrowDown' : 'arrowUp'}
+          />
+          {!crotate && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            className="newPageRotate"
+          >
+            {uniqueCategories?.map((pr) => (
+              <Link className="link" key={pr} to={`/category/${pr}`} onClick={() => handleCategory(pr)}>
+                <motion.div variants={item}>{pr}</motion.div>
+              </Link>
+            ))}
+          </motion.div>
+          )}
         </li>
       </ul>
       {userInfo && userInfo.userData && (

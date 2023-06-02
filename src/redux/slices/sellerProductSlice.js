@@ -19,6 +19,13 @@ export const productSlice = createSlice({
       return {
         ...state,
         sellerProducts: action.payload,
+        pending: false,
+      };
+    },
+    updatePending(state, action) {
+      return {
+        ...state,
+        pending: action.payload,
       };
     },
 
@@ -51,19 +58,10 @@ export const productSlice = createSlice({
       };
     },
     setUpdateProduct(state, action) {
-      try {
-        const oneProduct = action.payload;
-        console.log('splice', oneProduct, action.payload);
-        return {
-          ...state,
-          updateProduct: oneProduct,
-        };
-      } catch (err) {
-        return {
-          ...state,
-          error: err,
-        };
-      }
+      return {
+        ...state,
+        updateProduct: action.payload,
+      };
     },
 
     // Delete product
@@ -103,6 +101,6 @@ export const productSlice = createSlice({
 export const {
   setSingleProduct, deleteStart, deleteSuccess, deleteError,
   setUpdateProduct, updateStart, updateSuccess, updateError,
-  updateSingleProduct, updateSellerProducts,
+  updateSingleProduct, updateSellerProducts, updatePending,
 } = productSlice.actions;
 export default productSlice.reducer;
