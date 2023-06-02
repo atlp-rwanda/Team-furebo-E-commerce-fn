@@ -1,0 +1,269 @@
+* {
+    font-family: 'Baloo Tamma 2', cursive;
+  }
+  
+  .form-group-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  @media (max-width: 860px) {
+    .form-group-container {
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+  
+  .product-heading {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    transition: all 0.2s;
+    font-family: 'Baloo Tamma 2', cursive;
+    color: black;
+    font-size: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .form-group-container {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20%;
+    margin-bottom: 30px;
+  }
+  
+  .form-group-label {
+    font-size: 20px;
+    font-weight: 900;
+    opacity: 0.7;
+    margin-top: 5px;
+    text-align: left;
+    margin-left: 10px;
+    font-family: 'Baloo Tamma 2';
+  }
+  
+  input {
+    font-size: 1.5rem;
+    padding: 0.1rem 0.10rem;
+    border-radius: 1px;
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    transition: all 0.3s;
+  }
+  
+  .placeholder {
+    text-indent: 10px;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #242a26;
+  }
+  
+  input:focus:invalid {
+    border-bottom: 3px solid #ff7730;
+  }
+  
+  .add-product-btn {
+    background-color: rgb(0, 0, 0);
+    border-radius: 3px;
+    color: rgba(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .add-product-form{
+    width:400px
+  }
+  
+  .add-product-btn:hover {
+    background-color: rgb(29, 27, 27);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0.2);
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+    font-family: 'Baloo Tamma 2', cursive;
+  }
+  
+  .image-heading {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 1rem;
+    color: black;
+    font-family: 'Baloo Tamma 2', cursive;;
+  }
+  
+  .form-addproduct-image {
+    /* margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px dotted black;
+    border-radius: 20px;
+    width: 8rem;
+    height: 8rem;
+    cursor: pointer;
+    font-size: large; */
+  }
+  
+  .form-addproduct-image span {
+    font-weight: lighter;
+    font-size: small;
+    padding-top: 0.5rem;
+  }
+  
+  .form-addproduct-image input {
+    display: none;
+  }
+  
+  .form-addproduct-image input {
+    display: none;
+  }
+  
+  .image-container {
+  }
+  
+  .preview-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  
+  .img-card {
+    width: 180px;
+    height: 180px;
+    padding: 0.5rem;
+    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .submission-message {
+    background-color: #5bc760;
+    width: 90%;
+    padding: 10px 15px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+  
+  .delete-image-btn {
+    border: none;
+    background-color: transparent;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .upload-icon {
+    border: none;
+    background-color: #1395dbf6;
+    color: #1395dbf6;
+    cursor: pointer;
+    font-size: 40px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999; /* Ensure it appears on top of other elements */
+    padding: 10px;
+    border-radius:;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+  }
+  
+  .upload-icon:hover {
+    background-color: #11516d;
+    color: #fff; /* Change the color on hover */
+  }
+  
+  @media (max-width: 840px) {
+    .upload-icon {
+      position: fixed;
+      bottom: 60px; /* Adjust the bottom position for smaller screens */
+      right: 60px; /* Adjust the right position for smaller screens */
+    }
+    .preview-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      margin-right: 40px;
+    }
+    .image-container {
+      width: auto;
+    }
+    .add-product-form{
+        margin-left: 280px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .upload-icon {
+      position: fixed;
+      bottom: 60px; /* Adjust the bottom position for smaller screens */
+      right: 60px; /* Adjust the right position for smaller screens */
+    }
+    .preview-container {
+        display: flex;
+        grid-template-columns: 6fr;
+        grid-gap: -200px;
+        margin-right: 0px;
+        height: 304px;
+        flex-direction: column;
+    }
+    div.image-container {
+      width: 10px;
+      margin-left: -30px;
+      margin-top: 10px;
+    }
+    .image-heading{
+        margin-left: 100px;
+        width: 100px;
+        white-space: nowrap;
+    }
+    .add-product-form{
+        width: 80%;
+        margin-left: 80px;
+    }
+  }
+  .text-upload-icon{
+    font-size: 25px;
+    margin: 0 5px 0 5px;
+    background-color: #1395dbf6;
+    color: #1395dbf6;
+    padding: 5px;
+  }
+  div.placeholder {
+    font-family: 'Baloo Tamma 2', cursive;
+  }
+  
+   
+  
+  /*# sourceMappingURL=UpdateProduct.css.map */

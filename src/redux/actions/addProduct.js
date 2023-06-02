@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   addProduct,
   addProductSuccess,
@@ -23,7 +24,7 @@ const AddProducts = async (newProduct, dispatch) => {
   try {
     const res = await API.post('/addProduct', newProduct);
     dispatch(addProductSuccess(res.data));
-
+    toast.success('Product created successfully', { theme: 'colored' });
     setTimeout(() => {
       dispatch(clearSuccessCondition());
     }, [60000]);
@@ -33,6 +34,7 @@ const AddProducts = async (newProduct, dispatch) => {
     } else {
       dispatch(addError(error.response.data));
     }
+    toast.success('Something went wrong please try again', { theme: 'colored' });
     setTimeout(() => {
       dispatch(clearError());
     }, [10000]);
