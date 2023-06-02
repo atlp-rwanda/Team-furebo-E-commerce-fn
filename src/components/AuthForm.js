@@ -141,14 +141,14 @@ const AuthForm = () => {
           </button>
           <GoogleButton />
           <p
-            className="mt-4 text-right"
-            style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+            className
+            style={{ fontFamily: 'Baloo Tamma 2' }}
           >
             {!isSignUp && (
               <>
-                <span>Forgot Password? </span>
+                <span className="link1">Forgot Password? </span>
                 <Link to="requestResetPassword">
-                  <button className="link">Reset it</button>
+                  <button className="link2">Reset it</button>
                 </Link>
               </>
             )}

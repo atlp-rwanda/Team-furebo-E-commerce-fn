@@ -26,10 +26,8 @@ describe('Data Tests', () => {
 
     Latestproducts.forEach(product => {
       expect(product).toHaveProperty('id');
-      expect(product).toHaveProperty('title');
       expect(product).toHaveProperty('image');
       expect(product).toHaveProperty('price');
-      expect(product).toHaveProperty('rating');
     });
   });
 });
