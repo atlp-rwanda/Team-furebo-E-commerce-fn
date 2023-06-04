@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/changepassword/:id',
+        path: '/changepassword',
         element: <PasswordModification />,
       },
       {
@@ -73,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: '/update-essential',
         element: <EditUserEssentialInfoPage />,
+      },
+      {
+        path: '/AdminRegister',
+        element: <AdminAuth />,
       },
     ],
   },

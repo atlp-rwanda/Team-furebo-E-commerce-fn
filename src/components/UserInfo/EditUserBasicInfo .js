@@ -1,6 +1,6 @@
 import React from 'react';
-import Message from './Message';
 import { Link } from 'react-router-dom';
+import Message from './Message';
 import '../../css/profile/Edit-basicInfo.css';
 
 const EditUserBasicInfo = ({

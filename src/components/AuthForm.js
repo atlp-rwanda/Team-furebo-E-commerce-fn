@@ -108,7 +108,7 @@ const AuthForm = () => {
           <input
             name="email"
             type="email"
-            placeholder="Emai"
+            placeholder="Email"
             value={authData.email}
             onChange={handleChange}
             onKeyUp={handleValidationEmail}
@@ -137,6 +137,24 @@ const AuthForm = () => {
           <button className="authButton" onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
+          {isSignUp && (
+            <Link to="/AdminRegister">
+              <span>register as admin</span>
+            </Link>
+          )}
+          <p
+            className="mt-4 text-right"
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+          >
+            {!isSignUp && (
+              <>
+                <span>Forgot Password? </span>
+                <button className="link" onClick={handleResetPassword}>
+                  Reset it
+                </button>
+              </>
+            )}
+          </p>
         </form>
       </div>
     </div>

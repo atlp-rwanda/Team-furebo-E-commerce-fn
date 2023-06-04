@@ -1,0 +1,73 @@
+.user-profile-container {
+  width: 50%;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+}
+.user-profile-container .acc-info-title {
+  margin: 10px auto;
+  text-transform: uppercase;
+}
+.user-profile-container .edit-user-profile {
+  display: flex;
+  flex-direction: column;
+}
+.user-profile-container .edit-user-profile .user-field {
+  margin-bottom: 5px;
+  background-color: rgba(241, 241, 241, 0.763);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.user-profile-container .edit-user-profile .user-field label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+.user-profile-container .edit-user-profile .user-field input[type='text'],
+.user-profile-container .edit-user-profile .user-field input[type='email'] {
+  border: 1px solid rgb(23, 133, 122);
+  border: 1px solid rgb(23, 133, 122);
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 7px;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: rgb(23, 133, 122);
+}
+.user-profile-container .btn {
+  padding: 7px;
+  border-radius: 5px;
+  outline-style: none;
+  width: 100%;
+  color: rgb(241, 241, 241);
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto;
+}
+.user-profile-container .btn-submit {
+  background-color: rgba(63, 166, 63, 0.703);
+}
+
+/* NOTIFICATION */
+.login-message {
+  margin: 20px 0;
+  padding: 7px 5px;
+  border-radius: 4px;
+}
+.login-message.success {
+  color: #fff;
+  background-color: #4caf50;
+}
+.login-message.failure {
+  color: #fff;
+  background-color: #ff0000;
+}
+
+/*# sourceMappingURL=Edit-basicInfo.css.map */

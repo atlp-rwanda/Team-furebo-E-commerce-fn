@@ -25,6 +25,7 @@ const fetchUsers = async dispatch => {
   dispatch(updateStart());
   try {
     const res = await API.get('/fetchUsers');
+    console.log(res);
 
     dispatch(updateSuccess(res.data));
 

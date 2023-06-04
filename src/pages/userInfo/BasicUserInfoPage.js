@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import {
   fetchUserBasicProfile,
@@ -22,7 +23,6 @@ const BasicUserInfoPage = () => {
 
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching profile data:', error);
         setError('Error fetching profile data');
         setLoading(false);
       }
@@ -30,10 +30,6 @@ const BasicUserInfoPage = () => {
 
     fetchProfileData();
   }, []);
-
-  if (loading) {
-    return <div className="page-in-loading">Wait...</div>;
-  }
 
   return (
     <div data-testid="view-basic-page">

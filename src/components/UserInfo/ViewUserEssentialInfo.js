@@ -1,25 +1,18 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Navigator from './Navigator';
 import '../../css/profile/View-Essential-info.css';
-
-const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
-});
-
-API.interceptors.request.use(req => {
-  const authToken = localStorage.getItem('currentUser');
-  if (authToken) {
-    req.headers.Authorization = `Bearer ${JSON.parse(authToken).token}`;
-  }
-  return req;
-});
 
 const ViewUserEssentialInfo = ({ profileData }) => (
   <div data-testid="viewEssential" className="user-essential-info-container">
-    <Navigator />
-    <h1 className="acc-info-title">Account's Essential Information</h1>
+    <div className="user-essential-info-header">
+      <h1 className="acc-info-title">Account's Essential Information</h1>
+      <Link to="/update-essential" className="update-essential-user-info">
+        Edit your essential
+      </Link>
+    </div>
     <div className="user-essential-info">
       <div className="essential-info">
         <div className="user-field">
@@ -71,15 +64,9 @@ const ViewUserEssentialInfo = ({ profileData }) => (
         </div>
       </div>
     </div>
-    {profileData ? (
-      <Link to="/update-essential" className="update-essential-user-info">
-        Update your essential information
-      </Link>
-    ) : (
-      <Link to="/add-essential" className="update-essential-user-info">
-        Add your essential information
-      </Link>
-    )}
+    <Link to="/View-basic" className="update-basic-user-info">
+      Back to the basic
+    </Link>
   </div>
 );
 
