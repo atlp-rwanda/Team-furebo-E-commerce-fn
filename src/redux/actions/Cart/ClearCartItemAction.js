@@ -22,6 +22,7 @@ const clearCartAction = () => async (dispatch) => {
       theme: 'colored',
     });
     dispatch(fetchCartItems());
+
   } catch (error) {
     toast.error(error.message, {
       position: 'top-right',
@@ -36,4 +37,4 @@ const clearCartAction = () => async (dispatch) => {
   }
 };
 
-export default clearCartAction;
+export default clearCartAction

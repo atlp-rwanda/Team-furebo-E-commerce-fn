@@ -14,7 +14,6 @@ export const fetchCartItems = () => async (dispatch) => {
   try {
     const response = await api.get('/view-cart-items');
     const cartItems = response.data;
-    console.log(cartItems, 'This is the items in the cart');
     dispatch(fetchCartItemsSuccess(cartItems));
   } catch (error) {
     dispatch(fetchCartItemsFailure(error.message));

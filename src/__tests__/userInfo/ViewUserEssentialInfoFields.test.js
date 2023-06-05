@@ -7,16 +7,18 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from '../../redux/store';
-import ViewUserEssentialInfo from '../../components/UserInfo/ViewUserEssentialInfo';
+import ViewUserEssentialInfoFields from '../../components/UserInfo/ViewUserEssentialInfoFields';
 
-describe('ViewUserEssentialInfo TESTS', () => {
-  it('Should render ViewUserEssentialInfo', () => {
+describe('ViewUserEssentialInfoFields TESTS', () => {
+  it('Should render ViewUserEssentialInfoFields', () => {
     render(
       <Router>
         <Provider store={store}>
-          <ViewUserEssentialInfo />
+          <ViewUserEssentialInfoFields />
         </Provider>
       </Router>,
     );
+    const ViewUserEssentialInfoField = screen.getByTestId('user-essential-info-container');
+    expect(ViewUserEssentialInfoField).toBeInTheDocument();
   });
 });

@@ -1,0 +1,38 @@
+body {
+  background-color: #f0f2f5;
+}
+body .user-profile-info-header {
+  background-color: rgba(0, 8, 19, 0.8470588235);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 20px;
+}
+body .view-basic-and-essential {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  margin-top: 5%;
+  overflow: hidden;
+}
+body .view-basic-and-essential .basic-container {
+  display: flex;
+  gap: 40px;
+}
+body .view-basic-and-essential .basic-container .view-essential-page {
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  body .view-basic-and-essential .basic-container {
+    overflow-x: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  body .view-basic-and-essential .basic-container .view-essential-page {
+    margin: 0 auto;
+  }
+}
+
+/*# sourceMappingURL=UserProfile.css.map */

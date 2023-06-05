@@ -12,11 +12,6 @@ import AdminAuth from './pages/AdminAuth';
 import Footer from './components/Footer';
 import ResetPasswordform from './components/resetPassword';
 import NewPasswordform from './components/newPassword';
-import AddUserEssentialInfoPage from './pages/userInfo/AddUserEssentialInfoPage';
-import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
-import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
-import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
-import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
 import VerifyOTPCode from './components/verifyCode';
 import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
@@ -28,6 +23,8 @@ import Completion from './components/payment/Completion';
 import ProductGrid from './components/SellerProductGrid';
 import SingleProduct from './components/SingleProduct';
 import UpdateProduct from './components/UpdateProduct';
+import UserProfilePage from './pages/userInfo/UserProfilePage';
+import AddEssentialPage from './pages/userInfo/AddEssentialPage';
 
 const Layout = () => (
   <>
@@ -73,26 +70,6 @@ const router = createBrowserRouter([
         element: <PasswordModification />,
       },
       {
-        path: '/view-basic',
-        element: <BasicUserInfoPage />,
-      },
-      {
-        path: '/view-essential',
-        element: <EssentialUserInfoPage />,
-      },
-      {
-        path: '/add-essential',
-        element: <AddUserEssentialInfoPage />,
-      },
-      {
-        path: '/update-basic',
-        element: <EditUserBasicPage />,
-      },
-      {
-        path: '/update-essential',
-        element: <EditUserEssentialInfoPage />,
-      },
-      {
         path: '/AdminRegister',
         element: <AdminAuth />,
       },
@@ -131,6 +108,14 @@ const router = createBrowserRouter([
       {
         path: '/updateProduct/:id',
         element: <UpdateProduct />,
+      },
+      {
+        path: '/view-profile',
+        element: <UserProfilePage />,
+      },
+      {
+        path: '/add-essential',
+        element: <AddEssentialPage />,
       },
     ],
   },

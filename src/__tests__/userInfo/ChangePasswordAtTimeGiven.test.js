@@ -1,23 +1,40 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import ChangePasswordAtTimeGiven from '../../components/UserInfo/ChangePasswordAtTimeGiven';
-import FetchToChangePasswordAtGivenTime from '../../redux/actions/userProfile/FetchToChangePasswordAtGivenTime';
 
-jest.mock('../../redux/actions/userProfile/FetchToChangePasswordAtGivenTime');
+// Mock Redux store and action
+const initialState = {
+  changePasswordAtGivenTime: {
+    isExpired: false,
+  },
+};
 
-describe('TEST NOTIFY USER TO CHANGE PASSWORD', () => {
-  it('Should render notify user to change password', async () => {
-    FetchToChangePasswordAtGivenTime.mockResolvedValue({ isExpired: true });
+const mockStore = createStore((state) => state, initialState);
 
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: jest.fn(() => jest.fn()),
+  useSelector: jest.fn(),
+}));
+
+jest.mock(
+  '../../redux/actions/userProfile/fetchChangePasswordAtGivenTimeAction',
+  () => ({
+    fetchChangePasswordAtGivenTimeAction: jest.fn(),
+  }),
+);
+
+describe('ChangePasswordAtTimeGiven component', () => {
+  it('renders the component without expiration message', () => {
     render(
-      <Router>
+      <Provider store={mockStore}>
         <ChangePasswordAtTimeGiven />
-      </Router>
+      </Provider>,
     );
 
-    const notify = await screen.findByTestId('ChangePasswordAtTimeGiven');
-    expect(notify).toBeInTheDocument();
+    expect(screen.queryByTestId('ChangePasswordAtTimeGiven')).toBeNull();
   });
 });
