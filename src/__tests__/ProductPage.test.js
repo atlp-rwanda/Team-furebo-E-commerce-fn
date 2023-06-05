@@ -13,7 +13,7 @@ describe('productPage TESTS', () => {
         <Provider store={store}>
           <ProductPage />
         </Provider>
-      </Router>,
+      </Router>
     );
     const productPage = screen.getByTestId('product-card');
     expect(productPage).toBeInTheDocument();

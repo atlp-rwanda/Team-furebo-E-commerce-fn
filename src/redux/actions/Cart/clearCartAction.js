@@ -13,7 +13,7 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-API.interceptors.request.use((req) => {
+API.interceptors.request.use(req => {
   const authToken = localStorage.getItem('token');
   if (authToken) {
     req.headers.Authorization = `Bearer ${JSON.parse(authToken)}`;
@@ -21,7 +21,7 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-const clearCartAction = async (dispatch) => {
+const clearCartAction = async dispatch => {
   try {
     await API.delete('/clear-cart');
     dispatch(updateSuccess([]));

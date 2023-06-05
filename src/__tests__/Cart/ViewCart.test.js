@@ -72,7 +72,7 @@ describe('ViewCart Component', () => {
           />
           ,
         </Provider>
-      </Router>,
+      </Router>
     );
   });
   it('should render ViewCart component', () => {

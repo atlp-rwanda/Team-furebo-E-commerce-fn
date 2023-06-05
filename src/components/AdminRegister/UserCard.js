@@ -19,10 +19,8 @@ const UserCard = ({ data, handleUsers }) => {
   const [dismissed, setDismissed] = useState(false);
   const [updatedData, setUpdatedData] = useState({ role: '' });
 
-  const {
-    successCondition, userRole, error, pending,
-  } = useSelector(
-    (state) => state.userRole,
+  const { successCondition, userRole, error, pending } = useSelector(
+    state => state.userRole
   );
 
   const userId = data.id;
@@ -31,17 +29,12 @@ const UserCard = ({ data, handleUsers }) => {
     SetRoles(updatedData, userId, dispatch, handleUsers);
   };
 
-  let accountStatus
+  let accountStatus;
 
   if (data.isEnabled == true) {
-    accountStatus = "Enabled"
+    accountStatus = 'Enabled';
   } else if (data.isEnabled == false) {
-    accountStatus = "Disabled"
-  }
-
-  const disableAccountData = {
-    userId: userId,
-    currentUserStatus: data.isEnabled
+    accountStatus = 'Disabled';
   }
 
   return (
@@ -59,7 +52,7 @@ const UserCard = ({ data, handleUsers }) => {
       <div className="cardWraperRight">
         <button className="button1">view full profife</button>
         {/* <button className="button2">Disable Account</button> */}
-        <DisableAccountButton data={disableAccountData} />
+        <DisableAccountButton userData={data} />
         <button
           className="button3"
           onClick={() => {
@@ -82,7 +75,9 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="merchant"
-                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
+                onChange={e =>
+                  setUpdatedData({ ...updatedData, role: e.target.value })
+                }
               />
             </div>
             <div className="checkbox">
@@ -92,7 +87,9 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="customer"
-                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
+                onChange={e =>
+                  setUpdatedData({ ...updatedData, role: e.target.value })
+                }
               />
             </div>
             <div className="checkbox">
@@ -102,7 +99,9 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="admin"
-                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
+                onChange={e =>
+                  setUpdatedData({ ...updatedData, role: e.target.value })
+                }
               />
             </div>
             <button onClick={handleSubmit}>Update</button>

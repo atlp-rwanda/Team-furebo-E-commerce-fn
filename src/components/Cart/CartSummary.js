@@ -31,7 +31,9 @@ const CartSummary = ({ profileData, handleClearCart }) => (
       </div>
       <hr />
       {/* <button className="btn-place-order">Place Order</button> */}
-      <Link to="/checkout"><button className="btn-place-order">Checkout</button></Link>
+      <Link to="/checkout">
+        <button className="btn-place-order">Checkout</button>
+      </Link>
     </div>
   </div>
 );

@@ -88,11 +88,9 @@
   padding: 5px 15px;
   border-bottom: 1px solid #4051752b;
   font-weight: 700;
-  
 }
 .navbar ul li .newPageRotate .link:hover {
   background-color: aliceblue;
-  
 }
 .navbar .notification-panel {
   position: relative;

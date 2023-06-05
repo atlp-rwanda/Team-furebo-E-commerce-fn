@@ -22,7 +22,10 @@ describe('fetchCartItemsSlice', () => {
       productsInfo: [],
     };
     const payload = [{ id: 1, name: 'Product 1' }];
-    const nextState = fetchCartItemsReducer(initialState, updateSuccess(payload));
+    const nextState = fetchCartItemsReducer(
+      initialState,
+      updateSuccess(payload)
+    );
     expect(nextState.successCondition).toBe(true);
     expect(nextState.pending).toBe(false);
     expect(nextState.cartItems).toEqual(payload);
@@ -58,7 +61,10 @@ describe('fetchCartItemsSlice', () => {
     const initialState = {
       successCondition: true,
     };
-    const nextState = fetchCartItemsReducer(initialState, clearSuccessCondition());
+    const nextState = fetchCartItemsReducer(
+      initialState,
+      clearSuccessCondition()
+    );
     expect(nextState.successCondition).toBe(false);
   });
 });

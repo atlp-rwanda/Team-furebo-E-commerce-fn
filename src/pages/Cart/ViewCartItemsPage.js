@@ -34,10 +34,10 @@ const ViewCartItemsPage = () => {
     }
   };
 
-  const deleteItem = async (itemId) => {
+  const deleteItem = async itemId => {
     try {
       await deleteCartItemAction(itemId, dispatch);
-      const updatedData = profileData.filter((item) => item.id !== itemId);
+      const updatedData = profileData.filter(item => item.id !== itemId);
       act(() => {
         setProfileData(updatedData);
         dispatch(updateSuccess(updatedData));
@@ -53,7 +53,7 @@ const ViewCartItemsPage = () => {
         itemId,
         quantity,
         totalPrice,
-        dispatch,
+        dispatch
       );
       act(() => {
         setProfileData(updatedData);

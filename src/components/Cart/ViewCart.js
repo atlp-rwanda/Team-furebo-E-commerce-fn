@@ -6,20 +6,18 @@ import React, { useState } from 'react';
 import ViewCartFields from './ViewCartFields';
 import CartSummary from './CartSummary';
 
-const ViewCart = ({
-  profileData, deleteItem, updateItem, clearCart,
-}) => {
+const ViewCart = ({ profileData, deleteItem, updateItem, clearCart }) => {
   const [showQuantityEdit, setShowQuantityEdit] = useState({});
 
-  const handleIncrement = (itemId) => {
-    const item = profileData.find((item) => item.id === itemId);
+  const handleIncrement = itemId => {
+    const item = profileData.find(item => item.id === itemId);
     const updatedQuantity = item.quantity + 1;
     const updatedTotalPrice = item.price * updatedQuantity;
     updateItem(itemId, updatedQuantity, updatedTotalPrice);
   };
 
-  const handleDecrement = (itemId) => {
-    const item = profileData.find((item) => item.id === itemId);
+  const handleDecrement = itemId => {
+    const item = profileData.find(item => item.id === itemId);
     const updatedQuantity = item.quantity - 1;
     const updatedTotalPrice = item.price * updatedQuantity;
 
@@ -34,8 +32,8 @@ const ViewCart = ({
     clearCart();
   };
 
-  const toggleQuantityEdit = (itemId) => {
-    setShowQuantityEdit((prevState) => ({
+  const toggleQuantityEdit = itemId => {
+    setShowQuantityEdit(prevState => ({
       ...prevState,
       [itemId]: !prevState[itemId],
     }));
@@ -48,7 +46,7 @@ const ViewCart = ({
       </div>
       <div className="cart-items" data-testid="cart-items-id">
         <div className="cart-items-details">
-          {profileData.map((item) => (
+          {profileData.map(item => (
             <ViewCartFields
               key={item.id}
               item={item}

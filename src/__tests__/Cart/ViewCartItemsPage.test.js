@@ -1,9 +1,7 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable linebreak-style */
 import React from 'react';
-import {
-  render, fireEvent, screen, waitFor
-} from '@testing-library/react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';

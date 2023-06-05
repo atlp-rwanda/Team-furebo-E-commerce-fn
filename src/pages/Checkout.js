@@ -11,29 +11,36 @@ import checkOut from '../redux/actions/checkout/Checkout';
 const Checkout = () => {
   const dispatch = useDispatch();
 
-  const { checkoutInfo, pending } = useSelector((state) => state.checkout);
+  const { checkoutInfo, pending } = useSelector(state => state.checkout);
   console.log(checkoutInfo, 'This is the checkout');
 
-  const { cartItems } = useSelector((state) => state.cartItems);
+  const { cartItems } = useSelector(state => state.cartItems);
 
   let totalPrice = 0;
 
   const [deliveryAddresses, setDeliveryAddresses] = useState({
-    country: '', city: '', street: '', zipCode: '',
+    country: '',
+    city: '',
+    street: '',
+    zipCode: '',
   });
   const [paymentInformations, setPaymentInformations] = useState({
-    cardNumber: '', expirationDate: '', cvv: '',
+    cardNumber: '',
+    expirationDate: '',
+    cvv: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setDeliveryAddresses({
-      ...deliveryAddresses, [e.target.name]: e.target.value,
+      ...deliveryAddresses,
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleChange2 = (e) => {
+  const handleChange2 = e => {
     setPaymentInformations({
-      ...paymentInformations, [e.target.name]: e.target.value,
+      ...paymentInformations,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -41,9 +48,7 @@ const Checkout = () => {
     checkOut(deliveryAddresses, paymentInformations, dispatch);
   };
 
-  const checkoutStatus = checkoutInfo?.status
-    ? checkoutInfo?.status
-    : 'fail';
+  const checkoutStatus = checkoutInfo?.status ? checkoutInfo?.status : 'fail';
 
   console.log(checkoutStatus, 'This is the status');
 
@@ -55,9 +60,7 @@ const Checkout = () => {
       data-testid="checkout"
       className="checkout"
     >
-      <div className="checkoutNav">
-        Checkout
-      </div>
+      <div className="checkoutNav">Checkout</div>
       <div className="checkoutContainer">
         <div className="checkoutForm">
           <div className="basicInfo">
@@ -72,33 +75,75 @@ const Checkout = () => {
               <div className="formDivRight">
                 <div className="inputContainer">
                   <label>country:</label>
-                  <input name="country" type="text" value={deliveryAddresses.country} placeholder="country" onChange={handleChange} />
+                  <input
+                    name="country"
+                    type="text"
+                    value={deliveryAddresses.country}
+                    placeholder="country"
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="inputContainer">
                   <label>city:</label>
-                  <input name="city" type="text" value={deliveryAddresses.city} placeholder="city" onChange={handleChange} />
+                  <input
+                    name="city"
+                    type="text"
+                    value={deliveryAddresses.city}
+                    placeholder="city"
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="inputContainer">
                   <label>street:</label>
-                  <input name="street" type="text" value={deliveryAddresses.street} placeholder="street" onChange={handleChange} />
+                  <input
+                    name="street"
+                    type="text"
+                    value={deliveryAddresses.street}
+                    placeholder="street"
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="inputContainer">
                   <label>zipCode:</label>
-                  <input name="zipCode" type="number" value={deliveryAddresses.zipCode} placeholder="zipCode" onChange={handleChange} />
+                  <input
+                    name="zipCode"
+                    type="number"
+                    value={deliveryAddresses.zipCode}
+                    placeholder="zipCode"
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="formDivLeft">
                 <div className="inputContainer">
                   <label>cardNumber:</label>
-                  <input name="cardNumber" type="text" value={paymentInformations.cardNumber} placeholder="cardNo" onChange={handleChange2} />
+                  <input
+                    name="cardNumber"
+                    type="text"
+                    value={paymentInformations.cardNumber}
+                    placeholder="cardNo"
+                    onChange={handleChange2}
+                  />
                 </div>
                 <div className="inputContainer">
                   <label>expirationDate:</label>
-                  <input name="expirationDate" type="text" value={paymentInformations.expirationDate} placeholder="mm/dd" onChange={handleChange2} />
+                  <input
+                    name="expirationDate"
+                    type="text"
+                    value={paymentInformations.expirationDate}
+                    placeholder="mm/dd"
+                    onChange={handleChange2}
+                  />
                 </div>
                 <div className="inputContainer">
                   <label>cvv:</label>
-                  <input name="cvv" type="number" value={paymentInformations.cvv} placeholder="cvv" onChange={handleChange2} />
+                  <input
+                    name="cvv"
+                    type="number"
+                    value={paymentInformations.cvv}
+                    placeholder="cvv"
+                    onChange={handleChange2}
+                  />
                 </div>
               </div>
             </form>
@@ -120,44 +165,32 @@ const Checkout = () => {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => {
+              {cartItems.map(item => {
                 totalPrice += item.price * item.quantity;
                 return (
                   <tr key={item.id} className="tableBodyRow">
                     <td className="tableData">{item.name}</td>
-                    <td className="tableData">
-                      $
-                      {' '}
-                      {item.price}
-                    </td>
+                    <td className="tableData">$ {item.price}</td>
                     <td className="tableData">{item.quantity}</td>
                     <td className="tableData">
-                      $
-                      {' '}
-                      {item.quantity * item.price}
+                      $ {item.quantity * item.price}
                     </td>
                   </tr>
                 );
               })}
               <tr className="tableBodyRow">
                 <td className="tableData">Grand Total</td>
-                <td className="tableGrandTotal">
-                  $
-                  {' '}
-                  {totalPrice}
-                </td>
+                <td className="tableGrandTotal">$ {totalPrice}</td>
               </tr>
             </tbody>
           </table>
-          {checkoutStatus === 'success' && (<button>Now Continue with payment</button>)}
+          {checkoutStatus === 'success' && (
+            <button>Now Continue with payment</button>
+          )}
         </div>
       </div>
 
-      {pending && (
-      <div className="popup">
-        loading....
-      </div>
-      )}
+      {pending && <div className="popup">loading....</div>}
     </motion.div>
   );
 };

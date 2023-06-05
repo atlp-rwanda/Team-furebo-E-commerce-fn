@@ -7,7 +7,7 @@ import verifyOTPCode from '../redux/actions/2faForSellers/verifyOTP.action';
 
 const VerifyOTP = () => {
   const [OTPCode, setOTPCode] = useState(Array(6).fill(''));
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false); 
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const inputRefs = useRef([]);
 
   const handleChange = (e, index) => {
@@ -40,16 +40,16 @@ const VerifyOTP = () => {
     e.preventDefault();
     const code = OTPCode.join('');
     setIsButtonDisabled(true);
-     await verifyOTPCode(code, dispatch, navigate);
-     setTimeout(() => {
-      setIsButtonDisabled(false); 
+    await verifyOTPCode(code, dispatch, navigate);
+    setTimeout(() => {
+      setIsButtonDisabled(false);
     }, 2000);
   };
 
   return (
     <div className="verify" data-testid="VerifyCode">
       <div className="row justify-content-center mt-7 verifyContainer">
-        <div className="col-lg-5 text-center verifyContent" >
+        <div className="col-lg-5 text-center verifyContent">
           <a href="index.html">
             <img src="assets/img/svg/logo.svg" alt="" />
           </a>
@@ -102,7 +102,13 @@ const VerifyOTP = () => {
                     </div>
                   ))}
                 </div>
-                <button type="submit" className={`verify-button mt-5 ${isButtonDisabled ? 'disabled' : ''}`} disabled={isButtonDisabled}>
+                <button
+                  type="submit"
+                  className={`verify-button mt-5 ${
+                    isButtonDisabled ? 'disabled' : ''
+                  }`}
+                  disabled={isButtonDisabled}
+                >
                   Verify My Account
                 </button>
               </form>
@@ -110,7 +116,11 @@ const VerifyOTP = () => {
           </div>
           <p className="resendCode">
             Didn't receive it?
-            <a href="/authentication" className="text-decoration-none ms-2" data-testid="resend-code-button">
+            <a
+              href="/authentication"
+              className="text-decoration-none ms-2"
+              data-testid="resend-code-button"
+            >
               Resend code
             </a>
           </p>

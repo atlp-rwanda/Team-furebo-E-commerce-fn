@@ -42,9 +42,9 @@ const Navbar = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
 
-  const { userInfo } = useSelector((state) => state.user);
+  const { userInfo } = useSelector(state => state.user);
 
-  const { cartItems } = useSelector((state) => state.cartItems);
+  const { cartItems } = useSelector(state => state.cartItems);
 
   console.log(cartItems, 'This is the cartItems on the navbar');
 
@@ -151,13 +151,22 @@ const Navbar = () => {
   return (
     <div className="navbar" data-testid="navbar">
       <div className="logo">
-        <h1 onClick={() => { navigate('/'); setProfile(false); setRotate(true); setMenu(false); setPageRotate(false); }}>LOGO</h1>
+        <h1
+          onClick={() => {
+            navigate('/');
+            setProfile(false);
+            setRotate(true);
+            setMenu(false);
+            setPageRotate(false);
+          }}
+        >
+          LOGO
+        </h1>
       </div>
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            PAGES
-            {' '}
+            PAGES{' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
@@ -218,9 +227,11 @@ const Navbar = () => {
                 </div>
                 <hr />
                 {notifications.length > 0 ? (
-                  notifications.map((notification) => (
+                  notifications.map(notification => (
                     <span
-                      onClick={() => markNotifications(notification.id, data, dispatch)}
+                      onClick={() =>
+                        markNotifications(notification.id, data, dispatch)
+                      }
                       className={
                         notification.isRead === true
                           ? 'notification-card2'
@@ -260,12 +271,12 @@ const Navbar = () => {
           <GrLanguage />
         </div>
         {userInfo && userInfo.userData && (
-        <Link className="cartlink" to="/view-cart">
-          <div className="cartContainer">
-            <FaShoppingCart />
-            <span className="redSpan">{cartItems.length}</span>
-          </div>
-        </Link>
+          <Link className="cartlink" to="/view-cart">
+            <div className="cartContainer">
+              <FaShoppingCart />
+              <span className="redSpan">{cartItems.length}</span>
+            </div>
+          </Link>
         )}
         <div className="profile">
           <FaUserAlt data-testid="profile-button" onClick={handleProfile} />
@@ -278,17 +289,20 @@ const Navbar = () => {
             >
               {!userInfo ? (
                 <Link className="Plink" to="/Authentication">
-                  <motion.div variants={item} onClick={() => setProfile(false)}>Login/Signup</motion.div>
+                  <motion.div variants={item} onClick={() => setProfile(false)}>
+                    Login/Signup
+                  </motion.div>
                 </Link>
               ) : !userInfo.userData ? (
                 <Link className="Plink" to="/Authentication">
-                  <motion.div variants={item} onClick={() => setProfile(false)}>Login/Signup</motion.div>
+                  <motion.div variants={item} onClick={() => setProfile(false)}>
+                    Login/Signup
+                  </motion.div>
                 </Link>
               ) : (
                 <>
                   <motion.div variants={item} className="welcome-name">
-                    Welcome
-                    {' '}
+                    Welcome{' '}
                     <span className="name">
                       {`${userInfo.userData.fullname.split(' ')[0]}`}
                     </span>
@@ -303,7 +317,6 @@ const Navbar = () => {
                     onClick={handleLogout}
                   >
                     Logout
-
                   </motion.button>
                 </>
               )}
@@ -333,9 +346,12 @@ const Navbar = () => {
           className="NavSideBar"
         >
           {userInfo && userInfo.userData && (
-            <motion.li variants={item} onClick={handleRotate} data-testid="pages">
-              PAGES
-              {' '}
+            <motion.li
+              variants={item}
+              onClick={handleRotate}
+              data-testid="pages"
+            >
+              PAGES{' '}
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}

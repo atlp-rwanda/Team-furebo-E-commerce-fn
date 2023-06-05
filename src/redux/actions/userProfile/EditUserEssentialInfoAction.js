@@ -52,7 +52,7 @@ export const fetchUserProfile = async () => {
   }
 };
 
-export const updateUserProfile = async (updatedProfile) => {
+export const updateUserProfile = async updatedProfile => {
   try {
     const authToken = localStorage.getItem('token');
     const config = {
