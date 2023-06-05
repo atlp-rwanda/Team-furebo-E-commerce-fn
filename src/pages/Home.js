@@ -17,12 +17,13 @@ const Home = () => (
         <h1>
           <span>Best E-commerce solutions 3</span>
           {' '}
-          to Boost your brand name and sales
+          to Boost your brand name and
+          sales
         </h1>
         <p>
-          Ipsum esse cillum eu eu occaecat.
-          Veniam consequat deserunt non ipsum reprehenderit officia.
-          Voluptate sint culpa velit nostrud adipisicing deserunt nisi cillum irure reprehenderit.
+          Ipsum esse cillum eu eu occaecat. Veniam consequat deserunt non ipsum
+          reprehenderit officia. Voluptate sint culpa velit nostrud adipisicing
+          deserunt nisi cillum irure reprehenderit.
         </p>
         <button>Get Now</button>
       </div>

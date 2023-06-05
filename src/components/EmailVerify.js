@@ -11,7 +11,7 @@ import '../css/AuthStyles/Auth.css';
 const EmailVerify = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  const [validUrl, setValidUrl] = useState(true);
+  const [validUrl, setValidUrl] = useState(false);
 
   const { pending } = useSelector((state) => state.user);
 

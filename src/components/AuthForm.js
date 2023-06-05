@@ -9,7 +9,10 @@ import signIn from '../redux/actions/Login';
 
 import '../css/AuthStyles/Auth.css';
 import {
-  ValidateFistname, ValidateLastName, ValidateEmail, ValidatePassword,
+  ValidateFistname,
+  ValidateLastName,
+  ValidateEmail,
+  ValidatePassword,
 } from './Validation';
 
 import GoogleButton from './shared/GoogleButton';
@@ -20,12 +23,17 @@ const AuthForm = () => {
   const [errors, setErrors] = useState({});
   const [isSignUp, setIsSignUp] = useState(false);
   const [authData, setAuthData] = useState({
-    firstname: '', lastname: '', email: '', password: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
   });
 
   const {
     successCondition, userInfo, error, pending,
-  } = useSelector((state) => state.user);
+  } = useSelector(
+    (state) => state.user,
+  );
 
   const handleChange = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
@@ -63,28 +71,81 @@ const AuthForm = () => {
     <div className="authForm" data-testid="AuthForm">
       <div className="authFormLeft">
         <h1>{isSignUp ? 'Welcome Back' : 'Create Accout'}</h1>
-        <button onClick={() => setIsSignUp(!isSignUp)}>{isSignUp ? 'Sign In' : 'Sign Up'}</button>
+        <button onClick={() => setIsSignUp(!isSignUp)}>
+          {isSignUp ? 'Sign In' : 'Sign Up'}
+        </button>
       </div>
       <div className="authFormRight">
         <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
         <form>
           {isSignUp && (
             <>
-              <input name="firstname" type="text" placeholder="First Name" value={authData.firstname} onChange={handleChange} onKeyUp={handleValidationFistname} />
-              {errors.firstname && <p style={{ color: 'red', fontSize: '10px' }}>{errors.firstname}</p>}
-              <input name="lastname" type="text" placeholder="Last Name" value={authData.lastname} onChange={handleChange} onKeyUp={handleValidationLastname} />
-              {errors.lastname && <p style={{ color: 'red', fontSize: '10px' }}>{errors.lastname}</p>}
+              <input
+                name="firstname"
+                type="text"
+                placeholder="First Name"
+                value={authData.firstname}
+                onChange={handleChange}
+                onKeyUp={handleValidationFistname}
+              />
+              {errors.firstname && (
+                <p style={{ color: 'red', fontSize: '10px' }}>
+                  {errors.firstname}
+                </p>
+              )}
+              <input
+                name="lastname"
+                type="text"
+                placeholder="Last Name"
+                value={authData.lastname}
+                onChange={handleChange}
+                onKeyUp={handleValidationLastname}
+              />
+              {errors.lastname && (
+                <p style={{ color: 'red', fontSize: '10px' }}>
+                  {errors.lastname}
+                </p>
+              )}
             </>
           )}
-          <input name="email" type="email" placeholder="Emai" value={authData.email} onChange={handleChange} onKeyUp={handleValidationEmail} />
-          {errors.email && <p style={{ color: 'red', fontSize: '10px' }}>{errors.email}</p>}
-          <input name="password" type="password" placeholder="Password" value={authData.password} onChange={handleChange} onKeyUp={handleValidationPassword} />
-          {errors.password && <p style={{ color: 'red', fontSize: '10px' }}>{errors.password}</p>}
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={authData.email}
+            onChange={handleChange}
+            onKeyUp={handleValidationEmail}
+          />
+          {errors.email && (
+            <p style={{ color: 'red', fontSize: '10px' }}>{errors.email}</p>
+          )}
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={authData.password}
+            onChange={handleChange}
+            onKeyUp={handleValidationPassword}
+          />
+          {errors.password && (
+            <p style={{ color: 'red', fontSize: '10px' }}>{errors.password}</p>
+          )}
           <span className="pending">{pending ? 'loading...' : null}</span>
-          {successCondition && <span className="successDisplay">{userInfo.message}</span>}
-          {error.condition && <span className="errorDisplay">{error.message}</span>}
+          {successCondition && (
+            <span className="successDisplay">{userInfo.message}</span>
+          )}
+          {error.condition && (
+            <span className="errorDisplay">{error.message}</span>
+          )}
+          <button onClick={handleSubmit}>
+            {isSignUp ? 'Sign Up' : 'Sign In'}
+          </button>
           <GoogleButton />
-          <button onClick={handleSubmit}>{isSignUp ? 'Sign Up' : 'Sign In'}</button>
+          {isSignUp && (
+            <Link to="/AdminRegister">
+              <span>register as admin</span>
+            </Link>
+          )}
         </form>
       </div>
     </div>

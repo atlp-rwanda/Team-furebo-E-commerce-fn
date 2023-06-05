@@ -12,10 +12,7 @@ const ProductCard = ({ data }) => (
       <h1>{data.title}</h1>
     </div>
     <div>
-      <span>
-        $
-        {data.price}
-      </span>
+      <span>${data.price}</span>
     </div>
     <div className="rating">
       {/* {[...Array(data.rating)].map((index) => (
