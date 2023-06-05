@@ -1,30 +1,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable arrow-body-style */
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import AdminSignUp from '../../redux/actions/AdminSignup';
+import '../../css/AuthStyles/Auth.css';
 
-import { signUp } from '../redux/actions/signup';
-import signIn from '../redux/actions/Login';
-
-import '../css/AuthStyles/Auth.css';
-import {
-  ValidateFistname,
-  ValidateLastName,
-  ValidateEmail,
-  ValidatePassword,
-} from './Validation';
-
-const AuthForm = () => {
-  const navigate = useNavigate();
+const AdminAuthForm = () => {
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState({});
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
+  const [adminError, setAdminError] = useState(null);
   const [authData, setAuthData] = useState({
     firstname: '',
     lastname: '',
     email: '',
     password: '',
+    adminCode: '',
   });
 
   const {
@@ -37,41 +31,18 @@ const AuthForm = () => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
-  const handleValidationFistname = () => {
-    setErrors(ValidateFistname(authData));
-  };
-
-  const handleValidationLastname = () => {
-    setErrors(ValidateLastName(authData));
-  };
-
-  const handleValidationEmail = () => {
-    setErrors(ValidateEmail(authData));
-  };
-
-  const handleValidationPassword = () => {
-    setErrors(ValidatePassword(authData));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (isSignUp) {
-      signUp(authData, dispatch, setAuthData);
-    } else {
-      signIn(authData, dispatch, navigate, setAuthData);
-    }
-
-    // signUp(authData, dispatch);
+    AdminSignUp(authData, dispatch, setAuthData);
   };
 
   return (
-    <div className="authForm" data-testid="AuthForm">
+    <div className="authForm" data-testid="AdminAuthForm">
       <div className="authFormLeft">
         <h1>{isSignUp ? 'Welcome Back' : 'Create Accout'}</h1>
-        <button onClick={() => setIsSignUp(!isSignUp)}>
-          {isSignUp ? 'Sign In' : 'Sign Up'}
-        </button>
+        <Link to="/authentication">
+          <button>Sign In</button>
+        </Link>
       </div>
       <div className="authFormRight">
         <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
@@ -84,50 +55,37 @@ const AuthForm = () => {
                 placeholder="First Name"
                 value={authData.firstname}
                 onChange={handleChange}
-                onKeyUp={handleValidationFistname}
               />
-              {errors.firstname && (
-                <p style={{ color: 'red', fontSize: '10px' }}>
-                  {errors.firstname}
-                </p>
-              )}
               <input
                 name="lastname"
                 type="text"
                 placeholder="Last Name"
                 value={authData.lastname}
                 onChange={handleChange}
-                onKeyUp={handleValidationLastname}
               />
-              {errors.lastname && (
-                <p style={{ color: 'red', fontSize: '10px' }}>
-                  {errors.lastname}
-                </p>
-              )}
             </>
           )}
           <input
             name="email"
             type="email"
-            placeholder="Email"
+            placeholder="Emai"
             value={authData.email}
             onChange={handleChange}
-            onKeyUp={handleValidationEmail}
           />
-          {errors.email && (
-            <p style={{ color: 'red', fontSize: '10px' }}>{errors.email}</p>
-          )}
           <input
             name="password"
             type="password"
             placeholder="Password"
             value={authData.password}
             onChange={handleChange}
-            onKeyUp={handleValidationPassword}
           />
-          {errors.password && (
-            <p style={{ color: 'red', fontSize: '10px' }}>{errors.password}</p>
-          )}
+          <input
+            name="adminCode"
+            type="number"
+            placeholder="AdminCode"
+            value={authData.adminCode}
+            onChange={handleChange}
+          />
           <span className="pending">{pending ? 'loading...' : null}</span>
           {successCondition && (
             <span className="successDisplay">{userInfo.message}</span>
@@ -135,12 +93,15 @@ const AuthForm = () => {
           {error.condition && (
             <span className="errorDisplay">{error.message}</span>
           )}
+          {adminError !== null && (
+            <span className="errorDisplay">{adminError}</span>
+          )}
           <button onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
           {isSignUp && (
-            <Link to="/AdminRegister">
-              <span>register as admin</span>
+            <Link to="/authentication">
+              <span>register as user</span>
             </Link>
           )}
         </form>
@@ -149,4 +110,4 @@ const AuthForm = () => {
   );
 };
 
-export default AuthForm;
+export default AdminAuthForm;

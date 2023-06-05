@@ -21,7 +21,7 @@ describe('ProductCard Tests', () => {
         <Provider store={store}>
           <ProductCard data={productData} />
         </Provider>
-      </Router>,
+      </Router>
     );
   });
 

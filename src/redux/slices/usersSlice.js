@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const userSlice = createSlice({
-  name: 'user',
+export const allUsersSlice = createSlice({
+  name: 'allUsers',
   initialState: {
-    userInfo: JSON.parse(localStorage.getItem('currentUser')),
+    users: JSON.parse(localStorage.getItem('allUsers')),
     successCondition: false,
     pending: false,
     error: {
@@ -18,8 +18,8 @@ export const userSlice = createSlice({
     updateSuccess: (state, action) => {
       state.successCondition = true;
       state.pending = false;
-      state.userInfo = action.payload;
-      localStorage.setItem('currentUser', JSON.stringify(action.payload));
+      state.userRole = action.payload;
+      localStorage.setItem('allUsers', JSON.stringify(action.payload));
     },
     updateError: (state, action) => {
       state.error.condition = true;
@@ -41,5 +41,5 @@ export const {
   updateError,
   clearError,
   clearSuccessCondition,
-} = userSlice.actions;
-export default userSlice.reducer;
+} = allUsersSlice.actions;
+export default allUsersSlice.reducer;

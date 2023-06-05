@@ -12,10 +12,10 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-const signIn = async (authData, dispatch, navigate, setAuthData) => {
+const AdminSignUp = async (authData, dispatch, setAuthData) => {
   dispatch(updateStart());
   try {
-    const res = await API.post('/login', authData);
+    const res = await API.post('/registerAdmin', authData);
 
     dispatch(updateSuccess(res.data));
 
@@ -24,12 +24,12 @@ const signIn = async (authData, dispatch, navigate, setAuthData) => {
       lastname: '',
       email: '',
       password: '',
+      adminCode: '',
     });
 
     setTimeout(() => {
       dispatch(clearSuccessCondition());
-      navigate('/home');
-    }, [2000]);
+    }, [6000]);
   } catch (error) {
     if (!error.response) {
       dispatch(updateError(error.message));
@@ -41,8 +41,8 @@ const signIn = async (authData, dispatch, navigate, setAuthData) => {
 
     setTimeout(() => {
       dispatch(clearError());
-    }, [3000]);
+    }, [6000]);
   }
 };
 
-export default signIn;
+export default AdminSignUp;

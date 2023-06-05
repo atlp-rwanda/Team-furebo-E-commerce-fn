@@ -1,8 +1,4 @@
-import {
-  pages,
-  categoryProducts,
-  Latestproducts,
-} from '../constants/Constant';
+import { pages, categoryProducts, Latestproducts } from '../constants/Constant';
 
 describe('Data Tests', () => {
   test('pages should have valid properties', () => {

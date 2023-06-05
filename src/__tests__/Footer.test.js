@@ -9,7 +9,7 @@ describe('Footer TESTS', () => {
     render(
       <Router>
         <Footer />
-      </Router>,
+      </Router>
     );
     const footer = screen.getByTestId('Footer');
     expect(footer).toBeInTheDocument();
