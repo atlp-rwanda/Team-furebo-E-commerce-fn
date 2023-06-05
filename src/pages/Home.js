@@ -53,16 +53,14 @@ const Home = () => {
       <div className="mainLeft">
         <p className="welcome">Welcome to Team-furebo-E-commerce</p>
         <h1>
-          <span>Best E-commerce solutions</span>
-          {' '}
-          To Boost your brand name and sales
+          <span>Best E-commerce solutions</span> To Boost your brand name and
+          sales
         </h1>
         <p className="description">
-          Team-Furebo-E-commerce is your one-stop online shop.
-          Find everything you need, from fashion to electronics,
-          in one convenient place. Enjoy easy and secure shopping,
-          fast shipping, and great deals. Welcome to Team-Furebo-E-commerce,
-          where shopping is made simple.
+          Team-Furebo-E-commerce is your one-stop online shop. Find everything
+          you need, from fashion to electronics, in one convenient place. Enjoy
+          easy and secure shopping, fast shipping, and great deals. Welcome to
+          Team-Furebo-E-commerce, where shopping is made simple.
         </p>
         <motion.button whileHover={{ scale: 1.1 }} type="button">
           Get Now
@@ -76,16 +74,14 @@ const Home = () => {
       <div className="mainLeft">
         <p className="welcome">Welcome to Team-furebo-E-commerce</p>
         <h1>
-          <span>Best E-commerce solutions</span>
-          {' '}
-          To Boost your brand name and sales
+          <span>Best E-commerce solutions</span> To Boost your brand name and
+          sales
         </h1>
         <p className="description">
-          Team-Furebo-E-commerce is your one-stop online shop.
-          Find everything you need, from fashion to electronics,
-          in one convenient place. Enjoy easy and secure shopping,
-          fast shipping, and great deals. Welcome to Team-Furebo-E-commerce,
-          where shopping is made simple.
+          Team-Furebo-E-commerce is your one-stop online shop. Find everything
+          you need, from fashion to electronics, in one convenient place. Enjoy
+          easy and secure shopping, fast shipping, and great deals. Welcome to
+          Team-Furebo-E-commerce, where shopping is made simple.
         </p>
         <motion.button whileHover={{ scale: 1.1 }} type="button">
           Get Now
@@ -99,16 +95,14 @@ const Home = () => {
       <div className="mainLeft">
         <p className="welcome">Welcome to Team-furebo-E-commerce</p>
         <h1>
-          <span>Best E-commerce solutions</span>
-          {' '}
-          To Boost your brand name and sales
+          <span>Best E-commerce solutions</span> To Boost your brand name and
+          sales
         </h1>
         <p className="description">
-          Team-Furebo-E-commerce is your one-stop online shop.
-          Find everything you need, from fashion to electronics,
-          in one convenient place. Enjoy easy and secure shopping,
-          fast shipping, and great deals. Welcome to Team-Furebo-E-commerce,
-          where shopping is made simple.
+          Team-Furebo-E-commerce is your one-stop online shop. Find everything
+          you need, from fashion to electronics, in one convenient place. Enjoy
+          easy and secure shopping, fast shipping, and great deals. Welcome to
+          Team-Furebo-E-commerce, where shopping is made simple.
         </p>
         <motion.button whileHover={{ scale: 1.1 }} type="button">
           Get Now
@@ -122,16 +116,14 @@ const Home = () => {
       <div className="mainLeft">
         <p className="welcome">Welcome to Team-furebo-E-commerce</p>
         <h1>
-          <span>Best E-commerce solutions</span>
-          {' '}
-          To Boost your brand name and sales
+          <span>Best E-commerce solutions</span> To Boost your brand name and
+          sales
         </h1>
         <p className="description">
-          Team-Furebo-E-commerce is your one-stop online shop.
-          Find everything you need, from fashion to electronics,
-          in one convenient place. Enjoy easy and secure shopping,
-          fast shipping, and great deals. Welcome to Team-Furebo-E-commerce,
-          where shopping is made simple.
+          Team-Furebo-E-commerce is your one-stop online shop. Find everything
+          you need, from fashion to electronics, in one convenient place. Enjoy
+          easy and secure shopping, fast shipping, and great deals. Welcome to
+          Team-Furebo-E-commerce, where shopping is made simple.
         </p>
         <motion.button whileHover={{ scale: 1.1 }} type="button">
           Get Now
@@ -145,16 +137,14 @@ const Home = () => {
       <div className="mainLeft">
         <p className="welcome">Welcome to Team-furebo-E-commerce</p>
         <h1>
-          <span>Best E-commerce solutions</span>
-          {' '}
-          To Boost your brand name and sales
+          <span>Best E-commerce solutions</span> To Boost your brand name and
+          sales
         </h1>
         <p className="description">
-          Team-Furebo-E-commerce is your one-stop online shop.
-          Find everything you need, from fashion to electronics,
-          in one convenient place. Enjoy easy and secure shopping,
-          fast shipping, and great deals. Welcome to Team-Furebo-E-commerce,
-          where shopping is made simple.
+          Team-Furebo-E-commerce is your one-stop online shop. Find everything
+          you need, from fashion to electronics, in one convenient place. Enjoy
+          easy and secure shopping, fast shipping, and great deals. Welcome to
+          Team-Furebo-E-commerce, where shopping is made simple.
         </p>
         <motion.button whileHover={{ scale: 1.1 }} type="button">
           Get Now
@@ -200,13 +190,14 @@ const Home = () => {
       <div className="categorySection">
         <div className="cotegoryHeader">
           <h1>Browse Our Categories</h1>
-          <p>Discover a wide range of products to suit your needs,
-            from fashion and electronics to home decor and more.
-            Shop with ease at Team-Furebo-E-commerce.
+          <p>
+            Discover a wide range of products to suit your needs, from fashion
+            and electronics to home decor and more. Shop with ease at
+            Team-Furebo-E-commerce.
           </p>
         </div>
         <div className="cotegoryBody">
-          {categoryProducts.map((cat) => (
+          {categoryProducts.map(cat => (
             <Category key={cat.id} data={cat} />
           ))}
         </div>
@@ -217,7 +208,7 @@ const Home = () => {
           <hr />
         </div>
         <div className="latestProductsBody">
-          {Latestproducts.map((pr) => (
+          {Latestproducts.map(pr => (
             <ProductCard key={pr.id} data={pr} />
           ))}
         </div>

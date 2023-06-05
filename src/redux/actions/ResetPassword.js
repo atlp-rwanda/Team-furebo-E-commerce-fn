@@ -26,8 +26,8 @@ const resetPassword = async (emailData, dispatch) => {
     // Dispatch the requestPasswordResetFailure action with an appropriate error message
     dispatch(
       requestPasswordResetFailure(
-        'An error occurred during the password reset request.',
-      ),
+        'An error occurred during the password reset request.'
+      )
     );
 
     if (error.response.data.message) {

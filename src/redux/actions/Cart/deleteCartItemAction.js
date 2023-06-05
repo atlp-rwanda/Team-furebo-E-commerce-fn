@@ -11,7 +11,19 @@ import {
 } from '../../slices/Cart/DeleteCartItemSlice';
 import { fetchCartItems } from './ViewCartItemsAction';
 
+<<<<<<< HEAD
 const deleteCartItemAction = (cartItemId) => async (dispatch) => {
+=======
+API.interceptors.request.use(req => {
+  const authToken = localStorage.getItem('token');
+  if (authToken) {
+    req.headers.Authorization = `Bearer ${JSON.parse(authToken)}`;
+  }
+  return req;
+});
+
+const deleteCartItemAction = async (itemId, dispatch) => {
+>>>>>>> da0141d (feat: Admin disable account)
   try {
     dispatch(deleteItemInCartStart());
     const response = await api.delete(`/delete-item-in-cart/${cartItemId}`);

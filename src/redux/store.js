@@ -9,6 +9,7 @@ import updatePasswordSlice from './slices/updatePassword';
 import userRolesSlice from './slices/userRolesSlice';
 import allUsersSlice from './slices/usersSlice';
 import disableAccountSlice from './slices/disableAccountSlice';
+<<<<<<< HEAD
 import resetPasswordSlice from './slices/resetPasswordSlice';
 import newPasswordSlice from './slices/newPasswordSlice';
 import addProduct from './slices/addProductSlice';
@@ -79,9 +80,17 @@ const reducer = combineReducers({
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
+=======
+>>>>>>> da0141d (feat: Admin disable account)
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    user: userSlice,
+    updatePassword: updatePasswordSlice,
+    userRole: userRolesSlice,
+    allUsers: allUsersSlice,
+    disableAccount: disableAccountSlice,
+  },
 });
 
 export default store;

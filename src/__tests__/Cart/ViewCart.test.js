@@ -16,6 +16,7 @@ describe('ViewCart Component', () => {
           <ViewCart />
         </Provider>
       </Router>
+<<<<<<< HEAD
     );
 
     expect(screen.getByTestId('view-cart')).toBeInTheDocument();
@@ -41,6 +42,8 @@ describe('ViewCart Component', () => {
           <ViewCart />
         </Provider>
       </Router>
+=======
+>>>>>>> da0141d (feat: Admin disable account)
     );
   });
 

@@ -1,8 +1,6 @@
-
 .verify {
   margin: 0;
   background: #f6f9fc;
-
 }
 .verifyContainer {
   display: flex;
@@ -20,11 +18,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .verify .inputs {
-   display: flex; 
-   justify-content: space-around; 
+  display: flex;
+  justify-content: space-around;
   margin-top: 4px;
 }
 
@@ -123,7 +119,6 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-
 .verify h1 {
   font-family: 'Baloo Tamma 2', cursive;
   font-weight: bold;
@@ -137,7 +132,6 @@
 @media (max-width: 576px) {
   .input-field {
     font-size: 14px;
-
   }
 }
 
@@ -153,7 +147,7 @@
   }
 }
 
-.verify .resendCode{
+.verify .resendCode {
   margin-bottom: 40px;
   margin-top: 15px;
 }

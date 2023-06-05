@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-import api from '../../../utils/api';
-=======
+/* eslint-disable linebreak-style */
 import axios from 'axios';
 
 const API = axios.create({
@@ -14,16 +12,14 @@ API.interceptors.request.use(req => {
   }
   return req;
 });
->>>>>>> da0141d (feat: Admin disable account)
 
-const fetchNotifications = async () => {
+const FetchToChangePasswordAtGivenTime = async () => {
   try {
-    const response = await api.get('/get-notification');
+    const response = await API.get('/get-user');
     return response.data;
   } catch (error) {
-    console.error('Error fetching notification data:', error);
-    throw new Error('Error fetching notification data');
+    throw new Error('Error fetching profile data');
   }
 };
 
-export default fetchNotifications;
+export default FetchToChangePasswordAtGivenTime;

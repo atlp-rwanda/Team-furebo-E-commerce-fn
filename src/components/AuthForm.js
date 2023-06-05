@@ -30,13 +30,11 @@ const AuthForm = () => {
     password: '',
   });
 
-  const {
-    successCondition, userInfo, error, pending,
-  } = useSelector(
-    (state) => state.user,
+  const { successCondition, userInfo, error, pending } = useSelector(
+    state => state.user
   );
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
@@ -56,7 +54,7 @@ const AuthForm = () => {
     setErrors(ValidatePassword(authData));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (isSignUp) {

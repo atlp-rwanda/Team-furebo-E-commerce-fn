@@ -27,6 +27,7 @@ const ProductDetails = () => {
   const productId = useParams().id;
 
   const { singleProductInfo, pending, error } = useSelector(
+<<<<<<< HEAD
     (state) => state.singleProduct,
   );
   const { recomProduct } = useSelector((state) => state.recomProducts);
@@ -41,6 +42,15 @@ const ProductDetails = () => {
 
   const { successCondition, productsInfo, cartpending } = useSelector(
     (state) => state.cart,
+=======
+    state => state.singleProduct
+  );
+  const { recomProduct } = useSelector(state => state.recomProducts);
+  const { category } = singleProductInfo;
+
+  const { successCondition, productsInfo, cartpending } = useSelector(
+    state => state.cart
+>>>>>>> da0141d (feat: Admin disable account)
   );
 
   useEffect(() => {
@@ -54,10 +64,14 @@ const ProductDetails = () => {
   }, [singleProductInfo]);
 
   const recommendedProducts = recomProduct?.filter(
+<<<<<<< HEAD
     ({ id }) => id !== singleProductInfo.id,
+=======
+    ({ id }) => id !== singleProductInfo.id
+>>>>>>> da0141d (feat: Admin disable account)
   );
 
-  const openProduct = (id) => {
+  const openProduct = id => {
     navigate(`/productDetails/${id}`);
   };
   return (
@@ -66,15 +80,20 @@ const ProductDetails = () => {
         <div className="loadingContainer">loading...</div>
       ) : error.condition ? (
         <div className="Error">
+<<<<<<< HEAD
           <span>Error:</span>
           {' '}
           {error.message}
+=======
+          <span>Error:</span> {error.message}
+>>>>>>> da0141d (feat: Admin disable account)
         </div>
       ) : (
         <div className="detailContainer">
           <div className="overDetailContainer">
             <div className="detailsCard">
               <div className="detailsImg">
+<<<<<<< HEAD
                 {singleProductInfo && singleProductInfo.image && singleProductInfo.image[0] && (
                   <img className="detailImage" src={singleProductInfo.image[0]} alt="images" />
                 )}
@@ -130,6 +149,37 @@ const ProductDetails = () => {
                       <IsInWishlistButton productId={productId} />
                     )}
                   </div>
+=======
+                <img src={singleProductInfo.image} alt="images" />
+              </div>
+              <div className="detailsInfo">
+                <h1 className="detailsName">
+                  Name: <span>{singleProductInfo.name}</span>
+                </h1>
+                <h1 className="detailsCategory">
+                  Category: <span>{singleProductInfo.category}</span>
+                </h1>
+                <h1 className="detailsPrice">
+                  Unit Price: $ {singleProductInfo.price}
+                </h1>
+                <h1 className="detailsQuantity">
+                  Quantity: {singleProductInfo.quantity} Unities
+                </h1>
+                <h1 className="detailsStatus">
+                  Status: {singleProductInfo.status}
+                </h1>
+                <h1 className="detailsDate">
+                  CreatedAt: {moment(singleProductInfo.createdAt).calendar()}
+                </h1>
+                <h1 className="detailsExDate">
+                  ExpiredAt: {moment(singleProductInfo.exDate).calendar()}
+                </h1>
+                <div className="detailsButtons">
+                  <button onClick={() => setShowPopUp(true)}>
+                    Add To Cart
+                  </button>
+                  <button>Add To WishList</button>
+>>>>>>> da0141d (feat: Admin disable account)
                 </div>
               </div>
             </div>
@@ -138,7 +188,11 @@ const ProductDetails = () => {
                 <h1>You might also like</h1>
                 <hr />
                 <div className="recommendedProducts">
+<<<<<<< HEAD
                   {recommendedProducts?.map((product) => (
+=======
+                  {recommendedProducts?.map(product => (
+>>>>>>> da0141d (feat: Admin disable account)
                     <div
                       key={product.id}
                       className="recommendedProductsCard"
@@ -151,15 +205,8 @@ const ProductDetails = () => {
                       </div>
                       <div className="recommendetionDetails">
                         <h1 className="name">{product.name}</h1>
-                        <h1>
-                          cat:
-                          {' '}
-                          {product.category}
-                        </h1>
-                        <h1>
-                          $
-                          {product.price}
-                        </h1>
+                        <h1>cat: {product.category}</h1>
+                        <h1>${product.price}</h1>
                         <h1>{product.status}</h1>
                       </div>
                     </div>
@@ -189,7 +236,7 @@ const ProductDetails = () => {
                     type="number"
                     placeholder="number only"
                     value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
+                    onChange={e => setQuantity(e.target.value)}
                   />
                   <button
                     onClick={() => {
@@ -197,7 +244,11 @@ const ProductDetails = () => {
                         quantity,
                         singleProductInfo.id,
                         dispatch,
+<<<<<<< HEAD
                         setShowPopUp,
+=======
+                        setShowPopUp
+>>>>>>> da0141d (feat: Admin disable account)
                       );
                     }}
                   >
