@@ -3,6 +3,7 @@ import userSlice from './slices/signupSlice';
 import updatePasswordSlice from './slices/updatePassword';
 import userRolesSlice from './slices/userRolesSlice';
 import allUsersSlice from './slices/usersSlice';
+import disableAccountSlice from './slices/disableAccountSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     updatePassword: updatePasswordSlice,
     userRole: userRolesSlice,
     allUsers: allUsersSlice,
+    disableAccount: disableAccountSlice,
   },
 });
 
