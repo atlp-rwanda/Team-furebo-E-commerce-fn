@@ -3,6 +3,7 @@ import {
   ValidateLastName,
   ValidateEmail,
   ValidatePassword,
+  ValidateNewPassword,
 } from '../components/Validation';
 
 describe('Validation Functions Tests', () => {
@@ -65,7 +66,7 @@ describe('Validation Functions Tests', () => {
       const authData = { password: 'weakpassword' };
       const errors = ValidatePassword(authData);
       expect(errors.password).toBe(
-        'Password should contain atleast one upper character, one lower character, two numbers and not under eight'
+        'Password should contain atleast one upper character, one lower character, two numbers and not under eight',
       );
     });
 
@@ -73,6 +74,44 @@ describe('Validation Functions Tests', () => {
       const authData = { password: 'StrongPassword123' };
       const errors = ValidatePassword(authData);
       expect(errors.password).toBeUndefined();
+    });
+  });
+
+  describe('ValidateNewPassword', () => {
+    it('should return an error when new password is empty', () => {
+      const authData = { newPassword: '', confirmPassword: '' };
+      const errors = ValidateNewPassword(authData);
+      expect(errors.newPassword).toBe('New Password is required');
+    });
+    it('should return an error when confirm password is empty', () => {
+      const authData = { newPassword: '', confirmPassword: '' };
+      const errors = ValidateNewPassword(authData);
+      expect(errors.confirmPassword).toBe('Password Confirmation is required');
+    });
+
+    it('should return an error when password does not match the pattern', () => {
+      const authData = { newPassword: 'weakpassword', confirmPassword: 'weakpassword' };
+      const errors = ValidateNewPassword(authData);
+      expect(errors.newPassword).toBe(
+        'Password format is incorrect',
+      );
+      expect(errors.confirmPassword).toBe(
+        'Password format is incorrect',
+      );
+    });
+
+    it('should not return an error when password matches the pattern', () => {
+      const authData = { newPassword: 'StrongPassword123', confirmPassword: 'StrongPassword123' };
+      const errors = ValidateNewPassword(authData);
+      expect(errors.newPassword).toBeUndefined();
+      expect(errors.confirmPassword).toBeUndefined();
+    });
+
+    it('should return an error when the two passwords do not match', () => {
+      const authData = { newPassword: 'StrongPassword1234', confirmPassword: 'StrongPassword123' };
+      const errors = ValidateNewPassword(authData);
+      expect(errors.newPassword).toBeUndefined();
+      expect(errors.matchPassword).toBe('Two passwords do not match');
     });
   });
 });
