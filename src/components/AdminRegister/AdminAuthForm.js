@@ -39,13 +39,13 @@ const AdminAuthForm = () => {
   return (
     <div className="authForm" data-testid="AdminAuthForm">
       <div className="authFormLeft">
-        <h1>{isSignUp ? 'Welcome Back' : 'Create Accout'}</h1>
+        <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
         <Link to="/authentication">
           <button>Sign In</button>
         </Link>
       </div>
       <div className="authFormRight">
-        <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
+        <h1>{isSignUp ? 'Create Account' : 'Welcome Back'}</h1>
         <form>
           {isSignUp && (
             <>
@@ -96,7 +96,7 @@ const AdminAuthForm = () => {
           {adminError !== null && (
             <span className="errorDisplay">{adminError}</span>
           )}
-          <button onClick={handleSubmit}>
+          <button className="authButton" onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
           {isSignUp && (

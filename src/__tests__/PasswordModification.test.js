@@ -98,7 +98,7 @@ describe('PasswordModification', () => {
         <Provider store={store}>
           <PasswordModification />
         </Provider>
-      </Router>
+      </Router>,
     );
     const updatePassword = screen.getByTestId('PasswordModification');
     expect(updatePassword).toBeInTheDocument();
@@ -122,7 +122,7 @@ describe('PasswordModification', () => {
         <Provider store={store}>
           <PasswordModification />
         </Provider>
-      </Router>
+      </Router>,
     );
     const oldPasswordInput = screen.getByPlaceholderText('Old Password');
     fireEvent.change(oldPasswordInput, { target: { value: 'oldPassword123' } });

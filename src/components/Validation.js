@@ -94,3 +94,27 @@ export const validateUpdatePassword = authData => {
   }
   return errors;
 };
+
+export const ValidateNewPassword = (authData) => {
+  const errors = {};
+
+  const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+
+  if (authData.newPassword === "") {
+    errors.newPassword = "New Password is required";
+  } else if (!authData.newPassword.match(passwordPattern)) {
+    errors.newPassword = "Password format is incorrect";
+  }
+
+  if (authData.confirmPassword === "") {
+    errors.confirmPassword = "Password Confirmation is required";
+  } else if (!authData.confirmPassword.match(passwordPattern)) {
+    errors.confirmPassword = "Password format is incorrect";
+  }
+  if (authData.confirmPassword !== authData.newPassword) {
+    errors.matchPassword = "Two passwords do not match";
+  }
+  return errors;
+};
+
+// export default Validation;

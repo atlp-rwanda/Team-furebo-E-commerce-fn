@@ -2,27 +2,31 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import disableAccount from "../../redux/actions/DisableAccount";
 
-export default function DisableAccountButton(userData) {
+export default function DisableAccountButton(props) {
     const dispatch = useDispatch();
     const [dismissed, setDismissed] = useState(false);
-    const [updatedData, setUpdatedData] = useState({ isEnabled: userData.isEnabled });
+    const [updatedData, setUpdatedData] = useState({ isEnabled: props.data.currentUserStatus });
   
     const {
       successCondition, userStatus, error, pending,
     } = useSelector(
       (state) => state.disableAccount,
     );
-  
-    const userId = userData.id;
+
+    const userId = props.data.userId
 
     const handleDisableButtonClick = () => {
-        setUpdatedData({ ...updatedData, isEnabled: false });
+        if (props.data.currentUserStatus) {
+            setUpdatedData({ ...updatedData, isEnabled: false });
+        } else {
+            setUpdatedData({ ...updatedData, isEnabled: true });
+        }
         setDismissed(true);
     };
 
     const handleXButtonClick = () => {
         setDismissed(false)
-        setUpdatedData({ ...updatedData, isEnabled: userData.isEnabled });
+        setUpdatedData({ ...updatedData, isEnabled: props.data.currentUserStatus });
     }
   
     const handleSubmit = () => {
@@ -35,7 +39,8 @@ export default function DisableAccountButton(userData) {
                 className="button2"
                 onClick={handleDisableButtonClick}
             >
-                Disable Account
+                {(props.data.currentUserStatus) ? <>Disable Account</> : <>Enable Account</>}
+               
             </button>
             {dismissed && (
                 <div className="popUp">
@@ -44,10 +49,14 @@ export default function DisableAccountButton(userData) {
                             X
                         </div>
                         <div className="confirmation-message">
-                            <p>Are you sure you want to disable this account?</p>
+                            <p>
+                                Are you sure you want to 
+                                {(props.data.currentUserStatus) ? <> disable </> : <> enable </>} 
+                                this account?
+                            </p>
                         </div>
-                        <button onClick={handleSubmit} > Disable Account </button>
-                        {/* <button onClick={() => setDismissed(false)}>Cancel</button> */}
+                        <button style={{backgroundColor: "#2ed47a"}} onClick={handleSubmit}>Confirm</button>
+                        <button onClick={() => setDismissed(false)}>Cancel</button>
                         {pending && <span className="pending">loading...</span>}
                         {successCondition && (
                             <span className="successDisplay">{userStatus.message}</span>

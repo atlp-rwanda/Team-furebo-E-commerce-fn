@@ -27,8 +27,21 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        include: path.resolve(__dirname, 'src'),
-        use: ['style-loader', 'css-loader'],
+        include: [
+          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "node_modules/react-toastify"),
+        ],
+                
+        use: ["style-loader", "css-loader",
+        {
+          loader: "postcss-loader",
+          options: {
+            postcssOptions: {
+              plugins: [require("autoprefixer")],
+            },
+          },
+        },
+      ],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -39,6 +52,16 @@ module.exports = {
       },
     ],
   },
+
+  resolve: {
+    alias: {
+      "react-toastify/dist/ReactToastify.css$": path.resolve(
+        __dirname,
+        "node_modules/react-toastify/dist/ReactToastify.css"
+      ),
+    },
+  },
+
   devServer: {
     historyApiFallback: true,
   },

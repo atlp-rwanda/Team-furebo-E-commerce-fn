@@ -39,6 +39,11 @@ const UserCard = ({ data, handleUsers }) => {
     accountStatus = "Disabled"
   }
 
+  const disableAccountData = {
+    userId: userId,
+    currentUserStatus: data.isEnabled
+  }
+
   return (
     <div className="cardWraper" data-testid="UserCard">
       <div className="cardWraperInner">
@@ -54,7 +59,7 @@ const UserCard = ({ data, handleUsers }) => {
       <div className="cardWraperRight">
         <button className="button1">view full profife</button>
         {/* <button className="button2">Disable Account</button> */}
-        <DisableAccountButton userData={data} />
+        <DisableAccountButton data={disableAccountData} />
         <button
           className="button3"
           onClick={() => {
