@@ -51,7 +51,7 @@ describe('UserCard', () => {
           role: '{ "name": "admin" }',
         }}
         handleUsers={handleUsers}
-      />,
+      />
     );
   });
 
@@ -86,7 +86,7 @@ describe('UserCard', () => {
       { role: 'merchant' },
       1,
       dispatch,
-      handleUsers,
+      handleUsers
     );
   });
 });

@@ -13,10 +13,8 @@ const ProductCard = ({ product }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [quantity, setQuantity] = useState('');
 
-  const {
-    successCondition, productsInfo, error, pending,
-  } = useSelector(
-    (state) => state.cart,
+  const { successCondition, productsInfo, error, pending } = useSelector(
+    state => state.cart
   );
   return (
     <div className="productCrd" data-testid="ProductCard">
@@ -29,38 +27,43 @@ const ProductCard = ({ product }) => {
           <p>{product.name}</p>
         </div>
         <div className="cardHeader2">
-          <p className="price">
-            {product.price}
-            $
-          </p>
+          <p className="price">{product.price}$</p>
           <button onClick={() => setShowPopUp(true)}>add to cart</button>
         </div>
       </div>
       {showPopUp && (
-      <div className="popUp">
-        {pending ? (
-          <div className="loading">
-            <div>loading....</div>
-          </div>
-        ) : (
-          <div className="popUpChild">
-            <span className="span" onClick={() => setShowPopUp(false)}>X</span>
-            <h2>choose quantity</h2>
-            <h2>
-              available quantity
-              <span>{product.quantity}</span>
-            </h2>
-            <input name="quantity" type="number" placeholder="number only" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-            <button onClick={() => {
-              addToCart(quantity, product.id, dispatch, setShowPopUp);
-            }}
-            >
-              add
-
-            </button>
-          </div>
-        )}
-      </div>
+        <div className="popUp">
+          {pending ? (
+            <div className="loading">
+              <div>loading....</div>
+            </div>
+          ) : (
+            <div className="popUpChild">
+              <span className="span" onClick={() => setShowPopUp(false)}>
+                X
+              </span>
+              <h2>choose quantity</h2>
+              <h2>
+                available quantity
+                <span>{product.quantity}</span>
+              </h2>
+              <input
+                name="quantity"
+                type="number"
+                placeholder="number only"
+                value={quantity}
+                onChange={e => setQuantity(e.target.value)}
+              />
+              <button
+                onClick={() => {
+                  addToCart(quantity, product.id, dispatch, setShowPopUp);
+                }}
+              >
+                add
+              </button>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

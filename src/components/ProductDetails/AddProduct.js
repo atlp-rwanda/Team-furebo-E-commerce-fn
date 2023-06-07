@@ -54,12 +54,12 @@ const AddProduct = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const files = Array.from(e.target.files);
     setImage(files);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (validateForm()) {
       try {
@@ -73,7 +73,7 @@ const AddProduct = () => {
             {
               method: 'POST',
               body: formData,
-            },
+            }
           );
           const data = await response.json();
           imageURLs.push(data.secure_url);
@@ -101,7 +101,7 @@ const AddProduct = () => {
       } catch (error) {
         console.error('Error uploading images to Cloudinary:', error);
         setSubmissionMessage(
-          'Failed to submit the form. Please try again later.',
+          'Failed to submit the form. Please try again later.'
         );
       }
     }
@@ -120,7 +120,7 @@ const AddProduct = () => {
                 type="text"
                 id="name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={e => setName(e.target.value)}
                 placeholder="Product Name"
               />
               {errors.name && <span className="error">{errors.name}</span>}
@@ -140,7 +140,7 @@ const AddProduct = () => {
                 type="number"
                 id="price"
                 value={price}
-                onChange={(e) => setPrice(e.target.value)}
+                onChange={e => setPrice(e.target.value)}
                 placeholder="Price"
               />
               {errors.price && <span className="error">{errors.price}</span>}
@@ -153,7 +153,7 @@ const AddProduct = () => {
                 type="number"
                 id="quantity"
                 value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                onChange={e => setQuantity(e.target.value)}
                 placeholder="Quantity"
               />
               {errors.quantity && (
@@ -168,7 +168,7 @@ const AddProduct = () => {
                 type="text"
                 id="category"
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={e => setCategory(e.target.value)}
                 placeholder="Category"
               />
               {errors.category && (
@@ -184,7 +184,7 @@ const AddProduct = () => {
                 data-testid="exDate-input"
                 id="expiredDate"
                 value={exDate}
-                onChange={(e) => setExDate(e.target.value)}
+                onChange={e => setExDate(e.target.value)}
               />
               {errors.exDate && <span className="error">{errors.exDate}</span>}
             </div>

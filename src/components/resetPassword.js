@@ -22,21 +22,19 @@ const ResetPasswordForm = () => {
   const [emailData, setEmailData] = useState({ email: '' });
   const [email, setEmail] = useState('');
 
-  const {
-    successCondition, userInfo, error, pending,
-  } = useSelector(
-    (state) => state.resetPassword,
+  const { successCondition, userInfo, error, pending } = useSelector(
+    state => state.resetPassword
   );
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setEmailData({ ...emailData, [e.target.name]: e.target.value });
   };
 
-  const handleValidationEmail = (e) => {
+  const handleValidationEmail = e => {
     setErrors(ValidateEmail(emailData));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     resetPassword(emailData, dispatch);
   };

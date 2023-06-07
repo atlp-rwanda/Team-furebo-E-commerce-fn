@@ -34,7 +34,7 @@ describe('EmailVerify', () => {
         <MemoryRouter initialEntries={[`/email-verify/${mockParams.token}`]}>
           <EmailVerify />
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     const loadingMessage = screen.getByText('404 Not Found');
@@ -59,7 +59,7 @@ describe('EmailVerify', () => {
         <MemoryRouter initialEntries={[`/email-verify/${mockParams.token}`]}>
           <EmailVerify />
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     const notFoundMessage = screen.getByText('404 Not Found');

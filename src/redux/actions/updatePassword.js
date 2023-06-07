@@ -11,10 +11,10 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-API.interceptors.request.use((req) => {
+API.interceptors.request.use(req => {
   if (localStorage.getItem('currentUser')) {
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token
-    }`;
+      }`;
   }
   return req;
 });
@@ -22,7 +22,7 @@ API.interceptors.request.use((req) => {
 const ModifyPassword = async (authData, params, dispatch) => {
   dispatch(updatePassword());
   try {
-    const res = await API.patch(`/modify-password/${params.id}`, authData);
+    const res = await API.patch('/modify-password', authData);
     dispatch(updatePasswordSuccess(res.data));
 
     setTimeout(() => {

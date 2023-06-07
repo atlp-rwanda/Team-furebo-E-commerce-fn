@@ -21,7 +21,10 @@ import '../../css/NavbarStyles/Navbar.css';
 import '../../css/NotificationStyles/NotificationStyles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import fetchNotifications from '../../redux/actions/userProfile/FetchNotification';
-import { markNotifications, markAllNotifications } from '../../redux/actions/markNotifications/MarkNotifications';
+import {
+  markNotifications,
+  markAllNotifications,
+} from '../../redux/actions/markNotifications/MarkNotifications';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -36,9 +39,11 @@ const Navbar = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
 
-  const { userInfo } = useSelector((state) => state.user);
+  const { userInfo } = useSelector(state => state.user);
 
-  const currentUserRole = userInfo?.userData?.role ? JSON.parse(userInfo.userData.role) : null;
+  const currentUserRole = userInfo?.userData?.role
+    ? JSON.parse(userInfo.userData.role)
+    : null;
   const [data, setData] = useState({ isRead: true });
 
   const handleMenu = () => {
@@ -119,23 +124,20 @@ const Navbar = () => {
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            pages
-            {' '}
+            pages{' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
             {pageRotate && (
               <div className="newPageRotate">
-                {currentUserRole && currentUserRole.name === 'admin' && <Link className="link" to="/dashboard"><li>dashboard</li></Link>}
-                <Link className="link" to="/products">
-                  <div>Product</div>
-                </Link>
-                {currentUserRole && currentUserRole.name === 'merchant'
-                && (
-                <>
+                {currentUserRole && currentUserRole.name === 'admin' && (
+                  <Link className="link" to="/dashboard">
+                    <li>dashboard</li>
+                  </Link>
+                )}
+                <li>Product</li>
+                {currentUserRole && currentUserRole.name === 'merchant' && (
                   <li>collection</li>
-                  <Link className="link" to="/addproduct"><li>addProduct</li></Link>
-                </>
                 )}
               </div>
             )}
@@ -147,35 +149,51 @@ const Navbar = () => {
         </li>
       </ul>
       {userInfo && userInfo.userData && (
-      <div className="notification-panel" data-testid="notificationPanel">
-        <li>
-          <div className="notification-bell">
-            <IoMdNotifications data-testid="counterTest" onClick={handleNotification} />
-            {notificationCount > 0 && <span className="counter">{notificationCount}</span>}
-          </div>
-
-        </li>
-        <div>
-          {showNotification && (
-          <div className="dropdown-menu">
-            <div className="notification-title">
-              Notification
-              <span onClick={MarkAllAsRead}><BsCheck2All /></span>
+        <div className="notification-panel" data-testid="notificationPanel">
+          <li>
+            <div className="notification-bell">
+              <IoMdNotifications
+                data-testid="counterTest"
+                onClick={handleNotification}
+              />
+              {notificationCount > 0 && (
+                <span className="counter">{notificationCount}</span>
+              )}
             </div>
-            <hr />
-            {notifications.length > 0 ? (
-              notifications.map((notification) => (
-                <span onClick={() => markNotifications(notification.id, data, dispatch)} className={notification.isRead === true ? 'notification-card2' : 'notification-card'} key={notification.id}>{notification.message}</span>
-              ))
-            ) : (
-              <span>No notifications</span>
+          </li>
+          <div>
+            {showNotification && (
+              <div className="dropdown-menu">
+                <div className="notification-title">
+                  Notification
+                  <span onClick={MarkAllAsRead}>
+                    <BsCheck2All />
+                  </span>
+                </div>
+                <hr />
+                {notifications.length > 0 ? (
+                  notifications.map(notification => (
+                    <span
+                      onClick={() =>
+                        markNotifications(notification.id, data, dispatch)
+                      }
+                      className={
+                        notification.isRead === true
+                          ? 'notification-card2'
+                          : 'notification-card'
+                      }
+                      key={notification.id}
+                    >
+                      {notification.message}
+                    </span>
+                  ))
+                ) : (
+                  <span>No notifications</span>
+                )}
+              </div>
             )}
           </div>
-          )}
         </div>
-
-      </div>
-
       )}
 
       <div className="searchIcon">
@@ -198,7 +216,9 @@ const Navbar = () => {
           <GrLanguage />
         </div>
         <div className="cart">
-          <FaShoppingCart />
+          <Link to="/view-cart" className="profile-link">
+            <FaShoppingCart />
+          </Link>
         </div>
         <div className="profile">
           <FaUserAlt data-testid="profile-button" onClick={handleProfile} />
@@ -217,12 +237,13 @@ const Navbar = () => {
                   <div className="welcome-name">
                     welcome &nbsp;
                     <span className="name">
-                      {`${userInfo.userData.fullname.split(' ')[0]
-                      }`}
+                      {`${userInfo.userData.fullname.split(' ')[0]}`}
                     </span>
                   </div>
                   <hr />
-                  <Link to="/view-basic" className="profile-link">Profile</Link>
+                  <Link to="/view-basic" className="profile-link">
+                    Profile
+                  </Link>
                   <button className="logoutButton">Logout</button>
                 </>
               )}
@@ -230,18 +251,28 @@ const Navbar = () => {
           )}
         </div>
         {!menu ? (
-          <HiMenuAlt2 data-testid="menu-button" className="MenuBar" onClick={handleMenu} />
+          <HiMenuAlt2
+            data-testid="menu-button"
+            className="MenuBar"
+            onClick={handleMenu}
+          />
         ) : (
-          <RxCross2 data-testid="menu-open-indicator" className="MenuBar" onClick={handleMenu} />
+          <RxCross2
+            data-testid="menu-open-indicator"
+            className="MenuBar"
+            onClick={handleMenu}
+          />
         )}
       </div>
       {menu && (
         <div className="NavSideBar">
           {userInfo && userInfo.userData && (
             <li onClick={handleRotate} data-testid="pages">
-              pages
-              {' '}
-              <IoIosArrowBack data-testid="arrowLeft" className={rotate ? 'arrowLeft' : 'arrowRight'} />
+              pages{' '}
+              <IoIosArrowBack
+                data-testid="arrowLeft"
+                className={rotate ? 'arrowLeft' : 'arrowRight'}
+              />
             </li>
           )}
           <li onClick={handleCRotate}>
@@ -252,16 +283,14 @@ const Navbar = () => {
       )}
       {pageMenu && (
         <div className="newNavSideBar">
-          {currentUserRole && currentUserRole.name === 'admin' && <Link className="link" to="/dashboard"><li>dashboard</li></Link>}
-          <Link className="link" to="/products">
-            <div>Product</div>
-          </Link>
-          {currentUserRole && currentUserRole.name === 'merchant'
-          && (
-            <>
-              <li>collection</li>
-              <Link className="link" to="/addproduct"><li>addProduct</li></Link>
-            </>
+          {currentUserRole && currentUserRole.name === 'admin' && (
+            <Link className="link" to="/dashboard">
+              <li>dashboard</li>
+            </Link>
+          )}
+          <li>Product</li>
+          {currentUserRole && currentUserRole.name === 'merchant' && (
+            <li>collection</li>
           )}
         </div>
       )}

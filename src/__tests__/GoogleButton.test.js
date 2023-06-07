@@ -13,7 +13,7 @@ describe('GoogleButton tests', () => {
         <Provider store={store}>
           <GoogleButton />
         </Provider>
-      </Router>,
+      </Router>
     );
     const googleButton = screen.getByTestId('googleButton');
     expect(googleButton).toBeInTheDocument();

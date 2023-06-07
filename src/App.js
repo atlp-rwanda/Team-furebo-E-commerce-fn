@@ -19,6 +19,7 @@ import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
 import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
 import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
+import ViewCartItemsPage from './pages/Cart/ViewCartItemsPage';
 
 const Layout = () => (
   <>
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <ProductPage />,
+      },
+      {
+        path: '/view-cart',
+        element: <ViewCartItemsPage />,
       },
     ],
   },

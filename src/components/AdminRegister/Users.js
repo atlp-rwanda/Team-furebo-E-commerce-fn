@@ -9,10 +9,8 @@ import UserCard from './UserCard';
 const Users = ({ handleUsers }) => {
   const dispatch = useDispatch();
   const [users, setUsers] = useState([]);
-  const {
-    successCondition, error, pending,
-  } = useSelector(
-    (state) => state.allUsers,
+  const { successCondition, error, pending } = useSelector(
+    state => state.allUsers
   );
 
   useEffect(() => {
@@ -27,9 +25,11 @@ const Users = ({ handleUsers }) => {
   return (
     <div className="userContainer" data-testid="Users">
       <h1>Users</h1>
-      {pending ? (<div className="loading">loading...</div>) : (
+      {pending ? (
+        <div className="loading">loading...</div>
+      ) : (
         <div className="containerUsr">
-          {users?.map((user) => (
+          {users?.map(user => (
             <UserCard key={user.id} data={user} handleUsers={handleUsers} />
           ))}
         </div>
