@@ -41,7 +41,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
     const authForm = screen.getByTestId('AuthForm');
     expect(authForm).toBeInTheDocument();
@@ -53,7 +53,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const switchButton = screen.getByText('Sign Up');
@@ -73,7 +73,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const signUpButton = screen.getByText('Sign Up');
@@ -94,7 +94,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const signInButton = screen.getByText('Sign In');

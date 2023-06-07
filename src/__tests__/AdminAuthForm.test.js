@@ -40,7 +40,7 @@ describe('AdminAuthForm TESTS', () => {
         <Provider store={store}>
           <AdminAuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
     const adminAuthForm = screen.getByTestId('AdminAuthForm');
     expect(adminAuthForm).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe('AdminAuthForm TESTS', () => {
         <Provider store={store}>
           <AdminAuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const switchButton = screen.getByText('Sign Up');
@@ -72,7 +72,7 @@ describe('AdminAuthForm TESTS', () => {
         <Provider store={store}>
           <AdminAuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const signUpButton = screen.getByText('Sign Up');
@@ -93,7 +93,7 @@ describe('AdminAuthForm TESTS', () => {
         <Provider store={store}>
           <AdminAuthForm />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const signInButton = screen.getByText('Sign In');

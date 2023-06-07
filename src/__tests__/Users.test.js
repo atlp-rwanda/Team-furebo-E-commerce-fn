@@ -14,7 +14,7 @@ describe('Users TESTS', () => {
         <Provider store={store}>
           <Users />
         </Provider>
-      </Router>,
+      </Router>
     );
     const users = screen.getByTestId('Users');
     expect(users).toBeInTheDocument();

@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  render, screen, fireEvent, waitFor,
-} from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
@@ -15,7 +13,7 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <ResetPasswordform />
         </Provider>
-      </Router>,
+      </Router>
     );
     expect(screen.getByPlaceholderText('Email')).toBeInTheDocument();
     const resetPassword = screen.getByTestId('Resetpasswordform');
@@ -32,7 +30,7 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <ResetPasswordform />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const emailInput = screen.getByPlaceholderText('Email');
@@ -49,12 +47,14 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <ResetPasswordform />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     // Fill in the email input
     const emailInput = screen.getByPlaceholderText('Email');
-    fireEvent.change(emailInput, { target: { value: 'validemail@example.com' } });
+    fireEvent.change(emailInput, {
+      target: { value: 'validemail@example.com' },
+    });
 
     // Submit the form
     const submitButton = screen.getByText('Submit');
@@ -72,9 +72,11 @@ describe('NewPasswordform TESTS', () => {
       <Router>
         <div className="authFormLeft">
           <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
-          <button onClick={() => navigate('/authentication')}>{isSignUp ? 'Sign In' : 'Sign Up'}</button>
+          <button onClick={() => navigate('/authentication')}>
+            {isSignUp ? 'Sign In' : 'Sign Up'}
+          </button>
         </div>
-      </Router>,
+      </Router>
     );
 
     const button = screen.getByText(isSignUp ? 'Sign In' : 'Sign Up');

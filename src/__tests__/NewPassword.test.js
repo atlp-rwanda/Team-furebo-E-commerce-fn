@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  render, screen, fireEvent, waitFor,
-} from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
@@ -33,7 +31,7 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>,
+      </Router>
     );
     expect(screen.getByPlaceholderText('New Password')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Confirm Password')).toBeInTheDocument();
@@ -50,7 +48,7 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     const emailInput = screen.getByPlaceholderText('New Password');
@@ -71,12 +69,14 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>,
+      </Router>
     );
 
     await waitFor(() => {
       expect(screen.getByPlaceholderText('New Password')).toBeInTheDocument();
-      expect(screen.getByPlaceholderText('Confirm Password')).toBeInTheDocument();
+      expect(
+        screen.getByPlaceholderText('Confirm Password')
+      ).toBeInTheDocument();
     });
 
     // Fill in the passwords input
@@ -100,13 +100,16 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>,
+      </Router>
     );
     const newPasswordInput = screen.getByPlaceholderText('New Password');
     fireEvent.change(newPasswordInput, { target: { value: 'newPassword123' } });
 
-    const confirmPasswordInput = screen.getByPlaceholderText('Confirm Password');
-    fireEvent.change(confirmPasswordInput, { target: { value: 'newPassword123' } });
+    const confirmPasswordInput =
+      screen.getByPlaceholderText('Confirm Password');
+    fireEvent.change(confirmPasswordInput, {
+      target: { value: 'newPassword123' },
+    });
     expect(newPasswordInput.value).toBe('newPassword123');
     expect(confirmPasswordInput.value).toBe('newPassword123');
   });
@@ -118,9 +121,11 @@ describe('NewPasswordform TESTS', () => {
       <Router>
         <div className="authFormLeft">
           <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
-          <button onClick={() => navigate('/authentication')}>{isSignUp ? 'Sign In' : 'Sign Up'}</button>
+          <button onClick={() => navigate('/authentication')}>
+            {isSignUp ? 'Sign In' : 'Sign Up'}
+          </button>
         </div>
-      </Router>,
+      </Router>
     );
 
     const button = screen.getByText(isSignUp ? 'Sign In' : 'Sign Up');

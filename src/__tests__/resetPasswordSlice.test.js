@@ -34,7 +34,10 @@ describe('resetPasswordSlice', () => {
 
   it('should handle requestPasswordResetSuccess', () => {
     const payload = { email: 'bstwagir@mtu.edu' };
-    const nextState = userReducer(initialState, requestPasswordResetSuccess(payload));
+    const nextState = userReducer(
+      initialState,
+      requestPasswordResetSuccess(payload)
+    );
 
     expect(nextState.successCondition).toBe(true);
     expect(nextState.pending).toBe(false);
@@ -43,7 +46,10 @@ describe('resetPasswordSlice', () => {
 
   it('should handle requestPasswordResetFailure with error message', () => {
     const payload = 'An error occurred.';
-    const nextState = userReducer(initialState, requestPasswordResetFailure(payload));
+    const nextState = userReducer(
+      initialState,
+      requestPasswordResetFailure(payload)
+    );
 
     expect(nextState.error.condition).toBe(true);
     expect(nextState.error.message).toEqual(payload);
@@ -52,7 +58,10 @@ describe('resetPasswordSlice', () => {
 
   it('should handle requestPasswordResetFailure with empty error message', () => {
     const payload = {};
-    const nextState = userReducer(initialState, requestPasswordResetFailure(payload));
+    const nextState = userReducer(
+      initialState,
+      requestPasswordResetFailure(payload)
+    );
 
     expect(nextState.error.condition).toBe(true);
     expect(nextState.error.message).toEqual(payload);
