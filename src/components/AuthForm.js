@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -29,13 +27,11 @@ const AuthForm = () => {
     password: '',
   });
 
-  const {
-    successCondition, userInfo, error, pending,
-  } = useSelector(
-    (state) => state.user,
+  const { successCondition, userInfo, error, pending } = useSelector(
+    state => state.user
   );
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
@@ -55,7 +51,7 @@ const AuthForm = () => {
     setErrors(ValidatePassword(authData));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (isSignUp) {
@@ -66,11 +62,14 @@ const AuthForm = () => {
 
     // signUp(authData, dispatch);
   };
+  const handleResetPassword = () => {
+    navigate('/requestResetPassword');
+  };
 
   return (
     <div className="authForm" data-testid="AuthForm">
       <div className="authFormLeft">
-        <h1>{isSignUp ? 'Welcome Back' : 'Create Accout'}</h1>
+        <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
         <button onClick={() => setIsSignUp(!isSignUp)}>
           {isSignUp ? 'Sign In' : 'Sign Up'}
         </button>
@@ -137,7 +136,7 @@ const AuthForm = () => {
           {error.condition && (
             <span className="errorDisplay">{error.message}</span>
           )}
-          <button onClick={handleSubmit}>
+          <button className="authButton" onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
           <GoogleButton />
@@ -146,6 +145,19 @@ const AuthForm = () => {
               <span>register as admin</span>
             </Link>
           )}
+          <p
+            className="mt-4 text-right"
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+          >
+            {!isSignUp && (
+              <>
+                <span>Forgot Password? </span>
+                <button className="link" onClick={handleResetPassword}>
+                  Reset it
+                </button>
+              </>
+            )}
+          </p>
         </form>
       </div>
     </div>

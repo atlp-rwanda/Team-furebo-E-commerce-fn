@@ -7,45 +7,64 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AdminSignUp from '../../redux/actions/AdminSignup';
-import '../../css/AuthStyles/Auth.css';
 
 const AdminAuthForm = () => {
+  const AdminCode = '5020';
   const dispatch = useDispatch();
-  const [isSignUp, setIsSignUp] = useState(true);
+  const [isSignUp, setIsSignUp] = useState(false);
   const [adminError, setAdminError] = useState(null);
   const [authData, setAuthData] = useState({
     firstname: '',
     lastname: '',
     email: '',
     password: '',
-    adminCode: '',
   });
 
-  const {
-    successCondition, userInfo, error, pending,
-  } = useSelector(
-    (state) => state.user,
+  const [adminCode, setAdminCode] = useState({ code: '' });
+
+  const { successCondition, userInfo, error, pending } = useSelector(
+    state => state.user
   );
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    AdminSignUp(authData, dispatch, setAuthData);
+
+    if (adminCode.code === AdminCode) {
+      AdminSignUp(authData, dispatch);
+    } else {
+      setAdminError('You are not allowed to register as admin');
+
+      setTimeout(() => {
+        setAdminError(null);
+      }, [2000]);
+    }
   };
+
+  //   const checkPermission = (e) => {
+  //     e.preventDefault();
+
+  //     if (authData.code === AdminCode) {
+  //     //   handleSubmit();
+  //       console.log('access granted');
+  //     } else {
+  //       console.log('You are not allowed to register as admin');
+  //     }
+  //   };
 
   return (
     <div className="authForm" data-testid="AdminAuthForm">
       <div className="authFormLeft">
         <h1>{isSignUp ? 'Welcome Back' : 'Create Accout'}</h1>
-        <Link to="/authentication">
-          <button>Sign In</button>
-        </Link>
+        <button onClick={() => setIsSignUp(!isSignUp)}>
+          {isSignUp ? 'Sign In' : 'Sign Up'}
+        </button>
       </div>
       <div className="authFormRight">
-        <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
+        <h1>{isSignUp ? 'Create Account' : 'Welcome Back'}</h1>
         <form>
           {isSignUp && (
             <>
@@ -80,11 +99,11 @@ const AdminAuthForm = () => {
             onChange={handleChange}
           />
           <input
-            name="adminCode"
+            name="code"
             type="number"
             placeholder="AdminCode"
-            value={authData.adminCode}
-            onChange={handleChange}
+            value={adminCode.code}
+            onChange={e => setAdminCode({ ...adminCode, code: e.target.value })}
           />
           <span className="pending">{pending ? 'loading...' : null}</span>
           {successCondition && (
@@ -96,7 +115,7 @@ const AdminAuthForm = () => {
           {adminError !== null && (
             <span className="errorDisplay">{adminError}</span>
           )}
-          <button onClick={handleSubmit}>
+          <button className="authButton" onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
           {isSignUp && (

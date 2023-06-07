@@ -12,19 +12,19 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-API.interceptors.request.use((req) => {
+API.interceptors.request.use(req => {
   if (localStorage.getItem('currentUser')) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem('currentUser')).token
-    }`;
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token
+      }`;
   }
   return req;
 });
 
-const fetchUsers = async (dispatch) => {
+const fetchUsers = async dispatch => {
   dispatch(updateStart());
   try {
     const res = await API.get('/fetchUsers');
+    console.log(res);
 
     dispatch(updateSuccess(res.data));
 

@@ -1,0 +1,79 @@
+body {
+  background-color: #fff;
+}
+
+.user-essential-info-container {
+  width: 80%;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+}
+.user-essential-info-container .acc-info-title {
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+.user-essential-info-container .user-essential-info {
+  display: flex;
+  gap: 10px;
+}
+.user-essential-info-container .user-essential-info .essential-info,
+.user-essential-info-container .user-essential-info .home-address {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.user-essential-info-container .user-essential-info .user-field {
+  margin-bottom: 5px;
+  background-color: rgba(241, 241, 241, 0.763);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.user-essential-info-container .user-essential-info .user-field label,
+.user-essential-info-container .user-essential-info .user-field span {
+  border-left: 2px solid rgb(23, 133, 122);
+  padding-left: 3px;
+  margin-left: 5px;
+}
+.user-essential-info-container .user-essential-info .user-field label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+.user-essential-info-container .user-essential-info .user-field span {
+  color: #333;
+  border-left: 2px solid rgb(23, 133, 122);
+  padding-left: 3px;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: rgb(23, 133, 122);
+}
+.user-essential-info-container .btn-submit {
+  background-color: rgba(63, 166, 63, 0.703);
+}
+.user-essential-info-container .update-essential-user-info {
+  color: rgba(24, 87, 159, 0.784);
+  background-color: transparent;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: none;
+  border-color: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.user-essential-info-container .update-essential-user-info:hover {
+  background-color: rgba(35, 82, 124, 0.1098039216);
+}
+.user-essential-info-container .user-essential-info-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=View-Essential-info.css.map */
