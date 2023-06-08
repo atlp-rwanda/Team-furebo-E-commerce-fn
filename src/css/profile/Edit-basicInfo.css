@@ -26,8 +26,8 @@
   font-size: 16px;
   color: #333;
 }
-.user-profile-container .edit-user-profile .user-field input[type=text],
-.user-profile-container .edit-user-profile .user-field input[type=email] {
+.user-profile-container .edit-user-profile .user-field input[type='text'],
+.user-profile-container .edit-user-profile .user-field input[type='email'] {
   border: 1px solid rgb(23, 133, 122);
   border: 1px solid rgb(23, 133, 122);
   border-radius: 6px;

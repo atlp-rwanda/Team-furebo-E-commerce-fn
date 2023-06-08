@@ -6,7 +6,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdOutlineDashboard } from 'react-icons/md';
 import {
-  BsFillMenuAppFill, BsChatSquare, BsBorderStyle, BsLayoutSidebarInset,
+  BsFillMenuAppFill,
+  BsChatSquare,
+  BsBorderStyle,
+  BsLayoutSidebarInset,
 } from 'react-icons/bs';
 import { AiOutlineUser, AiOutlineSearch } from 'react-icons/ai';
 import { GiSettingsKnobs } from 'react-icons/gi';
@@ -99,8 +102,7 @@ const DashBoard = () => {
     <div className="Dashboard" data-testid="DashBoard">
       <div className={show ? 'dashBoardMenu' : 'dashBoardMenuSmall'}>
         <div className="Header">
-          <span className={show ? 'show' : 'hidden'}>E-commerce Admin</span>
-          {' '}
+          <span className={show ? 'show' : 'hidden'}>E-commerce Admin</span>{' '}
           <HiMenuAlt2 className="menu1" onClick={handleShow} />
         </div>
         <hr />
@@ -113,13 +115,11 @@ const DashBoard = () => {
         </div>
         <div className="dashBoard-listing">
           <li onClick={handleDashboard}>
-            <MdOutlineDashboard />
-            {' '}
+            <MdOutlineDashboard />{' '}
             <span className={show ? 'show' : 'hidden'}>DashBoard</span>
           </li>
           <li onClick={handleUsers}>
-            <BsFillMenuAppFill />
-            {' '}
+            <BsFillMenuAppFill />{' '}
             <span className={show ? 'show' : 'hidden'}>Users</span>
           </li>
           <li onClick={handleMerchant}>
@@ -159,12 +159,36 @@ const DashBoard = () => {
           <input placeholder="Search for a user" />
           <IoMdNotificationsOutline />
         </div>
-        {isDashboard && <div><Dashboard /></div>}
-        {isUsers && <div className="usersContainer"><Users handleUsers={handleUsers} /></div>}
-        {isMerchant && <div><Merchant /></div>}
-        {isCustomer && <div><Customers /></div>}
-        {isCharts && <div><Charts /></div>}
-        {isOrders && <div><Orders /></div>}
+        {isDashboard && (
+          <div>
+            <Dashboard />
+          </div>
+        )}
+        {isUsers && (
+          <div className="usersContainer">
+            <Users handleUsers={handleUsers} />
+          </div>
+        )}
+        {isMerchant && (
+          <div>
+            <Merchant />
+          </div>
+        )}
+        {isCustomer && (
+          <div>
+            <Customers />
+          </div>
+        )}
+        {isCharts && (
+          <div>
+            <Charts />
+          </div>
+        )}
+        {isOrders && (
+          <div>
+            <Orders />
+          </div>
+        )}
       </div>
     </div>
   );

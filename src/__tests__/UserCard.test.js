@@ -42,12 +42,17 @@ describe('UserCard', () => {
       pending: false,
     });
     useNavigate.mockReturnValue(mockedUseNavigate);
-    render(<UserCard
-      data={{
-        id: 1, fullname: 'John Doe', email: 'john@example.com', role: '{ "name": "admin" }',
-      }}
-      handleUsers={handleUsers}
-    />);
+    render(
+      <UserCard
+        data={{
+          id: 1,
+          fullname: 'John Doe',
+          email: 'john@example.com',
+          role: '{ "name": "admin" }',
+        }}
+        handleUsers={handleUsers}
+      />
+    );
   });
 
   afterEach(() => {
@@ -77,6 +82,11 @@ describe('UserCard', () => {
     fireEvent.click(screen.getByLabelText('Merchant:'));
     fireEvent.click(screen.getByRole('button', { name: /Update/ }));
 
-    expect(setRolesMock).toHaveBeenCalledWith({ role: 'merchant' }, 1, dispatch, handleUsers);
+    expect(setRolesMock).toHaveBeenCalledWith(
+      { role: 'merchant' },
+      1,
+      dispatch,
+      handleUsers
+    );
   });
 });

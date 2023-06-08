@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { act } from 'react-dom/test-utils';
+
 import Message from '../../components/UserInfo/Message';
 import {
   fetchUserProfile,
@@ -35,7 +37,9 @@ const EditUserEssentialInfoPage = () => {
     try {
       const fetchedUserProfile = await fetchUserProfile();
 
-      setUserProfile(fetchedUserProfile);
+      act(() => {
+        setUserProfile(fetchedUserProfile);
+      });
     } catch (error) {
       // Handle error
     }
@@ -56,8 +60,10 @@ const EditUserEssentialInfoPage = () => {
     try {
       await updateUserProfile(userProfile);
 
-      setMessage('User profile updated successfully!');
-      setIsSuccess(true);
+      act(() => {
+        setMessage('User profile updated successfully!');
+        setIsSuccess(true);
+      });
 
       setTimeout(() => {
         navigate('/view-essential');
@@ -69,7 +75,10 @@ const EditUserEssentialInfoPage = () => {
   };
 
   return (
-    <div data-testid="editEssentialPage" className="user-essential-info-container">
+    <div
+      data-testid="editEssentialPage"
+      className="user-essential-info-container"
+    >
       <h1 className="acc-info-title">Edit Account's Essential Information</h1>
       <form onSubmit={handleSubmit}>
         {message && <Message message={message} isSuccess={isSuccess} />}
@@ -87,6 +96,7 @@ const EditUserEssentialInfoPage = () => {
           phoneNumber={userProfile.phoneNumber}
           profileImage={userProfile.profileImage}
           onChange={handleChange}
+          onSubmit={handleSubmit}
         />
         <button className="btn btn-submit" type="submit">
           UPDATE

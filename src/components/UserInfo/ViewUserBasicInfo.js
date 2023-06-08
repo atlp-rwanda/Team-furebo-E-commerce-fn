@@ -25,8 +25,8 @@ const ViewUserBasicInfo = ({ profileData, profileImage }) => (
                 <img
                   id="profileImage"
                   src={
-                  profileImage ? profileImage.profileImage : PlaceholderImage
-                }
+                    profileImage ? profileImage.profileImage : PlaceholderImage
+                  }
                   alt="Profile Image"
                   className="profile-image"
                 />
@@ -59,7 +59,6 @@ const ViewUserBasicInfo = ({ profileData, profileImage }) => (
               <label htmlFor="email">Email</label>
               <span id="email">{profileData.email}</span>
             </div>
-
           </div>
         </div>
 
@@ -72,10 +71,6 @@ const ViewUserBasicInfo = ({ profileData, profileImage }) => (
             Add your essential information
           </Link>
         )}
-        {/*
-        <Link to="/update-basic" className="update-basic-user-info">
-          Update your basic information
-        </Link> */}
       </div>
     )}
   </div>

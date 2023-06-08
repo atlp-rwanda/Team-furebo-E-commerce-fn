@@ -9,7 +9,7 @@ import {
 } from '../slices/signupSlice';
 
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:5002/api',
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
 const signIn = async (authData, dispatch, navigate, setAuthData) => {

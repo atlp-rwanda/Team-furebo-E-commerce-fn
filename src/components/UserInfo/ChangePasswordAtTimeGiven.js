@@ -20,11 +20,12 @@ const ChangePasswordAtTimeGiven = () => {
   }, []);
   if (isExpired) {
     return (
-      <div data-testid="ChangePasswordAtTimeGiven" className="password-expiration-message">
-        Your password has expired,  Please
-        {' '}
-        <Link to="/changepassword">change your password</Link>
-        .
+      <div
+        data-testid="ChangePasswordAtTimeGiven"
+        className="password-expiration-message"
+      >
+        Your password has expired, Please{' '}
+        <Link to="/changepassword">change your password</Link>.
       </div>
     );
   }

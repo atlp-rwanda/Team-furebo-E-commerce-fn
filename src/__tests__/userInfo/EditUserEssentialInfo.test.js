@@ -24,7 +24,7 @@ describe('TEST EDITING ESSENTIAL INFORMATION', () => {
           onChange={() => {}}
           onSubmit={() => {}}
         />
-      </Router>,
+      </Router>
     );
 
     // Ensure the target element is present in the rendered component

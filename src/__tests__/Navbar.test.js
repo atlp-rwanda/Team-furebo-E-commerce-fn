@@ -1,13 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  render, screen, fireEvent, waitFor,
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  within,
+  getByTestId,
+  act,
 } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 
 import Navbar from '../components/NavBar/Navbar';
+import fetchNotifications from '../redux/actions/userProfile/FetchNotification';
 
 jest.mock('../redux/actions/userProfile/FetchNotification', () => ({
   __esModule: true,
@@ -122,11 +129,13 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
 
-
+    await waitFor(async () => {
+      expect(fetchNotifications).toHaveBeenCalled();
+    }, {
+      timeout: 10000,
+    });
   });
-  
-
 });

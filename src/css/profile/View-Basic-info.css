@@ -22,38 +22,66 @@
   border-radius: 5px;
   padding: 10px;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .Edit-basic-user-info {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .Edit-basic-user-info {
   display: flex;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .user-image {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .user-image {
   display: flex;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .user-image .profile-image {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .user-image
+  .profile-image {
   width: 250px;
   height: 250px;
   margin: 5px;
   border-radius: 50%;
   object-fit: cover;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .message-join {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .message-join {
   display: flex;
   justify-content: center;
   background-color: rgba(35, 82, 124, 0.1098039216);
   align-items: center;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .edit-message {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .edit-message {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   padding-bottom: 10px;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .edit-message #edit-icon {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .edit-message
+  #edit-icon {
   margin-left: 5px;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .edit-message #envelop-icon {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .edit-message
+  #envelop-icon {
   font-size: 24px;
 }
-.user-profile-container .view-user-profile .user-profile-image-container .edit-message #envelop-icon:hover {
+.user-profile-container
+  .view-user-profile
+  .user-profile-image-container
+  .edit-message
+  #envelop-icon:hover {
   color: #23527c;
 }
 .user-profile-container .view-user-profile hr {
@@ -79,7 +107,11 @@
   padding-left: 3px;
   margin-left: 5px;
 }
-.user-profile-container .view-user-profile .user-profile-info .user-field label {
+.user-profile-container
+  .view-user-profile
+  .user-profile-info
+  .user-field
+  label {
   font-weight: bold;
   font-size: 16px;
   color: #333;
@@ -99,7 +131,7 @@
   background-color: transparent;
   padding: 10px 15px;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   border-radius: 5px;
   text-decoration: none;

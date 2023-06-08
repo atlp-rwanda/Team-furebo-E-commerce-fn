@@ -24,7 +24,7 @@ describe('TEST EDITING BASIC INFORMATION', () => {
           handleLastNameChange={handleLastNameChange}
           handleEmailChange={handleEmailChange}
         />
-      </Router>,
+      </Router>
     );
   });
 });

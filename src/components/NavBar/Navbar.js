@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable linebreak-style */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/button-has-type */
@@ -6,22 +7,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaShoppingCart, FaUserAlt, FaSearch } from 'react-icons/fa';
 import { GrLanguage } from 'react-icons/gr';
+import { BsCheck2All } from 'react-icons/bs';
 import { IoIosArrowBack, IoMdNotifications } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
-import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
-import { toast, ToastContainer } from 'react-toastify';
+import { MdOutlineKeyboardArrowUp, MdDelete } from 'react-icons/md';
 import { HiMenuAlt2 } from 'react-icons/hi';
-import io from 'socket.io-client';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import '../../css/NavbarStyles/Navbar.css';
 import '../../css/NotificationStyles/NotificationStyles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import fetchNotifications from '../../redux/actions/userProfile/FetchNotification';
+import { markNotifications, markAllNotifications } from '../../redux/actions/markNotifications/MarkNotifications';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const [menu, setMenu] = useState(false);
   const [pageRotate, setPageRotate] = useState(false);
   const [pageMenu, setPageMenu] = useState(false);
@@ -36,6 +39,8 @@ const Navbar = () => {
   const { userInfo } = useSelector((state) => state.user);
 
   const currentUserRole = userInfo?.userData?.role ? JSON.parse(userInfo.userData.role) : null;
+  const [data, setData] = useState({ isRead: true });
+
   const handleMenu = () => {
     setMenu(!menu);
     setPageMenu(false);
@@ -63,7 +68,7 @@ const Navbar = () => {
     setSearchIcon(false);
   };
 
-  const handleSearch = () => {
+  const handleSeach = () => {
     setSearchIcon(!searchIcon);
     setMenu(false);
     setPageMenu(false);
@@ -72,6 +77,11 @@ const Navbar = () => {
   const handleNotification = () => {
     setShowNotification(!showNotification);
   };
+
+  const MarkAllAsRead = () => {
+    markAllNotifications(data, dispatch);
+  };
+
   useEffect(() => {
     const getNotifications = async () => {
       try {
@@ -85,17 +95,21 @@ const Navbar = () => {
 
     getNotifications();
   });
+
   const [lastNotification, setLastNotification] = useState(null);
 
   useEffect(() => {
     if (notifications.length > 0) {
       const newNotification = notifications[notifications.length - 1];
-      if (newNotification !== lastNotification) {
+
+      if (newNotification !== lastNotification && lastNotification !== null) {
         toast.info(newNotification.message);
+        setLastNotification(newNotification);
+      } else {
         setLastNotification(newNotification);
       }
     }
-  }, [notifications.length]);
+  }, [notifications.length, lastNotification]);
 
   return (
     <div className="navbar" data-testid="navbar">
@@ -125,10 +139,10 @@ const Navbar = () => {
         </li>
       </ul>
       {userInfo && userInfo.userData && (
-      <div className="notification-panel">
+      <div className="notification-panel" data-testid="notificationPanel">
         <li>
           <div className="notification-bell">
-            <IoMdNotifications onClick={handleNotification} />
+            <IoMdNotifications data-testid="counterTest" onClick={handleNotification} />
             {notificationCount > 0 && <span className="counter">{notificationCount}</span>}
           </div>
 
@@ -136,11 +150,14 @@ const Navbar = () => {
         <div>
           {showNotification && (
           <div className="dropdown-menu">
-            <span className="notification-title">Notification</span>
+            <div className="notification-title">
+              Notification
+              <span onClick={MarkAllAsRead}><BsCheck2All /></span>
+            </div>
             <hr />
             {notifications.length > 0 ? (
               notifications.map((notification) => (
-                <span className="notification-card" key={notification.id}>{notification.message}</span>
+                <span onClick={() => markNotifications(notification.id, data, dispatch)} className={notification.isRead === true ? 'notification-card2' : 'notification-card'} key={notification.id}>{notification.message}</span>
               ))
             ) : (
               <span>No notifications</span>
@@ -154,7 +171,7 @@ const Navbar = () => {
       )}
 
       <div className="searchIcon">
-        <FaSearch data-testid="search-icon" onClick={handleSearch} />
+        <FaSearch data-testid="search-icon" onClick={handleSeach} />
         {searchIcon && (
           <div className="search2">
             <FaSearch className="searchIcn" />

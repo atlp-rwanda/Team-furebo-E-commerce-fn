@@ -8,9 +8,9 @@ import UserCard from './UserCard';
 
 const Users = ({ handleUsers }) => {
   const dispatch = useDispatch();
-  const {
-    successCondition, users, error, pending,
-  } = useSelector((state) => state.allUsers);
+  const { successCondition, users, error, pending } = useSelector(
+    state => state.allUsers
+  );
 
   // useEffect(() => {
   //   fetchUsers(dispatch);
@@ -19,7 +19,7 @@ const Users = ({ handleUsers }) => {
   return (
     <div className="userContainer" data-testid="Users">
       <h1>Users</h1>
-      {users?.map((user) => (
+      {users?.map(user => (
         <UserCard key={user.id} data={user} handleUsers={handleUsers} />
       ))}
     </div>

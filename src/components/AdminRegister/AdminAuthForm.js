@@ -14,20 +14,23 @@ const AdminAuthForm = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [adminError, setAdminError] = useState(null);
   const [authData, setAuthData] = useState({
-    firstname: '', lastname: '', email: '', password: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
   });
 
   const [adminCode, setAdminCode] = useState({ code: '' });
 
-  const {
-    successCondition, userInfo, error, pending,
-  } = useSelector((state) => state.user);
+  const { successCondition, userInfo, error, pending } = useSelector(
+    state => state.user
+  );
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (adminCode.code === AdminCode) {
@@ -56,26 +59,70 @@ const AdminAuthForm = () => {
     <div className="authForm" data-testid="AdminAuthForm">
       <div className="authFormLeft">
         <h1>{isSignUp ? 'Welcome Back' : 'Create Accout'}</h1>
-        <button onClick={() => setIsSignUp(!isSignUp)}>{isSignUp ? 'Sign In' : 'Sign Up'}</button>
+        <button onClick={() => setIsSignUp(!isSignUp)}>
+          {isSignUp ? 'Sign In' : 'Sign Up'}
+        </button>
       </div>
       <div className="authFormRight">
-        <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
+        <h1>{isSignUp ? 'Create Account' : 'Welcome Back'}</h1>
         <form>
           {isSignUp && (
             <>
-              <input name="firstname" type="text" placeholder="First Name" value={authData.firstname} onChange={handleChange} />
-              <input name="lastname" type="text" placeholder="Last Name" value={authData.lastname} onChange={handleChange} />
+              <input
+                name="firstname"
+                type="text"
+                placeholder="First Name"
+                value={authData.firstname}
+                onChange={handleChange}
+              />
+              <input
+                name="lastname"
+                type="text"
+                placeholder="Last Name"
+                value={authData.lastname}
+                onChange={handleChange}
+              />
             </>
           )}
-          <input name="email" type="email" placeholder="Emai" value={authData.email} onChange={handleChange} />
-          <input name="password" type="password" placeholder="Password" value={authData.password} onChange={handleChange} />
-          <input name="code" type="number" placeholder="AdminCode" value={adminCode.code} onChange={(e) => setAdminCode({ ...adminCode, code: e.target.value })} />
+          <input
+            name="email"
+            type="email"
+            placeholder="Emai"
+            value={authData.email}
+            onChange={handleChange}
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={authData.password}
+            onChange={handleChange}
+          />
+          <input
+            name="code"
+            type="number"
+            placeholder="AdminCode"
+            value={adminCode.code}
+            onChange={e => setAdminCode({ ...adminCode, code: e.target.value })}
+          />
           <span className="pending">{pending ? 'loading...' : null}</span>
-          {successCondition && <span className="successDisplay">{userInfo.message}</span>}
-          {error.condition && <span className="errorDisplay">{error.message}</span>}
-          {adminError !== null && <span className="errorDisplay">{adminError}</span>}
-          <button onClick={handleSubmit}>{isSignUp ? 'Sign Up' : 'Sign In'}</button>
-          {isSignUp && <Link to="/authentication"><span>register as user</span></Link>}
+          {successCondition && (
+            <span className="successDisplay">{userInfo.message}</span>
+          )}
+          {error.condition && (
+            <span className="errorDisplay">{error.message}</span>
+          )}
+          {adminError !== null && (
+            <span className="errorDisplay">{adminError}</span>
+          )}
+          <button className="authButton" onClick={handleSubmit}>
+            {isSignUp ? 'Sign Up' : 'Sign In'}
+          </button>
+          {isSignUp && (
+            <Link to="/authentication">
+              <span>register as user</span>
+            </Link>
+          )}
         </form>
       </div>
     </div>

@@ -34,14 +34,18 @@
   margin-bottom: 5px;
 }
 .container .update-form .update-form-group .basic-info-container .login-input,
-.container .update-form .update-form-group .essential-info-container .login-input {
+.container
+  .update-form
+  .update-form-group
+  .essential-info-container
+  .login-input {
   max-width: 100%;
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.container .update-form button[type=submit] {
+.container .update-form button[type='submit'] {
   padding: 10px 20px;
   background-color: rgb(23, 174, 159);
   color: #fff;

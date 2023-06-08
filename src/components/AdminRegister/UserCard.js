@@ -17,9 +17,9 @@ const UserCard = ({ data, handleUsers }) => {
   const [dismissed, setDismissed] = useState(false);
   const [updatedData, setUpdatedData] = useState({ role: '' });
 
-  const {
-    successCondition, userRole, error, pending,
-  } = useSelector((state) => state.userRole);
+  const { successCondition, userRole, error, pending } = useSelector(
+    state => state.userRole
+  );
 
   const userId = data.id;
 
@@ -40,30 +40,67 @@ const UserCard = ({ data, handleUsers }) => {
       <div className="cardWraperRight">
         <button className="button1">view profife</button>
         <button className="button2">Disable Account</button>
-        <button className="button3" onClick={() => { setDismissed(true); }}>update role</button>
+        <button
+          className="button3"
+          onClick={() => {
+            setDismissed(true);
+          }}
+        >
+          update role
+        </button>
       </div>
       {dismissed && (
-      <div className="popUp">
-        <div className="sendingForm">
-          <div onClick={() => setDismissed(false)} className="disablePopUp">X</div>
-          <div className="checkbox">
-            <label htmlFor="merchant:">Merchant:</label>
-            <input id="merchant:" type="radio" name="updatedData" value="merchant" onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })} />
+        <div className="popUp">
+          <div className="sendingForm">
+            <div onClick={() => setDismissed(false)} className="disablePopUp">
+              X
+            </div>
+            <div className="checkbox">
+              <label htmlFor="merchant:">Merchant:</label>
+              <input
+                id="merchant:"
+                type="radio"
+                name="updatedData"
+                value="merchant"
+                onChange={e =>
+                  setUpdatedData({ ...updatedData, role: e.target.value })
+                }
+              />
+            </div>
+            <div className="checkbox">
+              <label htmlFor="customer:">Customer:</label>
+              <input
+                id="customer:"
+                type="radio"
+                name="updatedData"
+                value="customer"
+                onChange={e =>
+                  setUpdatedData({ ...updatedData, role: e.target.value })
+                }
+              />
+            </div>
+            <div className="checkbox">
+              <label htmlFor="admin:">Admin:</label>
+              <input
+                id="admin:"
+                type="radio"
+                name="updatedData"
+                value="admin"
+                onChange={e =>
+                  setUpdatedData({ ...updatedData, role: e.target.value })
+                }
+              />
+            </div>
+            <button onClick={handleSubmit}>Update</button>
+            {pending && <span className="pending">loading...</span>}
+            {successCondition && (
+              <span className="successDisplay">{userRole.message}</span>
+            )}
+            {error.condition && (
+              <span className="errorDisplay">{error.message}</span>
+            )}
           </div>
-          <div className="checkbox">
-            <label htmlFor="customer:">Customer:</label>
-            <input id="customer:" type="radio" name="updatedData" value="customer" onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })} />
-          </div>
-          <div className="checkbox">
-            <label htmlFor="admin:">Admin:</label>
-            <input id="admin:" type="radio" name="updatedData" value="admin" onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })} />
-          </div>
-          <button onClick={handleSubmit}>Update</button>
-          {pending && <span className="pending">loading...</span>}
-          {successCondition && <span className="successDisplay">{userRole.message}</span>}
-          {error.condition && <span className="errorDisplay">{error.message}</span>}
         </div>
-      </div>
       )}
     </div>
   );

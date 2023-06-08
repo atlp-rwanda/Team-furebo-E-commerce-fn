@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {
-  render, screen, fireEvent, act,
-} from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
@@ -16,7 +14,7 @@ describe('DashBoard TESTS', () => {
         <Provider store={store}>
           <DashBoard />
         </Provider>
-      </Router>,
+      </Router>
     );
     const dashBoard = screen.getByTestId('DashBoard');
     expect(dashBoard).toBeInTheDocument();
@@ -28,7 +26,7 @@ describe('DashBoard TESTS', () => {
         <Provider store={store}>
           <DashBoard />
         </Provider>
-      </Router>,
+      </Router>
     );
     const dashboardMenu = getByText('DashBoard');
     const usersMenu = getByText('Users');

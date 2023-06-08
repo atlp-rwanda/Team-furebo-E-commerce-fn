@@ -1,15 +1,21 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import {
-  updateStart, updateSuccess, updateError, clearError, clearSuccessCondition,
+  updateStart,
+  updateSuccess,
+  updateError,
+  clearError,
+  clearSuccessCondition,
 } from '../slices/usersSlice';
 
-const API = axios.create({ baseURL: 'http://127.0.0.1:5002/api' });
+const API = axios.create({
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('currentUser')) {
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token
-      }`;
+    }`;
   }
   return req;
 });

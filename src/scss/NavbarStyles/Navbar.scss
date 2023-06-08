@@ -100,6 +100,8 @@
     }
     .dropdown-menu{
       display: flex;
+      height: 70vh;
+      overflow-y: scroll;
       flex-direction: column;
       gap: 1px;
       border-radius: 10px 10px 0px 0px;
@@ -116,14 +118,45 @@
         font-size: 20px;
         font-weight: 600;
         color: #0d6efd;
-        padding: 10px 0;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        span {
+          border: 2px solid rgba(128, 128, 128, 0.41);
+          padding: 2px 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: 0.5s;
+          color: gray;
+
+          &:hover{
+            background-color: rgba(128, 128, 128, 0.154);
+            transition: 0.5s;
+          }
+        }
       }
       .notification-card{
-        // background-color: $green-ligtest-bg-color;
+        background-color: $green-ligtest-bg-color;
         padding: 10px;
+        font-weight: 900;
+        text-decoration: underline;
         cursor: pointer;
         &:hover{
           background-color: green;
+          text-decoration: underline;
+        }
+      }
+
+      .notification-card2{
+        background-color: rgba(230, 247, 235, 0.616);
+        padding: 10px;
+        cursor: pointer;
+        &:hover{
+          text-decoration: underline;
         }
       }
     }
@@ -354,7 +387,7 @@
     position: absolute;
     top: 120px;
     left: 170px;
-    //background-color: $lightBlueColor;
+    background-color: $lightBlueColor;
     padding: 30px;
     border-radius: 10px;
     z-index: 1000;

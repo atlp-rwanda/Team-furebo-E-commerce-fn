@@ -21,12 +21,9 @@ const EssentialUserInfoPage = () => {
     fetchProfileData();
   }, []);
 
-
-
   return (
     <div data-testid="view-essential-page">
-      <UserEssentialInfoView profileData={profileData} />
-      ;
+      <UserEssentialInfoView profileData={profileData} />;
     </div>
   );
 };

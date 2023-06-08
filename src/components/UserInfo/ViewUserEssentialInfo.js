@@ -5,18 +5,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../css/profile/View-Essential-info.css';
 
-const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
-});
-
-API.interceptors.request.use((req) => {
-  const authToken = localStorage.getItem('currentUser');
-  if (authToken) {
-    req.headers.Authorization = `Bearer ${JSON.parse(authToken).token}`;
-  }
-  return req;
-});
-
 const ViewUserEssentialInfo = ({ profileData }) => (
   <div data-testid="viewEssential" className="user-essential-info-container">
     <div className="user-essential-info-header">
@@ -24,7 +12,6 @@ const ViewUserEssentialInfo = ({ profileData }) => (
       <Link to="/update-essential" className="update-essential-user-info">
         Edit your essential
       </Link>
-
     </div>
     <div className="user-essential-info">
       <div className="essential-info">

@@ -12,7 +12,7 @@ export const allUsersSlice = createSlice({
     },
   },
   reducers: {
-    updateStart: (state) => {
+    updateStart: state => {
       state.pending = true;
     },
     updateSuccess: (state, action) => {
@@ -26,16 +26,20 @@ export const allUsersSlice = createSlice({
       state.error.message = action.payload;
       state.pending = false;
     },
-    clearError: (state) => {
+    clearError: state => {
       state.error.condition = false;
     },
-    clearSuccessCondition: (state) => {
+    clearSuccessCondition: state => {
       state.successCondition = false;
     },
   },
 });
 
 export const {
-  updateStart, updateSuccess, updateError, clearError, clearSuccessCondition,
+  updateStart,
+  updateSuccess,
+  updateError,
+  clearError,
+  clearSuccessCondition,
 } = allUsersSlice.actions;
 export default allUsersSlice.reducer;

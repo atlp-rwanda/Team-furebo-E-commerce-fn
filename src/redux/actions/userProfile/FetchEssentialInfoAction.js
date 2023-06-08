@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:5002/api',
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
 API.interceptors.request.use(req => {

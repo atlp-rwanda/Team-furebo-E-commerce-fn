@@ -33,7 +33,10 @@ const BasicUserInfoPage = () => {
 
   return (
     <div data-testid="view-basic-page">
-      <ViewUserBasicInfo profileData={profileData} profileImage={profileImage} />
+      <ViewUserBasicInfo
+        profileData={profileData}
+        profileImage={profileImage}
+      />
     </div>
   );
 };

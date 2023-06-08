@@ -6,13 +6,13 @@ describe('CategoryProducts component', () => {
   test('renders the category products with correct image paths', () => {
     const { getByAltText } = render(
       <div>
-        {categoryProducts.map((product) => (
+        {categoryProducts.map(product => (
           <img key={product.id} src={product.image} alt={product.category} />
         ))}
-      </div>,
+      </div>
     );
 
-    categoryProducts.forEach((product) => {
+    categoryProducts.forEach(product => {
       const imgElement = getByAltText(product.category);
       expect(imgElement).toBeInTheDocument();
       expect(imgElement).toHaveAttribute('src', product.image);

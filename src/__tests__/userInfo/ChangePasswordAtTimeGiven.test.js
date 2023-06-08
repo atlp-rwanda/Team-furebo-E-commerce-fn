@@ -14,7 +14,7 @@ describe('TEST NOTIFY USER TO CHANGE PASSWORD', () => {
     render(
       <Router>
         <ChangePasswordAtTimeGiven />
-      </Router>,
+      </Router>
     );
 
     const notify = await screen.findByTestId('ChangePasswordAtTimeGiven');

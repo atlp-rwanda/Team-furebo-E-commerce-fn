@@ -9,10 +9,8 @@ describe('USER INFORMATIONS TESTS', () => {
     render(
       <Router>
         <EssentialUserInfoPage />
-      </Router>,
+      </Router>
     );
-
-
 
     const essential = screen.getByTestId('view-essential-page');
     expect(essential).toBeInTheDocument();

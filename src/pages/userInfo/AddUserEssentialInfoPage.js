@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Message from '../../components/UserInfo/Message';
@@ -66,7 +64,10 @@ const AddUserEssentialInfoPage = () => {
   };
 
   return (
-    <div className="user-essential-info-container" data-testid="add-essential-page">
+    <div
+      className="user-essential-info-container"
+      data-testid="add-essential-page"
+    >
       <h1 className="acc-info-title">Add User Essential Information</h1>
       {message && <Message message={message} isSuccess={isSuccess} />}
 

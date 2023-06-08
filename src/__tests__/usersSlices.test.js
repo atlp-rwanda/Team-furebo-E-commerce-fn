@@ -37,7 +37,7 @@ describe('allUsersSlice reducer', () => {
     expect(nextState.userRole).toBe(payload);
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       'allUsers',
-      JSON.stringify(payload),
+      JSON.stringify(payload)
     );
   });
 
