@@ -17,6 +17,8 @@ import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
 import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
 import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
 import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
+import AddProduct from './components/ProductDetails/AddProduct';
+import ProductPage from './pages/ProductPage';
 
 const Layout = () => (
   <>
@@ -35,11 +37,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '/addproduct',
+        element: <AddProduct />,
+      },
+      {
         path: '/authentication',
         element: <Auth />,
       },
       {
-        path: '/requestResetPassword',
+        path: '/Authentication/requestResetPassword',
         element: <ResetPassword />,
       },
       {
@@ -77,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: '/AdminRegister',
         element: <AdminAuth />,
+      },
+      {
+        path: '/products',
+        element: <ProductPage />,
       },
     ],
   },

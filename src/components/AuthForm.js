@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -25,11 +26,13 @@ const AuthForm = () => {
     password: '',
   });
 
-  const { successCondition, userInfo, error, pending } = useSelector(
-    state => state.user
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.user,
   );
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
@@ -49,7 +52,7 @@ const AuthForm = () => {
     setErrors(ValidatePassword(authData));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isSignUp) {
@@ -57,11 +60,6 @@ const AuthForm = () => {
     } else {
       signIn(authData, dispatch, navigate, setAuthData);
     }
-
-    // signUp(authData, dispatch);
-  };
-  const handleResetPassword = () => {
-    navigate('/requestResetPassword');
   };
 
   return (
@@ -149,9 +147,11 @@ const AuthForm = () => {
             {!isSignUp && (
               <>
                 <span>Forgot Password? </span>
-                <button className="link" onClick={handleResetPassword}>
-                  Reset it
-                </button>
+                <Link to="requestResetPassword">
+                  <button className="link">
+                    Reset it
+                  </button>
+                </Link>
               </>
             )}
           </p>

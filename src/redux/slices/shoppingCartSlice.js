@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const allUsersSlice = createSlice({
-  name: 'allUsers',
+export const cartSlice = createSlice({
+  name: 'cart',
   initialState: {
-    users: JSON.parse(localStorage.getItem('allUsers')),
+    shppingCart: JSON.parse(localStorage.getItem('shoppingCart')),
     successCondition: false,
     pending: false,
     error: {
@@ -18,8 +18,8 @@ export const allUsersSlice = createSlice({
     updateSuccess: (state, action) => {
       state.successCondition = true;
       state.pending = false;
-      state.userRole = action.payload;
-      localStorage.setItem('allUsers', JSON.stringify(action.payload));
+      state.shppingCart = action.payload;
+      localStorage.setItem('shoppingCart', JSON.stringify(action.payload));
     },
     updateError: (state, action) => {
       state.error.condition = true;
@@ -41,5 +41,5 @@ export const {
   updateError,
   clearError,
   clearSuccessCondition,
-} = allUsersSlice.actions;
-export default allUsersSlice.reducer;
+} = cartSlice.actions;
+export default cartSlice.reducer;

@@ -15,7 +15,6 @@ const API = axios.create({
 const resetPassword = async (emailData, dispatch) => {
   dispatch(requestPasswordReset());
   try {
-    console.log(emailData);
     const res = await API.post('/requestPasswordReset', emailData);
     dispatch(requestPasswordResetSuccess(res.data.message));
     toast.success('Email sent, check your inbox and follow the link', {
@@ -25,8 +24,6 @@ const resetPassword = async (emailData, dispatch) => {
       dispatch(clearSuccessCondition());
     }, [60000]);
   } catch (error) {
-    console.log(error); // Log the error for debugging
-
     // Dispatch the requestPasswordResetFailure action with an appropriate error message
     dispatch(
       requestPasswordResetFailure(

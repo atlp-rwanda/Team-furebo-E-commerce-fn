@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const allUsersSlice = createSlice({
-  name: 'allUsers',
+export const addProductSlice = createSlice({
+  name: 'addProduct',
   initialState: {
-    users: JSON.parse(localStorage.getItem('allUsers')),
+    productInfo: null,
     successCondition: false,
     pending: false,
     error: {
@@ -12,16 +12,15 @@ export const allUsersSlice = createSlice({
     },
   },
   reducers: {
-    updateStart: (state) => {
+    addProduct: (state) => {
       state.pending = true;
     },
-    updateSuccess: (state, action) => {
+    addProductSuccess: (state, action) => {
       state.successCondition = true;
       state.pending = false;
-      state.userRole = action.payload;
-      localStorage.setItem('allUsers', JSON.stringify(action.payload));
+      state.productInfo = action.payload;
     },
-    updateError: (state, action) => {
+    addError: (state, action) => {
       state.error.condition = true;
       state.error.message = action.payload;
       state.pending = false;
@@ -36,10 +35,10 @@ export const allUsersSlice = createSlice({
 });
 
 export const {
-  updateStart,
-  updateSuccess,
-  updateError,
+  addProduct,
+  addProductSuccess,
+  addError,
   clearError,
   clearSuccessCondition,
-} = allUsersSlice.actions;
-export default allUsersSlice.reducer;
+} = addProductSlice.actions;
+export default addProductSlice.reducer;

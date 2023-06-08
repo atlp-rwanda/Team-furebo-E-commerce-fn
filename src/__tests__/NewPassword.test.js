@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
+/* eslint-disable react/button-has-type */
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
+import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { useNavigate } from 'react-router-dom';
 import store from '../redux/store';
 import newPasswordAction from '../redux/actions/NewPassword';
 import NewPasswordform from '../components/newPassword';
@@ -31,7 +35,7 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>
+      </Router>,
     );
     expect(screen.getByPlaceholderText('New Password')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Confirm Password')).toBeInTheDocument();
@@ -48,7 +52,7 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>
+      </Router>,
     );
 
     const emailInput = screen.getByPlaceholderText('New Password');
@@ -69,13 +73,13 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>
+      </Router>,
     );
 
     await waitFor(() => {
       expect(screen.getByPlaceholderText('New Password')).toBeInTheDocument();
       expect(
-        screen.getByPlaceholderText('Confirm Password')
+        screen.getByPlaceholderText('Confirm Password'),
       ).toBeInTheDocument();
     });
 
@@ -100,13 +104,12 @@ describe('NewPasswordform TESTS', () => {
         <Provider store={store}>
           <NewPasswordform />
         </Provider>
-      </Router>
+      </Router>,
     );
     const newPasswordInput = screen.getByPlaceholderText('New Password');
     fireEvent.change(newPasswordInput, { target: { value: 'newPassword123' } });
 
-    const confirmPasswordInput =
-      screen.getByPlaceholderText('Confirm Password');
+    const confirmPasswordInput = screen.getByPlaceholderText('Confirm Password');
     fireEvent.change(confirmPasswordInput, {
       target: { value: 'newPassword123' },
     });
@@ -125,7 +128,7 @@ describe('NewPasswordform TESTS', () => {
             {isSignUp ? 'Sign In' : 'Sign Up'}
           </button>
         </div>
-      </Router>
+      </Router>,
     );
 
     const button = screen.getByText(isSignUp ? 'Sign In' : 'Sign Up');
