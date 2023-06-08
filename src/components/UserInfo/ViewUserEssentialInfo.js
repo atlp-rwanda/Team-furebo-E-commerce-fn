@@ -5,8 +5,21 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../css/profile/View-Essential-info.css';
 
+const API = axios.create({
+  baseURL: 'http://localhost:3000/api',
+});
+
+API.interceptors.request.use(req => {
+  const authToken = localStorage.getItem('currentUser');
+  if (authToken) {
+    req.headers.Authorization = `Bearer ${JSON.parse(authToken).token}`;
+  }
+  return req;
+});
+
 const ViewUserEssentialInfo = ({ profileData }) => (
   <div data-testid="viewEssential" className="user-essential-info-container">
+    {/* <Navigator /> */}
     <div className="user-essential-info-header">
       <h1 className="acc-info-title">Account's Essential Information</h1>
       <Link to="/update-essential" className="update-essential-user-info">

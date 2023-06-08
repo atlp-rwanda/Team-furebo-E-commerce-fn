@@ -12,6 +12,12 @@ describe('USER INFORMATIONS TESTS', () => {
       </Router>
     );
 
+    // Wait for the loading state to become false
+    await waitFor(() => {
+      const loadingElement = screen.queryByText('Wait...');
+      expect(loadingElement).not.toBeInTheDocument();
+    });
+
     const essential = screen.getByTestId('view-essential-page');
     expect(essential).toBeInTheDocument();
   });

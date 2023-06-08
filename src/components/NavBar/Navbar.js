@@ -234,7 +234,9 @@ const Navbar = () => {
               <li>dashboard</li>
             </Link>
           )}
-          <li>Product</li>
+          <Link className="link" to="/addproduct">
+            <li>Product</li>
+          </Link>
           {currentUserRole && currentUserRole.name === 'merchant' && (
             <li>collection</li>
           )}

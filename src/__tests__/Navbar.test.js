@@ -122,7 +122,7 @@ describe('Navbar TESTS', () => {
 
     expect(screen.queryByTestId('arrowLeft')).toBeNull();
   });
-   
+
   test('renders notifications correctly', async () => {
     render(
       <Router>
