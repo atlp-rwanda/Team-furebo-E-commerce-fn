@@ -45,7 +45,7 @@ describe('ViewCart Component', () => {
         deleteItem={deleteItem}
         updateItem={updateItem}
         clearCart={clearCart}
-      />,
+      />
     );
   });
   it('should render ViewCart component', () => {
@@ -64,5 +64,4 @@ describe('ViewCart Component', () => {
     expect(clearCart).toHaveBeenCalledTimes(1);
     screen.queryAllByTestId('cart-items-id');
   });
-
 });
