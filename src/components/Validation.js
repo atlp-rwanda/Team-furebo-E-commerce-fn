@@ -1,4 +1,36 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable camelcase */
 import React from 'react';
+
+// const Validation = (authData) => {
+//   const errors = {};
+
+//   const Email_Pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,3})+$/;
+//   const Password_Pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+
+//   if (authData.firstname === "") {
+//     errors.firstname = "Firstname is Required";
+//   }
+
+//   if (authData.lastname === "") {
+//     errors.lastname = "Lastname is Required";
+//   }
+
+//   if (authData.email === "") {
+//     errors.email = "Email is required";
+//   } else if (!authData.email.match(Email_Pattern)) {
+//     errors.email = "Please Enter a Valid Email";
+//   }
+
+//   if (authData.password === "") {
+//     errors.password = "Password is required";
+//   } else if (!authData.password.match(Password_Pattern)) {
+//     errors.password = "Password did not match";
+//   }
+
+//   return errors;
+// };
+
 export const ValidateFistname = authData => {
   const errors = {};
 
@@ -84,3 +116,5 @@ export const ValidateNewPassword = authData => {
   }
   return errors;
 };
+
+// export default Validation;

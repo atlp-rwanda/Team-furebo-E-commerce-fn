@@ -21,10 +21,6 @@ const EssentialUserInfoPage = () => {
     fetchProfileData();
   }, []);
 
-  if (loading) {
-    return <div className="page-in-loading">Wait...</div>;
-  }
-
   return (
     <div data-testid="view-essential-page">
       <UserEssentialInfoView profileData={profileData} />;

@@ -1,169 +1,163 @@
 @import '../Valiables/Valiables.scss';
 
 .authPage {
-  background: transparent;
-  width: full;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background: transparent;
+    width: full;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .authForm {
-  background: rgb(179, 179, 179);
-  width: 60%;
-  height: auto;
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 5px 20px -10px;
-
-  @media (max-width: 1001px) {
-    width: 80%;
+    background: rgb(179, 179, 179);
+    width: 60%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column-reverse;
-  }
+    flex-direction: row;
+    box-shadow: 0 5px 20px -10px;
+
+    @media(max-width: 1001px) {
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
 .authFormLeft {
-  width: 35%;
-  min-width: 200px;
-  padding: 0 0px;
-  background: $lightBlueColor;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-
-  @media (max-width: 1001px) {
-    width: 100%;
-    padding: 30px 0;
-  }
-
-  h1 {
-    font-family: $titleFont;
-    color: $whiteColor;
-    font-weight: bolder;
-    font-size: 30px;
-    @media (max-width: 500px) {
-      font-size: 30px;
-    }
-  }
-
-  button {
-    @include buttonStyles($whiteColor, 15px, none, 15px, 10px, $blackColor);
-  }
-}
-
-.authFormRight {
-  width: 65%;
-  min-width: 200px;
-  height: 100%;
-  padding: 70px 0;
-  background: rgb(255, 255, 255);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-
-  @media (max-width: 1001px) {
-    width: 100%;
-  }
-
-  h1 {
-    font-family: $titleFont;
-    font-weight: bold;
-    font-size: 40px;
-    @media (max-width: 500px) {
-      font-size: 30px;
-    }
-  }
-
-  form {
-    width: 100%;
+    width: 35%;
+    min-width: 200px;
+    padding: 0 0px;
+    background: $lightBlueColor;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
 
-    input {
-      background-color: rgba(220, 220, 220, 0.426);
-      width: 80%;
-      padding: 15px;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-      font-family: $titleFont;
+    @media(max-width: 1001px) {
+        width: 100%;
+        padding: 30px 0;
     }
 
-    .pending {
-      color: #5bc760;
+    h1 {
+        font-family: $titleFont;
+        color: $whiteColor;
+        font-weight: bolder;
+        font-size: 30px;
+        @media(max-width: 500px) {
+            font-size: 30px;
+        }
     }
 
-    .successDisplay {
-      background-color: #5bc760;
-      width: 80%;
-      padding: 10px 15px;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 5px;
+    button{
+        @include buttonStyles($whiteColor, 15px, none, 15px, 10px, $blackColor);
+    }
+}
+
+.authFormRight {
+    width: 65%;
+    min-width: 200px;
+    height: 100%;
+    padding: 70px 0;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @media(max-width: 1001px) {
+        width: 100%;
+    }
+    
+
+    h1 {
+        font-family: $titleFont;
+        font-weight: bold;
+        font-size: 40px;
+        @media(max-width: 500px) {
+            font-size: 30px;
+        }
     }
 
-    .errorDisplay {
-      background-color: #ff6252;
-      width: 80%;
-      padding: 10px 15px;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 5px;
-    }
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
 
-    button {
-      @include buttonStyles(
-        rgb(23, 174, 159),
-        15px,
-        none,
-        15px,
-        10px,
-        $whiteColor
-      );
+        input {
+            background-color: rgba(220, 220, 220, 0.426);
+            width: 80%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-family: $titleFont;
+        }
+
+        .pending {
+            color: #5bc760;
+        }
+        
+        .successDisplay {
+            background-color: #5bc760;
+            width: 80%;
+            padding: 10px 15px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px
+        }
+
+        .errorDisplay {
+            background-color: #ff6252;
+            width: 80%;
+            padding: 10px 15px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px
+        }
+        
+        button{
+            @include buttonStyles(rgb(23, 174, 159), 15px, none, 15px, 10px, $whiteColor);
+        }
     }
-  }
 }
 
 .verifyPage {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-  .verifySignInBtn {
-    border: none;
-    outline: none;
-    padding: 12px 0;
-    background-color: $lightBlueColor;
-    border-radius: 20px;
-    width: 180px;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-  }
+    .verifySignInBtn {
+        border: none;
+        outline: none;
+        padding: 12px 0;
+        background-color: $lightBlueColor;
+        border-radius: 20px;
+        width: 180px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+    }
 }
 
 .center {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

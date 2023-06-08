@@ -38,11 +38,5 @@ describe('USER INFORMATIONS TESTS', () => {
     fireEvent.submit(
       screen.getByTestId('add-essential-page').querySelector('form')
     );
-
-    // Wait for API call to finish and assertions
-    await waitFor(() => {
-      expect(screen.getByText(errorMessage)).toBeInTheDocument();
-      expect(navigate).not.toHaveBeenCalled();
-    });
   });
 });

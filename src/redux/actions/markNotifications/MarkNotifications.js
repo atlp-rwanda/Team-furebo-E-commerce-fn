@@ -1,15 +1,12 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
 import {
   updateStart,
   updateSuccess,
   updateError,
   clearError,
   clearSuccessCondition,
-} from '../slices/userRolesSlice';
-
-import fetchUsers from './GetUsers';
+} from '../../slices/markNotificationsSlice';
 
 const API = axios.create({
   baseURL: 'http://localhost:5000/api',
@@ -23,25 +20,19 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-const SetRoles = async (updatedData, userId, dispatch, handleUsers) => {
+export const markNotifications = async (notId, data, dispatch) => {
   dispatch(updateStart());
   try {
-    const res = await API.patch(`/updateRole/${userId}`, updatedData);
-
-    fetchUsers(dispatch);
+    const res = await API.post(`/singleNotification/${notId}`, data);
+    console.log(res);
 
     dispatch(updateSuccess(res.data));
 
     setTimeout(() => {
-      window.location.reload();
-    }, [2000]);
-
-    handleUsers();
-
-    setTimeout(() => {
       dispatch(clearSuccessCondition());
-    }, [6000]);
+    }, [2000]);
   } catch (error) {
+    console.log(error);
     if (!error.response) {
       dispatch(updateError(error.message));
     } else if (!error.response.data.message) {
@@ -52,8 +43,33 @@ const SetRoles = async (updatedData, userId, dispatch, handleUsers) => {
 
     setTimeout(() => {
       dispatch(clearError());
-    }, [6000]);
+    }, [3000]);
   }
 };
 
-export default SetRoles;
+export const markAllNotifications = async (data, dispatch) => {
+  dispatch(updateStart());
+  try {
+    const res = await API.post('/allNotifications', data);
+    console.log(res);
+
+    dispatch(updateSuccess(res.data));
+
+    setTimeout(() => {
+      dispatch(clearSuccessCondition());
+    }, [2000]);
+  } catch (error) {
+    console.log(error);
+    if (!error.response) {
+      dispatch(updateError(error.message));
+    } else if (!error.response.data.message) {
+      dispatch(updateError(error.response.data));
+    } else {
+      dispatch(updateError(error.response.data.message));
+    }
+
+    setTimeout(() => {
+      dispatch(clearError());
+    }, [3000]);
+  }
+};
