@@ -100,6 +100,8 @@
     }
     .dropdown-menu{
       display: flex;
+      height: 70vh;
+      overflow-y: scroll;
       flex-direction: column;
       gap: 1px;
       border-radius: 10px 10px 0px 0px;
@@ -140,6 +142,8 @@
       .notification-card{
         background-color: $green-ligtest-bg-color;
         padding: 10px;
+        font-weight: 900;
+        text-decoration: underline;
         cursor: pointer;
         &:hover{
           background-color: green;

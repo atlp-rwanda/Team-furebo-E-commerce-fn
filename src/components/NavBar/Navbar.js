@@ -85,17 +85,12 @@ const Navbar = () => {
         const fetchedNotifications = await fetchNotifications();
         setNotifications(fetchedNotifications);
       } catch (error) {
-        console.error('Error fetching notifications:', error);
+        // console.error('Error fetching notifications:', error);
       }
     };
 
     getNotifications();
   });
-
-  // useEffect(() => {
-  //   const { isRead } = useSelector((state) => state.markNotifications);
-  //   console.log(isRead);
-  // });
 
   return (
     <div className="navbar" data-testid="navbar">
@@ -135,7 +130,6 @@ const Navbar = () => {
           <div className="dropdown-menu">
             <div className="notification-title">
               Notification
-              {/* <MdDelete /> */}
               <span onClick={MarkAllAsRead}><BsCheck2All /></span>
             </div>
             <hr />
