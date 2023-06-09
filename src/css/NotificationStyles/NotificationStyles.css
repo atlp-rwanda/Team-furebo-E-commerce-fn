@@ -1,0 +1,76 @@
+@media (max-width: 767px) {
+  nav {
+    flex-direction: column;
+    position: relative;
+  }
+  nav .search-area {
+    order: 2;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 320px;
+  }
+  nav .search-area input[type=text] {
+    width: 100%;
+  }
+  nav .dropdown {
+    display: none;
+  }
+  nav .right-navbar {
+    display: flex;
+    align-items: center;
+  }
+  nav .right-navbar .profile {
+    margin-top: 10px;
+    display: flex;
+  }
+  nav .right-navbar .dropdown {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 767px) and (max-width: 767px) {
+  nav .languages,
+  nav .profile {
+    margin-left: 20px;
+  }
+  nav .right-navbar {
+    display: flex;
+    align-items: center;
+  }
+}
+@media (max-width: 767px) and (min-width: 768px) {
+  nav .languages,
+  nav .profile {
+    margin-left: 20px;
+  }
+  nav .right-navbar {
+    display: flex;
+    align-items: center;
+  }
+}
+.notification-bell {
+  position: relative;
+  display: inline-block;
+}
+.notification-bell svg {
+  color: white;
+  font-size: 22px;
+}
+.notification-bell .counter {
+  position: absolute;
+  top: -4px;
+  right: 1px;
+  background-color: rgb(170, 11, 11);
+  color: white;
+  font-size: 9px;
+  padding: 3px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=NotificationStyles.css.map */

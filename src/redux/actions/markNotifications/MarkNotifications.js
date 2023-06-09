@@ -9,7 +9,7 @@ import {
 } from '../../slices/markNotificationsSlice';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
 API.interceptors.request.use((req) => {

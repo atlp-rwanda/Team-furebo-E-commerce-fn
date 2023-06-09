@@ -7,7 +7,7 @@ import {
   clearSuccessCondition,
 } from '../slices/updatePassword';
 
-// const API = axios.create({ baseURL: 'http://localhost:3000/api' });
+
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });

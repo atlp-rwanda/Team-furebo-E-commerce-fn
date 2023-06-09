@@ -8,7 +8,7 @@ import {
 } from '../slices/newPasswordSlice';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
 const newPasswordAction = async (authData, dispatch, params, onSuccess) => {

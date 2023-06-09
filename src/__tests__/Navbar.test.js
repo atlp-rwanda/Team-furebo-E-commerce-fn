@@ -5,6 +5,8 @@ import {
   screen,
   fireEvent,
   waitFor,
+  within,
+  getByTestId,
   act,
 } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -121,21 +123,19 @@ describe('Navbar TESTS', () => {
     expect(screen.queryByTestId('arrowLeft')).toBeNull();
   });
 
-  // test('renders notifications correctly', async () => {
-  //   render(
-  //     <Router>
-  //       <Provider store={store}>
-  //         <Navbar />
-  //       </Provider>
-  //     </Router>,
-  //   );
+  test('renders notifications correctly', async () => {
+    render(
+      <Router>
+        <Provider store={store}>
+          <Navbar />
+        </Provider>
+      </Router>,
+    );
 
-  //   await waitFor(async () => {
-  //     expect(fetchNotifications).toHaveBeenCalled();
-  //     await act(async () => {
-  //       // Wait for state update using act
-  //       await new Promise((resolve) => setTimeout(resolve, 0));
-  //     });
-  //   });
-  // });
+    await waitFor(async () => {
+      expect(fetchNotifications).toHaveBeenCalled();
+    }, {
+      timeout: 10000,
+    });
+  });
 });

@@ -16,7 +16,10 @@ import { RxCross2 } from 'react-icons/rx';
 import { MdOutlineKeyboardArrowUp, MdDelete } from 'react-icons/md';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import '../../css/NavbarStyles/Navbar.css';
+import '../../css/NotificationStyles/NotificationStyles.css';
+import 'react-toastify/dist/ReactToastify.css';
 import fetchNotifications from '../../redux/actions/userProfile/FetchNotification';
 import { markNotifications, markAllNotifications } from '../../redux/actions/markNotifications/MarkNotifications';
 
@@ -31,12 +34,12 @@ const Navbar = () => {
   const [searchIcon, setSearchIcon] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
-  const [data, setData] = useState({ isRead: true });
+  const [notificationCount, setNotificationCount] = useState(0);
 
   const { userInfo } = useSelector((state) => state.user);
-  // const isRead = true;
 
   const currentUserRole = userInfo?.userData?.role ? JSON.parse(userInfo.userData.role) : null;
+  const [data, setData] = useState({ isRead: true });
 
   const handleMenu = () => {
     setMenu(!menu);
@@ -84,13 +87,29 @@ const Navbar = () => {
       try {
         const fetchedNotifications = await fetchNotifications();
         setNotifications(fetchedNotifications);
+        setNotificationCount(fetchedNotifications.length);
       } catch (error) {
-        // console.error('Error fetching notifications:', error);
+        console.error('Error fetching notifications:', error);
       }
     };
 
     getNotifications();
   });
+
+  const [lastNotification, setLastNotification] = useState(null);
+
+  useEffect(() => {
+    if (notifications.length > 0) {
+      const newNotification = notifications[notifications.length - 1];
+
+      if (newNotification !== lastNotification && lastNotification !== null) {
+        toast.info(newNotification.message);
+        setLastNotification(newNotification);
+      } else {
+        setLastNotification(newNotification);
+      }
+    }
+  }, [notifications.length, lastNotification]);
 
   return (
     <div className="navbar" data-testid="navbar">
@@ -120,9 +139,12 @@ const Navbar = () => {
         </li>
       </ul>
       {userInfo && userInfo.userData && (
-      <div className="notification-panel">
+      <div className="notification-panel" data-testid="notificationPanel">
         <li>
-          <IoMdNotifications onClick={handleNotification} />
+          <div className="notification-bell">
+            <IoMdNotifications data-testid="counterTest" onClick={handleNotification} />
+            {notificationCount > 0 && <span className="counter">{notificationCount}</span>}
+          </div>
 
         </li>
         <div>
@@ -227,6 +249,7 @@ const Navbar = () => {
           {currentUserRole && currentUserRole.name === 'merchant' && <li>collection</li>}
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };
