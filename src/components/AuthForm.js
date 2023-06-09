@@ -6,6 +6,7 @@ import { signUp } from '../redux/actions/signup';
 import signIn from '../redux/actions/Login';
 
 import '../css/AuthStyles/Auth.css';
+
 import {
   ValidateFistname,
   ValidateLastName,

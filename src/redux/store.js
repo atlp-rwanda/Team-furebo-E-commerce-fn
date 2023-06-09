@@ -5,6 +5,7 @@ import userRolesSlice from './slices/userRolesSlice';
 import allUsersSlice from './slices/usersSlice';
 import resetPasswordSlice from './slices/resetPasswordSlice';
 import newPasswordSlice from './slices/newPasswordSlice';
+import markNotificationsSlice from './slices/markNotificationsSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     allUsers: allUsersSlice,
     resetPassword: resetPasswordSlice,
     newPassword: newPasswordSlice,
+    markNotifications: markNotificationsSlice,
   },
 });
 

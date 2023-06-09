@@ -16,7 +16,7 @@ const AdminSignUp = async (authData, dispatch, setAuthData) => {
   dispatch(updateStart());
   try {
     const res = await API.post('/registerAdmin', authData);
-    console.log(res);
+
     dispatch(updateSuccess(res.data));
 
     setAuthData({
@@ -30,7 +30,6 @@ const AdminSignUp = async (authData, dispatch, setAuthData) => {
       dispatch(clearSuccessCondition());
     }, [6000]);
   } catch (error) {
-    console.log(error);
     if (!error.response) {
       dispatch(updateError(error.message));
     } else if (!error.response.data.message) {

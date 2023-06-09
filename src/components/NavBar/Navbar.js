@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable linebreak-style */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/button-has-type */
@@ -6,19 +7,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaShoppingCart, FaUserAlt, FaSearch } from 'react-icons/fa';
 import { GrLanguage } from 'react-icons/gr';
+import { BsCheck2All } from 'react-icons/bs';
 import { IoIosArrowBack, IoMdNotifications } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
-import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
+import { MdOutlineKeyboardArrowUp, MdDelete } from 'react-icons/md';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import '../../css/NavbarStyles/Navbar.css';
-import { act } from 'react-dom/test-utils';
+import '../../css/NotificationStyles/NotificationStyles.css';
+import 'react-toastify/dist/ReactToastify.css';
 import fetchNotifications from '../../redux/actions/userProfile/FetchNotification';
+import { markNotifications, markAllNotifications } from '../../redux/actions/markNotifications/MarkNotifications';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const [menu, setMenu] = useState(false);
   const [pageRotate, setPageRotate] = useState(false);
   const [pageMenu, setPageMenu] = useState(false);
@@ -28,12 +34,12 @@ const Navbar = () => {
   const [searchIcon, setSearchIcon] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(0);
 
-  const { userInfo } = useSelector(state => state.user);
+  const { userInfo } = useSelector((state) => state.user);
 
-  const currentUserRole = userInfo?.userData?.role
-    ? JSON.parse(userInfo.userData.role)
-    : null;
+  const currentUserRole = userInfo?.userData?.role ? JSON.parse(userInfo.userData.role) : null;
+  const [data, setData] = useState({ isRead: true });
 
   const handleMenu = () => {
     setMenu(!menu);
@@ -62,7 +68,7 @@ const Navbar = () => {
     setSearchIcon(false);
   };
 
-  const handleSearch = () => {
+  const handleSeach = () => {
     setSearchIcon(!searchIcon);
     setMenu(false);
     setPageMenu(false);
@@ -72,20 +78,38 @@ const Navbar = () => {
     setShowNotification(!showNotification);
   };
 
+  const MarkAllAsRead = () => {
+    markAllNotifications(data, dispatch);
+  };
+
   useEffect(() => {
     const getNotifications = async () => {
       try {
         const fetchedNotifications = await fetchNotifications();
-        act(() => {
-          setNotifications(fetchedNotifications);
-        });
+        setNotifications(fetchedNotifications);
+        setNotificationCount(fetchedNotifications.length);
       } catch (error) {
         console.error('Error fetching notifications:', error);
       }
     };
 
     getNotifications();
-  }, []);
+  });
+
+  const [lastNotification, setLastNotification] = useState(null);
+
+  useEffect(() => {
+    if (notifications.length > 0) {
+      const newNotification = notifications[notifications.length - 1];
+
+      if (newNotification !== lastNotification && lastNotification !== null) {
+        toast.info(newNotification.message);
+        setLastNotification(newNotification);
+      } else {
+        setLastNotification(newNotification);
+      }
+    }
+  }, [notifications.length, lastNotification]);
 
   return (
     <div className="navbar" data-testid="navbar">
@@ -95,21 +119,16 @@ const Navbar = () => {
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            pages{' '}
+            pages
+            {' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
             {pageRotate && (
               <div className="newPageRotate">
-                {currentUserRole && currentUserRole.name === 'admin' && (
-                  <Link className="link" to="/dashboard">
-                    <li>dashboard</li>
-                  </Link>
-                )}
+                {currentUserRole && currentUserRole.name === 'admin' && <Link className="link" to="/dashboard"><li>dashboard</li></Link>}
                 <li>Product</li>
-                {currentUserRole && currentUserRole.name === 'merchant' && (
-                  <li>collection</li>
-                )}
+                {currentUserRole && currentUserRole.name === 'merchant' && <li>collection</li>}
               </div>
             )}
           </li>
@@ -120,32 +139,39 @@ const Navbar = () => {
         </li>
       </ul>
       {userInfo && userInfo.userData && (
-        <div className="notification-panel">
-          <li>
-            <IoMdNotifications onClick={handleNotification} />
-          </li>
-          <div>
-            {showNotification && (
-              <div className="dropdown-menu">
-                <span className="notification-title">Notification</span>
-                <hr />
-                {notifications.length > 0 ? (
-                  notifications.map(notification => (
-                    <span className="notification-card" key={notification.id}>
-                      {notification.message}
-                    </span>
-                  ))
-                ) : (
-                  <span>No notifications</span>
-                )}
-              </div>
+      <div className="notification-panel" data-testid="notificationPanel">
+        <li>
+          <div className="notification-bell">
+            <IoMdNotifications data-testid="counterTest" onClick={handleNotification} />
+            {notificationCount > 0 && <span className="counter">{notificationCount}</span>}
+          </div>
+
+        </li>
+        <div>
+          {showNotification && (
+          <div className="dropdown-menu">
+            <div className="notification-title">
+              Notification
+              <span onClick={MarkAllAsRead}><BsCheck2All /></span>
+            </div>
+            <hr />
+            {notifications.length > 0 ? (
+              notifications.map((notification) => (
+                <span onClick={() => markNotifications(notification.id, data, dispatch)} className={notification.isRead === true ? 'notification-card2' : 'notification-card'} key={notification.id}>{notification.message}</span>
+              ))
+            ) : (
+              <span>No notifications</span>
             )}
           </div>
+          )}
         </div>
+
+      </div>
+
       )}
 
       <div className="searchIcon">
-        <FaSearch data-testid="search-icon" onClick={handleSearch} />
+        <FaSearch data-testid="search-icon" onClick={handleSeach} />
         {searchIcon && (
           <div className="search2">
             <FaSearch className="searchIcn" />
@@ -183,13 +209,12 @@ const Navbar = () => {
                   <div className="welcome-name">
                     welcome &nbsp;
                     <span className="name">
-                      {`${userInfo.userData.fullname.split(' ')[0]}`}
+                      {`${userInfo.userData.fullname.split(' ')[0]
+                      }`}
                     </span>
                   </div>
                   <hr />
-                  <Link to="/view-basic" className="profile-link">
-                    Profile
-                  </Link>
+                  <Link to="/view-basic" className="profile-link">Profile</Link>
                   <button className="logoutButton">Logout</button>
                 </>
               )}
@@ -197,28 +222,18 @@ const Navbar = () => {
           )}
         </div>
         {!menu ? (
-          <HiMenuAlt2
-            data-testid="menu-button"
-            className="MenuBar"
-            onClick={handleMenu}
-          />
+          <HiMenuAlt2 data-testid="menu-button" className="MenuBar" onClick={handleMenu} />
         ) : (
-          <RxCross2
-            data-testid="menu-open-indicator"
-            className="MenuBar"
-            onClick={handleMenu}
-          />
+          <RxCross2 data-testid="menu-open-indicator" className="MenuBar" onClick={handleMenu} />
         )}
       </div>
       {menu && (
         <div className="NavSideBar">
           {userInfo && userInfo.userData && (
             <li onClick={handleRotate} data-testid="pages">
-              pages{' '}
-              <IoIosArrowBack
-                data-testid="arrowLeft"
-                className={rotate ? 'arrowLeft' : 'arrowRight'}
-              />
+              pages
+              {' '}
+              <IoIosArrowBack data-testid="arrowLeft" className={rotate ? 'arrowLeft' : 'arrowRight'} />
             </li>
           )}
           <li onClick={handleCRotate}>
@@ -229,17 +244,12 @@ const Navbar = () => {
       )}
       {pageMenu && (
         <div className="newNavSideBar">
-          {currentUserRole && currentUserRole.name === 'admin' && (
-            <Link className="link" to="/dashboard">
-              <li>dashboard</li>
-            </Link>
-          )}
+          {currentUserRole && currentUserRole.name === 'admin' && <Link className="link" to="/dashboard"><li>dashboard</li></Link>}
           <li>Product</li>
-          {currentUserRole && currentUserRole.name === 'merchant' && (
-            <li>collection</li>
-          )}
+          {currentUserRole && currentUserRole.name === 'merchant' && <li>collection</li>}
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };

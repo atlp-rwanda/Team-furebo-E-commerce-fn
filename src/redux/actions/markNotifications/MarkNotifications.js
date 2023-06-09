@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import {
   updateStart,
@@ -5,27 +6,33 @@ import {
   updateError,
   clearError,
   clearSuccessCondition,
-} from '../slices/signupSlice';
+} from '../../slices/markNotificationsSlice';
 
-const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+const API = axios.create({
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+});
 
-export const signUp = async (authData, dispatch, setAuthData) => {
+API.interceptors.request.use((req) => {
+  if (localStorage.getItem('currentUser')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token
+    }`;
+  }
+  return req;
+});
+
+export const markNotifications = async (notId, data, dispatch) => {
   dispatch(updateStart());
   try {
-    const res = await API.post('/register', authData);
-    dispatch(updateSuccess(res.data));
+    const res = await API.post(`/singleNotification/${notId}`, data);
+    console.log(res);
 
-    setAuthData({
-      firstname: '',
-      lastname: '',
-      email: '',
-      password: '',
-    });
+    dispatch(updateSuccess(res.data));
 
     setTimeout(() => {
       dispatch(clearSuccessCondition());
-    }, [6000]);
+    }, [2000]);
   } catch (error) {
+    console.log(error);
     if (!error.response) {
       dispatch(updateError(error.message));
     } else if (!error.response.data.message) {
@@ -36,23 +43,23 @@ export const signUp = async (authData, dispatch, setAuthData) => {
 
     setTimeout(() => {
       dispatch(clearError());
-    }, [6000]);
+    }, [3000]);
   }
 };
 
-export const VerifyEmail = async (setValidUrl, params, dispatch) => {
+export const markAllNotifications = async (data, dispatch) => {
   dispatch(updateStart());
   try {
-    const { data } = await API.get(`/${params.id}/verify/${params.token}`);
-    dispatch(updateSuccess(data));
-    setValidUrl(true);
+    const res = await API.post('/allNotifications', data);
+    console.log(res);
+
+    dispatch(updateSuccess(res.data));
 
     setTimeout(() => {
       dispatch(clearSuccessCondition());
-    }, [10000]);
+    }, [2000]);
   } catch (error) {
-    setValidUrl(false);
-
+    console.log(error);
     if (!error.response) {
       dispatch(updateError(error.message));
     } else if (!error.response.data.message) {
@@ -63,6 +70,6 @@ export const VerifyEmail = async (setValidUrl, params, dispatch) => {
 
     setTimeout(() => {
       dispatch(clearError());
-    }, [10000]);
+    }, [3000]);
   }
 };
