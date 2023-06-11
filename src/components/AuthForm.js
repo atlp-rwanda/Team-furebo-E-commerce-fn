@@ -7,12 +7,15 @@ import { signUp } from '../redux/actions/signup';
 import signIn from '../redux/actions/Login';
 
 import '../css/AuthStyles/Auth.css';
+
 import {
   ValidateFistname,
   ValidateLastName,
   ValidateEmail,
   ValidatePassword,
 } from './Validation';
+
+import GoogleButton from './shared/GoogleButton';
 
 const AuthForm = () => {
   const navigate = useNavigate();
@@ -135,6 +138,7 @@ const AuthForm = () => {
           <button className="authButton" onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
+          <GoogleButton />
           {isSignUp && (
             <Link to="/AdminRegister">
               <span>register as admin</span>
