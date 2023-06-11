@@ -15,7 +15,9 @@ const Home = () => (
     <div className="main">
       <div className="mainLeft">
         <h1>
-          <span>Best E-commerce solutions 3</span> to Boost your brand name and
+          <span>Best E-commerce solutions 3</span>
+          {' '}
+          to Boost your brand name and
           sales
         </h1>
         <p>
@@ -35,7 +37,7 @@ const Home = () => (
         <p>Voluptate excepteur minim quis incididunt mollit non.</p>
       </div>
       <div className="cotegoryBody">
-        {categoryProducts.map(cat => (
+        {categoryProducts.map((cat) => (
           <Category key={cat.id} data={cat} />
         ))}
       </div>
@@ -46,7 +48,7 @@ const Home = () => (
         <hr />
       </div>
       <div className="latestProductsBody">
-        {Latestproducts.map(pr => (
+        {Latestproducts.map((pr) => (
           <ProductCard key={pr.id} data={pr} />
         ))}
       </div>

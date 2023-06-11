@@ -28,7 +28,7 @@ const SetRoles = async (updatedData, userId, dispatch, handleUsers) => {
   try {
     const res = await API.patch(`/updateRole/${userId}`, updatedData);
 
-    fetchUsers(dispatch);
+    // fetchUsers(dispatch);
 
     dispatch(updateSuccess(res.data));
 

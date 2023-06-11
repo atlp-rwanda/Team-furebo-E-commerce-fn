@@ -1,3 +1,6 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -19,22 +22,23 @@ const ResetPasswordForm = () => {
   const [emailData, setEmailData] = useState({ email: '' });
   const [email, setEmail] = useState('');
 
-  const { successCondition, userInfo, error, pending } = useSelector(
-    state => state.resetPassword
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.resetPassword,
   );
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setEmailData({ ...emailData, [e.target.name]: e.target.value });
   };
 
-  const handleValidationEmail = e => {
+  const handleValidationEmail = (e) => {
     setErrors(ValidateEmail(emailData));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     resetPassword(emailData, dispatch);
-    console.log(emailData);
   };
 
   return (

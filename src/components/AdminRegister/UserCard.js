@@ -17,8 +17,10 @@ const UserCard = ({ data, handleUsers }) => {
   const [dismissed, setDismissed] = useState(false);
   const [updatedData, setUpdatedData] = useState({ role: '' });
 
-  const { successCondition, userRole, error, pending } = useSelector(
-    state => state.userRole
+  const {
+    successCondition, userRole, error, pending,
+  } = useSelector(
+    (state) => state.userRole,
   );
 
   const userId = data.id;
@@ -62,9 +64,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="merchant"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <div className="checkbox">
@@ -74,9 +74,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="customer"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <div className="checkbox">
@@ -86,9 +84,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="admin"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <button onClick={handleSubmit}>Update</button>

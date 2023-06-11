@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/ProductCard/ProductCard';
 
 describe('ProductCard Tests', () => {
   const productData = {
@@ -19,9 +19,9 @@ describe('ProductCard Tests', () => {
     render(
       <Router>
         <Provider store={store}>
-          <ProductCard data={productData} />
+          <ProductCard product={productData} />
         </Provider>
-      </Router>
+      </Router>,
     );
   });
 

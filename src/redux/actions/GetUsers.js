@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import {
@@ -24,13 +25,13 @@ const fetchUsers = async (dispatch) => {
   dispatch(updateStart());
   try {
     const res = await API.get('/fetchUsers');
-    console.log(res);
 
     dispatch(updateSuccess(res.data));
 
     setTimeout(() => {
       dispatch(clearSuccessCondition());
     }, [6000]);
+    return res.data;
   } catch (error) {
     if (!error.response) {
       dispatch(updateError(error.message));

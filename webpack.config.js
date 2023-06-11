@@ -30,6 +30,7 @@ module.exports = {
         include: [
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'node_modules/react-toastify'),
+          path.resolve(__dirname, 'node_modules/bootstrap/dist/css'),
         ],
 
         use: [

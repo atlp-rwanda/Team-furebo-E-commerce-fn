@@ -68,7 +68,7 @@
   display: block;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
   gap: 10px;
 }
 .Dashboard .dashBoardMenuSmall .identification .Id-Inner p {
@@ -272,7 +272,7 @@
 }
 @media (max-width: 450px) {
   .Dashboard .dashBoardMenu .togleSidebar p {
-    align-items: flex-start;
+    align-items: start;
     justify-content: center;
   }
 }
@@ -312,9 +312,10 @@
   background-color: transparent;
 }
 .Dashboard .dashBoardMain .usersContainer .userContainer {
+  overflow: auto;
+  height: 88vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 20px;
@@ -325,7 +326,7 @@
   box-sizing: border-box;
 }
 .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper {
-  width: 90%;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -342,64 +343,30 @@
     gap: 10px;
   }
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .cardWraperInner {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .cardWraperInner
-  img {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 @media (max-width: 800px) {
-  .Dashboard
-    .dashBoardMain
-    .usersContainer
-    .userContainer
-    .cardWraper
-    .cardWraperInner {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner {
     flex-direction: column;
   }
-  .Dashboard
-    .dashBoardMain
-    .usersContainer
-    .userContainer
-    .cardWraper
-    .cardWraperInner
-    p {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner p {
     font-size: 10px;
   }
-  .Dashboard
-    .dashBoardMain
-    .usersContainer
-    .userContainer
-    .cardWraper
-    .cardWraperInner
-    h1 {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner h1 {
     font-size: 10px;
   }
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .cardWraperInner
-  .cardWraperInnerBody {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner .cardWraperInnerBody {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -407,35 +374,18 @@
   gap: 10px;
 }
 @media (max-width: 800px) {
-  .Dashboard
-    .dashBoardMain
-    .usersContainer
-    .userContainer
-    .cardWraper
-    .cardWraperInner
-    .cardWraperInnerBody {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner .cardWraperInnerBody {
     align-items: center;
   }
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .cardWraperRight {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .cardWraperRight
-  .button1 {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button1 {
   border: none;
   padding: 5px 20px;
   background-color: #2ed47a;
@@ -444,25 +394,13 @@
   cursor: pointer;
 }
 @media (max-width: 800px) {
-  .Dashboard
-    .dashBoardMain
-    .usersContainer
-    .userContainer
-    .cardWraper
-    .cardWraperRight
-    .button1 {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button1 {
     font-size: 10px;
     padding: 5px 10px;
     width: 100px;
   }
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .cardWraperRight
-  .button2 {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button2 {
   border: none;
   padding: 5px 20px;
   background-color: #f7685b;
@@ -471,25 +409,13 @@
   cursor: pointer;
 }
 @media (max-width: 800px) {
-  .Dashboard
-    .dashBoardMain
-    .usersContainer
-    .userContainer
-    .cardWraper
-    .cardWraperRight
-    .button2 {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button2 {
     font-size: 10px;
     padding: 5px 10px;
     width: 100px;
   }
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .cardWraperRight
-  .button3 {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button3 {
   border: none;
   padding: 5px 20px;
   background-color: #5aaab4;
@@ -498,13 +424,7 @@
   cursor: pointer;
 }
 @media (max-width: 800px) {
-  .Dashboard
-    .dashBoardMain
-    .usersContainer
-    .userContainer
-    .cardWraper
-    .cardWraperRight
-    .button3 {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button3 {
     font-size: 10px;
     padding: 5px 10px;
     width: 100px;
@@ -521,25 +441,13 @@
   justify-content: center;
   align-items: center;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .disablePopUp {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .disablePopUp {
   color: #000000;
   font-size: 20px;
   margin-bottom: 10px;
   cursor: pointer;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .sendingForm {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm {
   background-color: #ffffff;
   width: 200px;
   height: auto;
@@ -551,14 +459,7 @@
   border-radius: 10px;
   position: relative;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .sendingForm
-  .checkbox {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .checkbox {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -567,26 +468,11 @@
   width: 100%;
   align-items: center;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .sendingForm
-  .checkbox
-  input {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .checkbox input {
   width: 20px;
   height: 20px;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .sendingForm
-  button {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm button {
   padding: 5px 20px;
   background-color: #f7685b;
   margin-top: 20px;
@@ -595,14 +481,7 @@
   width: 100%;
   cursor: pointer;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .sendingForm
-  .pending {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .pending {
   color: #5bc760;
   margin-top: 10px;
   width: 90%;
@@ -610,14 +489,7 @@
   justify-content: center;
   align-items: center;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .sendingForm
-  .successDisplay {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .successDisplay {
   background-color: #5bc760;
   width: 80%;
   padding: 10px 15px;
@@ -628,14 +500,7 @@
   border-radius: 5px;
   margin-top: 10px;
 }
-.Dashboard
-  .dashBoardMain
-  .usersContainer
-  .userContainer
-  .cardWraper
-  .popUp
-  .sendingForm
-  .errorDisplay {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .errorDisplay {
   background-color: #ff6252;
   width: 80%;
   padding: 10px 15px;
@@ -645,6 +510,21 @@
   align-items: center;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.loading {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerUsr {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 /*# sourceMappingURL=DashBoard.css.map */

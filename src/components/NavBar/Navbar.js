@@ -127,8 +127,16 @@ const Navbar = () => {
             {pageRotate && (
               <div className="newPageRotate">
                 {currentUserRole && currentUserRole.name === 'admin' && <Link className="link" to="/dashboard"><li>dashboard</li></Link>}
-                <li>Product</li>
-                {currentUserRole && currentUserRole.name === 'merchant' && <li>collection</li>}
+                <Link className="link" to="/products">
+                  <div>Product</div>
+                </Link>
+                {currentUserRole && currentUserRole.name === 'merchant'
+                && (
+                <>
+                  <li>collection</li>
+                  <Link className="link" to="/addproduct"><li>addProduct</li></Link>
+                </>
+                )}
               </div>
             )}
           </li>
@@ -245,8 +253,16 @@ const Navbar = () => {
       {pageMenu && (
         <div className="newNavSideBar">
           {currentUserRole && currentUserRole.name === 'admin' && <Link className="link" to="/dashboard"><li>dashboard</li></Link>}
-          <li>Product</li>
-          {currentUserRole && currentUserRole.name === 'merchant' && <li>collection</li>}
+          <Link className="link" to="/products">
+            <div>Product</div>
+          </Link>
+          {currentUserRole && currentUserRole.name === 'merchant'
+          && (
+            <>
+              <li>collection</li>
+              <Link className="link" to="/addproduct"><li>addProduct</li></Link>
+            </>
+          )}
         </div>
       )}
       <ToastContainer />

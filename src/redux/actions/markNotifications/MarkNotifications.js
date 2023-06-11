@@ -24,7 +24,6 @@ export const markNotifications = async (notId, data, dispatch) => {
   dispatch(updateStart());
   try {
     const res = await API.post(`/singleNotification/${notId}`, data);
-    console.log(res);
 
     dispatch(updateSuccess(res.data));
 
@@ -32,7 +31,6 @@ export const markNotifications = async (notId, data, dispatch) => {
       dispatch(clearSuccessCondition());
     }, [2000]);
   } catch (error) {
-    console.log(error);
     if (!error.response) {
       dispatch(updateError(error.message));
     } else if (!error.response.data.message) {
@@ -51,7 +49,6 @@ export const markAllNotifications = async (data, dispatch) => {
   dispatch(updateStart());
   try {
     const res = await API.post('/allNotifications', data);
-    console.log(res);
 
     dispatch(updateSuccess(res.data));
 
@@ -59,7 +56,6 @@ export const markAllNotifications = async (data, dispatch) => {
       dispatch(clearSuccessCondition());
     }, [2000]);
   } catch (error) {
-    console.log(error);
     if (!error.response) {
       dispatch(updateError(error.message));
     } else if (!error.response.data.message) {

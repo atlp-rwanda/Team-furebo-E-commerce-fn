@@ -1,11 +1,13 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import {
-  updatePassword,
-  updatePasswordSuccess,
+  updateStart,
+  updateSuccess,
   updateError,
   clearError,
   clearSuccessCondition,
-} from '../slices/updatePassword';
+} from '../slices/fetchProductSlice';
 
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
@@ -13,21 +15,22 @@ const API = axios.create({
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('currentUser')) {
-    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem('currentUser')).token
     }`;
   }
   return req;
 });
 
-const ModifyPassword = async (authData, params, dispatch) => {
-  dispatch(updatePassword());
+const fetchAllProducts = async (page, size, dispatch) => {
+  dispatch(updateStart());
   try {
-    const res = await API.patch(`/modify-password/${params.id}`, authData);
-    dispatch(updatePasswordSuccess(res.data));
+    const res = await API.get(`?size=${size}&page=${page}`);
 
-    setTimeout(() => {
-      dispatch(clearSuccessCondition());
-    }, [60000]);
+    dispatch(updateSuccess(res.data));
+
+    dispatch(clearSuccessCondition());
+    return res.data.data;
   } catch (error) {
     if (!error.response) {
       dispatch(updateError(error.message));
@@ -36,9 +39,11 @@ const ModifyPassword = async (authData, params, dispatch) => {
     } else {
       dispatch(updateError(error.response.data.message));
     }
+
     setTimeout(() => {
       dispatch(clearError());
-    }, [10000]);
+    }, [6000]);
   }
 };
-export default ModifyPassword;
+
+export default fetchAllProducts;
