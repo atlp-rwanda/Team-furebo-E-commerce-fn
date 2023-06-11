@@ -6,6 +6,7 @@ import {
   updateUserProfile,
 } from '../../redux/actions/userProfile/EditUserBasicInfoAction';
 import '../../css/profile/Edit-basicInfo.css';
+import { act } from 'react-dom/test-utils';
 
 const EditUserBasicPage = () => {
   const [firstName, setFirstName] = useState('');
@@ -23,9 +24,15 @@ const EditUserBasicPage = () => {
     try {
       const { firstName, lastName, email } = await fetchUserProfile();
 
-      setFirstName(firstName);
-      setLastName(lastName);
-      setEmail(email);
+      act(() => {
+        setFirstName(firstName);
+      });
+      act(() => {
+        setLastName(lastName);
+      });
+      act(() => {
+        setEmail(email);
+      });
     } catch (error) {
       // Handle error
     }

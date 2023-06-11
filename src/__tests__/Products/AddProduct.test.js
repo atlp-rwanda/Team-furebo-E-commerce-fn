@@ -14,7 +14,7 @@ describe('AddProduct', () => {
     render(
       <Provider store={store}>
         <AddProduct />
-      </Provider>,
+      </Provider>
     );
     const nameInput = screen.getByLabelText('Name:');
     const imagesInput = screen.getByLabelText('Images:');
@@ -41,7 +41,7 @@ describe('AddProduct', () => {
         <Provider store={store}>
           <AddProduct />
         </Provider>
-      </Router>,
+      </Router>
     );
     const addProduct = screen.getByTestId('AddProduct');
     expect(addProduct).toBeInTheDocument();
@@ -53,7 +53,7 @@ describe('AddProduct', () => {
         <Provider store={store}>
           <AddProduct />
         </Provider>
-      </Router>,
+      </Router>
     );
     const nameInput = screen.getByLabelText('Name:');
     const submitButton = screen.getByTestId('addProduct');
@@ -69,7 +69,7 @@ describe('AddProduct', () => {
         <Provider store={store}>
           <AddProduct />
         </Provider>
-      </Router>,
+      </Router>
     );
     const nameInput = screen.getByLabelText('Quantity:');
     const submitButton = screen.getByTestId('addProduct');
@@ -85,7 +85,7 @@ describe('AddProduct', () => {
         <Provider store={store}>
           <AddProduct />
         </Provider>
-      </Router>,
+      </Router>
     );
     const priceInput = screen.getByLabelText('Price:');
     const submitButton = screen.getByTestId('addProduct');
@@ -105,7 +105,7 @@ describe('AddProduct', () => {
         <Provider store={store}>
           <AddProduct />
         </Provider>
-      </Router>,
+      </Router>
     );
     const quantityInput = screen.getByLabelText('Quantity:');
     const submitButton = screen.getByTestId('addProduct');
@@ -125,14 +125,14 @@ describe('AddProduct', () => {
         <Provider store={store}>
           <AddProduct />
         </Provider>
-      </Router>,
+      </Router>
     );
     const exDateInput = screen.getByTestId('exDate-input');
     const submitButton = screen.getByTestId('addProduct');
     fireEvent.change(exDateInput, { target: { value: '2022-01-01' } });
     fireEvent.click(submitButton);
     const errorElement = screen.getByText(
-      /Expired date must be greater than today/i,
+      /Expired date must be greater than today/i
     );
     expect(errorElement).toBeInTheDocument();
   });

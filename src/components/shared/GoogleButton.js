@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../css/AuthStyles/Auth.css';
-import googleIcon from "../../assets/images/googleIcon.svg";
+import googleIcon from '../../assets/images/googleIcon.svg';
 
-const backendURL = "https://team-furebo-e-commerce-bn.onrender.com"
+const backendURL = 'https://team-furebo-e-commerce-bn.onrender.com';
 
 export default function GoogleButton() {
   return (

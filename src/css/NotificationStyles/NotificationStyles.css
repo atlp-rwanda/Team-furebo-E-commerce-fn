@@ -9,7 +9,7 @@
     width: 100%;
     max-width: 320px;
   }
-  nav .search-area input[type=text] {
+  nav .search-area input[type='text'] {
     width: 100%;
   }
   nav .dropdown {

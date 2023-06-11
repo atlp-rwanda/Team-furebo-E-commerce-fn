@@ -24,10 +24,8 @@ const ProductPage = () => {
   const page = query.get('page') || 1;
   const size = query.get('size') || 8;
 
-  const {
-    successCondition, productsInfo, error, pending,
-  } = useSelector(
-    (state) => state.product,
+  const { successCondition, productsInfo, error, pending } = useSelector(
+    state => state.product
   );
 
   return (
@@ -42,7 +40,7 @@ const ProductPage = () => {
         <div>No Products</div>
       ) : (
         <div className="productContainer">
-          {products?.map((product) => (
+          {products?.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

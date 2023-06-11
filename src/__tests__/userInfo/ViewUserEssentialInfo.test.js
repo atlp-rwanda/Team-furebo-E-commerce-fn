@@ -23,7 +23,7 @@ describe('TEST VIEWING USER ESSENTIAL INFORMATION', () => {
     render(
       <Router>
         <ViewUserEssentialInfo profileData={profileData} />
-      </Router>,
+      </Router>
     );
 
     const viewEssentialElement = screen.getByTestId('viewEssential');

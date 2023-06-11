@@ -13,7 +13,7 @@ describe('Auth TESTS', () => {
         <Provider store={store}>
           <ProductPage />
         </Provider>
-      </Router>,
+      </Router>
     );
     const auth = screen.getByTestId('product-card');
     expect(auth).toBeInTheDocument();

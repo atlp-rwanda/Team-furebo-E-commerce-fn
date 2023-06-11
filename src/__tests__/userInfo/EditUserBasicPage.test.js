@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { act } from 'react-dom/test-utils'; // Import act from react-dom/test-utils
 
 import EditUserBasicPage from '../../pages/userInfo/EditUserBasicPage';
 import { updateUserProfile } from '../../redux/actions/userProfile/EditUserBasicInfoAction';
@@ -34,14 +35,20 @@ describe('USER INFORMATIONS TESTS', () => {
       </Router>
     );
     // Change the input values
-    fireEvent.change(screen.getByLabelText('First Name'), {
-      target: { value: 'Jane' },
-    });
-    fireEvent.change(screen.getByLabelText('Last Name'), {
-      target: { value: 'Smith' },
-    });
-    fireEvent.change(screen.getByLabelText('Email'), {
-      target: { value: 'janesmith@example.com' },
+    await act(async () => {
+      fireEvent.change(screen.getByLabelText('First Name'), {
+        target: { value: 'Jane' },
+      });
+      fireEvent.change(screen.getByLabelText('Last Name'), {
+        target: { value: 'Smith' },
+      });
+      fireEvent.change(screen.getByLabelText('Email'), {
+        target: { value: 'janesmith@example.com' },
+      });
+
+      fireEvent.submit(
+        screen.getByTestId('editBasicPage').querySelector('form')
+      );
     });
 
     // Submit the form
@@ -55,7 +62,8 @@ describe('USER INFORMATIONS TESTS', () => {
     );
 
     // Assert that the success message is displayed
-    expect(await screen.findByText('User information updated successfully!')).toBeInTheDocument();
+    expect(
+      await screen.findByText('User information updated successfully!')
+    ).toBeInTheDocument();
   });
 });
-

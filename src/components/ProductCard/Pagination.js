@@ -21,13 +21,13 @@ const Paginate = ({ page, size, setProducts }) => {
         setNumberOfPages(allProducts?.totalPages);
       }
 
-    //   setItems(allProducts.items);
+      //   setItems(allProducts.items);
     };
 
     getAllProducts();
   }, [page]);
 
-  const handlePageClick = (event) => {
+  const handlePageClick = event => {
     navigate(`/products?page=${event.selected + 1}&size=${8}`);
   };
 

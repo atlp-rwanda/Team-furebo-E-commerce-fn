@@ -12,7 +12,7 @@ export const markNotificationsSlice = createSlice({
     },
   },
   reducers: {
-    updateStart: (state) => {
+    updateStart: state => {
       state.pending = true;
     },
     updateSuccess: (state, action) => {
@@ -25,16 +25,20 @@ export const markNotificationsSlice = createSlice({
       state.error.message = action.payload;
       state.pending = false;
     },
-    clearError: (state) => {
+    clearError: state => {
       state.error.condition = false;
     },
-    clearSuccessCondition: (state) => {
+    clearSuccessCondition: state => {
       state.successCondition = false;
     },
   },
 });
 
 export const {
-  updateStart, updateSuccess, updateError, clearError, clearSuccessCondition,
+  updateStart,
+  updateSuccess,
+  updateError,
+  clearError,
+  clearSuccessCondition,
 } = markNotificationsSlice.actions;
 export default markNotificationsSlice.reducer;

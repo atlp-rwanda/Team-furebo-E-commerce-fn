@@ -22,7 +22,10 @@ describe('addProductSlice', () => {
       productInfo: null,
     };
     const payload = { id: 1, name: 'Product 1' };
-    const nextState = addProductReducer(initialState, addProductSuccess(payload));
+    const nextState = addProductReducer(
+      initialState,
+      addProductSuccess(payload)
+    );
     expect(nextState.successCondition).toBe(true);
     expect(nextState.pending).toBe(false);
     expect(nextState.productInfo).toEqual(payload);
