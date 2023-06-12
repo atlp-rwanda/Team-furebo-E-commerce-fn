@@ -4,14 +4,14 @@ import userReducer, {
   updateError,
   clearError,
   clearSuccessCondition,
-} from '../redux/slices/shoppingCartSlice';
+} from '../redux/slices/proDetailsSlice';
 
 describe('userSlice', () => {
   let initialState;
 
   beforeEach(() => {
     initialState = {
-      userInfo: null,
+      singleProductInfo: [],
       successCondition: false,
       pending: false,
       error: {
@@ -24,7 +24,7 @@ describe('userSlice', () => {
   it('should handle updateStart', () => {
     const nextState = userReducer(initialState, updateStart());
 
-    expect(nextState.cartpending).toBe(true);
+    expect(nextState.pending).toBe(true);
   });
 
   it('should handle updateSuccess', () => {
@@ -33,10 +33,10 @@ describe('userSlice', () => {
 
     expect(nextState.successCondition).toBe(true);
     expect(nextState.pending).toBe(false);
-    expect(nextState.shppingCart).toEqual(payload);
-    expect(localStorage.getItem('shoppingCart')).toEqual(
-      JSON.stringify(payload),
-    );
+    expect(nextState.singleProductInfo).toEqual(payload);
+    // expect(localStorage.getItem('shoppingCart')).toEqual(
+    //   JSON.stringify(payload),
+    // );
   });
 
   it('should handle updateError', () => {

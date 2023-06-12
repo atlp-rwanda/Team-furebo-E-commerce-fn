@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './slices/signupSlice';
 import updatePasswordSlice from './slices/updatePassword';
@@ -9,6 +10,8 @@ import addProduct from './slices/addProductSlice';
 import markNotificationsSlice from './slices/markNotificationsSlice';
 import allProductsSlice from './slices/fetchProductSlice';
 import cartSlice from './slices/shoppingCartSlice';
+import singleProductsSlice from './slices/proDetailsSlice';
+import recomProductsSlice from './slices/recomProductSlice';
 
 const store = configureStore({
   reducer: {
@@ -22,6 +25,8 @@ const store = configureStore({
     markNotifications: markNotificationsSlice,
     product: allProductsSlice,
     cart: cartSlice,
+    singleProduct: singleProductsSlice,
+    recomProducts: recomProductsSlice,
   },
 });
 

@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const cartSlice = createSlice({
-  name: 'cart',
+export const recomProductsSlice = createSlice({
+  name: 'recomProducts',
   initialState: {
-    shppingCart: JSON.parse(localStorage.getItem('shoppingCart')),
+    recomProduct: [],
     successCondition: false,
-    cartpending: false,
+    pending: false,
     error: {
       condition: false,
       message: '',
@@ -13,18 +13,18 @@ export const cartSlice = createSlice({
   },
   reducers: {
     updateStart: (state) => {
-      state.cartpending = true;
+      state.pending = true;
     },
     updateSuccess: (state, action) => {
       state.successCondition = true;
-      state.cartpending = false;
-      state.shppingCart = action.payload;
-      localStorage.setItem('shoppingCart', JSON.stringify(action.payload));
+      state.pending = false;
+      state.recomProduct = action.payload;
+      // localStorage.setItem('recomProducts', JSON.stringify(action.payload));
     },
     updateError: (state, action) => {
       state.error.condition = true;
       state.error.message = action.payload;
-      state.cartpending = false;
+      state.pending = false;
     },
     clearError: (state) => {
       state.error.condition = false;
@@ -41,5 +41,5 @@ export const {
   updateError,
   clearError,
   clearSuccessCondition,
-} = cartSlice.actions;
-export default cartSlice.reducer;
+} = recomProductsSlice.actions;
+export default recomProductsSlice.reducer;
