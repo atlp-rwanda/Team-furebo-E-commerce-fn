@@ -1,0 +1,40 @@
+.in-view-page-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.in-view-page-header h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: bold;
+}
+.in-view-page-header .clear-button {
+  margin-top: 10px;
+  color: red;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+.in-view-page-header .clear-button:hover {
+  background-color: red;
+  color: #fff;
+}
+
+hr {
+  margin-bottom: 20px;
+}
+
+.remove-button {
+  color: rgb(201, 5, 5);
+  font-size: 30px;
+  font-weight: bolder;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=in-view-page-header.css.map */

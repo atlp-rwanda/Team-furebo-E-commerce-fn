@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable linebreak-style */
 /* eslint-disable no-nested-ternary */
@@ -7,6 +8,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaShoppingCart, FaUserAlt, FaSearch } from 'react-icons/fa';
 import { GrLanguage } from 'react-icons/gr';
@@ -15,7 +17,7 @@ import { IoIosArrowBack, IoMdNotifications } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 import { MdOutlineKeyboardArrowUp, MdDelete } from 'react-icons/md';
 import { HiMenuAlt2 } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import '../../css/NavbarStyles/Navbar.css';
 import '../../css/NotificationStyles/NotificationStyles.css';
@@ -25,8 +27,11 @@ import {
   markNotifications,
   markAllNotifications,
 } from '../../redux/actions/markNotifications/MarkNotifications';
+import Logo from '../../assets/images/our-logo.png';
+import ViewWishlistButton from '../Wishlist/ViewWishListButton';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [menu, setMenu] = useState(false);
   const [pageRotate, setPageRotate] = useState(false);
@@ -40,11 +45,24 @@ const Navbar = () => {
   const [notificationCount, setNotificationCount] = useState(0);
 
   const { userInfo } = useSelector(state => state.user);
+  const { wishlistItems } = useSelector(state => state.viewWishlist);
+
+  const { cartItems } = useSelector(state => state.viewCartItems);
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
     : null;
   const [data, setData] = useState({ isRead: true });
+
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -100 },
+  };
 
   const handleMenu = () => {
     setMenu(!menu);
@@ -64,6 +82,8 @@ const Navbar = () => {
 
   const handlePageRotate = () => {
     setPageRotate(!pageRotate);
+    setProfile(false);
+    setShowNotification(false);
   };
 
   const handleProfile = () => {
@@ -71,6 +91,8 @@ const Navbar = () => {
     setMenu(false);
     setPageMenu(false);
     setSearchIcon(false);
+    setPageRotate(false);
+    setShowNotification(false);
   };
 
   const handleSeach = () => {
@@ -81,6 +103,8 @@ const Navbar = () => {
   };
   const handleNotification = () => {
     setShowNotification(!showNotification);
+    setProfile(false);
+    setPageRotate(false);
   };
 
   const MarkAllAsRead = () => {
@@ -116,35 +140,69 @@ const Navbar = () => {
     }
   }, [notifications.length, lastNotification]);
 
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+    navigate('/');
+    setPageMenu(false);
+    setSearchIcon(false);
+    setProfile(false);
+  };
+
   return (
     <div className="navbar" data-testid="navbar">
       <div className="logo">
-        <h1>LOGO</h1>
+        <div
+          className="logo-container"
+          onClick={() => {
+            navigate('/');
+            setProfile(false);
+            setRotate(true);
+            setMenu(false);
+            setPageRotate(false);
+          }}
+        >
+          {/* <span className="logo-name">T-mart</span> */}
+          <img className="logo-image" src={Logo} alt="" width="52px" />
+        </div>
       </div>
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            pages{' '}
+            PAGES{' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
             {pageRotate && (
-              <div className="newPageRotate">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={variants}
+                className="newPageRotate"
+              >
                 {currentUserRole && currentUserRole.name === 'admin' && (
                   <Link className="link" to="/dashboard">
-                    <li>dashboard</li>
+                    <motion.li variants={item}>dashboard</motion.li>
                   </Link>
                 )}
-                <li>Product</li>
+
                 {currentUserRole && currentUserRole.name === 'merchant' && (
-                  <li>collection</li>
+                  <>
+                    <Link className="link" to="/addproduct">
+                      <motion.li variants={item}>Add Product</motion.li>
+                    </Link>
+                    {/* <li>collection</li> */}
+                  </>
                 )}
-              </div>
+                <Link className="link" to="/products">
+                  <motion.div variants={item}>Product</motion.div>
+                </Link>
+              </motion.div>
             )}
           </li>
         )}
         <li>
-          categories
+          CATEGORIES
           <MdOutlineKeyboardArrowUp />
         </li>
       </ul>
@@ -215,39 +273,65 @@ const Navbar = () => {
         <div className="translation">
           <GrLanguage />
         </div>
-        <div className="cart">
-          <Link to="/view-cart" className="profile-link">
-            <FaShoppingCart />
-          </Link>
-        </div>
+        {userInfo && userInfo.userData && (
+          <>
+            <Link className="cartlink" to="/view-cart">
+              <div data-testid="cartContainer" className="cartContainer">
+                <FaShoppingCart />
+                <span className="redSpan">{cartItems.length}</span>
+              </div>
+            </Link>
+            {/* View Wishlist */}
+            <div data-testid="wishlistContainer" className="cartContainer">
+              <ViewWishlistButton />
+              <span className="redSpan">{wishlistItems.length}</span>
+            </div>
+          </>
+        )}
         <div className="profile">
           <FaUserAlt data-testid="profile-button" onClick={handleProfile} />
           {profile && (
-            <div className="newProfile">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={variants}
+              className="newProfile"
+            >
               {!userInfo ? (
                 <Link className="Plink" to="/Authentication">
-                  <li>Login/Signup</li>
+                  <motion.div variants={item} onClick={() => setProfile(false)}>
+                    Login/Signup
+                  </motion.div>
                 </Link>
               ) : !userInfo.userData ? (
                 <Link className="Plink" to="/Authentication">
-                  <li>Login/Signup</li>
+                  <motion.div variants={item} onClick={() => setProfile(false)}>
+                    Login/Signup
+                  </motion.div>
                 </Link>
               ) : (
                 <>
-                  <div className="welcome-name">
-                    welcome &nbsp;
+                  <motion.div variants={item} className="welcome-name">
+                    Welcome{' '}
                     <span className="name">
                       {`${userInfo.userData.fullname.split(' ')[0]}`}
                     </span>
-                  </div>
+                  </motion.div>
                   <hr />
                   <Link to="/view-basic" className="profile-link">
-                    Profile
+                    <motion.div variants={item}>Profile</motion.div>
                   </Link>
-                  <button className="logoutButton">Logout</button>
+                  <motion.button
+                    variants={item}
+                    className="logoutButton"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </motion.button>
                 </>
               )}
-            </div>
+              <span className="newProfileBottom">Team-Furebo-E-commerce</span>
+            </motion.div>
           )}
         </div>
         {!menu ? (
@@ -265,34 +349,55 @@ const Navbar = () => {
         )}
       </div>
       {menu && (
-        <div className="NavSideBar">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          className="NavSideBar"
+        >
           {userInfo && userInfo.userData && (
-            <li onClick={handleRotate} data-testid="pages">
-              pages{' '}
+            <motion.li
+              variants={item}
+              onClick={handleRotate}
+              data-testid="pages"
+            >
+              PAGES{' '}
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}
               />
-            </li>
+            </motion.li>
           )}
-          <li onClick={handleCRotate}>
-            categories
+          <motion.li variants={item} onClick={handleCRotate}>
+            CATEGORIES
             <IoIosArrowBack className={crotate ? 'arrowLeft' : 'arrowRight'} />
-          </li>
-        </div>
+          </motion.li>
+        </motion.div>
       )}
       {pageMenu && (
-        <div className="newNavSideBar">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          className="newNavSideBar"
+        >
           {currentUserRole && currentUserRole.name === 'admin' && (
             <Link className="link" to="/dashboard">
-              <li>dashboard</li>
+              <motion.li variants={item}>dashboard</motion.li>
             </Link>
           )}
-          <li>Product</li>
+          <Link className="link" to="/products">
+            <motion.div variants={item}>Product</motion.div>
+          </Link>
           {currentUserRole && currentUserRole.name === 'merchant' && (
-            <li>collection</li>
+            <>
+              <motion.li variants={item}>collection</motion.li>
+              <Link className="link" to="/addproduct">
+                <motion.li variants={item}>addProduct</motion.li>
+              </Link>
+            </>
           )}
-        </div>
+        </motion.div>
       )}
       <ToastContainer />
     </div>

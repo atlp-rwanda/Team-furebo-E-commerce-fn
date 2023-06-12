@@ -8,8 +8,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import image from '../../assets/images/istockphoto-546175134-1024x1024.jpg';
+import image from '../../assets/images/profile2.png';
 import SetRoles from '../../redux/actions/SetRoles';
+
+import DisableAccountButton from './DisableAccountButton';
 
 const UserCard = ({ data, handleUsers }) => {
   const dispatch = useDispatch();
@@ -17,8 +19,10 @@ const UserCard = ({ data, handleUsers }) => {
   const [dismissed, setDismissed] = useState(false);
   const [updatedData, setUpdatedData] = useState({ role: '' });
 
-  const { successCondition, userRole, error, pending } = useSelector(
-    state => state.userRole
+  const {
+    successCondition, userRole, error, pending,
+  } = useSelector(
+    (state) => state.userRole,
   );
 
   const userId = data.id;
@@ -27,19 +31,35 @@ const UserCard = ({ data, handleUsers }) => {
     SetRoles(updatedData, userId, dispatch, handleUsers);
   };
 
+  let accountStatus
+
+  if (data.isEnabled == true) {
+    accountStatus = "Enabled"
+  } else if (data.isEnabled == false) {
+    accountStatus = "Disabled"
+  }
+
+  const disableAccountData = {
+    userId: userId,
+    currentUserStatus: data.isEnabled
+  }
+
   return (
     <div className="cardWraper" data-testid="UserCard">
       <div className="cardWraperInner">
         <img src={image} alt="images" />
         <div className="cardWraperInnerBody">
           <h1>{data.fullname}</h1>
+          <p>{`user Id: ${userId}`}</p>
           <p>{`email: ${data.email}`}</p>
           <p>{`role: ${JSON.parse(data.role).name}`}</p>
+          <p>{`Account status: ${accountStatus}`}</p>
         </div>
       </div>
       <div className="cardWraperRight">
-        <button className="button1">view profife</button>
-        <button className="button2">Disable Account</button>
+        <button className="button1">view full profife</button>
+        {/* <button className="button2">Disable Account</button> */}
+        <DisableAccountButton data={disableAccountData} />
         <button
           className="button3"
           onClick={() => {
@@ -62,9 +82,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="merchant"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <div className="checkbox">
@@ -74,9 +92,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="customer"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <div className="checkbox">
@@ -86,9 +102,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="admin"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <button onClick={handleSubmit}>Update</button>

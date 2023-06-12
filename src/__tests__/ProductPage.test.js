@@ -6,16 +6,16 @@ import store from '../redux/store';
 
 import ProductPage from '../pages/ProductPage';
 
-describe('Auth TESTS', () => {
-  it('Should render Auth', () => {
+describe('productPage TESTS', () => {
+  it('Should render productPage', () => {
     render(
       <Router>
         <Provider store={store}>
           <ProductPage />
         </Provider>
-      </Router>
+      </Router>,
     );
-    const auth = screen.getByTestId('product-card');
-    expect(auth).toBeInTheDocument();
+    const productPage = screen.getByTestId('product-card');
+    expect(productPage).toBeInTheDocument();
   });
 });

@@ -27,5 +27,5 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/mocks/fileMock.js',
   },
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom','./jest.env.js'],
 };

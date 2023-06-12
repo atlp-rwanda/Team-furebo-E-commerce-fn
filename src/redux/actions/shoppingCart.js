@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import { fetchCartItems } from './Cart/ViewCartItemsAction';
 import {
   updateStart,
   updateSuccess,
@@ -14,10 +15,10 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-API.interceptors.request.use(req => {
-  if (localStorage.getItem('currentUser')) {
-    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token
-      }`;
+API.interceptors.request.use((req) => {
+  if (localStorage.getItem('token')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))
+    }`;
   }
   return req;
 });
@@ -32,6 +33,8 @@ const addToCart = async (quantity, productId, dispatch, setShowPopUp) => {
     const res = await API.post('/addItemToCart', data);
 
     dispatch(updateSuccess(res.data));
+
+    fetchCartItems(dispatch);
 
     setShowPopUp(false);
 

@@ -17,9 +17,13 @@ import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
 import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
 import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
 import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
+import VerifyOTPCode from './components/verifyCode';
 import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
-import ViewCartItemsPage from './pages/Cart/ViewCartItemsPage';
+import ViewCartPage from './pages/Cart/ViewCartPage';
+import ProductDetails from './pages/ProductDetails';
+import Checkout from './pages/Checkout';
+import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
 
 const Layout = () => (
   <>
@@ -36,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />,
       },
       {
         path: '/addproduct',
@@ -86,12 +94,24 @@ const router = createBrowserRouter([
         element: <AdminAuth />,
       },
       {
+        path: '/verifyOTP',
+        element: <VerifyOTPCode />,
+      },
+      {
         path: '/products',
         element: <ProductPage />,
       },
       {
+        path: '/productDetails/:id',
+        element: <ProductDetails />,
+      },
+      {
         path: '/view-cart',
-        element: <ViewCartItemsPage />,
+        element: <ViewCartPage />,
+      },
+      {
+        path: '/view-wishlist',
+        element: <ViewWishlistPage />,
       },
     ],
   },
@@ -107,7 +127,6 @@ const router = createBrowserRouter([
 
 const App = () => (
   <div className="app" data-testid="App">
-    <ToastContainer />
     <RouterProvider router={router} />
   </div>
 );

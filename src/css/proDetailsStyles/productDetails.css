@@ -1,0 +1,329 @@
+.overContainer {
+  display: flex;
+  justify-content: center;
+  font-family: 'Baloo Tamma 2', cursive;
+}
+.overContainer .detailContainer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 20px;
+}
+.overContainer .detailContainer .overDetailContainer {
+  border-radius: 20px;
+  padding: 30px 20px;
+}
+.overContainer .detailContainer .detailsCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  box-shadow: 0 5px 20px -10px;
+  padding: 20px 0;
+}
+@media (max-width: 1010px) {
+  .overContainer .detailContainer .detailsCard {
+    gap: 10px;
+  }
+}
+.overContainer .detailContainer .detailsCard .detailsImg {
+  width: 50%;
+}
+@media (max-width: 1010px) {
+  .overContainer .detailContainer .detailsCard .detailsImg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .overContainer .detailContainer .detailsCard .detailsImg img {
+    width: 100%;
+  }
+}
+.overContainer .detailContainer .detailsCard .detailsInfo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Baloo Tamma 2', cursive;
+}
+@media (max-width: 1010px) {
+  .overContainer .detailContainer .detailsCard .detailsInfo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsName {
+  font-weight: 500;
+  font-size: 27px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsName span {
+  font-weight: 800;
+  font-size: 30px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsCategory {
+  font-weight: 500;
+  font-size: 27px;
+}
+.overContainer
+  .detailContainer
+  .detailsCard
+  .detailsInfo
+  .detailsCategory
+  span {
+  font-weight: 800;
+  font-size: 30px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsPrice {
+  font-weight: 500;
+  font-size: 27px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsPrice span {
+  font-weight: 800;
+  font-size: 30px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsQuantity {
+  font-weight: 500;
+  font-size: 27px;
+}
+.overContainer
+  .detailContainer
+  .detailsCard
+  .detailsInfo
+  .detailsQuantity
+  span {
+  font-weight: 800;
+  font-size: 30px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsStatus {
+  font-weight: 500;
+  font-size: 27px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsStatus span {
+  font-weight: 800;
+  font-size: 30px;
+  color: rgb(35, 131, 0);
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsDate {
+  font-weight: 500;
+  font-size: 20px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsDate span {
+  font-weight: 800;
+  font-size: 30px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsExDate {
+  font-weight: 500;
+  font-size: 20px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsExDate span {
+  font-weight: 800;
+  font-size: 30px;
+}
+.overContainer
+  .detailContainer
+  .detailsCard
+  .detailsInfo
+  .product-details-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.overContainer .detailContainer .detailsCard .detailsInfo .detailsButtons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+@media (max-width: 355px) {
+  .overContainer .detailContainer .detailsCard .detailsInfo .detailsButtons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.overContainer
+  .detailContainer
+  .detailsCard
+  .detailsInfo
+  .detailsButtons
+  button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 2px solid rgb(35, 131, 0);
+  color: rgb(35, 131, 0);
+  cursor: pointer;
+}
+.overContainer .detailContainer .recomandations {
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.overContainer .detailContainer .recomandations h1 {
+  font-size: 30px;
+}
+.overContainer .detailContainer .recomandations .recommendedProducts {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow-x: scroll;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 30px;
+}
+.overContainer
+  .detailContainer
+  .recomandations
+  .recommendedProducts
+  .recommendedProductsCard {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  box-shadow: 0 5px 20px -10px;
+}
+.overContainer
+  .detailContainer
+  .recomandations
+  .recommendedProducts
+  .recommendedProductsCard
+  .recommendedImg {
+  width: 200px;
+}
+.overContainer
+  .detailContainer
+  .recomandations
+  .recommendedProducts
+  .recommendedProductsCard
+  .recommendedImg
+  img {
+  width: 100%;
+}
+.overContainer
+  .detailContainer
+  .recomandations
+  .recommendedProducts
+  .recommendedProductsCard
+  .recommendetionDetails {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 47, 47, 0.059);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100px;
+  overflow: scroll;
+}
+.overContainer
+  .detailContainer
+  .recomandations
+  .recommendedProducts
+  .recommendedProductsCard
+  .recommendetionDetails
+  .name {
+  font-weight: bold;
+  font-size: 16px;
+}
+.overContainer
+  .detailContainer
+  .recomandations
+  .recommendedProducts
+  .recommendedProductsCard
+  .recommendetionDetails
+  h1 {
+  font-size: 15px;
+}
+.overContainer .detailContainer .popUp {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overContainer .detailContainer .popUp .loading {
+  width: 90%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.overContainer .detailContainer .popUp .popUpChild {
+  width: 90%;
+  height: 50%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+.overContainer .detailContainer .popUp .popUpChild .span {
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.overContainer .detailContainer .popUp .popUpChild input {
+  padding: 2px 5px;
+  width: 30%;
+  background-color: rgba(0, 255, 255, 0.072);
+  border-radius: 1px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.overContainer .detailContainer .popUp .popUpChild button {
+  width: 20%;
+  padding: 3px 10px;
+  background-color: cadetblue;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.overContainer .loadingContainer {
+  width: 90%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px -10px;
+  margin-top: 60px;
+}
+.overContainer .Error {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+.overContainer .Error span {
+  color: rgb(185, 1, 1);
+}
+
+/*# sourceMappingURL=productDetails.css.map */

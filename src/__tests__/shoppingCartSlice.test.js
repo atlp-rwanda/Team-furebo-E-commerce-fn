@@ -24,7 +24,7 @@ describe('userSlice', () => {
   it('should handle updateStart', () => {
     const nextState = userReducer(initialState, updateStart());
 
-    expect(nextState.pending).toBe(true);
+    expect(nextState.cartpending).toBe(true);
   });
 
   it('should handle updateSuccess', () => {
@@ -35,7 +35,7 @@ describe('userSlice', () => {
     expect(nextState.pending).toBe(false);
     expect(nextState.shppingCart).toEqual(payload);
     expect(localStorage.getItem('shoppingCart')).toEqual(
-      JSON.stringify(payload)
+      JSON.stringify(payload),
     );
   });
 

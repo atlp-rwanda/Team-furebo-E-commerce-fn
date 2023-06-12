@@ -5,31 +5,31 @@ export const cartSlice = createSlice({
   initialState: {
     shppingCart: JSON.parse(localStorage.getItem('shoppingCart')),
     successCondition: false,
-    pending: false,
+    cartpending: false,
     error: {
       condition: false,
       message: '',
     },
   },
   reducers: {
-    updateStart: state => {
-      state.pending = true;
+    updateStart: (state) => {
+      state.cartpending = true;
     },
     updateSuccess: (state, action) => {
       state.successCondition = true;
-      state.pending = false;
+      state.cartpending = false;
       state.shppingCart = action.payload;
       localStorage.setItem('shoppingCart', JSON.stringify(action.payload));
     },
     updateError: (state, action) => {
       state.error.condition = true;
       state.error.message = action.payload;
-      state.pending = false;
+      state.cartpending = false;
     },
-    clearError: state => {
+    clearError: (state) => {
       state.error.condition = false;
     },
-    clearSuccessCondition: state => {
+    clearSuccessCondition: (state) => {
       state.successCondition = false;
     },
   },

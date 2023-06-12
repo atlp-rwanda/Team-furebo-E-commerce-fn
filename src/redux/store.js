@@ -1,28 +1,69 @@
-import { configureStore } from '@reduxjs/toolkit';
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-named-as-default */
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
+import { persistStore, persistReducer } from 'redux-persist';
 import userSlice from './slices/signupSlice';
 import updatePasswordSlice from './slices/updatePassword';
 import userRolesSlice from './slices/userRolesSlice';
 import allUsersSlice from './slices/usersSlice';
+import disableAccountSlice from './slices/disableAccountSlice';
 import resetPasswordSlice from './slices/resetPasswordSlice';
 import newPasswordSlice from './slices/newPasswordSlice';
 import addProduct from './slices/addProductSlice';
 import markNotificationsSlice from './slices/markNotificationsSlice';
 import allProductsSlice from './slices/fetchProductSlice';
 import cartSlice from './slices/shoppingCartSlice';
+import singleProductsSlice from './slices/proDetailsSlice';
+import recomProductsSlice from './slices/recomProductSlice';
+import checkoutSlice from './slices/checkoutSlice';
+import fetchCartItemsSlice from './slices/fetchCartItemsSlice';
+import addToWishlistReducer from './slices/Wishlist/AddToWishListSlice';
+import viewWishlistReducer from './slices/Wishlist/ViewWishlistSlice';
+import deleteItemInWishlistReducer from './slices/Wishlist/DeleteItemInWishListSlice';
+import clearWishlistReducer from './slices/Wishlist/ClearWishListSlice';
+import viewCartItemsReducer from './slices/Cart/ViewCartItemsSlice';
+import updateCartItemReducer from './slices/Cart/UpdateCartItemSlice';
+import deleteCartItemReducer from './slices/Cart/DeleteCartItemSlice';
+import clearCartItemReducer from './slices/Cart/ClearCartItemSlice';
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
+};
+
+const reducer = combineReducers({
+  user: userSlice,
+  updatePassword: updatePasswordSlice,
+  userRole: userRolesSlice,
+  disableAccount: disableAccountSlice,
+  allUsers: allUsersSlice,
+  resetPassword: resetPasswordSlice,
+  newPassword: newPasswordSlice,
+  addProducts: addProduct,
+  markNotifications: markNotificationsSlice,
+  product: allProductsSlice,
+  cart: cartSlice,
+  singleProduct: singleProductsSlice,
+  recomProducts: recomProductsSlice,
+  checkout: checkoutSlice,
+  cartItems: fetchCartItemsSlice,
+  wishlist: addToWishlistReducer,
+  viewWishlist: viewWishlistReducer,
+  deleteItemInWishlist: deleteItemInWishlistReducer,
+  clearWishlist: clearWishlistReducer,
+  viewCartItems: viewCartItemsReducer,
+  updateCartItem: updateCartItemReducer,
+  deleteCartItem: deleteCartItemReducer,
+  clearCartItem: clearCartItemReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 const store = configureStore({
-  reducer: {
-    user: userSlice,
-    updatePassword: updatePasswordSlice,
-    userRole: userRolesSlice,
-    allUsers: allUsersSlice,
-    resetPassword: resetPasswordSlice,
-    newPassword: newPasswordSlice,
-    addProducts: addProduct,
-    markNotifications: markNotificationsSlice,
-    product: allProductsSlice,
-    cart: cartSlice,
-  },
+  reducer: persistedReducer,
 });
 
 export default store;

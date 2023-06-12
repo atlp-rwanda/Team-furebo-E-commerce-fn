@@ -1,5 +1,19 @@
 .authPage {
-  background: transparent;
+  /* background: transparent; */
+  background-image: url('https://cdn.wallpapersafari.com/48/77/vQU6ka.jpg');
+  background-size: cover;
+  background-position: center;
+  width: full;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminAuthPage {
+  background-image: url('https://cdn.wallpapersafari.com/48/77/vQU6ka.jpg');
+  background-size: cover;
+  background-position: center;
   width: full;
   height: 100vh;
   display: flex;
@@ -9,7 +23,7 @@
 
 .authForm {
   background: rgb(179, 179, 179);
-  width: 60%;
+  width: 65%;
   height: auto;
   border-radius: 20px;
   overflow: hidden;
@@ -29,7 +43,7 @@
   width: 35%;
   min-width: 200px;
   padding: 0 0px;
-  background: rgb(23, 174, 159);
+  background: #131921;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +57,7 @@
   }
 }
 .authFormLeft h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Baloo Tamma 2', cursive;
   color: rgb(243, 243, 243);
   font-weight: bolder;
   font-size: 30px;
@@ -69,13 +83,13 @@
   width: 65%;
   min-width: 200px;
   height: 100%;
-  padding: 70px 0;
+  padding: 60px 0;
   background: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 }
 @media (max-width: 1001px) {
   .authFormRight {
@@ -83,7 +97,7 @@
   }
 }
 .authFormRight h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Baloo Tamma 2', cursive;
   font-weight: bold;
   font-size: 40px;
 }
@@ -103,11 +117,12 @@
 .authFormRight form input {
   background-color: rgba(220, 220, 220, 0.426);
   width: 80%;
-  padding: 15px;
+  padding: 8px 15px;
   border: none;
   border-radius: 5px;
   outline: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Baloo Tamma 2', cursive;
+  font-size: 18px;
 }
 .authFormRight form .pending {
   color: #5bc760;
@@ -134,7 +149,7 @@
 }
 .authFormRight form button {
   padding: 10px 30px;
-  background: rgb(23, 174, 159);
+  background: #131921;
   color: rgb(243, 243, 243);
   border: none;
   border-radius: 15px;
@@ -170,32 +185,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.AdminAuthPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-}
-
-.google-btn {
-  width: 250px;
-  padding: 7px;
-  margin-top: 10px;
-  border: #bf9dda 0.3px solid;
-  border-radius: 5px;
-  display: flex;
-  background-color: white;
-  letter-spacing: 1.5px;
-  justify-content: space-evenly;
-  align-items: center;
-  text-decoration: none;
-}
-
-.google-btn h6 {
-  color: black;
 }
 
 /*# sourceMappingURL=Auth.css.map */

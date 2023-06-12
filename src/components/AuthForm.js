@@ -29,11 +29,13 @@ const AuthForm = () => {
     password: '',
   });
 
-  const { successCondition, userInfo, error, pending } = useSelector(
-    state => state.user
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.user,
   );
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
@@ -53,7 +55,7 @@ const AuthForm = () => {
     setErrors(ValidatePassword(authData));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isSignUp) {
@@ -72,7 +74,7 @@ const AuthForm = () => {
         </button>
       </div>
       <div className="authFormRight">
-        <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
+        <h1>{isSignUp ? 'Create Account' : 'Welcome Back'}</h1>
         <form>
           {isSignUp && (
             <>
@@ -85,7 +87,7 @@ const AuthForm = () => {
                 onKeyUp={handleValidationFistname}
               />
               {errors.firstname && (
-                <p style={{ color: 'red', fontSize: '10px' }}>
+                <p style={{ color: 'red', fontSize: '15px' }}>
                   {errors.firstname}
                 </p>
               )}
@@ -98,7 +100,7 @@ const AuthForm = () => {
                 onKeyUp={handleValidationLastname}
               />
               {errors.lastname && (
-                <p style={{ color: 'red', fontSize: '10px' }}>
+                <p style={{ color: 'red', fontSize: '15px' }}>
                   {errors.lastname}
                 </p>
               )}
@@ -113,7 +115,7 @@ const AuthForm = () => {
             onKeyUp={handleValidationEmail}
           />
           {errors.email && (
-            <p style={{ color: 'red', fontSize: '10px' }}>{errors.email}</p>
+            <p style={{ color: 'red', fontSize: '15px' }}>{errors.email}</p>
           )}
           <input
             name="password"
@@ -124,7 +126,7 @@ const AuthForm = () => {
             onKeyUp={handleValidationPassword}
           />
           {errors.password && (
-            <p style={{ color: 'red', fontSize: '10px' }}>{errors.password}</p>
+            <p style={{ color: 'red', fontSize: '15px' }}>{errors.password}</p>
           )}
           <span className="pending">{pending ? 'loading...' : null}</span>
           {successCondition && (

@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: Inter, sans-serif;
+  font-family: 'Baloo Tamma 2', cursive;
   background-color: #f5f6f8;
 }
 .Dashboard .show {
@@ -32,6 +32,7 @@
   height: 100vh;
   position: relative;
   box-shadow: 5px 0 20px rgba(0, 0, 0, 0.363);
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .Header {
   box-sizing: border-box;
@@ -43,6 +44,7 @@
   color: #018694;
   font-weight: 600;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .Header .menu1 {
   font-size: 30px;
@@ -58,6 +60,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .identification img {
   width: 60px;
@@ -70,6 +73,7 @@
   justify-content: center;
   align-items: start;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .identification .Id-Inner p {
   font-size: 10px;
@@ -116,6 +120,7 @@
   position: absolute;
   bottom: 30px;
   cursor: pointer;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .togleSidebar p {
   display: flex;
@@ -149,6 +154,7 @@
   color: #018694;
   font-weight: 600;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 @media (max-width: 450px) {
   .Dashboard .dashBoardMenu .Header {

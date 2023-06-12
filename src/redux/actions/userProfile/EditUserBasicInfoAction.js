@@ -6,10 +6,10 @@ const API = axios.create({
 
 export const fetchUserProfile = async () => {
   try {
-    const authToken = localStorage.getItem('currentUser');
+    const authToken = localStorage.getItem('token');
     const config = {
       headers: {
-        Authorization: `Bearer ${JSON.parse(authToken).token}`,
+        Authorization: `Bearer ${JSON.parse(authToken)}`,
       },
     };
 
@@ -25,10 +25,10 @@ export const fetchUserProfile = async () => {
 
 export const updateUserProfile = async (firstName, lastName, email) => {
   try {
-    const authToken = localStorage.getItem('currentUser');
+    const authToken = localStorage.getItem('token');
     const config = {
       headers: {
-        Authorization: `Bearer ${JSON.parse(authToken).token}`,
+        Authorization: `Bearer ${JSON.parse(authToken)}`,
       },
     };
 
