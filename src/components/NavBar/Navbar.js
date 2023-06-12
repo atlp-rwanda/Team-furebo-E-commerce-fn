@@ -39,7 +39,7 @@ const Navbar = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
 
-  const { userInfo } = useSelector(state => state.user);
+  const { userInfo } = useSelector((state) => state.user);
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
@@ -124,7 +124,8 @@ const Navbar = () => {
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            pages{' '}
+            pages
+            {' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
@@ -135,10 +136,18 @@ const Navbar = () => {
                     <li>dashboard</li>
                   </Link>
                 )}
-                <li>Product</li>
+
                 {currentUserRole && currentUserRole.name === 'merchant' && (
-                  <li>collection</li>
+                  <>
+                    <Link className="link" to="/addproduct">
+                      <li>Add Product</li>
+                    </Link>
+                    {/* <li>collection</li> */}
+                  </>
                 )}
+                <Link className="link" to="/products">
+                  <div>Product</div>
+                </Link>
               </div>
             )}
           </li>
@@ -172,11 +181,9 @@ const Navbar = () => {
                 </div>
                 <hr />
                 {notifications.length > 0 ? (
-                  notifications.map(notification => (
+                  notifications.map((notification) => (
                     <span
-                      onClick={() =>
-                        markNotifications(notification.id, data, dispatch)
-                      }
+                      onClick={() => markNotifications(notification.id, data, dispatch)}
                       className={
                         notification.isRead === true
                           ? 'notification-card2'
@@ -215,11 +222,11 @@ const Navbar = () => {
         <div className="translation">
           <GrLanguage />
         </div>
-        <div className="cart">
-          <Link to="/view-cart" className="profile-link">
+        <Link className="link" to="/view-cart">
+          <div>
             <FaShoppingCart />
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="profile">
           <FaUserAlt data-testid="profile-button" onClick={handleProfile} />
           {profile && (
@@ -268,7 +275,8 @@ const Navbar = () => {
         <div className="NavSideBar">
           {userInfo && userInfo.userData && (
             <li onClick={handleRotate} data-testid="pages">
-              pages{' '}
+              pages
+              {' '}
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}
@@ -288,9 +296,16 @@ const Navbar = () => {
               <li>dashboard</li>
             </Link>
           )}
-          <li>Product</li>
+          <Link className="link" to="/products">
+            <div>Product</div>
+          </Link>
           {currentUserRole && currentUserRole.name === 'merchant' && (
-            <li>collection</li>
+            <>
+              <li>collection</li>
+              <Link className="link" to="/addproduct">
+                <li>addProduct</li>
+              </Link>
+            </>
           )}
         </div>
       )}
