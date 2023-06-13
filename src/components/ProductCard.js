@@ -5,11 +5,7 @@ import PropTypes from 'prop-types';
 // import { FaStar } from 'react-icons/fa';
 
 const ProductCard = ({ data }) => (
-  <motion.div
-    whileHover={{ scale: 1.05 }}
-    className="latestProductCard"
-    data-testid="ProductCard"
-  >
+  <motion.div whileHover={{ scale: 1.05 }} className="latestProductCard" data-testid="ProductCard">
     <div className="productImage">
       <img src={data.image} alt="/" />
     </div>
@@ -17,7 +13,10 @@ const ProductCard = ({ data }) => (
       <h1>{data.title}</h1>
     </div>
     <div>
-      <span>${data.price}</span>
+      <span>
+        $
+        {data.price}
+      </span>
     </div>
     <div className="rating">
       {/* {[...Array(data.rating)].map((index) => (

@@ -13,19 +13,7 @@ import {
 } from '../../slices/Cart/UpdateCartItemSlice';
 import { fetchCartItems } from './ViewCartItemsAction';
 
-<<<<<<< HEAD
 export const updateCartItemQuantity = (itemId, quantity, totalPrice, setShowButtons) => async (dispatch) => {
-=======
-API.interceptors.request.use(req => {
-  const authToken = localStorage.getItem('token');
-  if (authToken) {
-    req.headers.Authorization = `Bearer ${JSON.parse(authToken)}`;
-  }
-  return req;
-});
-
-const updateCartItemAction = async (itemId, quantity, totalPrice, dispatch) => {
->>>>>>> da0141d (feat: Admin disable account)
   try {
     dispatch(updateCartItemQuantityStart());
     const response = await api.put(`/updateShoppingCart/${itemId}`, { quantity, totalPrice });

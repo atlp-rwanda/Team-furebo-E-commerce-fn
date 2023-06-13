@@ -65,7 +65,9 @@ describe('Validation Functions Tests', () => {
     it('should return an error when password does not match the pattern', () => {
       const authData = { password: 'weakpassword' };
       const errors = ValidatePassword(authData);
-      expect(errors.password).toBe('Provide valid password');
+      expect(errors.password).toBe(
+        'Provide valid password',
+      );
     });
 
     it('should not return an error when password matches the pattern', () => {

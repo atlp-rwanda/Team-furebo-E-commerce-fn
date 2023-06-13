@@ -15,8 +15,10 @@ const ProductCard = ({ product }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [quantity, setQuantity] = useState('');
 
-  const { successCondition, productsInfo, error, pending } = useSelector(
-    state => state.cart
+  const {
+    successCondition, productsInfo, error, pending,
+  } = useSelector(
+    (state) => state.cart,
   );
   return (
     <div className="productCrd" data-testid="ProductCard">
@@ -29,10 +31,11 @@ const ProductCard = ({ product }) => {
           <p>{product.name}</p>
         </div>
         <div className="cardHeader2">
-          <p className="price">{product.price}$</p>
-          <Link to={`/productDetails/${product.id}`}>
-            <button>View More</button>
-          </Link>
+          <p className="price">
+            {product.price}
+            $
+          </p>
+          <Link to={`/productDetails/${product.id}`}><button>View More</button></Link>
         </div>
       </div>
     </div>

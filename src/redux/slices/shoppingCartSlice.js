@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
     },
   },
   reducers: {
-    updateStart: state => {
+    updateStart: (state) => {
       state.cartpending = true;
     },
     updateSuccess: (state, action) => {
@@ -26,10 +26,10 @@ export const cartSlice = createSlice({
       state.error.message = action.payload;
       state.cartpending = false;
     },
-    clearError: state => {
+    clearError: (state) => {
       state.error.condition = false;
     },
-    clearSuccessCondition: state => {
+    clearSuccessCondition: (state) => {
       state.successCondition = false;
     },
   },

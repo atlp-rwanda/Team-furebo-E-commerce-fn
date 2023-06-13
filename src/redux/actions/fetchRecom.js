@@ -12,16 +12,10 @@ import {
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
-<<<<<<< HEAD
 API.interceptors.request.use((req) => {
-=======
-
-API.interceptors.request.use(req => {
->>>>>>> da0141d (feat: Admin disable account)
   if (localStorage.getItem('token')) {
-    req.headers.Authorization = `Bearer ${JSON.parse(
-      localStorage.getItem('token')
-    )}`;
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))
+    }`;
   }
   return req;
 });

@@ -5,16 +5,16 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-API.interceptors.request.use(req => {
+API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
-    req.headers.Authorization = `Bearer ${JSON.parse(
-      localStorage.getItem('token')
-    )}`;
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem('token'))
+    }`;
   }
   return req;
 });
 
-const enable2FAForMerchants = async navigate => {
+const enable2FAForMerchants = async (navigate) => {
   try {
     const response = await API.post('/2fa/enable2faForMerchant');
     if (response.data.message) {

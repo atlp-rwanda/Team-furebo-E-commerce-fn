@@ -44,18 +44,10 @@ const Navbar = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
 
-<<<<<<< HEAD
   const { userInfo } = useSelector((state) => state.user);
   const { wishlistItems } = useSelector((state) => state.viewWishlist);
 
   const { cartItems } = useSelector((state) => state.viewCartItems);
-=======
-  const { userInfo } = useSelector(state => state.user);
-
-  const { cartItems } = useSelector(state => state.cartItems);
-
-  console.log(cartItems, 'This is the cartItems on the navbar');
->>>>>>> da0141d (feat: Admin disable account)
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
@@ -160,12 +152,8 @@ const Navbar = () => {
   return (
     <div className="navbar" data-testid="navbar">
       <div className="logo">
-<<<<<<< HEAD
         <div
           className="logo-container"
-=======
-        <h1
->>>>>>> da0141d (feat: Admin disable account)
           onClick={() => {
             navigate('/');
             setProfile(false);
@@ -174,19 +162,15 @@ const Navbar = () => {
             setPageRotate(false);
           }}
         >
-<<<<<<< HEAD
           {/* <span className="logo-name">T-mart</span> */}
           <img className="logo-image" src={Logo} alt="" width="52px" />
         </div>
-=======
-          LOGO
-        </h1>
->>>>>>> da0141d (feat: Admin disable account)
       </div>
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            PAGES{' '}
+            PAGES
+            {' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
@@ -250,11 +234,9 @@ const Navbar = () => {
                 </div>
                 <hr />
                 {notifications.length > 0 ? (
-                  notifications.map(notification => (
+                  notifications.map((notification) => (
                     <span
-                      onClick={() =>
-                        markNotifications(notification.id, data, dispatch)
-                      }
+                      onClick={() => markNotifications(notification.id, data, dispatch)}
                       className={
                         notification.isRead === true
                           ? 'notification-card2'
@@ -294,7 +276,6 @@ const Navbar = () => {
           <GrLanguage />
         </div>
         {userInfo && userInfo.userData && (
-<<<<<<< HEAD
           <>
             <Link className="cartlink" to="/view-cart">
               <div data-testid="cartContainer" className="cartContainer">
@@ -308,14 +289,6 @@ const Navbar = () => {
               <span className="redSpan">{wishlistItems.length}</span>
             </div>
           </>
-=======
-          <Link className="cartlink" to="/view-cart">
-            <div className="cartContainer">
-              <FaShoppingCart />
-              <span className="redSpan">{cartItems.length}</span>
-            </div>
-          </Link>
->>>>>>> da0141d (feat: Admin disable account)
         )}
         <div className="profile">
           <FaUserAlt data-testid="profile-button" onClick={handleProfile} />
@@ -341,7 +314,8 @@ const Navbar = () => {
               ) : (
                 <>
                   <motion.div variants={item} className="welcome-name">
-                    Welcome{' '}
+                    Welcome
+                    {' '}
                     <span className="name">
                       {`${userInfo.userData.fullname.split(' ')[0]}`}
                     </span>
@@ -390,12 +364,8 @@ const Navbar = () => {
               onClick={handleRotate}
               data-testid="pages"
             >
-<<<<<<< HEAD
               PAGES
               {' '}
-=======
-              PAGES{' '}
->>>>>>> da0141d (feat: Admin disable account)
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}

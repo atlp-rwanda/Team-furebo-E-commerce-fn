@@ -13,7 +13,7 @@ describe('Checkout TESTS', () => {
         <Provider store={store}>
           <Checkout />
         </Provider>
-      </Router>
+      </Router>,
     );
     const checkout = screen.getByTestId('checkout');
     expect(checkout).toBeInTheDocument();

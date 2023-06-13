@@ -40,21 +40,6 @@ describe('Navbar TESTS', () => {
     expect(navbar).toBeInTheDocument();
   });
 
-<<<<<<< HEAD
-=======
-  test('renders logo correctly', () => {
-    render(
-      <Router>
-        <Provider store={store}>
-          <Navbar />
-        </Provider>
-      </Router>
-    );
-    const logoElement = screen.getByText('LOGO');
-    expect(logoElement).toBeInTheDocument();
-  });
-
->>>>>>> da0141d (feat: Admin disable account)
   test('initial state', () => {
     render(
       <Router>

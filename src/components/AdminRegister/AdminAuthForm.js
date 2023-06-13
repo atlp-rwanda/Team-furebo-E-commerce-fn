@@ -21,15 +21,17 @@ const AdminAuthForm = () => {
     adminCode: '',
   });
 
-  const { successCondition, userInfo, error, pending } = useSelector(
-    state => state.user
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.user,
   );
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     AdminSignUp(authData, dispatch, setAuthData);
   };

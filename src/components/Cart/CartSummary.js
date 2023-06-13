@@ -23,11 +23,6 @@ const CartSummary = ({ cartTotalPrice, itemCounts }) => (
         <label htmlFor="cartTotalPrice">Total: </label>
         <span id="cartTotalPrice">${cartTotalPrice.toFixed(2)}</span>
       </div>
-<<<<<<< HEAD
-=======
-      <hr />
-      {/* <button className="btn-place-order">Place Order</button> */}
->>>>>>> da0141d (feat: Admin disable account)
       <Link to="/checkout">
         <button className="btn-place-order">Checkout</button>
       </Link>

@@ -35,7 +35,7 @@ describe('userSlice', () => {
     expect(nextState.pending).toBe(false);
     expect(nextState.shppingCart).toEqual(payload);
     expect(localStorage.getItem('shoppingCart')).toEqual(
-      JSON.stringify(payload)
+      JSON.stringify(payload),
     );
   });
 

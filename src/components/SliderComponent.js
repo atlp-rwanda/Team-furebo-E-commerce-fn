@@ -8,7 +8,7 @@ const SliderComponent = ({ slides, interval }) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide(prevSlide => (prevSlide + 1) % slides.length);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, interval);
 
     return () => clearInterval(timer);
