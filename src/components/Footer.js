@@ -67,7 +67,7 @@ const Footer = () => (
       <hr />
       <div className="footerContainer3">
         <div className="copyLight">
-          © Copyright 2023 Team-Furebo Ecommerce . All rights reserved.
+          © Copyright 2023 Team-Furebo . All rights reserved.
         </div>
         <div>
           <img src={paymentOption} alt="/" />

@@ -9,6 +9,7 @@ import EmailVerify from './components/EmailVerify';
 import PasswordModification from './components/PasswordModification';
 import DashBoard from './pages/DashBoard';
 import AdminAuth from './pages/AdminAuth';
+import Footer from './components/Footer';
 import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
 import AddUserEssentialInfoPage from './pages/userInfo/AddUserEssentialInfoPage';
