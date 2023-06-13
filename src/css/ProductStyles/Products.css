@@ -180,28 +180,11 @@
   }
 }
 @media (max-width: 640px){
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 }
 @media (max-width: 820px){
   p.price {
       margin-left: 2%;
-=======
-p.price {
-    margin-right: 65%;
-=======
-
->>>>>>> 25c6dfb (feat: seller update product functionality)
-}
-@media (max-width: 820px){
-  p.price {
-<<<<<<< HEAD
-      margin-left: 4%;
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-      margin-left: 2%;
->>>>>>> 25c6dfb (feat: seller update product functionality)
   }
 }
 .pagination li {

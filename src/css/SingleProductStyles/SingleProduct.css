@@ -20,25 +20,11 @@
     padding-top: 30px;
   }
   .image-container{
-<<<<<<< HEAD
-<<<<<<< HEAD
     width: 300px;
     padding-left: 44px;
     flex-grow: 2;
     max-height: 700px;
     overflow: auto;
-=======
-    width: 500px;
-    padding-left: 44px;
-    flex-grow: 2;
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-    width: 300px;
-    padding-left: 44px;
-    flex-grow: 2;
-    max-height: 700px;
-    overflow: auto;
->>>>>>> 25c6dfb (feat: seller update product functionality)
   }
   .image-class {
     height: 600px;
@@ -101,18 +87,8 @@
 .actionButtonU{
     padding-left: 70px;
     padding-right: 70px;
-<<<<<<< HEAD
-<<<<<<< HEAD
     padding-top: 10px;
     padding-bottom: 10px;
-=======
-    padding-top: 15px;
-    padding-bottom: 15px;
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-    padding-top: 10px;
-    padding-bottom: 10px;
->>>>>>> 25c6dfb (feat: seller update product functionality)
     font-size: 20px; /* Assuming the base font size is 16px */
     background-color: #000000;
     color: #ffffff;
@@ -122,28 +98,14 @@
 .actionButtonD{
     padding-left: 70px;
     padding-right: 70px;
-<<<<<<< HEAD
-<<<<<<< HEAD
     padding-top: 10px;
     padding-bottom: 10px;
-=======
-    padding-top: 15px;
-    padding-bottom: 15px;
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-    padding-top: 10px;
-    padding-bottom: 10px;
->>>>>>> 25c6dfb (feat: seller update product functionality)
     font-size: 20px; /* Assuming the base font size is 16px */
     background-color: #da2b2b;
     color: #ffffff;
     border-radius: 8px;
     border: none;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 25c6dfb (feat: seller update product functionality)
 @keyframes bounce {
     0% {
       transform: translateY(0);
@@ -169,11 +131,6 @@
           margin-left: 4%;
       }
     }
-<<<<<<< HEAD
-=======
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
->>>>>>> 25c6dfb (feat: seller update product functionality)
 
 @media (max-width: 950px) {
     .myOwnClass{
@@ -181,8 +138,6 @@
     }
     .name-class{
         margin-top: -80px;
-<<<<<<< HEAD
-<<<<<<< HEAD
         margin-left: 60px ;
     }
     .image-class{
@@ -191,23 +146,6 @@
     }
     .price{
         margin-left: 35%;
-=======
-        margin-left: 160px ;
-=======
-        margin-left: 60px ;
->>>>>>> 25c6dfb (feat: seller update product functionality)
-    }
-    .image-class{
-        margin-top: -80px;
-        margin-left: 90px;
-    }
-    .price{
-<<<<<<< HEAD
-        margin-left: 40%;
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-        margin-left: 35%;
->>>>>>> 25c6dfb (feat: seller update product functionality)
     }
 }
 
@@ -225,29 +163,13 @@
     width: 100%;
     margin-bottom: 10px;
     text-align: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-left: 28%;
-=======
-    margin-left: 25%;
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-    margin-left: 28%;
->>>>>>> 25c6dfb (feat: seller update product functionality)
 }
 .list{
     margin-left: 0px;
 }
 p.price{
-<<<<<<< HEAD
-<<<<<<< HEAD
 margin-left: -4px;
-=======
-    margin-left: 110px;
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-margin-left: -4px;
->>>>>>> 25c6dfb (feat: seller update product functionality)
 }
 div.image-container{
     width: 100%;
@@ -257,8 +179,6 @@ div.image-container{
     margin-top: -50px;
   }
 img.image-class{
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-right:;
     margin-left: -25px;
     width: 150%;
@@ -268,22 +188,4 @@ img.image-class{
     font-family:'Baloo Tamma 2', cursive;
     font-size: 40px;
 }
-=======
-    margin-right: 50px;
-    margin-left: 0;
-    width: 200%;
-}
-}
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-    margin-right:;
-    margin-left: -25px;
-    width: 150%;
-}
-}
-.warning-window{
-    font-family:'Baloo Tamma 2', cursive;
-    font-size: 40px;
-}
->>>>>>> 25c6dfb (feat: seller update product functionality)
 

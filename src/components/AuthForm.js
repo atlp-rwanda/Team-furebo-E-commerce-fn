@@ -147,18 +147,8 @@ const AuthForm = () => {
             {!isSignUp && (
               <>
                 <span className="link1">Forgot Password? </span>
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <Link to="requestResetPassword" className="link2">
                   Reset it
-=======
-                <Link to="requestResetPassword">
-                  <button className="link2">Reset it</button>
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-                <Link to="requestResetPassword" className="link2">
-                  Reset it
->>>>>>> 25c6dfb (feat: seller update product functionality)
                 </Link>
               </>
             )}

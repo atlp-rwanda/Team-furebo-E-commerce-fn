@@ -29,8 +29,6 @@ import deleteCartItemReducer from './slices/Cart/DeleteCartItemSlice';
 import clearCartItemReducer from './slices/Cart/ClearCartItemSlice';
 import orderSlice from './slices/getOrderSlice';
 import paymentSlice from './slices/paymentSlice';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import productSlice from './slices/sellerProductSlice';
 
 import userProfileReducer from './slices/UserProfile/FetchUserEssentialInfoSlice';
@@ -38,11 +36,6 @@ import basicInfoReducer from './slices/UserProfile/FetchUserBasicInfoSlice';
 import updateUserBasicInfoReducer from './slices/UserProfile/UpdateUserBasicInfoSlice';
 import updateUserEssentialInfoReducer from './slices/UserProfile/UpdateUserEssentialInfoSlice';
 import ChangePasswordAtGivenTimeReducer from './slices/UserProfile/ChangePasswordAtGivenTimeSlice';
-=======
->>>>>>> 25ac1cf (buyer is able to make payment using stripeAPI)
-=======
-import productSlice from './slices/sellerProductSlice';
->>>>>>> 15c6b94 (feat: seller delete product functionality)
 
 const persistConfig = {
   key: 'root',
@@ -77,15 +70,12 @@ const reducer = combineReducers({
   deleteCartItem: deleteCartItemReducer,
   clearCartItem: clearCartItemReducer,
   products: productSlice,
-<<<<<<< HEAD
   userProfile: userProfileReducer,
   basicInfo: basicInfoReducer,
   updateUserBasicInfo: updateUserBasicInfoReducer,
   updateUserEssentialInfo: updateUserEssentialInfoReducer,
   changePasswordAtGivenTime: ChangePasswordAtGivenTimeReducer,
 
-=======
->>>>>>> 15c6b94 (feat: seller delete product functionality)
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

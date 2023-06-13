@@ -14,30 +14,14 @@ const ProductCard = ({ data, onClick }) => {
       <div className="productImage">
         <img src={firstImage} alt="/" />
       </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <span className="price" style={{ marginBottom: '-30px', fontSize: '18px' }}>
-=======
-      <span className="price" style={{ marginBottom: '-30px', fontSize: '26px' }}>
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-      <span className="price" style={{ marginBottom: '-30px', fontSize: '18px' }}>
->>>>>>> 25c6dfb (feat: seller update product functionality)
         {data?.category}
       </span>
       <div>
         <h1 style={{ marginBottom: '-20px' }}>{data?.name}</h1>
       </div>
       <div>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <span className="price" style={{ marginBottom: '-30px', fontSize: '18px' }}>
-=======
-        <span className="price">
->>>>>>> 15c6b94 (feat: seller delete product functionality)
-=======
-        <span className="price" style={{ marginBottom: '-30px', fontSize: '18px' }}>
->>>>>>> 25c6dfb (feat: seller update product functionality)
           $
           {data?.price}
         </span>
