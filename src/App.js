@@ -17,6 +17,7 @@ import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
 import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
 import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
 import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
+import VerifyOTPCode from './components/verifyCode';
 import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
 import ViewCartItemsPage from './pages/Cart/ViewCartItemsPage';
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
         element: <AdminAuth />,
       },
       {
+        path: '/verifyOTP',
+        element: <VerifyOTPCode />,
+      },
+      {
         path: '/products',
         element: <ProductPage />,
       },
@@ -107,7 +112,7 @@ const router = createBrowserRouter([
 
 const App = () => (
   <div className="app" data-testid="App">
-    <ToastContainer />
+    {/* <ToastContainer /> */}
     <RouterProvider router={router} />
   </div>
 );
