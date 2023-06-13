@@ -122,6 +122,16 @@
   font-weight: 800;
   font-size: 30px;
 }
+.overContainer
+  .detailContainer
+  .detailsCard
+  .detailsInfo
+  .product-details-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 .overContainer .detailContainer .detailsCard .detailsInfo .detailsButtons {
   display: flex;
   justify-content: flex-start;

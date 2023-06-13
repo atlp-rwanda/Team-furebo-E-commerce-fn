@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {
@@ -37,18 +38,6 @@ describe('Navbar TESTS', () => {
     );
     const navbar = screen.getByTestId('navbar');
     expect(navbar).toBeInTheDocument();
-  });
-
-  test('renders logo correctly', () => {
-    render(
-      <Router>
-        <Provider store={store}>
-          <Navbar />
-        </Provider>
-      </Router>
-    );
-    const logoElement = screen.getByText('LOGO');
-    expect(logoElement).toBeInTheDocument();
   });
 
   test('initial state', () => {

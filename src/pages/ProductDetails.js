@@ -15,19 +15,29 @@ import getSingleProducts from '../redux/actions/proDetails';
 import '../css/proDetailsStyles/productDetails.css';
 import getRecommandedProducts from '../redux/actions/fetchRecom';
 import addToCart from '../redux/actions/shoppingCart';
+import AddToWishListButton from '../components/Wishlist/AddToWishlistButton';
+import IsInWishlistButton from '../components/Wishlist/IsInWishlistButton';
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState('');
   const [showPopUp, setShowPopUp] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //   const { id } = useParams();
   const productId = useParams().id;
 
   const { singleProductInfo, pending, error } = useSelector(
     state => state.singleProduct
   );
   const { recomProduct } = useSelector(state => state.recomProducts);
+
+  const { wishlistItems } = useSelector(state => state.viewWishlist);
+  console.log(wishlistItems, 'All');
+
+  const isItemInWIshlist = wishlistItems.filter(
+    item => item.productId == productId
+  );
+  console.log(isItemInWIshlist, 'Single');
+
   const { category } = singleProductInfo;
 
   const { successCondition, productsInfo, cartpending } = useSelector(
@@ -51,7 +61,6 @@ const ProductDetails = () => {
   const openProduct = id => {
     navigate(`/productDetails/${id}`);
   };
-
   return (
     <div className="overContainer" data-testid="product-detals">
       {pending ? (
@@ -89,11 +98,19 @@ const ProductDetails = () => {
                 <h1 className="detailsExDate">
                   ExpiredAt: {moment(singleProductInfo.exDate).calendar()}
                 </h1>
-                <div className="detailsButtons">
-                  <button onClick={() => setShowPopUp(true)}>
-                    Add To Cart
-                  </button>
-                  <button>Add To WishList</button>
+                <div className="product-details-buttons">
+                  <div className="detailsButtons">
+                    <button onClick={() => setShowPopUp(true)}>
+                      Add To Cart
+                    </button>
+                  </div>
+                  <div className="add-cart-wishlist-buttons">
+                    {isItemInWIshlist.length === 0 ? (
+                      <AddToWishListButton productId={productId} />
+                    ) : (
+                      <IsInWishlistButton productId={productId} />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

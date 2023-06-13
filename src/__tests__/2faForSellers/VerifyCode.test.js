@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
@@ -47,7 +47,7 @@ describe('VerifyCode TESTS', () => {
     expect(verifyOTPCode).toHaveBeenCalledWith(
       '111111',
       expect.any(Function),
-      expect.any(Function)
+      expect.any(Function),
     );
   });
   test('focuses on the previous input when ArrowLeft key is pressed', () => {
@@ -64,10 +64,10 @@ describe('VerifyCode TESTS', () => {
     fireEvent.keyDown(codeInputs[1], { key: 'ArrowLeft' });
 
     expect(document.activeElement).toBe(codeInputs[0]);
-
+    
     fireEvent.keyDown(codeInputs[0], { key: 'ArrowRight' });
     expect(document.activeElement).toBe(codeInputs[1]);
-
+  
     // Simulate Backspace keydown event on the second input with empty value
     fireEvent.keyDown(codeInputs[1], { key: 'Backspace' });
     expect(document.activeElement).toBe(codeInputs[0]);

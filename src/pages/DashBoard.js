@@ -102,7 +102,8 @@ const DashBoard = () => {
     <div className="Dashboard" data-testid="DashBoard">
       <div className={show ? 'dashBoardMenu' : 'dashBoardMenuSmall'}>
         <div className="Header">
-          <span className={show ? 'show' : 'hidden'}>E-commerce Admin</span>{' '}
+          <span className={show ? 'show' : 'hidden'}>E-commerce Admin</span>
+          {' '}
           <HiMenuAlt2 className="menu1" onClick={handleShow} />
         </div>
         <hr />
@@ -115,11 +116,13 @@ const DashBoard = () => {
         </div>
         <div className="dashBoard-listing">
           <li onClick={handleDashboard}>
-            <MdOutlineDashboard />{' '}
+            <MdOutlineDashboard />
+            {' '}
             <span className={show ? 'show' : 'hidden'}>DashBoard</span>
           </li>
           <li onClick={handleUsers}>
-            <BsFillMenuAppFill />{' '}
+            <BsFillMenuAppFill />
+            {' '}
             <span className={show ? 'show' : 'hidden'}>Users</span>
           </li>
           <li onClick={handleMerchant}>

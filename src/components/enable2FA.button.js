@@ -63,6 +63,7 @@ const TwoFaCheckbox = () => {
           {isChecked ? 'ON' : 'OFF'}
         </span>
       </div>
+
     </div>
   );
 };

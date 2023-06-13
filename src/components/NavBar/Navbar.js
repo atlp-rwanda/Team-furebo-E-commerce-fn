@@ -27,6 +27,8 @@ import {
   markNotifications,
   markAllNotifications,
 } from '../../redux/actions/markNotifications/MarkNotifications';
+import Logo from '../../assets/images/our-logo.png';
+import ViewWishlistButton from '../Wishlist/ViewWishListButton';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -43,10 +45,9 @@ const Navbar = () => {
   const [notificationCount, setNotificationCount] = useState(0);
 
   const { userInfo } = useSelector(state => state.user);
+  const { wishlistItems } = useSelector(state => state.viewWishlist);
 
-  const { cartItems } = useSelector(state => state.cartItems);
-
-  console.log(cartItems, 'This is the cartItems on the navbar');
+  const { cartItems } = useSelector(state => state.viewCartItems);
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
@@ -151,7 +152,8 @@ const Navbar = () => {
   return (
     <div className="navbar" data-testid="navbar">
       <div className="logo">
-        <h1
+        <div
+          className="logo-container"
           onClick={() => {
             navigate('/');
             setProfile(false);
@@ -160,8 +162,9 @@ const Navbar = () => {
             setPageRotate(false);
           }}
         >
-          LOGO
-        </h1>
+          {/* <span className="logo-name">T-mart</span> */}
+          <img className="logo-image" src={Logo} alt="" width="52px" />
+        </div>
       </div>
       <ul>
         {userInfo && userInfo.userData && (
@@ -271,12 +274,19 @@ const Navbar = () => {
           <GrLanguage />
         </div>
         {userInfo && userInfo.userData && (
-          <Link className="cartlink" to="/view-cart">
-            <div className="cartContainer">
-              <FaShoppingCart />
-              <span className="redSpan">{cartItems.length}</span>
+          <>
+            <Link className="cartlink" to="/view-cart">
+              <div data-testid="cartContainer" className="cartContainer">
+                <FaShoppingCart />
+                <span className="redSpan">{cartItems.length}</span>
+              </div>
+            </Link>
+            {/* View Wishlist */}
+            <div data-testid="wishlistContainer" className="cartContainer">
+              <ViewWishlistButton />
+              <span className="redSpan">{wishlistItems.length}</span>
             </div>
-          </Link>
+          </>
         )}
         <div className="profile">
           <FaUserAlt data-testid="profile-button" onClick={handleProfile} />
