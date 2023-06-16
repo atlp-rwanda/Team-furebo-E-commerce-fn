@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { motion } from 'framer-motion';
+import Carousel from 'react-bootstrap/Carousel';
 import Category from '../components/Category';
 import { categoryProducts, Latestproducts } from '../constants/Constant';
 
@@ -11,19 +13,30 @@ import ProductCard from '../components/ProductCard';
 import Footer from '../components/Footer';
 
 const Home = () => (
-  <div className="homePage" data-testid="Home">
+  <motion.div
+    className="homePage"
+    data-testid="Home"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+  >
     <div className="main">
       <div className="mainLeft">
+        <p className="welcome">Welcome to Team-furebo-E-commerce</p>
         <h1>
-          <span>Best E-commerce solutions 3</span> to Boost your brand name and
+          <span>Best E-commerce solutions 3</span> To Boost your brand name and
           sales
         </h1>
-        <p>
-          Ipsum esse cillum eu eu occaecat. Veniam consequat deserunt non ipsum
-          reprehenderit officia. Voluptate sint culpa velit nostrud adipisicing
-          deserunt nisi cillum irure reprehenderit.
+        <p className="description">
+          Team-Furebo-E-commerce is your one-stop online shop.
+          Find everything you need, from fashion to electronics,
+          in one convenient place. Enjoy easy and secure shopping,
+          fast shipping, and great deals. Welcome to Team-Furebo-E-commerce,
+          where shopping is made simple.
         </p>
-        <button>Get Now</button>
+        <motion.button whileHover={{ scale: 1.1 }} type="button">
+          Get Now
+        </motion.button>
       </div>
       <div className="mainRight">
         <img src={image} alt="/" />
@@ -31,11 +44,14 @@ const Home = () => (
     </div>
     <div className="categorySection">
       <div className="cotegoryHeader">
-        <h1>CATEGORY PRODUCTS</h1>
-        <p>Voluptate excepteur minim quis incididunt mollit non.</p>
+        <h1>Browse Our Categories</h1>
+        <p>Discover a wide range of products to suit your needs,
+          from fashion and electronics to home decor and more.
+          Shop with ease at Team-Furebo-E-commerce.
+        </p>
       </div>
       <div className="cotegoryBody">
-        {categoryProducts.map(cat => (
+        {categoryProducts.map((cat) => (
           <Category key={cat.id} data={cat} />
         ))}
       </div>
@@ -46,7 +62,7 @@ const Home = () => (
         <hr />
       </div>
       <div className="latestProductsBody">
-        {Latestproducts.map(pr => (
+        {Latestproducts.map((pr) => (
           <ProductCard key={pr.id} data={pr} />
         ))}
       </div>
@@ -54,7 +70,7 @@ const Home = () => (
     <div className="footer">
       <Footer />
     </div>
-  </div>
+  </motion.div>
 );
 
 Category.propTypes = {

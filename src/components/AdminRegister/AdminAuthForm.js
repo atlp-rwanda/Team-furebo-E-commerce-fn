@@ -21,15 +21,17 @@ const AdminAuthForm = () => {
     adminCode: '',
   });
 
-  const { successCondition, userInfo, error, pending } = useSelector(
-    state => state.user
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.user,
   );
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     AdminSignUp(authData, dispatch, setAuthData);
   };
@@ -37,7 +39,7 @@ const AdminAuthForm = () => {
   return (
     <div className="authForm" data-testid="AdminAuthForm">
       <div className="authFormLeft">
-        <h1>{isSignUp ? 'Welcome Back' : 'Create Accout'}</h1>
+        <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
         <Link to="/authentication">
           <button>Sign In</button>
         </Link>
@@ -66,7 +68,7 @@ const AdminAuthForm = () => {
           <input
             name="email"
             type="email"
-            placeholder="Emai"
+            placeholder="Email"
             value={authData.email}
             onChange={handleChange}
           />

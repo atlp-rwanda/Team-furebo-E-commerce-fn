@@ -10,7 +10,7 @@ const Users = ({ handleUsers }) => {
   const dispatch = useDispatch();
   const [users, setUsers] = useState([]);
   const { successCondition, error, pending } = useSelector(
-    state => state.allUsers
+    (state) => state.allUsers,
   );
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Users = ({ handleUsers }) => {
         <div className="loading">loading...</div>
       ) : (
         <div className="containerUsr">
-          {users?.map(user => (
+          {users?.map((user) => (
             <UserCard key={user.id} data={user} handleUsers={handleUsers} />
           ))}
         </div>

@@ -66,7 +66,7 @@ describe('Validation Functions Tests', () => {
       const authData = { password: 'weakpassword' };
       const errors = ValidatePassword(authData);
       expect(errors.password).toBe(
-        'Password should contain atleast one upper character, one lower character, two numbers and not under eight'
+        'Provide valid password',
       );
     });
 

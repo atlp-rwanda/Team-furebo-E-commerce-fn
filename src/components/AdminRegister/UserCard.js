@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import image from '../../assets/images/istockphoto-546175134-1024x1024.jpg';
+import image from '../../assets/images/profile2.png';
 import SetRoles from '../../redux/actions/SetRoles';
 
 const UserCard = ({ data, handleUsers }) => {
@@ -17,8 +17,10 @@ const UserCard = ({ data, handleUsers }) => {
   const [dismissed, setDismissed] = useState(false);
   const [updatedData, setUpdatedData] = useState({ role: '' });
 
-  const { successCondition, userRole, error, pending } = useSelector(
-    state => state.userRole
+  const {
+    successCondition, userRole, error, pending,
+  } = useSelector(
+    (state) => state.userRole,
   );
 
   const userId = data.id;
@@ -62,9 +64,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="merchant"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <div className="checkbox">
@@ -74,9 +74,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="customer"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <div className="checkbox">
@@ -86,9 +84,7 @@ const UserCard = ({ data, handleUsers }) => {
                 type="radio"
                 name="updatedData"
                 value="admin"
-                onChange={e =>
-                  setUpdatedData({ ...updatedData, role: e.target.value })
-                }
+                onChange={(e) => setUpdatedData({ ...updatedData, role: e.target.value })}
               />
             </div>
             <button onClick={handleSubmit}>Update</button>

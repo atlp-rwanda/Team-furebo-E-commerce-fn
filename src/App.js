@@ -21,6 +21,7 @@ import VerifyOTPCode from './components/verifyCode';
 import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
 import ViewCartItemsPage from './pages/Cart/ViewCartItemsPage';
+import ProductDetails from './pages/ProductDetails';
 
 const Layout = () => (
   <>
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
         element: <ProductPage />,
       },
       {
+        path: '/productDetails/:id',
+        element: <ProductDetails />,
+      },
+      {
         path: '/view-cart',
         element: <ViewCartItemsPage />,
       },
@@ -112,7 +117,6 @@ const router = createBrowserRouter([
 
 const App = () => (
   <div className="app" data-testid="App">
-    {/* <ToastContainer /> */}
     <RouterProvider router={router} />
   </div>
 );

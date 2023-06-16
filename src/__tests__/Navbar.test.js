@@ -18,12 +18,10 @@ import fetchNotifications from '../redux/actions/userProfile/FetchNotification';
 
 jest.mock('../redux/actions/userProfile/FetchNotification', () => ({
   __esModule: true,
-  default: jest.fn(() =>
-    Promise.resolve([
-      { id: 1, message: 'Notification 1' },
-      { id: 2, message: 'Notification 2' },
-    ])
-  ),
+  default: jest.fn(() => Promise.resolve([
+    { id: 1, message: 'Notification 1' },
+    { id: 2, message: 'Notification 2' },
+  ])),
 }));
 
 describe('Navbar TESTS', () => {
@@ -33,7 +31,7 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
     const navbar = screen.getByTestId('navbar');
     expect(navbar).toBeInTheDocument();
@@ -45,7 +43,7 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
     const logoElement = screen.getByText('LOGO');
     expect(logoElement).toBeInTheDocument();
@@ -57,7 +55,7 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
     expect(screen.queryByTestId('menu-open-indicator')).toBeNull();
     expect(screen.queryByText('Menu is open')).toBeNull();
@@ -69,7 +67,7 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
     const menuButton = screen.getByTestId('menu-button');
 
@@ -85,7 +83,7 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
     const profileButton = screen.queryByTestId('profile-button');
 
@@ -100,7 +98,7 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
     const searchIcon = screen.getByTestId('search-icon');
 
@@ -115,9 +113,9 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
-    const categoriesDropdown = screen.getByText('categories');
+    const categoriesDropdown = screen.getByText('CATEGORIES');
 
     // Open the categories dropdown
     fireEvent.click(categoriesDropdown);
@@ -131,7 +129,7 @@ describe('Navbar TESTS', () => {
         <Provider store={store}>
           <Navbar />
         </Provider>
-      </Router>
+      </Router>,
     );
 
     await waitFor(
@@ -140,7 +138,7 @@ describe('Navbar TESTS', () => {
       },
       {
         timeout: 10000,
-      }
+      },
     );
   });
 });
