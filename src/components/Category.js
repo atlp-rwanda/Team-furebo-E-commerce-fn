@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/button-has-type */
 import React from 'react';
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { BsArrowRight } from 'react-icons/bs';
 
@@ -13,10 +14,10 @@ const Category = ({ data }) => (
       <h1>{data.category}</h1>
     </div>
     <div>
-      <button>
+      <motion.button whileHover={{ scale: 1.05 }}>
         VIEW ALL
         <BsArrowRight />
-      </button>
+      </motion.button>
     </div>
   </div>
 );

@@ -5,6 +5,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable linebreak-style */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ClearCart from './ClearCart';
 
 const CartSummary = ({ profileData, handleClearCart }) => (
@@ -29,7 +30,8 @@ const CartSummary = ({ profileData, handleClearCart }) => (
         </span>
       </div>
       <hr />
-      <button className="btn-place-order">Place Order</button>
+      {/* <button className="btn-place-order">Place Order</button> */}
+      <Link to="/checkout"><button className="btn-place-order">Checkout</button></Link>
     </div>
   </div>
 );

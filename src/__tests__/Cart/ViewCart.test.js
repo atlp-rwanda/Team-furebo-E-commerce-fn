@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable padded-blocks */
 /* eslint-disable linebreak-style */
 /* eslint-disable max-len */
@@ -10,7 +11,12 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import configureStore from 'redux-mock-store';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import ViewCart from '../../components/Cart/ViewCart';
+
+const mockStore = configureStore([]);
 
 describe('ViewCart Component', () => {
   const profileData = [
@@ -38,14 +44,35 @@ describe('ViewCart Component', () => {
   const deleteItem = jest.fn();
   const updateItem = jest.fn();
   const clearCart = jest.fn();
+
+  let store;
+  let initialState;
   beforeEach(() => {
+    initialState = {
+      user: {
+        successCondition: false,
+        userInfo: null,
+        error: {
+          condition: false,
+          message: '',
+        },
+        pending: false,
+      },
+    };
+
+    store = mockStore(initialState);
     render(
-      <ViewCart
-        profileData={profileData}
-        deleteItem={deleteItem}
-        updateItem={updateItem}
-        clearCart={clearCart}
-      />
+      <Router>
+        <Provider store={store}>
+          <ViewCart
+            profileData={profileData}
+            deleteItem={deleteItem}
+            updateItem={updateItem}
+            clearCart={clearCart}
+          />
+          ,
+        </Provider>
+      </Router>,
     );
   });
   it('should render ViewCart component', () => {

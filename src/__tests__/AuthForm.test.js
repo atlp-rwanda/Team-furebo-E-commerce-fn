@@ -46,7 +46,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>
+      </Router>,
     );
     const authForm = screen.getByTestId('AuthForm');
     expect(authForm).toBeInTheDocument();
@@ -58,7 +58,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>
+      </Router>,
     );
 
     const switchButton = screen.getByText('Sign Up');
@@ -78,7 +78,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>
+      </Router>,
     );
 
     const signUpButton = screen.getByText('Sign Up');
@@ -99,7 +99,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>
+      </Router>,
     );
 
     const signInButton = screen.getByText('Sign In');
@@ -120,14 +120,14 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>
+      </Router>,
     );
     const resetButton = screen.getByText('Reset it');
     fireEvent.click(resetButton);
 
     expect(Link).toHaveBeenCalledWith(
       expect.objectContaining({ to: 'requestResetPassword' }),
-      expect.any(Object)
+      expect.any(Object),
     );
   });
 
@@ -137,7 +137,7 @@ describe('AuthForm TESTS', () => {
         <Provider store={store}>
           <AuthForm />
         </Provider>
-      </Router>
+      </Router>,
     );
 
     // const firstnameInput = screen.getByPlaceholderText('First Name');
