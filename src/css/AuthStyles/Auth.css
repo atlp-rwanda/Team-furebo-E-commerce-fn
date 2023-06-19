@@ -1,5 +1,19 @@
 .authPage {
-  background: transparent;
+  /* background: transparent; */
+  background-image: url('https://cdn.wallpapersafari.com/48/77/vQU6ka.jpg');
+  background-size: cover;
+  background-position: center;
+  width: full;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminAuthPage {
+  background-image: url('https://cdn.wallpapersafari.com/48/77/vQU6ka.jpg');
+  background-size: cover;
+  background-position: center;
   width: full;
   height: 100vh;
   display: flex;
@@ -29,7 +43,7 @@
   width: 35%;
   min-width: 200px;
   padding: 0 0px;
-  background: #405175ec;
+  background: #131921;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,13 +83,13 @@
   width: 65%;
   min-width: 200px;
   height: 100%;
-  padding: 70px 0;
+  padding: 60px 0;
   background: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 }
 @media (max-width: 1001px) {
   .authFormRight {
@@ -103,7 +117,7 @@
 .authFormRight form input {
   background-color: rgba(220, 220, 220, 0.426);
   width: 80%;
-  padding: 15px;
+  padding: 8px 15px;
   border: none;
   border-radius: 5px;
   outline: none;

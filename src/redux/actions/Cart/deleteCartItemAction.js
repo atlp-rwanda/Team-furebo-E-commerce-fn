@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 
 const API = axios.create({
@@ -5,14 +6,14 @@ const API = axios.create({
 });
 
 API.interceptors.request.use((req) => {
-  const authToken = localStorage.getItem('currentUser');
+  const authToken = localStorage.getItem('token');
   if (authToken) {
-    req.headers.Authorization = `Bearer ${JSON.parse(authToken).token}`;
+    req.headers.Authorization = `Bearer ${JSON.parse(authToken)}`;
   }
   return req;
 });
 
-const deleteCartItemAction = async (itemId) => {
+const deleteCartItemAction = async (itemId, dispatch) => {
   try {
     await API.delete(`/delete-item-in-cart/${itemId}`);
   } catch (error) {

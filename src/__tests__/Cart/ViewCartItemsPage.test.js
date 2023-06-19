@@ -1,8 +1,12 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable linebreak-style */
 import React from 'react';
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
+import {
+  render, fireEvent, screen, waitFor
+} from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import ViewCartItemsPage from '../../pages/Cart/ViewCartItemsPage';
 import FetchCartItemsAction from '../../redux/actions/Cart/FetchCartItemsAction';
 
@@ -11,8 +15,24 @@ jest.mock('../../redux/actions/Cart/deleteCartItemAction');
 jest.mock('../../redux/actions/Cart/updateCartItemAction');
 jest.mock('../../redux/actions/Cart/clearCartAction');
 
+const mockStore = configureStore([]);
+
 describe('ViewCartItemsPage', () => {
+  let store;
+  let initialState;
   beforeEach(() => {
+    initialState = {
+      user: {
+        successCondition: false,
+        userInfo: null,
+        error: {
+          condition: false,
+          message: '',
+        },
+        pending: false,
+      },
+    };
+    store = mockStore(initialState);
     FetchCartItemsAction.mockResolvedValue([
       {
         id: 1,
@@ -35,7 +55,9 @@ describe('ViewCartItemsPage', () => {
   it('should display cart items and allow interactions', async () => {
     render(
       <Router>
-        <ViewCartItemsPage />
+        <Provider store={store}>
+          <ViewCartItemsPage />
+        </Provider>
       </Router>
     );
 
@@ -57,7 +79,9 @@ describe('ViewCartItemsPage', () => {
 
     render(
       <Router>
-        <ViewCartItemsPage />
+        <Provider store={store}>
+          <ViewCartItemsPage />
+        </Provider>
       </Router>
     );
 

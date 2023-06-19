@@ -11,15 +11,15 @@ const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-API.interceptors.request.use(req => {
-  const authToken = localStorage.getItem('currentUser');
+API.interceptors.request.use((req) => {
+  const authToken = localStorage.getItem('token');
   if (authToken) {
-    req.headers.Authorization = `Bearer ${JSON.parse(authToken).token}`;
+    req.headers.Authorization = `Bearer ${JSON.parse(authToken)}`;
   }
   return req;
 });
 
-const AddUserEssentialInfoAction = async formData => {
+const AddUserEssentialInfoAction = async (formData) => {
   try {
     const response = await API.post('/post-user-profile', formData);
     return response.data;

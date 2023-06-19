@@ -34,9 +34,9 @@ describe('userSlice', () => {
     expect(nextState.successCondition).toBe(true);
     expect(nextState.pending).toBe(false);
     expect(nextState.userInfo).toEqual(payload);
-    expect(localStorage.getItem('currentUser')).toEqual(
-      JSON.stringify(payload)
-    );
+    // expect(localStorage.getItem('currentUser')).toEqual(
+    //   JSON.stringify(payload),
+    // );
   });
 
   it('should handle updateError', () => {

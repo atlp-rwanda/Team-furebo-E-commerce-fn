@@ -22,6 +22,7 @@ import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
 import ViewCartItemsPage from './pages/Cart/ViewCartItemsPage';
 import ProductDetails from './pages/ProductDetails';
+import Checkout from './pages/Checkout';
 
 const Layout = () => (
   <>
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />,
       },
       {
         path: '/addproduct',

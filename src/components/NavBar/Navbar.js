@@ -44,6 +44,10 @@ const Navbar = () => {
 
   const { userInfo } = useSelector((state) => state.user);
 
+  const { cartItems } = useSelector((state) => state.cartItems);
+
+  console.log(cartItems, 'This is the cartItems on the navbar');
+
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
     : null;
@@ -259,7 +263,7 @@ const Navbar = () => {
         <Link className="cartlink" to="/view-cart">
           <div className="cartContainer">
             <FaShoppingCart />
-            {/* <span className="redSpan">{viewCart.length}</span> */}
+            <span className="redSpan">{cartItems.length}</span>
           </div>
         </Link>
         )}
