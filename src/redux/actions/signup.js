@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   updateStart,
   updateSuccess,
@@ -22,6 +23,17 @@ export const signUp = async (authData, dispatch, setAuthData) => {
       lastname: '',
       email: '',
       password: '',
+    });
+
+    toast.success(res.data.message, {
+      position: 'top-right',
+      autoClose: 6000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
     });
 
     setTimeout(() => {

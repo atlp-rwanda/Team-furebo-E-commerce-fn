@@ -9,6 +9,7 @@ import {
   clearError,
   clearSuccessCondition,
 } from '../../slices/checkoutSlice';
+import getOrder from './GetOrder';
 
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
@@ -42,7 +43,8 @@ const checkOut = async (deliveryAddresses, paymentInformations, dispatch) => {
   dispatch(updateStart());
   try {
     const res = await API.post('/checkout', data);
-    console.log(res.data);
+
+    await getOrder(dispatch);
 
     dispatch(updateSuccess(res.data));
 

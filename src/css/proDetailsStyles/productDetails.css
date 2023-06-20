@@ -326,4 +326,9 @@
   color: rgb(185, 1, 1);
 }
 
+.detailImage {
+  width: 100%;
+  max-height: 500px;
+}
+
 /*# sourceMappingURL=productDetails.css.map */

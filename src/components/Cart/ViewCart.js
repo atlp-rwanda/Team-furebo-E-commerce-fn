@@ -14,9 +14,9 @@ import '../../css/Cart/view-cart-items.css';
 import EmptyCartMessage from './EmptyCartMessage';
 import CartSummary from './CartSummary';
 
-const selectCartItems = state => state.viewCartItems.cartItems;
-const selectLoading = state => state.viewCartItems.loading;
-const selectError = state => state.viewCartItems.error;
+const selectCartItems = (state) => state.viewCartItems.cartItems;
+const selectLoading = (state) => state.viewCartItems.loading;
+const selectError = (state) => state.viewCartItems.error;
 
 const ViewCart = () => {
   const dispatch = useDispatch();
@@ -30,11 +30,11 @@ const ViewCart = () => {
 
   const cartTotalPrice = cartItems.reduce(
     (total, item) => total + parseFloat(item.totalPrice),
-    0
+    0,
   );
   const itemCounts = cartItems.reduce(
     (count, item) => count + item.quantity,
-    0
+    0,
   );
 
   return (
@@ -56,7 +56,7 @@ const ViewCart = () => {
             <EmptyCartMessage />
           ) : (
             <div data-testid="cart-items" className="cart-items">
-              {cartItems.map(item => (
+              {cartItems.map((item) => (
                 <CartItem item={item} key={item.id} />
               ))}
             </div>

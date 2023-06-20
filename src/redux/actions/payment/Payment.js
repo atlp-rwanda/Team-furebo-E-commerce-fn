@@ -1,15 +1,17 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { fetchCartItems } from './Cart/ViewCartItemsAction';
 import {
   updateStart,
   updateSuccess,
   updateError,
   clearError,
   clearSuccessCondition,
-} from '../slices/shoppingCartSlice';
+} from '../../slices/paymentSlice';
+import { fetchCartItemsSuccess } from '../../slices/Cart/ViewCartItemsSlice';
+import { fetchCartItems } from '../Cart/ViewCartItemsAction';
+import getOrder from '../checkout/GetOrder';
 
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
@@ -23,24 +25,29 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-const addToCart = async (quantity, productId, dispatch, setShowPopUp) => {
+const makePayment = async (cardData, orderId, navigate, dispatch) => {
   const data = {
-    quantity,
-    productId,
+    card: {
+      number: cardData.CardNo,
+      exp_month: Number(cardData.ExpMonth),
+      exp_year: Number(cardData.ExpYear),
+      cvc: cardData.cvc,
+    },
   };
   dispatch(updateStart());
   try {
-    const res = await API.post('/addItemToCart', data);
-
-    dispatch(updateSuccess(res.data));
+    const res = await API.post(`/payment/${orderId}`, data);
+    dispatch(fetchCartItemsSuccess([]));
 
     dispatch(fetchCartItems(dispatch));
 
-    setShowPopUp(false);
+    await getOrder(dispatch);
+
+    dispatch(updateSuccess(res.data));
 
     toast.success(res.data.message, {
       position: 'top-right',
-      autoClose: 6000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -50,8 +57,9 @@ const addToCart = async (quantity, productId, dispatch, setShowPopUp) => {
     });
 
     setTimeout(() => {
+      navigate('/paymentSuccessful');
       dispatch(clearSuccessCondition());
-    }, [6000]);
+    }, [3000]);
   } catch (error) {
     if (!error.response) {
       dispatch(updateError(error.message));
@@ -97,4 +105,4 @@ const addToCart = async (quantity, productId, dispatch, setShowPopUp) => {
   }
 };
 
-export default addToCart;
+export default makePayment;
