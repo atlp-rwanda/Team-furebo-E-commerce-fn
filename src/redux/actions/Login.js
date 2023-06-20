@@ -26,10 +26,21 @@ const signIn = async (authData, dispatch, navigate, setAuthData) => {
       password: '',
     });
 
-    setTimeout(() => {
-      dispatch(clearSuccessCondition());
-      navigate('/home');
-    }, [2000]);
+    if (
+      res.data.message === 'Please check your email for the authentication code'
+    ) {
+      setTimeout(() => {
+        dispatch(clearSuccessCondition());
+
+        navigate('/verifyOTP');
+      }, [2000]);
+    } else {
+      setTimeout(() => {
+        dispatch(clearSuccessCondition());
+
+        navigate('/home');
+      }, [2000]);
+    }
   } catch (error) {
     if (!error.response) {
       dispatch(updateError(error.message));

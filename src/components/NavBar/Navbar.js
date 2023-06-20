@@ -1,21 +1,36 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable linebreak-style */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaShoppingCart, FaUserAlt, FaSearch } from 'react-icons/fa';
 import { GrLanguage } from 'react-icons/gr';
-import { IoIosArrowBack } from 'react-icons/io';
+import { BsCheck2All } from 'react-icons/bs';
+import { IoIosArrowBack, IoMdNotifications } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
-import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
+import { MdOutlineKeyboardArrowUp, MdDelete } from 'react-icons/md';
 import { HiMenuAlt2 } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import '../../css/NavbarStyles/Navbar.css';
+import '../../css/NotificationStyles/NotificationStyles.css';
+import 'react-toastify/dist/ReactToastify.css';
+import fetchNotifications from '../../redux/actions/userProfile/FetchNotification';
+import {
+  markNotifications,
+  markAllNotifications,
+} from '../../redux/actions/markNotifications/MarkNotifications';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [menu, setMenu] = useState(false);
   const [pageRotate, setPageRotate] = useState(false);
   const [pageMenu, setPageMenu] = useState(false);
@@ -23,12 +38,30 @@ const Navbar = () => {
   const [crotate, setCrotate] = useState(true);
   const [profile, setProfile] = useState(false);
   const [searchIcon, setSearchIcon] = useState(false);
+  const [notifications, setNotifications] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(0);
 
   const { userInfo } = useSelector((state) => state.user);
+
+  const { cartItems } = useSelector((state) => state.cartItems);
+
+  console.log(cartItems, 'This is the cartItems on the navbar');
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
     : null;
+  const [data, setData] = useState({ isRead: true });
+
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -100 },
+  };
 
   const handleMenu = () => {
     setMenu(!menu);
@@ -48,6 +81,8 @@ const Navbar = () => {
 
   const handlePageRotate = () => {
     setPageRotate(!pageRotate);
+    setProfile(false);
+    setShowNotification(false);
   };
 
   const handleProfile = () => {
@@ -55,6 +90,8 @@ const Navbar = () => {
     setMenu(false);
     setPageMenu(false);
     setSearchIcon(false);
+    setPageRotate(false);
+    setShowNotification(false);
   };
 
   const handleSeach = () => {
@@ -63,40 +100,146 @@ const Navbar = () => {
     setPageMenu(false);
     setProfile(false);
   };
+  const handleNotification = () => {
+    setShowNotification(!showNotification);
+    setProfile(false);
+    setPageRotate(false);
+  };
+
+  const MarkAllAsRead = () => {
+    markAllNotifications(data, dispatch);
+  };
+
+  useEffect(() => {
+    const getNotifications = async () => {
+      try {
+        const fetchedNotifications = await fetchNotifications();
+        setNotifications(fetchedNotifications);
+        setNotificationCount(fetchedNotifications.length);
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      }
+    };
+
+    getNotifications();
+  });
+
+  const [lastNotification, setLastNotification] = useState(null);
+
+  useEffect(() => {
+    if (notifications.length > 0) {
+      const newNotification = notifications[notifications.length - 1];
+
+      if (newNotification !== lastNotification && lastNotification !== null) {
+        toast.info(newNotification.message);
+        setLastNotification(newNotification);
+      } else {
+        setLastNotification(newNotification);
+      }
+    }
+  }, [notifications.length, lastNotification]);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+    navigate('/');
+    setPageMenu(false);
+    setSearchIcon(false);
+    setProfile(false);
+  };
 
   return (
     <div className="navbar" data-testid="navbar">
       <div className="logo">
-        <h1>LOGO</h1>
+        <h1 onClick={() => { navigate('/'); setProfile(false); setRotate(true); setMenu(false); setPageRotate(false); }}>LOGO</h1>
       </div>
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            pages
+            PAGES
             {' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
             {pageRotate && (
-              <div className="newPageRotate">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={variants}
+                className="newPageRotate"
+              >
                 {currentUserRole && currentUserRole.name === 'admin' && (
                   <Link className="link" to="/dashboard">
-                    <div>dashboard</div>
+                    <motion.li variants={item}>dashboard</motion.li>
                   </Link>
                 )}
-                <div>Product</div>
+
                 {currentUserRole && currentUserRole.name === 'merchant' && (
-                  <div>collection</div>
+                  <>
+                    <Link className="link" to="/addproduct">
+                      <motion.li variants={item}>Add Product</motion.li>
+                    </Link>
+                    {/* <li>collection</li> */}
+                  </>
                 )}
-              </div>
+                <Link className="link" to="/products">
+                  <motion.div variants={item}>Product</motion.div>
+                </Link>
+              </motion.div>
             )}
           </li>
         )}
         <li>
-          categories
+          CATEGORIES
           <MdOutlineKeyboardArrowUp />
         </li>
       </ul>
+      {userInfo && userInfo.userData && (
+        <div className="notification-panel" data-testid="notificationPanel">
+          <li>
+            <div className="notification-bell">
+              <IoMdNotifications
+                data-testid="counterTest"
+                onClick={handleNotification}
+              />
+              {notificationCount > 0 && (
+                <span className="counter">{notificationCount}</span>
+              )}
+            </div>
+          </li>
+          <div>
+            {showNotification && (
+              <div className="dropdown-menu">
+                <div className="notification-title">
+                  Notification
+                  <span onClick={MarkAllAsRead}>
+                    <BsCheck2All />
+                  </span>
+                </div>
+                <hr />
+                {notifications.length > 0 ? (
+                  notifications.map((notification) => (
+                    <span
+                      onClick={() => markNotifications(notification.id, data, dispatch)}
+                      className={
+                        notification.isRead === true
+                          ? 'notification-card2'
+                          : 'notification-card'
+                      }
+                      key={notification.id}
+                    >
+                      {notification.message}
+                    </span>
+                  ))
+                ) : (
+                  <span>No notifications</span>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="searchIcon">
         <FaSearch data-testid="search-icon" onClick={handleSeach} />
         {searchIcon && (
@@ -116,34 +259,56 @@ const Navbar = () => {
         <div className="translation">
           <GrLanguage />
         </div>
-        <div className="cart">
-          <FaShoppingCart />
-        </div>
+        {userInfo && userInfo.userData && (
+        <Link className="cartlink" to="/view-cart">
+          <div className="cartContainer">
+            <FaShoppingCart />
+            <span className="redSpan">{cartItems.length}</span>
+          </div>
+        </Link>
+        )}
         <div className="profile">
           <FaUserAlt data-testid="profile-button" onClick={handleProfile} />
           {profile && (
-            <div className="newProfile">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={variants}
+              className="newProfile"
+            >
               {!userInfo ? (
                 <Link className="Plink" to="/Authentication">
-                  <li>Login/Signup</li>
+                  <motion.div variants={item} onClick={() => setProfile(false)}>Login/Signup</motion.div>
                 </Link>
               ) : !userInfo.userData ? (
                 <Link className="Plink" to="/Authentication">
-                  <li>Login/Signup</li>
+                  <motion.div variants={item} onClick={() => setProfile(false)}>Login/Signup</motion.div>
                 </Link>
               ) : (
                 <>
-                  <div className="welcome-name">
-                    welcome &nbsp;
+                  <motion.div variants={item} className="welcome-name">
+                    Welcome
+                    {' '}
                     <span className="name">
                       {`${userInfo.userData.fullname.split(' ')[0]}`}
                     </span>
-                  </div>
+                  </motion.div>
                   <hr />
-                  <button className="logoutButton">Logout</button>
+                  <Link to="/view-basic" className="profile-link">
+                    <motion.div variants={item}>Profile</motion.div>
+                  </Link>
+                  <motion.button
+                    variants={item}
+                    className="logoutButton"
+                    onClick={handleLogout}
+                  >
+                    Logout
+
+                  </motion.button>
                 </>
               )}
-            </div>
+              <span className="newProfileBottom">Team-Furebo-E-commerce</span>
+            </motion.div>
           )}
         </div>
         {!menu ? (
@@ -161,36 +326,54 @@ const Navbar = () => {
         )}
       </div>
       {menu && (
-        <div className="NavSideBar">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          className="NavSideBar"
+        >
           {userInfo && userInfo.userData && (
-            <li onClick={handleRotate} data-testid="pages">
-              pages
+            <motion.li variants={item} onClick={handleRotate} data-testid="pages">
+              PAGES
               {' '}
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}
               />
-            </li>
+            </motion.li>
           )}
-          <li onClick={handleCRotate}>
-            categories
+          <motion.li variants={item} onClick={handleCRotate}>
+            CATEGORIES
             <IoIosArrowBack className={crotate ? 'arrowLeft' : 'arrowRight'} />
-          </li>
-        </div>
+          </motion.li>
+        </motion.div>
       )}
       {pageMenu && (
-        <div className="newNavSideBar">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          className="newNavSideBar"
+        >
           {currentUserRole && currentUserRole.name === 'admin' && (
             <Link className="link" to="/dashboard">
-              <li>dashboard</li>
+              <motion.li variants={item}>dashboard</motion.li>
             </Link>
           )}
-          <li>Product</li>
+          <Link className="link" to="/products">
+            <motion.div variants={item}>Product</motion.div>
+          </Link>
           {currentUserRole && currentUserRole.name === 'merchant' && (
-            <li>collection</li>
+            <>
+              <motion.li variants={item}>collection</motion.li>
+              <Link className="link" to="/addproduct">
+                <motion.li variants={item}>addProduct</motion.li>
+              </Link>
+            </>
           )}
-        </div>
+        </motion.div>
       )}
+      <ToastContainer />
     </div>
   );
 };

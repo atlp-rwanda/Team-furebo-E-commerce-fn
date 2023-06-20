@@ -66,7 +66,7 @@ describe('Validation Functions Tests', () => {
       const authData = { password: 'weakpassword' };
       const errors = ValidatePassword(authData);
       expect(errors.password).toBe(
-        'Password should contain atleast one upper character, one lower character, two numbers and not under eight',
+        'Provide valid password',
       );
     });
 
@@ -90,25 +90,30 @@ describe('Validation Functions Tests', () => {
     });
 
     it('should return an error when password does not match the pattern', () => {
-      const authData = { newPassword: 'weakpassword', confirmPassword: 'weakpassword' };
+      const authData = {
+        newPassword: 'weakpassword',
+        confirmPassword: 'weakpassword',
+      };
       const errors = ValidateNewPassword(authData);
-      expect(errors.newPassword).toBe(
-        'Password format is incorrect',
-      );
-      expect(errors.confirmPassword).toBe(
-        'Password format is incorrect',
-      );
+      expect(errors.newPassword).toBe('Password format is incorrect');
+      expect(errors.confirmPassword).toBe('Password format is incorrect');
     });
 
     it('should not return an error when password matches the pattern', () => {
-      const authData = { newPassword: 'StrongPassword123', confirmPassword: 'StrongPassword123' };
+      const authData = {
+        newPassword: 'StrongPassword123',
+        confirmPassword: 'StrongPassword123',
+      };
       const errors = ValidateNewPassword(authData);
       expect(errors.newPassword).toBeUndefined();
       expect(errors.confirmPassword).toBeUndefined();
     });
 
     it('should return an error when the two passwords do not match', () => {
-      const authData = { newPassword: 'StrongPassword1234', confirmPassword: 'StrongPassword123' };
+      const authData = {
+        newPassword: 'StrongPassword1234',
+        confirmPassword: 'StrongPassword123',
+      };
       const errors = ValidateNewPassword(authData);
       expect(errors.newPassword).toBeUndefined();
       expect(errors.matchPassword).toBe('Two passwords do not match');

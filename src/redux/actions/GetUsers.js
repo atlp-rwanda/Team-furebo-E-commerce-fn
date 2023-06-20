@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import {
@@ -13,9 +14,8 @@ const API = axios.create({
 });
 
 API.interceptors.request.use((req) => {
-  if (localStorage.getItem('currentUser')) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem('currentUser')).token
+  if (localStorage.getItem('token')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))
     }`;
   }
   return req;
@@ -31,6 +31,7 @@ const fetchUsers = async (dispatch) => {
     setTimeout(() => {
       dispatch(clearSuccessCondition());
     }, [6000]);
+    return res.data;
   } catch (error) {
     if (!error.response) {
       dispatch(updateError(error.message));

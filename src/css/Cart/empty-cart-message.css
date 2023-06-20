@@ -1,0 +1,31 @@
+.empty-cart-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+  font-size: 26px;
+}
+.empty-cart-message .empty-cart-message-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.empty-cart-message .empty-cart-message-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.empty-cart-message .empty-cart-message-link {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.empty-cart-message .empty-cart-message-link:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=empty-cart-message.css.map */

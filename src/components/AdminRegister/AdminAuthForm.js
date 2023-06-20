@@ -45,7 +45,7 @@ const AdminAuthForm = () => {
         </Link>
       </div>
       <div className="authFormRight">
-        <h1>{isSignUp ? 'Create Account' : 'Welcome Back'}</h1>
+        <h1>{isSignUp ? 'Create Accout' : 'Welcome Back'}</h1>
         <form>
           {isSignUp && (
             <>
@@ -68,7 +68,7 @@ const AdminAuthForm = () => {
           <input
             name="email"
             type="email"
-            placeholder="Emai"
+            placeholder="Email"
             value={authData.email}
             onChange={handleChange}
           />
@@ -96,7 +96,7 @@ const AdminAuthForm = () => {
           {adminError !== null && (
             <span className="errorDisplay">{adminError}</span>
           )}
-          <button className="authButton" onClick={handleSubmit}>
+          <button onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
           {isSignUp && (

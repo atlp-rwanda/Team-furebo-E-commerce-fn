@@ -1,0 +1,75 @@
+.user-essential-info-container {
+  width: 80%;
+  margin: 2% auto;
+  display: flex;
+}
+.user-essential-info-container .acc-info-title {
+  margin: 10px auto;
+  text-transform: uppercase;
+}
+.user-essential-info-container .user-essential-info {
+  display: flex;
+  gap: 10px;
+}
+.user-essential-info-container .user-essential-info .essential-info,
+.user-essential-info-container .user-essential-info .home-address {
+  flex: 1;
+  display: flex;
+}
+.user-essential-info-container .user-essential-info .user-field {
+  margin-bottom: 5px;
+  background-color: rgba(241, 241, 241, 0.763);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.user-essential-info-container .user-essential-info .user-field label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+.user-essential-info-container
+  .user-essential-info
+  .user-field
+  input[type='text'] {
+  border: 1px solid rgb(23, 133, 122);
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 7px;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: rgb(23, 133, 122);
+  outline-color: rgb(23, 133, 122);
+  background-color: rgba(9, 116, 105, 0.182);
+}
+.user-essential-info-container .btn-submit {
+  background-color: rgba(63, 166, 63, 0.703);
+  padding: 7px;
+  border-radius: 5px;
+  outline-style: none;
+  width: 100%;
+  color: rgb(241, 241, 241);
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+/* NOTIFICATION */
+.login-message {
+  margin: 20px 0;
+  padding: 7px 5px;
+  border-radius: 4px;
+}
+.login-message.success {
+  color: #fff;
+  background-color: #4caf50;
+}
+.login-message.failure {
+  color: #fff;
+  background-color: #ff0000;
+}
+
+/*# sourceMappingURL=Edit-EssentialInfo.css.map */

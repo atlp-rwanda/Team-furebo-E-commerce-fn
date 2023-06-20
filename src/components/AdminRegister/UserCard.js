@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import image from '../../assets/images/istockphoto-546175134-1024x1024.jpg';
+import image from '../../assets/images/profile2.png';
 import SetRoles from '../../redux/actions/SetRoles';
 
 import DisableAccountButton from './DisableAccountButton';

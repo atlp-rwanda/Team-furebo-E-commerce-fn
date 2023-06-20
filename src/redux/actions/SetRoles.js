@@ -16,9 +16,8 @@ const API = axios.create({
 });
 
 API.interceptors.request.use((req) => {
-  if (localStorage.getItem('currentUser')) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem('currentUser')).token
+  if (localStorage.getItem('token')) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))
     }`;
   }
   return req;
@@ -29,7 +28,7 @@ const SetRoles = async (updatedData, userId, dispatch, handleUsers) => {
   try {
     const res = await API.patch(`/updateRole/${userId}`, updatedData);
 
-    fetchUsers(dispatch);
+    // fetchUsers(dispatch);
 
     dispatch(updateSuccess(res.data));
 

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userRoleSlice = createSlice({
   name: 'userRole',
   initialState: {
-    userRole: JSON.parse(localStorage.getItem('currentUserRole')),
+    userRole: null,
     successCondition: false,
     pending: false,
     error: {
@@ -12,24 +12,23 @@ export const userRoleSlice = createSlice({
     },
   },
   reducers: {
-    updateStart: state => {
+    updateStart: (state) => {
       state.pending = true;
     },
     updateSuccess: (state, action) => {
       state.successCondition = true;
       state.pending = false;
       state.userRole = action.payload;
-      localStorage.setItem('currentUserRole', JSON.stringify(action.payload));
     },
     updateError: (state, action) => {
       state.error.condition = true;
       state.error.message = action.payload;
       state.pending = false;
     },
-    clearError: state => {
+    clearError: (state) => {
       state.error.condition = false;
     },
-    clearSuccessCondition: state => {
+    clearSuccessCondition: (state) => {
       state.successCondition = false;
     },
   },

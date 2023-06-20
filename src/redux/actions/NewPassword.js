@@ -7,13 +7,15 @@ import {
   clearSuccessCondition,
 } from '../slices/newPasswordSlice';
 
-const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+const API = axios.create({
+  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+});
 
 const newPasswordAction = async (authData, dispatch, params, onSuccess) => {
   dispatch(newPasswordReset());
   try {
     const res = await API.post(`/reset-password/${params.id}`, authData);
-    console.log(authData.newPassword);
+
     dispatch(newPasswordResetSuccess(res.data.message));
 
     onSuccess();
@@ -22,7 +24,6 @@ const newPasswordAction = async (authData, dispatch, params, onSuccess) => {
       dispatch(clearSuccessCondition());
     }, [50000]);
   } catch (error) {
-    console.log(error);
     if (error.response.message) {
       dispatch(newPasswordResetFailure(error.response.message));
     } else {

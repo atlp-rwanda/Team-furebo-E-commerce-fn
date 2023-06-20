@@ -16,7 +16,7 @@ import { GiSettingsKnobs } from 'react-icons/gi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import Users from '../components/AdminRegister/Users';
-import image from '../assets/images/istockphoto-546175134-1024x1024.jpg';
+import image from '../assets/images/profile2.png';
 import Dashboard from '../components/AdminRegister/Dashboard';
 import Merchant from '../components/AdminRegister/Merchant';
 import Customers from '../components/AdminRegister/Customers';
@@ -90,9 +90,9 @@ const DashBoard = () => {
     setIsOrders(true);
   };
 
-  useEffect(() => {
-    fetchUsers(dispatch);
-  }, [handleUsers]);
+  // useEffect(() => {
+  //   fetchUsers(dispatch);
+  // }, [handleUsers]);
 
   const handleShow = () => {
     setShow(!show);

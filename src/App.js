@@ -12,6 +12,17 @@ import AdminAuth from './pages/AdminAuth';
 import Footer from './components/Footer';
 import ResetPassword from './pages/ResetPassword';
 import NewPassword from './pages/NewPassword';
+import AddUserEssentialInfoPage from './pages/userInfo/AddUserEssentialInfoPage';
+import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
+import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
+import BasicUserInfoPage from './pages/userInfo/BasicUserInfoPage';
+import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
+import VerifyOTPCode from './components/verifyCode';
+import AddProduct from './components/ProductDetails/AddProduct';
+import ProductPage from './pages/ProductPage';
+import ViewCartItemsPage from './pages/Cart/ViewCartItemsPage';
+import ProductDetails from './pages/ProductDetails';
+import Checkout from './pages/Checkout';
 
 const Layout = () => (
   <>
@@ -30,11 +41,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '/checkout',
+        element: <Checkout />,
+      },
+      {
+        path: '/addproduct',
+        element: <AddProduct />,
+      },
+      {
         path: '/authentication',
         element: <Auth />,
       },
       {
-        path: '/requestResetPassword',
+        path: '/Authentication/requestResetPassword',
         element: <ResetPassword />,
       },
       {
@@ -46,12 +65,48 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/changepassword/:id',
+        path: '/changepassword',
         element: <PasswordModification />,
+      },
+      {
+        path: '/view-basic',
+        element: <BasicUserInfoPage />,
+      },
+      {
+        path: '/view-essential',
+        element: <EssentialUserInfoPage />,
+      },
+      {
+        path: '/add-essential',
+        element: <AddUserEssentialInfoPage />,
+      },
+      {
+        path: '/update-basic',
+        element: <EditUserBasicPage />,
+      },
+      {
+        path: '/update-essential',
+        element: <EditUserEssentialInfoPage />,
       },
       {
         path: '/AdminRegister',
         element: <AdminAuth />,
+      },
+      {
+        path: '/verifyOTP',
+        element: <VerifyOTPCode />,
+      },
+      {
+        path: '/products',
+        element: <ProductPage />,
+      },
+      {
+        path: '/productDetails/:id',
+        element: <ProductDetails />,
+      },
+      {
+        path: '/view-cart',
+        element: <ViewCartItemsPage />,
       },
     ],
   },
@@ -67,7 +122,6 @@ const router = createBrowserRouter([
 
 const App = () => (
   <div className="app" data-testid="App">
-    <ToastContainer />
     <RouterProvider router={router} />
   </div>
 );

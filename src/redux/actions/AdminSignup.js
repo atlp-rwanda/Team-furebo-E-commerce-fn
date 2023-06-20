@@ -24,7 +24,6 @@ const AdminSignUp = async (authData, dispatch, setAuthData) => {
       lastname: '',
       email: '',
       password: '',
-      adminCode: '',
     });
 
     setTimeout(() => {

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const disableAccountSlice = createSlice({
     name: 'disableAccount',
     initialState: {
-        userStatus: JSON.parse(localStorage.getItem('currentUserStatus')),
+        userStatus: null,
         successCondition: false,
         pending: false,
         error: {
@@ -19,7 +19,6 @@ export const disableAccountSlice = createSlice({
           state.successCondition = true;
           state.pending = false;
           state.userStatus = action.payload;
-          localStorage.setItem('currentUserStatus', JSON.stringify(action.payload));
         },
         updateError: (state, action) => {
           state.error.condition = true;

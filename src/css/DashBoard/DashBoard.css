@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: Inter, sans-serif;
+  font-family: 'Baloo Tamma 2', cursive;
   background-color: #f5f6f8;
 }
 .Dashboard .show {
@@ -32,6 +32,7 @@
   height: 100vh;
   position: relative;
   box-shadow: 5px 0 20px rgba(0, 0, 0, 0.363);
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .Header {
   box-sizing: border-box;
@@ -43,6 +44,7 @@
   color: #018694;
   font-weight: 600;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .Header .menu1 {
   font-size: 30px;
@@ -58,6 +60,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .identification img {
   width: 60px;
@@ -68,8 +71,9 @@
   display: block;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .identification .Id-Inner p {
   font-size: 10px;
@@ -116,6 +120,7 @@
   position: absolute;
   bottom: 30px;
   cursor: pointer;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 .Dashboard .dashBoardMenuSmall .togleSidebar p {
   display: flex;
@@ -149,6 +154,7 @@
   color: #018694;
   font-weight: 600;
   gap: 10px;
+  font-family: 'Baloo Tamma 2', cursive;
 }
 @media (max-width: 450px) {
   .Dashboard .dashBoardMenu .Header {
@@ -272,7 +278,7 @@
 }
 @media (max-width: 450px) {
   .Dashboard .dashBoardMenu .togleSidebar p {
-    align-items: flex-start;
+    align-items: start;
     justify-content: center;
   }
 }
@@ -326,7 +332,7 @@
   box-sizing: border-box;
 }
 .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper {
-  width: 90%;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -343,30 +349,64 @@
     gap: 10px;
   }
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .cardWraperInner {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner img {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .cardWraperInner
+  img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 @media (max-width: 800px) {
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner {
+  .Dashboard
+    .dashBoardMain
+    .usersContainer
+    .userContainer
+    .cardWraper
+    .cardWraperInner {
     flex-direction: column;
   }
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner p {
+  .Dashboard
+    .dashBoardMain
+    .usersContainer
+    .userContainer
+    .cardWraper
+    .cardWraperInner
+    p {
     font-size: 10px;
   }
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner h1 {
+  .Dashboard
+    .dashBoardMain
+    .usersContainer
+    .userContainer
+    .cardWraper
+    .cardWraperInner
+    h1 {
     font-size: 10px;
   }
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner .cardWraperInnerBody {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .cardWraperInner
+  .cardWraperInnerBody {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -374,18 +414,35 @@
   gap: 10px;
 }
 @media (max-width: 800px) {
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperInner .cardWraperInnerBody {
+  .Dashboard
+    .dashBoardMain
+    .usersContainer
+    .userContainer
+    .cardWraper
+    .cardWraperInner
+    .cardWraperInnerBody {
     align-items: center;
   }
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .cardWraperRight {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button1 {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .cardWraperRight
+  .button1 {
   border: none;
   padding: 5px 20px;
   background-color: #2ed47a;
@@ -394,13 +451,25 @@
   cursor: pointer;
 }
 @media (max-width: 800px) {
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button1 {
+  .Dashboard
+    .dashBoardMain
+    .usersContainer
+    .userContainer
+    .cardWraper
+    .cardWraperRight
+    .button1 {
     font-size: 10px;
     padding: 5px 10px;
     width: 100px;
   }
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button2 {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .cardWraperRight
+  .button2 {
   border: none;
   padding: 5px 20px;
   background-color: #f7685b;
@@ -409,13 +478,25 @@
   cursor: pointer;
 }
 @media (max-width: 800px) {
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button2 {
+  .Dashboard
+    .dashBoardMain
+    .usersContainer
+    .userContainer
+    .cardWraper
+    .cardWraperRight
+    .button2 {
     font-size: 10px;
     padding: 5px 10px;
     width: 100px;
   }
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button3 {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .cardWraperRight
+  .button3 {
   border: none;
   padding: 5px 20px;
   background-color: #5aaab4;
@@ -424,7 +505,13 @@
   cursor: pointer;
 }
 @media (max-width: 800px) {
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .cardWraperRight .button3 {
+  .Dashboard
+    .dashBoardMain
+    .usersContainer
+    .userContainer
+    .cardWraper
+    .cardWraperRight
+    .button3 {
     font-size: 10px;
     padding: 5px 10px;
     width: 100px;
@@ -441,13 +528,25 @@
   justify-content: center;
   align-items: center;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .disablePopUp {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .disablePopUp {
   color: #000000;
   font-size: 20px;
   margin-bottom: 10px;
   cursor: pointer;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm {
   background-color: #ffffff;
   width: 200px;
   height: auto;
@@ -459,7 +558,14 @@
   border-radius: 10px;
   position: relative;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .checkbox {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .checkbox {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -468,11 +574,26 @@
   width: 100%;
   align-items: center;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .checkbox input {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .checkbox
+  input {
   width: 20px;
   height: 20px;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm button {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  button {
   padding: 5px 20px;
   background-color: #f7685b;
   margin-top: 20px;
@@ -481,7 +602,14 @@
   width: 100%;
   cursor: pointer;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .pending {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .pending {
   color: #5bc760;
   margin-top: 10px;
   width: 90%;
@@ -489,7 +617,14 @@
   justify-content: center;
   align-items: center;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .successDisplay {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .successDisplay {
   background-color: #5bc760;
   width: 80%;
   padding: 10px 15px;
@@ -500,7 +635,14 @@
   border-radius: 5px;
   margin-top: 10px;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp .sendingForm .errorDisplay {
+.Dashboard
+  .dashBoardMain
+  .usersContainer
+  .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .errorDisplay {
   background-color: #ff6252;
   width: 80%;
   padding: 10px 15px;
@@ -510,6 +652,21 @@
   align-items: center;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.loading {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerUsr {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 /*# sourceMappingURL=DashBoard.css.map */

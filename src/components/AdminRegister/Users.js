@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchUsers from '../../redux/actions/GetUsers';
 import UserCard from './UserCard';
@@ -8,22 +8,32 @@ import UserCard from './UserCard';
 
 const Users = ({ handleUsers }) => {
   const dispatch = useDispatch();
-  const {
-    successCondition, users, error, pending,
-  } = useSelector(
+  const [users, setUsers] = useState([]);
+  const { successCondition, error, pending } = useSelector(
     (state) => state.allUsers,
   );
 
-  // useEffect(() => {
-  //   fetchUsers(dispatch);
-  // });
+  useEffect(() => {
+    const getAllUsers = async () => {
+      const returnedUsers = await fetchUsers(dispatch);
+      setUsers(returnedUsers);
+    };
+
+    getAllUsers();
+  }, [handleUsers]);
 
   return (
     <div className="userContainer" data-testid="Users">
       <h1>Users</h1>
-      {users?.map((user) => (
-        <UserCard key={user.id} data={user} handleUsers={handleUsers} />
-      ))}
+      {pending ? (
+        <div className="loading">loading...</div>
+      ) : (
+        <div className="containerUsr">
+          {users?.map((user) => (
+            <UserCard key={user.id} data={user} handleUsers={handleUsers} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

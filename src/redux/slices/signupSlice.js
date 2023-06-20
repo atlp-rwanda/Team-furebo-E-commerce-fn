@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    userInfo: JSON.parse(localStorage.getItem('currentUser')),
+    userInfo: null,
     successCondition: false,
     pending: false,
     error: {
@@ -12,24 +12,24 @@ export const userSlice = createSlice({
     },
   },
   reducers: {
-    updateStart: state => {
+    updateStart: (state) => {
       state.pending = true;
     },
     updateSuccess: (state, action) => {
       state.successCondition = true;
       state.pending = false;
       state.userInfo = action.payload;
-      localStorage.setItem('currentUser', JSON.stringify(action.payload));
+      localStorage.setItem('token', JSON.stringify(action.payload.token));
     },
     updateError: (state, action) => {
       state.error.condition = true;
       state.error.message = action.payload;
       state.pending = false;
     },
-    clearError: state => {
+    clearError: (state) => {
       state.error.condition = false;
     },
-    clearSuccessCondition: state => {
+    clearSuccessCondition: (state) => {
       state.successCondition = false;
     },
   },
