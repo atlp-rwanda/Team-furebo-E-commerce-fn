@@ -20,11 +20,14 @@ import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
 import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
 import Completion from './components/payment/Completion';
+<<<<<<< HEAD
 import ProductGrid from './components/SellerProductGrid';
 import SingleProduct from './components/SingleProduct';
 import UpdateProduct from './components/UpdateProduct';
 import UserProfilePage from './pages/userInfo/UserProfilePage';
 import AddEssentialPage from './pages/userInfo/AddEssentialPage';
+=======
+>>>>>>> 25ac1cf (buyer is able to make payment using stripeAPI)
 
 const Layout = () => (
   <>

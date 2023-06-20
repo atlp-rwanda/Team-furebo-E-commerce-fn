@@ -29,6 +29,7 @@ import deleteCartItemReducer from './slices/Cart/DeleteCartItemSlice';
 import clearCartItemReducer from './slices/Cart/ClearCartItemSlice';
 import orderSlice from './slices/getOrderSlice';
 import paymentSlice from './slices/paymentSlice';
+<<<<<<< HEAD
 import productSlice from './slices/sellerProductSlice';
 
 import userProfileReducer from './slices/UserProfile/FetchUserEssentialInfoSlice';
@@ -36,6 +37,8 @@ import basicInfoReducer from './slices/UserProfile/FetchUserBasicInfoSlice';
 import updateUserBasicInfoReducer from './slices/UserProfile/UpdateUserBasicInfoSlice';
 import updateUserEssentialInfoReducer from './slices/UserProfile/UpdateUserEssentialInfoSlice';
 import ChangePasswordAtGivenTimeReducer from './slices/UserProfile/ChangePasswordAtGivenTimeSlice';
+=======
+>>>>>>> 25ac1cf (buyer is able to make payment using stripeAPI)
 
 const persistConfig = {
   key: 'root',
