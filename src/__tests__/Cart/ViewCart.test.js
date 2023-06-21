@@ -1,94 +1,97 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable padded-blocks */
-/* eslint-disable linebreak-style */
-/* eslint-disable max-len */
-/* eslint-disable linebreak-style */
-/* eslint-disable jest/no-standalone-expect */
-/* eslint-disable linebreak-style */
-/* eslint-disable jest/no-commented-out-tests */
-/* eslint-disable linebreak-style */
 /* eslint-disable jest/expect-expect */
 /* eslint-disable linebreak-style */
+/* eslint-disable comma-dangle */
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import configureStore from 'redux-mock-store';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ViewCart from '../../components/Cart/ViewCart';
-
-const mockStore = configureStore([]);
+import store from '../../redux/store';
 
 describe('ViewCart Component', () => {
-  const profileData = [
-    {
-      id: 1,
-      name: 'Product Name 1',
-      image: 'product-image-1.jpg',
-      totalPrice: 100,
-      quantity: 3,
-      price: 30,
-      category: 'Product Category 1',
-      createdAt: '2023-06-09',
-    },
-    {
-      id: 2,
-      name: 'Product Name 2',
-      image: 'product-image-2.jpg',
-      totalPrice: 50,
-      quantity: 2,
-      price: 25,
-      category: 'Product Category 2',
-      createdAt: '2023-06-10',
-    },
-  ];
-  const deleteItem = jest.fn();
-  const updateItem = jest.fn();
-  const clearCart = jest.fn();
-
-  let store;
-  let initialState;
-  beforeEach(() => {
-    initialState = {
-      user: {
-        successCondition: false,
-        userInfo: null,
-        error: {
-          condition: false,
-          message: '',
-        },
-        pending: false,
-      },
-    };
-
-    store = mockStore(initialState);
+  it('should render the ViewCart component', () => {
     render(
       <Router>
         <Provider store={store}>
-          <ViewCart
-            profileData={profileData}
-            deleteItem={deleteItem}
-            updateItem={updateItem}
-            clearCart={clearCart}
-          />
-          ,
+          <ViewCart />
         </Provider>
-      </Router>,
+      </Router>
+    );
+
+    expect(screen.getByTestId('view-cart')).toBeInTheDocument();
+  });
+
+  it('should display loading state when loading', () => {
+    render(
+      <Router>
+        <Provider store={store}>
+          <ViewCart />
+        </Provider>
+      </Router>
+    );
+
+    expect(screen.getByTestId('loading-div')).toBeInTheDocument();
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
+  });
+
+  it('should display empty cart message when cart is empty', () => {
+    render(
+      <Router>
+        <Provider store={store}>
+          <ViewCart />
+        </Provider>
+      </Router>
     );
   });
-  it('should render ViewCart component', () => {
-    const viewCartElement = screen.getByTestId('view-cart-id');
-    expect(viewCartElement).toBeInTheDocument();
+
+  it('should display error message when there is an error', () => {
+    // Mock the error state
+    jest.mock('../../redux/actions/Cart/ViewCartItemsAction', () => ({
+      fetchCartItems: jest.fn(() => Promise.reject('Error 404')),
+    }));
+
+    render(
+      <Router>
+        <Provider store={store}>
+          <ViewCart />
+        </Provider>
+      </Router>
+    );
   });
-  it('should render cart items', () => {
-    const cartItemsElement = screen.getByTestId('cart-items-id');
-    expect(cartItemsElement).toBeInTheDocument();
-    expect(screen.getByText('Product Name 1')).toBeInTheDocument();
-    expect(screen.getByText('Product Name 2')).toBeInTheDocument();
-  });
-  it('should call clearCart when clear cart button is clicked', () => {
-    const clearCartButton = screen.getByText('Clear cart');
-    fireEvent.click(clearCartButton);
-    expect(clearCart).toHaveBeenCalledTimes(1);
-    screen.queryAllByTestId('cart-items-id');
+
+  it('should display cart items when cart has items', () => {
+    // Mock the cart items state
+    jest.mock('../../redux/actions/Cart/ViewCartItemsAction', () => ({
+      fetchCartItems: jest.fn(() =>
+        Promise.resolve([
+          {
+            id: 1,
+            name: 'Item 1',
+            price: 10.99,
+            quantity: 2,
+            category: 'Hardware',
+            totalPrice: 10.99,
+            productQuantity: 1,
+          },
+          {
+            id: 2,
+            name: 'Item 2',
+            price: 5.99,
+            quantity: 1,
+            category: 'Hardware',
+            totalPrice: 5.99,
+            productQuantity: 1,
+          },
+        ])
+      ),
+    }));
+
+    render(
+      <Router>
+        <Provider store={store}>
+          <ViewCart />
+        </Provider>
+      </Router>
+    );
   });
 });

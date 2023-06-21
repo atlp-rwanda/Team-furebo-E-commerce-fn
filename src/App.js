@@ -20,9 +20,10 @@ import EssentialUserInfoPage from './pages/userInfo/EssentialUserInfoPage';
 import VerifyOTPCode from './components/verifyCode';
 import AddProduct from './components/ProductDetails/AddProduct';
 import ProductPage from './pages/ProductPage';
-import ViewCartItemsPage from './pages/Cart/ViewCartItemsPage';
+import ViewCartPage from './pages/Cart/ViewCartPage';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
+import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
 
 const Layout = () => (
   <>
@@ -106,7 +107,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/view-cart',
-        element: <ViewCartItemsPage />,
+        element: <ViewCartPage />,
+      },
+      {
+        path: '/view-wishlist',
+        element: <ViewWishlistPage />,
       },
     ],
   },

@@ -19,6 +19,14 @@ import singleProductsSlice from './slices/proDetailsSlice';
 import recomProductsSlice from './slices/recomProductSlice';
 import checkoutSlice from './slices/checkoutSlice';
 import fetchCartItemsSlice from './slices/fetchCartItemsSlice';
+import addToWishlistReducer from './slices/Wishlist/AddToWishListSlice';
+import viewWishlistReducer from './slices/Wishlist/ViewWishlistSlice';
+import deleteItemInWishlistReducer from './slices/Wishlist/DeleteItemInWishListSlice';
+import clearWishlistReducer from './slices/Wishlist/ClearWishListSlice';
+import viewCartItemsReducer from './slices/Cart/ViewCartItemsSlice';
+import updateCartItemReducer from './slices/Cart/UpdateCartItemSlice';
+import deleteCartItemReducer from './slices/Cart/DeleteCartItemSlice';
+import clearCartItemReducer from './slices/Cart/ClearCartItemSlice';
 
 const persistConfig = {
   key: 'root',
@@ -42,6 +50,14 @@ const reducer = combineReducers({
   recomProducts: recomProductsSlice,
   checkout: checkoutSlice,
   cartItems: fetchCartItemsSlice,
+  wishlist: addToWishlistReducer,
+  viewWishlist: viewWishlistReducer,
+  deleteItemInWishlist: deleteItemInWishlistReducer,
+  clearWishlist: clearWishlistReducer,
+  viewCartItems: viewCartItemsReducer,
+  updateCartItem: updateCartItemReducer,
+  deleteCartItem: deleteCartItemReducer,
+  clearCartItem: clearCartItemReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

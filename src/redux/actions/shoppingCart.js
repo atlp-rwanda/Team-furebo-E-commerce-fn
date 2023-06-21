@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import FetchCartItemsAction from './Cart/FetchCartItemsAction';
+import { fetchCartItems } from './Cart/ViewCartItemsAction';
 import {
   updateStart,
   updateSuccess,
@@ -34,7 +34,7 @@ const addToCart = async (quantity, productId, dispatch, setShowPopUp) => {
 
     dispatch(updateSuccess(res.data));
 
-    FetchCartItemsAction(dispatch);
+    fetchCartItems(dispatch);
 
     setShowPopUp(false);
 
