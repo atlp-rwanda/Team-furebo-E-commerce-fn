@@ -8,6 +8,7 @@ import userSlice from './slices/signupSlice';
 import updatePasswordSlice from './slices/updatePassword';
 import userRolesSlice from './slices/userRolesSlice';
 import allUsersSlice from './slices/usersSlice';
+import disableAccountSlice from './slices/disableAccountSlice';
 import resetPasswordSlice from './slices/resetPasswordSlice';
 import newPasswordSlice from './slices/newPasswordSlice';
 import addProduct from './slices/addProductSlice';
@@ -29,6 +30,7 @@ const reducer = combineReducers({
   user: userSlice,
   updatePassword: updatePasswordSlice,
   userRole: userRolesSlice,
+  disableAccount: disableAccountSlice,
   allUsers: allUsersSlice,
   resetPassword: resetPasswordSlice,
   newPassword: newPasswordSlice,
