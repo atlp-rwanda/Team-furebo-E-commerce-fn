@@ -38,7 +38,7 @@ const disableAccount = async (updatedData, userId, dispatch) => {
 
     setTimeout(() => {
       dispatch(clearSuccessCondition());
-    }, [6000]);
+    }, [1000]);
   } catch (error) {
     if (!error.response) {
       dispatch(updateError(error.message));

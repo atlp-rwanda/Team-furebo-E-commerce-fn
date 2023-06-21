@@ -5,9 +5,10 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { FALSE } from 'sass';
 import image from '../../assets/images/profile2.png';
 import SetRoles from '../../redux/actions/SetRoles';
 
@@ -18,6 +19,8 @@ const UserCard = ({ data, handleUsers }) => {
   const navigate = useNavigate();
   const [dismissed, setDismissed] = useState(false);
   const [updatedData, setUpdatedData] = useState({ role: '' });
+
+ 
 
   const {
     successCondition, userRole, error, pending,
@@ -30,14 +33,6 @@ const UserCard = ({ data, handleUsers }) => {
   const handleSubmit = () => {
     SetRoles(updatedData, userId, dispatch, handleUsers);
   };
-
-  let accountStatus
-
-  if (data.isEnabled == true) {
-    accountStatus = "Enabled"
-  } else if (data.isEnabled == false) {
-    accountStatus = "Disabled"
-  }
 
   const disableAccountData = {
     userId: userId,
@@ -53,7 +48,7 @@ const UserCard = ({ data, handleUsers }) => {
           <p>{`user Id: ${userId}`}</p>
           <p>{`email: ${data.email}`}</p>
           <p>{`role: ${JSON.parse(data.role).name}`}</p>
-          <p>{`Account status: ${accountStatus}`}</p>
+          <p>{`Account status: ${data.isEnabled ? "Enabled" : "Disabled" }`}</p>
         </div>
       </div>
       <div className="cardWraperRight">

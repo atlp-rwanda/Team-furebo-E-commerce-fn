@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import disableAccount from "../../redux/actions/DisableAccount";
 
 export default function DisableAccountButton(props) {
     const dispatch = useDispatch();
     const [dismissed, setDismissed] = useState(false);
-    const [updatedData, setUpdatedData] = useState({ isEnabled: props.data.currentUserStatus });
+    const [updatedData, setUpdatedData] = useState(false);
+
+    useEffect(()=>{
+        setUpdatedData({ isEnabled: props.data.currentUserStatus })
+    },[props])
   
     const {
       successCondition, userStatus, error, pending,
