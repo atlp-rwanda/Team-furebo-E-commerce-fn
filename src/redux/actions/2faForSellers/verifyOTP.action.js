@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { updateSuccess } from '../../slices/signupSlice';
 
 const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+  baseURL: 'http://127.0.0.1:5002/api',
 });
 
 API.interceptors.request.use((req) => {
@@ -18,7 +18,7 @@ API.interceptors.request.use((req) => {
 const verifyOTPCode = async (code, dispatch, navigate) => {
   try {
     const response = await API.post('/2fa/verify', { code });
-    response.data.token = JSON.parse(localStorage.getItem('currentUser')).token;
+    response.data.token = JSON.parse(localStorage.getItem('token'));
     dispatch(updateSuccess(response.data));
     toast.success(response.data.message);
     setTimeout(() => {

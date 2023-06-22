@@ -24,6 +24,7 @@ import ViewCartPage from './pages/Cart/ViewCartPage';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
 import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
+import Orders from './components/AdminRegister/Orders';
 
 const Layout = () => (
   <>

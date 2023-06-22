@@ -188,8 +188,8 @@ const DashBoard = () => {
           </div>
         )}
         {isOrders && (
-          <div>
-            <Orders />
+          <div className="ordersContainer">
+            <Orders handleOrders={handleOrders} />
           </div>
         )}
       </div>

@@ -2,9 +2,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/button-has-type */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+import { TbMessageCircle } from 'react-icons/tb';
+import io from 'socket.io-client';
+import { BiChevronDownCircle } from 'react-icons/bi';
 import Category from '../components/Category';
 import { categoryProducts, Latestproducts } from '../constants/Constant';
 
@@ -17,8 +21,33 @@ import '../css/HomeStyles/Home.css';
 import ProductCard from '../components/ProductCard';
 import Footer from '../components/Footer';
 import SliderComponent from '../components/SliderComponent';
+import ChatPage from '../components/Chat/chatPage';
 
 const Home = () => {
+  const [showShow, setShowShow] = useState(false);
+  const toggleShow = () => {
+    if (showShow && notificationCount > 0) {
+      setNotificationCount(0);
+    }
+    setShowShow(!showShow);
+  };
+
+  const [notificationCount, setNotificationCount] = useState(0);
+  const { userInfo } = useSelector((state) => state.user);
+  const fullName = userInfo?.userData.fullname;
+  const socket = io.connect('http://127.0.0.1:5002');
+  useEffect(() => {
+    if (fullName !== '') {
+      socket.emit('new-user', fullName);
+      socket.on('user-connected', (name) => {
+      });
+      socket.on('chat-message', (data) => {
+        if (userInfo && data.name !== fullName) {
+          setNotificationCount((prevCount) => prevCount + 1);
+        }
+      });
+    }
+  }, [fullName]);
   const slides = [
     <div key={1} className="main">
       <div className="mainLeft">
@@ -144,6 +173,27 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      {showShow && userInfo && (
+      <div className="chatDiv" style={{ display: 'block', zIndex: 100 }} >
+        <ChatPage className="chatPage" />
+        <div data-testid="chat-header-hide" id="team-chat" className="animated slideInUp right banner-maximized" style={{ display: 'block' }} onClick={toggleShow} >
+          <div className="pageHolder banner-4 round-banner" style={{ color: 'rgb(255, 255, 255)', background: '#131921' }}>
+            <BiChevronDownCircle style={{ color: 'rgb(255, 255, 255)' }} />
+          </div>
+        </div>
+      </div>
+      )}
+
+      {!showShow && userInfo && (
+      <div  data-testid="chat-header" id="team-chat" className="animated slideInUp right banner-maximized ChatShow" style={{ display: 'block', zIndex: 100 }} onClick={toggleShow} >
+        <div className="pageHolder banner-4 round-banner" style={{ color: 'rgb(255, 255, 255)', background: '#131921' }}>
+          <TbMessageCircle style={{ color: 'rgb(255, 255, 255)', transform: 'scaleX(-1)' }} />
+        </div>
+        {notificationCount > 0 && (
+        <div className="notification-counter" data-testid="notification-counter" />
+        )}
+      </div>
+      )}
       <div className="main">
         <SliderComponent slides={slides} interval={5000} />
       </div>

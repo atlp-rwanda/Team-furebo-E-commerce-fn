@@ -3,6 +3,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../../css/profile/View-Basic-info.css';
 import { SlCalender } from 'react-icons/sl';
@@ -14,9 +15,9 @@ import Enable2faCheckBox from '../enable2FA.button';
 
 const ViewUserBasicInfo = ({ profileData, profileImage }) => {
   const [Role, setUserRole] = useState(null);
+  const { userInfo } = useSelector((state) => state.user);
   useEffect(() => {
-    const userRole = JSON.parse(localStorage.getItem('currentUser'))?.userData
-      .role;
+    const userRole = userInfo.userData.role;
     if (userRole) {
       const userRoleName = JSON.parse(userRole).name;
       setUserRole(userRoleName);
