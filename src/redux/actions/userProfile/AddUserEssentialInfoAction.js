@@ -25,6 +25,7 @@ export const addEssentialInfo = (formData) => async (dispatch) => {
       progress: undefined,
       theme: 'colored',
     });
+    window.location.reload();
   } catch (error) {
     dispatch(adduserEssentialInfoItemsFailure(error.message));
     if (error.response && error.response.data && error.response.data.message) {

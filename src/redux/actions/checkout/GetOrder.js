@@ -17,13 +17,13 @@ const API = axios.create({
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))
-    }`;
+      }`;
   }
   return req;
 });
 
 const getOrder = async (dispatch) => {
-//   dispatch(updateStart());
+  //   dispatch(updateStart());
   try {
     const res = await API.get('/getOrder');
     console.log(res.data.userOrder);

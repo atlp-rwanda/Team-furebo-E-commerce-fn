@@ -10,9 +10,8 @@ const API = axios.create({
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem('token'))
-    }`;
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))
+      }`;
     return req;
   }
   toast.warning('Please login', { theme: 'colored' });
@@ -45,9 +44,8 @@ export const getSingleProduct = async (productId) => {
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
-    req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem('token'))
-    }`;
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))
+      }`;
   }
   return req;
 });
