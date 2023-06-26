@@ -2,9 +2,11 @@
 /* eslint-disable linebreak-style */
 import axios from 'axios';
 
-const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
-});
+// const API = axios.create({
+//   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+// });
+
+const API = axios.create({ baseURL: 'http://localhost:3000/api' });
 
 API.interceptors.request.use((req) => {
   const authToken = localStorage.getItem('token');

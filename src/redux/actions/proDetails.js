@@ -9,9 +9,11 @@ import {
   clearSuccessCondition,
 } from '../slices/proDetailsSlice';
 
-const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
-});
+// const API = axios.create({
+//   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+// });
+
+const API = axios.create({ baseURL: 'http://localhost:3000/api' });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {

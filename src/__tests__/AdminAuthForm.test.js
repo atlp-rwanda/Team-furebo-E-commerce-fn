@@ -40,7 +40,7 @@ describe('AdminAuthForm TESTS', () => {
         <Provider store={store}>
           <AdminAuthForm />
         </Provider>
-      </Router>
+      </Router>,
     );
     const adminAuthForm = screen.getByTestId('AdminAuthForm');
     expect(adminAuthForm).toBeInTheDocument();

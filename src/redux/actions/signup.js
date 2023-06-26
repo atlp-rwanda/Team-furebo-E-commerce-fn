@@ -8,9 +8,9 @@ import {
   clearSuccessCondition,
 } from '../slices/signupSlice';
 
-const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
-});
+// const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+
+const API = axios.create({ baseURL: 'http://localhost:3000/api' });
 
 export const signUp = async (authData, dispatch, setAuthData) => {
   dispatch(updateStart());

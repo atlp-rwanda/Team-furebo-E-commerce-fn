@@ -26,7 +26,7 @@ describe('DashBoard TESTS', () => {
         <Provider store={store}>
           <DashBoard />
         </Provider>
-      </Router>
+      </Router>,
     );
     const dashboardMenu = getByText('DashBoard');
     const usersMenu = getByText('Users');

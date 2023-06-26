@@ -11,7 +11,6 @@ import {
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
-
 const resetPassword = async (emailData, dispatch) => {
   dispatch(requestPasswordReset());
   try {

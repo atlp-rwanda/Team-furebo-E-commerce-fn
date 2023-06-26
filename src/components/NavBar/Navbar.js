@@ -29,6 +29,7 @@ import {
 } from '../../redux/actions/markNotifications/MarkNotifications';
 import Logo from '../../assets/images/our-logo.png';
 import ViewWishlistButton from '../Wishlist/ViewWishListButton';
+import SearchInput from '../searchProduct/searchInput';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -192,6 +193,9 @@ const Navbar = () => {
                     <Link className="link" to="/addproduct">
                       <motion.li variants={item}>Add Product</motion.li>
                     </Link>
+                    <Link className="link" to="/sellerProducts">
+                      <motion.li variants={item}>Seller Collection</motion.li>
+                    </Link>
                     {/* <li>collection</li> */}
                   </>
                 )}
@@ -253,7 +257,7 @@ const Navbar = () => {
         </div>
       )}
 
-      <div className="searchIcon">
+      {/* <div className="searchIcon">
         <FaSearch data-testid="search-icon" onClick={handleSeach} />
         {searchIcon && (
           <div className="search2">
@@ -267,7 +271,8 @@ const Navbar = () => {
         <FaSearch className="searchIcn" />
         <input placeholder="search" />
         <button>search</button>
-      </div>
+      </div> */}
+      <SearchInput onClick={handleSeach} />
       <div className="leftList">
         <div className="translation">
           <GrLanguage />
@@ -395,6 +400,9 @@ const Navbar = () => {
               <motion.li variants={item}>collection</motion.li>
               <Link className="link" to="/addproduct">
                 <motion.li variants={item}>addProduct</motion.li>
+              </Link>
+              <Link className="link" to="/sellerProducts">
+                <div>Seller Collection</div>
               </Link>
             </>
           )}

@@ -59,10 +59,10 @@
 }
 .productsPage .productContainer .productCrd .CardDesc {
   width: 80%;
-  height: 100px;
+  height: 25px;
   background-color: #f9f9f9;
   position: absolute;
-  top: 220px;
+  top: 200px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -82,7 +82,7 @@
   font-weight: 800;
 }
 .productsPage .productContainer .productCrd .CardDesc .cardHeader p {
-  font-size: 15px;
+  font-size: 13px;
   color: rgba(0, 0, 0, 0.43);
 }
 .productsPage .productContainer .productCrd .CardDesc .cardHeader2 {
@@ -90,17 +90,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
 }
 .productsPage .productContainer .productCrd .CardDesc .cardHeader2 .price {
   font-weight: 800;
 }
 .productsPage .productContainer .productCrd .CardDesc .cardHeader2 p {
-  font-size: 15px;
+  font-size: 13px;
   color: rgba(0, 0, 0, 0.43);
 }
 .productsPage .productContainer .productCrd .CardDesc .cardHeader2 button {
-  padding: 4px 8px;
+  padding: 2px 4px;
   background-color: transparent;
   border: 2px solid rgba(1, 116, 1, 0.46);
   color: rgba(1, 116, 1, 0.46);
@@ -175,6 +174,19 @@
   .pagination {
     width: 90%;
     height: 320px;
+  };
+  .productsPage .productContainer .productCrd .CardDesc .cardHeader2 .price {
+    font-size: 10px;
+  }
+}
+@media (max-width: 640px){
+p.price {
+    margin-right: 65%;
+}
+}
+@media (max-width: 768px){
+  p.price {
+      margin-left: 4%;
   }
 }
 .pagination li {
@@ -231,7 +243,7 @@
   }
   .pagination .prev,
   .pagination .next {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 

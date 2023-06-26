@@ -29,6 +29,8 @@ import deleteCartItemReducer from './slices/Cart/DeleteCartItemSlice';
 import clearCartItemReducer from './slices/Cart/ClearCartItemSlice';
 import orderSlice from './slices/getOrderSlice';
 import paymentSlice from './slices/paymentSlice';
+import productSlice from './slices/sellerProductSlice';
+import searchProductSlice  from './slices/searchProductslice';
 
 const persistConfig = {
   key: 'root',
@@ -62,6 +64,8 @@ const reducer = combineReducers({
   updateCartItem: updateCartItemReducer,
   deleteCartItem: deleteCartItemReducer,
   clearCartItem: clearCartItemReducer,
+  products: productSlice,
+  searchProduct: searchProductSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
