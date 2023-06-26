@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -129,9 +130,9 @@ const AuthForm = () => {
             <p style={{ color: 'red', fontSize: '15px' }}>{errors.password}</p>
           )}
           <span className="pending">{pending ? 'loading...' : null}</span>
-          {successCondition && (
+          {/* {successCondition && (
             <span className="successDisplay">{userInfo.message}</span>
-          )}
+          )} */}
           {error.condition && (
             <span className="errorDisplay">{error.message}</span>
           )}
@@ -139,11 +140,6 @@ const AuthForm = () => {
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </button>
           <GoogleButton />
-          {isSignUp && (
-            <Link to="/AdminRegister">
-              <span>register as admin</span>
-            </Link>
-          )}
           <p
             className="mt-4 text-right"
             style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}

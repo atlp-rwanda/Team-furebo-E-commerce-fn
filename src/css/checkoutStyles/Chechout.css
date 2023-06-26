@@ -183,6 +183,18 @@
   color: #131921;
   font-weight: 900;
 }
+.checkout .table .orderStatus {
+  padding: 10px 20px;
+  box-shadow: 0 5px 20px -10px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checkout .table .orderStatus span {
+  font-size: 18px;
+  font-weight: bold;
+}
 .checkout .popup {
   position: fixed;
   top: 0;
@@ -195,6 +207,158 @@
   align-items: center;
   font-size: 35px;
   color: #348be9;
+}
+
+.payment {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(19, 25, 33, 0.5176470588);
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.payment .stripeForm {
+  background-color: #ffffff;
+  padding: 20px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.payment .stripeForm button {
+  padding: 8px 25px;
+  border: none;
+  background-color: #343045;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.payment .stripeForm .cross {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.payment .stripeForm .cross .croseIcon {
+  cursor: pointer;
+}
+.payment .stripeForm .paymentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+}
+.payment .stripeForm .paymentContainer .paymentHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+}
+.payment .stripeForm .paymentContainer .paymentHeader .header1 {
+  display: flex;
+  justify-content: space-between;
+}
+.payment .stripeForm .paymentContainer .paymentHeader .header1 h1 {
+  font-weight: bold;
+  color: #5c5756;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+}
+.payment .stripeForm .paymentContainer .paymentHeader .header3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40%;
+}
+.payment .stripeForm .paymentContainer .paymentHeader .header3 h3 {
+  font-weight: 500;
+  font-size: 15px;
+  color: #5c5756;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+}
+.payment .stripeForm .paymentContainer .paymentHeader .header3 img {
+  height: 20px;
+}
+.payment .stripeForm .paymentContainer .paymentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+}
+.payment .stripeForm .paymentContainer .paymentForm .inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+.payment .stripeForm .paymentContainer .paymentForm .inputContainer label {
+  font-weight: 500;
+  font-size: 15px;
+  color: #5c5756;
+}
+.payment .stripeForm .paymentContainer .paymentForm .inputContainer input {
+  font-size: 14px;
+  color: #5c5756;
+  padding: 8px 10px;
+  border: 1px solid rgba(139, 143, 137, 0.5725490196);
+  width: 100%;
+  border-radius: 2px;
+}
+.payment .stripeForm .paymentContainer .paymentForm .inputContainer2 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.completionPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.completionPage .completionPageHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.completionPage .completionPageHeader h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.completionPage .orderStatus {
+  padding: 10px 20px;
+  box-shadow: 0 5px 20px -10px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.completionPage .orderStatus span {
+  font-size: 18px;
+  font-weight: bold;
+}
+.completionPage button {
+  padding: 10px 15px;
+  background-color: #6359fa;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #f9f8f9;
+  cursor: pointer;
+}
+.completionPage button:hover {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=Chechout.css.map */

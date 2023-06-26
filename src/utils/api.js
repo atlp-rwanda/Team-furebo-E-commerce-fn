@@ -9,10 +9,10 @@ const api = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
 });
 
-api.interceptors.request.use(req => {
+api.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
     req.headers.Authorization = `Bearer ${JSON.parse(
-      localStorage.getItem('token')
+      localStorage.getItem('token'),
     )}`;
   }
   return req;

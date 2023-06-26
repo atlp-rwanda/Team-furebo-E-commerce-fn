@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   updateStart,
   updateSuccess,
@@ -7,6 +8,7 @@ import {
   clearError,
   clearSuccessCondition,
 } from '../slices/signupSlice';
+import { fetchCartItems } from './Cart/ViewCartItemsAction';
 
 const API = axios.create({
   baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
@@ -17,6 +19,8 @@ const signIn = async (authData, dispatch, navigate, setAuthData) => {
   try {
     const res = await API.post('/login', authData);
 
+    dispatch(fetchCartItems(dispatch));
+
     dispatch(updateSuccess(res.data));
 
     setAuthData({
@@ -24,6 +28,17 @@ const signIn = async (authData, dispatch, navigate, setAuthData) => {
       lastname: '',
       email: '',
       password: '',
+    });
+
+    toast.success(res.data.message, {
+      position: 'top-right',
+      autoClose: 6000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
     });
 
     if (

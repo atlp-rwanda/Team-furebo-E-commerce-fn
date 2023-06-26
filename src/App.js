@@ -24,6 +24,7 @@ import ViewCartPage from './pages/Cart/ViewCartPage';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
 import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
+import Completion from './components/payment/Completion';
 
 const Layout = () => (
   <>
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
   {
     path: '/users/:id/verify/:token',
     element: <EmailVerify />,
+  },
+  {
+    path: '/paymentSuccessful',
+    element: <Completion />,
   },
   {
     path: '/dashboard',

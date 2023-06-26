@@ -87,9 +87,9 @@ const AdminAuthForm = () => {
             onChange={handleChange}
           />
           <span className="pending">{pending ? 'loading...' : null}</span>
-          {successCondition && (
+          {/* {successCondition && (
             <span className="successDisplay">{userInfo.message}</span>
-          )}
+          )} */}
           {error.condition && (
             <span className="errorDisplay">{error.message}</span>
           )}

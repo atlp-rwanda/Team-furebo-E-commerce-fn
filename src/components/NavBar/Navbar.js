@@ -44,10 +44,10 @@ const Navbar = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
 
-  const { userInfo } = useSelector(state => state.user);
-  const { wishlistItems } = useSelector(state => state.viewWishlist);
+  const { userInfo } = useSelector((state) => state.user);
+  const { wishlistItems } = useSelector((state) => state.viewWishlist);
 
-  const { cartItems } = useSelector(state => state.viewCartItems);
+  const { cartItems } = useSelector((state) => state.viewCartItems);
 
   const currentUserRole = userInfo?.userData?.role
     ? JSON.parse(userInfo.userData.role)
@@ -169,7 +169,8 @@ const Navbar = () => {
       <ul>
         {userInfo && userInfo.userData && (
           <li data-testid="pages" onClick={handlePageRotate}>
-            PAGES{' '}
+            PAGES
+            {' '}
             <MdOutlineKeyboardArrowUp
               className={!pageRotate ? 'arrowUp' : 'arrowDown'}
             />
@@ -230,11 +231,9 @@ const Navbar = () => {
                 </div>
                 <hr />
                 {notifications.length > 0 ? (
-                  notifications.map(notification => (
+                  notifications.map((notification) => (
                     <span
-                      onClick={() =>
-                        markNotifications(notification.id, data, dispatch)
-                      }
+                      onClick={() => markNotifications(notification.id, data, dispatch)}
                       className={
                         notification.isRead === true
                           ? 'notification-card2'
@@ -312,7 +311,8 @@ const Navbar = () => {
               ) : (
                 <>
                   <motion.div variants={item} className="welcome-name">
-                    Welcome{' '}
+                    Welcome
+                    {' '}
                     <span className="name">
                       {`${userInfo.userData.fullname.split(' ')[0]}`}
                     </span>
@@ -361,7 +361,8 @@ const Navbar = () => {
               onClick={handleRotate}
               data-testid="pages"
             >
-              PAGES{' '}
+              PAGES
+              {' '}
               <IoIosArrowBack
                 data-testid="arrowLeft"
                 className={rotate ? 'arrowLeft' : 'arrowRight'}
