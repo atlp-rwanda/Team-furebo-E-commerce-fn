@@ -36,7 +36,6 @@ const resetPasswordSlice = createSlice({
 });
 
 export const {
-  setEmail,
   requestPasswordReset,
   requestPasswordResetSuccess,
   requestPasswordResetFailure,

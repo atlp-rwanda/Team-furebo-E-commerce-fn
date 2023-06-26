@@ -22,21 +22,23 @@ const NewPasswordForm = () => {
     confirmPassword: '',
   });
   const [newPassword, setNewPassword] = useState('');
-  const { successCondition, userInfo, error, pending } = useSelector(
-    state => state.newPassword
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.newPassword,
   );
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setAuthData({ ...authData, [e.target.name]: e.target.value });
   };
 
-  const handleValidationPassword = e => {
+  const handleValidationPassword = (e) => {
     e.preventDefault();
 
     setErrors(ValidateNewPassword(authData));
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (Object.keys(errors).length > 0) {
       // Display error message or take appropriate action
@@ -54,58 +56,60 @@ const NewPasswordForm = () => {
   };
 
   return (
-    <div className="authForm" data-testid="Newpasswordform">
-      <div className="authFormLeft">
-        <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
-        <button onClick={() => navigate('/authentication')}>
-          {isSignUp ? 'Sign In' : 'Sign Up'}
-        </button>
-      </div>
-      <div className="authFormRight">
-        <h1>{isSignUp ? 'Create Account' : 'Enter Your New Password'}</h1>
-        <form>
-          <input
-            name="newPassword"
-            type="password"
-            placeholder="New Password"
-            value={authData.newPassword}
-            onChange={handleChange}
-            onKeyUp={handleValidationPassword}
-          />
-          {errors.newPassword && (
+    <div className="authPage" data-testid="Newpasswordform">
+      <div className="authForm">
+        <div className="authFormLeft">
+          <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
+          <button onClick={() => navigate('/authentication')} data-testid="logInNBtn">
+            {isSignUp ? 'Sign In' : 'Sign Up'}
+          </button>
+        </div>
+        <div className="authFormRight">
+          <h1>{isSignUp ? 'Create Account' : 'Enter Your New Password'}</h1>
+          <form>
+            <input
+              name="newPassword"
+              type="password"
+              placeholder="New Password"
+              value={authData.newPassword}
+              onChange={handleChange}
+              onKeyUp={handleValidationPassword}
+            />
+            {errors.newPassword && (
             <p style={{ color: 'red', fontSize: '10px' }}>
               {errors.newPassword}
             </p>
-          )}
-          <input
-            name="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-            value={authData.confirmPassword}
-            onChange={handleChange}
-            onKeyUp={handleValidationPassword}
-          />
-          {errors.confirmPassword && (
+            )}
+            <input
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              value={authData.confirmPassword}
+              onChange={handleChange}
+              onKeyUp={handleValidationPassword}
+            />
+            {errors.confirmPassword && (
             <p style={{ color: 'red', fontSize: '10px' }}>
               {errors.confirmPassword}
             </p>
-          )}
-          {errors.matchPassword && (
+            )}
+            {errors.matchPassword && (
             <p style={{ color: 'red', fontSize: '12px' }}>
               {errors.matchPassword}
             </p>
-          )}
-          <span className="pending">{pending ? 'loading...' : null}</span>
-          {successCondition && (
+            )}
+            <span className="pending">{pending ? 'loading...' : null}</span>
+            {successCondition && (
             <span className="successDisplay">{userInfo}</span>
-          )}
-          {error.condition && (
+            )}
+            {error.condition && (
             <span className="errorDisplay">{error.message}</span>
-          )}
-          <button className="authButton" onClick={handleSubmit}>
-            Submit
-          </button>
-        </form>
+            )}
+            <button className="authButton" onClick={handleSubmit} data-testid="submitButton">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

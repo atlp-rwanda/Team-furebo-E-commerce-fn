@@ -147,7 +147,7 @@
   align-items: center;
   border-radius: 5px;
 }
-.authFormRight form button {
+.authFormRight form .authButton {
   padding: 10px 30px;
   background: #131921;
   color: rgb(243, 243, 243);
@@ -185,6 +185,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.link2{
+   color: blue;
+   margin-top:'-40px';
+   border: none;
+   text-decoration: none;
+   font-size: large;
+   font-family: 'Baloo Tamma 2', cursive;
+   cursor: pointer;
+   background-color: transparent;
+}
+.link1{
+   margin-top:'-40px';
+   border: none;
+   text-decoration: none;
+   font-size: large;
+   font-family: 'Baloo Tamma 2', cursive;
 }
 
 /*# sourceMappingURL=Auth.css.map */

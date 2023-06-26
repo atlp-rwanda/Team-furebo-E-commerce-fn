@@ -192,6 +192,9 @@ const Navbar = () => {
                     <Link className="link" to="/addproduct">
                       <motion.li variants={item}>Add Product</motion.li>
                     </Link>
+                    <Link className="link" to="/sellerProducts">
+                      <motion.li variants={item}>Seller Collection</motion.li>
+                    </Link>
                     {/* <li>collection</li> */}
                   </>
                 )}
@@ -395,6 +398,9 @@ const Navbar = () => {
               <motion.li variants={item}>collection</motion.li>
               <Link className="link" to="/addproduct">
                 <motion.li variants={item}>addProduct</motion.li>
+              </Link>
+              <Link className="link" to="/sellerProducts">
+                <div>Seller Collection</div>
               </Link>
             </>
           )}

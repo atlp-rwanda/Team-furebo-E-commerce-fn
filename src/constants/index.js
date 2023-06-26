@@ -1,16 +1,17 @@
-import electronicImage from '../assets/images/background.png';
-import foodImage from '../assets/images/food.png';
-import alcholImage from '../assets/images/istockphoto-546175134-1024x1024.jpg';
-import clothesImage from '../assets/images/f6.jpg';
-import shoesImage from '../assets/images/jordan.png';
-import headPhone from '../assets/images/headphones.png';
-import watch from '../assets/images/watch.png';
-import phone from '../assets/images/phone1.png';
-import jordan3 from '../assets/images/jordan3.png';
-import menShirt from '../assets/images/shirt1.png';
-import bananas from '../assets/images/product-1.png';
-import Laptop from '../assets/images/laptop2.png';
-import Iphones from '../assets/images/iphones.png';
+import electronicImage from '../assets/images/background.png'
+import foodImage from '../assets/images/food.png'
+import alcholImage from '../assets/images/istockphoto-546175134-1024x1024.jpg'
+import clothesImage from '../assets/images/f6.jpg'
+import shoesImage from '../assets/images/jordan.png'
+import headPhone from '../assets/images/headphones.png'
+import watch from '../assets/images/watch.png'
+import phone from '../assets/images/phone1.png'
+import jordan3 from '../assets/images/jordan3.png'
+import menShirt from '../assets/images/shirt1.png'
+import bananas from '../assets/images/product-1.png'
+import Laptop from '../assets/images/laptop2.png'
+import Iphones from '../assets/images/iphones.png'
+
 
 export const pages = [
   {
