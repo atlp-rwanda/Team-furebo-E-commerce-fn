@@ -15,7 +15,6 @@ const newPasswordAction = async (authData, dispatch, params, onSuccess) => {
   dispatch(newPasswordReset());
   try {
     const res = await API.post(`/reset-password/${params.id}`, authData);
-
     dispatch(newPasswordResetSuccess(res.data.message));
 
     onSuccess();

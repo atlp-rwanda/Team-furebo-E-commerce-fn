@@ -27,8 +27,8 @@ import '../css/DashBoard/DashBoard.css';
 
 const DashBoard = () => {
   const dispatch = useDispatch();
-  const [isDashboard, setIsDashboard] = useState(true);
-  const [isUsers, setIsUsers] = useState(false);
+  const [isDashboard, setIsDashboard] = useState(false);
+  const [isUsers, setIsUsers] = useState(true);
   const [isMerchant, setIsMerchant] = useState(false);
   const [isCustomer, setIsCustomer] = useState(false);
   const [isCharts, setIsCharts] = useState(false);
@@ -107,13 +107,13 @@ const DashBoard = () => {
           <HiMenuAlt2 className="menu1" onClick={handleShow} />
         </div>
         <hr />
-        <div className="identification">
+        {/* <div className="identification">
           <img src={image} alt="AdminImg" />
           <div className={show ? 'Id-Inner' : 'hidden'}>
             <h1>Strong Admin</h1>
             <p>admin@gmail.com</p>
           </div>
-        </div>
+        </div> */}
         <div className="dashBoard-listing">
           <li onClick={handleDashboard}>
             <MdOutlineDashboard />
@@ -157,11 +157,11 @@ const DashBoard = () => {
         </div>
       </div>
       <div className="dashBoardMain">
-        <div className="searchBar">
+        {/* <div className="searchBar">
           <AiOutlineSearch />
           <input placeholder="Search for a user" />
           <IoMdNotificationsOutline />
-        </div>
+        </div> */}
         {isDashboard && (
           <div>
             <Dashboard />
@@ -178,8 +178,8 @@ const DashBoard = () => {
           </div>
         )}
         {isCustomer && (
-          <div>
-            <Customers />
+          <div className="QueriesContainer">
+            <Customers handleOrders={handleCustomers} />
           </div>
         )}
         {isCharts && (

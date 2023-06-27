@@ -1,0 +1,117 @@
+.cta h1 {
+  text-align: center;
+  margin-bottom: 5%;
+  font-family: "Baloo Tamma 2", cursive;
+  color: rgb(9, 9, 9);
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.cta {
+  justify-content: center;
+  margin-left: 5%;
+  width: 80%;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.cta-row {
+  text-align: center;
+  margin-left: 15%;
+}
+
+.cta-col .fa {
+  font-size: 30px;
+}
+
+.cta-col {
+  display: inline-block;
+  margin-right: 15%;
+}
+
+.cta p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cta-form {
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-form form {
+  width: 90%;
+  max-width: 600px;
+}
+
+.cta-form .input-group {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.cta-form input, textarea {
+  width: 100%;
+  padding: 10px;
+  outline: 0;
+  background-color: #ffffff;
+  box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.363);
+  background-color: transparent;
+  font-size: 15px;
+  font-family: "Baloo Tamma 2", cursive;
+}
+
+.cta-form label {
+  font-family: "Baloo Tamma 2", cursive;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  cursor: text;
+  background-color: transparent;
+  transition: 0.2s;
+}
+
+.cta-form button {
+  padding: 10px 30px;
+  background: rgb(9, 9, 9);
+  color: rgb(243, 243, 243);
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cta-form button:hover {
+  border: 1px solid #009579;
+  background: #009579;
+  transition: 1s;
+}
+
+.cta-form input:focus ~ label,
+.cta-form input:valid ~ label,
+.cta-form textarea:focus ~ label,
+.cta-form textarea:valid ~ label {
+  top: -35px;
+  font-size: 14px;
+}
+
+.cta-form .input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta-form .input-row .input-group {
+  flex-basis: 47%;
+}
+
+.cta-form .cta button {
+  margin-bottom: 10%;
+}
+
+/*# sourceMappingURL=customerSupportStyles.css.map */

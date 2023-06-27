@@ -23,6 +23,7 @@ const OrderCard = ({ data, handleOrders }) => {
     const getAllOrders = async () => {
       const returnedOrders = await AllOrders();
       if (returnedOrders) {
+        console.log(returnedOrders);
         setOrders(returnedOrders.data.orders);
       }
     };
@@ -50,7 +51,6 @@ const OrderCard = ({ data, handleOrders }) => {
         </div>
       </div>
       <div className="cardWraperRight">
-        {/* <UpdateOrderStatus data={UpdateOrderStatusData} /> */}
         <button
           className="button1"
           onClick={() => {

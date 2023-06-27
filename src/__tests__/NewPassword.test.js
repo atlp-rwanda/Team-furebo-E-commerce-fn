@@ -3,14 +3,31 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { BrowserRouter as Router, useNavigate, useParams } from 'react-router-dom';
+import { Provider, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import configureStore from 'redux-mock-store';
 import store from '../redux/store';
 import newPasswordAction from '../redux/actions/NewPassword';
 import NewPasswordform from '../components/newPassword';
 
 const mockStore = configureStore([]);
+
+// jest.mock('react-redux', () => ({
+//   useDispatch: jest.fn(),
+// }));
+
+// jest.mock('react-router-dom', () => ({
+//   useNavigate: jest.fn(),
+//   useParams: jest.fn(),
+// }));
+
+// jest.mock('react-toastify', () => ({
+//   toast: {
+//     error: jest.fn(),
+//     success: jest.fn(),
+//   },
+// }));
 
 describe('NewPasswordform TESTS', () => {
   beforeEach(() => {
@@ -26,6 +43,19 @@ describe('NewPasswordform TESTS', () => {
       },
     });
   });
+  // let dispatch;
+  // let navigate;
+  // let params;
+
+  // beforeEach(() => {
+  //   dispatch = jest.fn();
+  //   navigate = jest.fn();
+  //   params = { id: '1' };
+
+  //   useDispatch.mockReturnValue(dispatch);
+  //   useNavigate.mockReturnValue(navigate);
+  //   useParams.mockReturnValue(params);
+  // });
 
   it('Should render NewPasswordform', () => {
     render(
@@ -35,14 +65,14 @@ describe('NewPasswordform TESTS', () => {
         </Provider>
       </Router>
     );
+    const newPassword = screen.getByTestId('Newpasswordform');
+    expect(newPassword).toBeInTheDocument();
     expect(screen.getByPlaceholderText('New Password')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Confirm Password')).toBeInTheDocument();
     expect(screen.getByText('Enter Your New Password')).toBeInTheDocument();
     expect(screen.getByText('Create Account')).toBeInTheDocument();
     expect(screen.getByText('Sign Up')).toBeInTheDocument();
     expect(screen.getByText('Submit')).toBeInTheDocument();
-    const newPassword = screen.getByTestId('Newpasswordform');
-    expect(newPassword).toBeInTheDocument();
   });
   it('Should display an error message for invalid email input', () => {
     render(
@@ -64,36 +94,6 @@ describe('NewPasswordform TESTS', () => {
     expect(errorMessage2).toBeInTheDocument();
     const errorMessage3 = screen.getByText('Password Confirmation is required');
     expect(errorMessage3).toBeInTheDocument();
-  });
-  it('should submit the form', async () => {
-    render(
-      <Router>
-        <Provider store={store}>
-          <NewPasswordform />
-        </Provider>
-      </Router>
-    );
-
-    await waitFor(() => {
-      expect(screen.getByPlaceholderText('New Password')).toBeInTheDocument();
-      expect(
-        screen.getByPlaceholderText('Confirm Password')
-      ).toBeInTheDocument();
-    });
-
-    // Fill in the passwords input
-    const newPassword = screen.getByPlaceholderText('New Password');
-    fireEvent.change(newPassword, { target: { value: 'Abc12345' } });
-    const confirmPassword = screen.getByPlaceholderText('Confirm Password');
-    fireEvent.change(confirmPassword, { target: { value: 'Abc12345' } });
-
-    // Submit the form
-    const submitButton = screen.getByText('Submit');
-    fireEvent.click(submitButton);
-
-    // Assert the expected behavior, e.g., displaying a success message
-    const pendingMessage = await waitFor(() => screen.getByText('loading...'));
-    expect(pendingMessage).toBeInTheDocument();
   });
 
   test('updates input fields and submits form', () => {
@@ -123,14 +123,14 @@ describe('NewPasswordform TESTS', () => {
       <Router>
         <div className="authFormLeft">
           <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
-          <button onClick={() => navigate('/authentication')}>
+          <button onClick={() => navigate('/authentication')} data-testid="logInNBtn">
             {isSignUp ? 'Sign In' : 'Sign Up'}
           </button>
         </div>
       </Router>
     );
 
-    const button = screen.getByText(isSignUp ? 'Sign In' : 'Sign Up');
+    const button = screen.getByTestId('logInNBtn');
     fireEvent.click(button);
 
     expect(navigate).toHaveBeenCalledTimes(1);

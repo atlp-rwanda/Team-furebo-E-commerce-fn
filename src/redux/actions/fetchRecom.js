@@ -12,7 +12,6 @@ import {
 const API = axios.create({
   baseURL: 'http://127.0.0.1:5002/api',
 });
-
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))

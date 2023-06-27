@@ -10,7 +10,7 @@ const viewCartItemsSlice = createSlice({
   name: 'viewCartItems',
   initialState,
   reducers: {
-    fetchCartItemsStart: state => {
+    fetchCartItemsStart: (state) => {
       state.loading = true;
       state.error = null;
     },

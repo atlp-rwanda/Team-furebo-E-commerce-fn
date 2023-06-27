@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   updateStart,
   updateSuccess,
@@ -7,15 +8,17 @@ import {
   clearError,
   clearSuccessCondition,
 } from '../slices/signupSlice';
+import { fetchCartItems } from './Cart/ViewCartItemsAction';
 
-const API = axios.create({
-  baseURL: 'http://127.0.0.1:5002/api',
-});
+const API = axios.create({ baseURL: 'http://127.0.0.1:5002/api' });
+
 
 const signIn = async (authData, dispatch, navigate, setAuthData) => {
   dispatch(updateStart());
   try {
     const res = await API.post('/login', authData);
+
+    dispatch(fetchCartItems(dispatch));
 
     dispatch(updateSuccess(res.data));
 
@@ -24,6 +27,17 @@ const signIn = async (authData, dispatch, navigate, setAuthData) => {
       lastname: '',
       email: '',
       password: '',
+    });
+
+    toast.success(res.data.message, {
+      position: 'top-right',
+      autoClose: 6000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
     });
 
     if (

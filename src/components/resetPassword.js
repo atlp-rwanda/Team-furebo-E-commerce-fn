@@ -22,56 +22,60 @@ const ResetPasswordForm = () => {
   const [emailData, setEmailData] = useState({ email: '' });
   const [email, setEmail] = useState('');
 
-  const { successCondition, userInfo, error, pending } = useSelector(
-    state => state.resetPassword
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.resetPassword,
   );
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setEmailData({ ...emailData, [e.target.name]: e.target.value });
   };
 
-  const handleValidationEmail = e => {
+  const handleValidationEmail = (e) => {
     setErrors(ValidateEmail(emailData));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     resetPassword(emailData, dispatch);
   };
 
   return (
-    <div className="authForm" data-testid="Resetpasswordform">
-      <div className="authFormLeft">
-        <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
-        <button onClick={() => navigate('/authentication')}>
-          {isResetPassword ? 'Sign In' : 'Sign Up'}
-        </button>
-      </div>
-      <div className="authFormRight">
-        <h1>Reset Password</h1>
-        <form>
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={emailData.email}
-            onChange={handleChange}
-            onKeyUp={handleValidationEmail}
-          />
-          {errors.email && (
-            <p style={{ color: 'red', fontSize: '10px' }}>{errors.email}</p>
-          )}
-          <span className="pending">{pending ? 'loading...' : null}</span>
-          {successCondition && (
-            <span className="successDisplay">{userInfo}</span>
-          )}
-          {error.condition && (
-            <span className="errorDisplay">{error.message}</span>
-          )}
-          <button className="authButton" onClick={handleSubmit}>
-            Submit
+    <div className="authPage" data-testid="Resetpasswordform">
+      <div className="authForm">
+        <div className="authFormLeft">
+          <h1>{isSignUp ? 'Welcome Back' : 'Create Account'}</h1>
+          <button onClick={() => navigate('/authentication')} data-testid="logInRBtn">
+            {isResetPassword ? 'Sign In' : 'Sign Up'}
           </button>
-        </form>
+        </div>
+        <div className="authFormRight">
+          <h1>Reset Password</h1>
+          <form>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={emailData.email}
+              onChange={handleChange}
+              onKeyUp={handleValidationEmail}
+            />
+            {errors.email && (
+            <p style={{ color: 'red', fontSize: '10px' }}>{errors.email}</p>
+            )}
+            <span className="pending">{pending ? 'loading...' : null}</span>
+            {successCondition && (
+            <span className="successDisplay">{userInfo}</span>
+            )}
+            {error.condition && (
+            <span className="errorDisplay">{error.message}</span>
+            )}
+            <button className="authButton" onClick={handleSubmit}>
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

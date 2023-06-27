@@ -16,10 +16,12 @@ API.interceptors.request.use((req) => {
 
 export const SearchOrderStatus = async (OrderId, dispatch) => {
   try {
-    const res = await API.get(`/orderStatus/${OrderId}`, dispatch);
-    console.log(res)
+    const res = await API.get(`/orderStatus/${OrderId}`);
+    console.log(res);
+    return res;
   } catch (error) {
-    console.error('Yikes');
+    console.error(error.message);
+    toast.error(error.message)
   }
 };
 
@@ -34,11 +36,12 @@ export const updateOrderStatus = async (orderId, data, dispatch) => {
     }
 };
 
-export const BuyersOrders = async (data, dispatch) => {
+export const BuyersOrders = async (dispatch) => {
 
   try {
     const res = await API.get('/buyerOrders');
     console.log(res)
+    return res;
   } catch (error) {
     console.error(error.message);
   }

@@ -10,8 +10,8 @@ import PasswordModification from './components/PasswordModification';
 import DashBoard from './pages/DashBoard';
 import AdminAuth from './pages/AdminAuth';
 import Footer from './components/Footer';
-import ResetPassword from './pages/ResetPassword';
-import NewPassword from './pages/NewPassword';
+import ResetPasswordform from './components/resetPassword';
+import NewPasswordform from './components/newPassword';
 import AddUserEssentialInfoPage from './pages/userInfo/AddUserEssentialInfoPage';
 import EditUserBasicPage from './pages/userInfo/EditUserBasicPage';
 import EditUserEssentialInfoPage from './pages/userInfo/EditUserEssentialInfoPage';
@@ -24,7 +24,12 @@ import ViewCartPage from './pages/Cart/ViewCartPage';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
 import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
-import Orders from './components/AdminRegister/Orders';
+import Completion from './components/payment/Completion';
+import ProductGrid from './components/SellerProductGrid';
+import SingleProduct from './components/SingleProduct';
+import BuyersOrders from './components/TrackOrders/buyerOrders';
+import OrderDetails from './components/TrackOrders/orderDetails';
+import CustomerSupport from './components/customerSupport/customerSupport';
 
 const Layout = () => (
   <>
@@ -32,7 +37,6 @@ const Layout = () => (
     <Outlet />
   </>
 );
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -56,11 +60,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/Authentication/requestResetPassword',
-        element: <ResetPassword />,
+        element: <ResetPasswordform />,
       },
       {
         path: '/reset-password/:id',
-        element: <NewPassword />,
+        element: <NewPasswordform />,
       },
       {
         path: '/home',
@@ -114,6 +118,34 @@ const router = createBrowserRouter([
         path: '/view-wishlist',
         element: <ViewWishlistPage />,
       },
+      {
+        path: '/sellerProducts',
+        element: <ProductGrid />,
+      },
+      {
+        path: '/sellerProducts/:id',
+        element: <SingleProduct />,
+      },
+      {
+        path: '/home',
+        element: <Home />,
+      },
+      {
+        path: '/purchases',
+        element: <BuyersOrders />,
+      },
+      {
+        path: '/order-details/:id',
+        element: <OrderDetails />,
+      },
+      {
+        path: '/support',
+        element: <CustomerSupport />,
+      },
+      {
+        path: '/dashboard',
+        element: <DashBoard />,
+      },
     ],
   },
   {
@@ -121,9 +153,11 @@ const router = createBrowserRouter([
     element: <EmailVerify />,
   },
   {
-    path: '/dashboard',
-    element: <DashBoard />,
+    path: '/paymentSuccessful',
+    element: <Completion />,
   },
+  
+ 
 ]);
 
 const App = () => (

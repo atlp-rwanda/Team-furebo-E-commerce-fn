@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   updateStart,
   updateSuccess,
@@ -7,9 +8,7 @@ import {
   clearSuccessCondition,
 } from '../slices/signupSlice';
 
-const API = axios.create({
-  baseURL: 'http://127.0.0.1:5002/api',
-});
+const API = axios.create({ baseURL: 'http://127.0.0.1:5002/api' });
 
 export const signUp = async (authData, dispatch, setAuthData) => {
   dispatch(updateStart());
@@ -22,6 +21,17 @@ export const signUp = async (authData, dispatch, setAuthData) => {
       lastname: '',
       email: '',
       password: '',
+    });
+
+    toast.success(res.data.message, {
+      position: 'top-right',
+      autoClose: 6000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
     });
 
     setTimeout(() => {

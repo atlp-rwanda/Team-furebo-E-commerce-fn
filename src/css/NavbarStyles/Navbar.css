@@ -141,14 +141,14 @@
   transition: 0.5s;
 }
 .navbar .notification-panel .dropdown-menu .notification-card {
-  background-color: rgb(1, 187, 17);
+  background-color: rgb(182, 185, 182);
   padding: 10px;
   font-weight: 900;
   text-decoration: underline;
   cursor: pointer;
 }
 .navbar .notification-panel .dropdown-menu .notification-card:hover {
-  background-color: green;
+  background-color: rgb(223, 253, 223);
   text-decoration: underline;
 }
 .navbar .notification-panel .dropdown-menu .notification-card2 {

@@ -34,7 +34,7 @@ const addToCart = async (quantity, productId, dispatch, setShowPopUp) => {
 
     dispatch(updateSuccess(res.data));
 
-    fetchCartItems(dispatch);
+    dispatch(fetchCartItems(dispatch));
 
     setShowPopUp(false);
 

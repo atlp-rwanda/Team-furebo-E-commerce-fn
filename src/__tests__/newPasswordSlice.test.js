@@ -31,7 +31,7 @@ describe('newPasswordSlice', () => {
     const payload = { email: 'bstwagir@mtu.edu' };
     const nextState = userReducer(
       initialState,
-      newPasswordResetSuccess(payload)
+      newPasswordResetSuccess(payload),
     );
 
     expect(nextState.successCondition).toBe(true);
@@ -43,7 +43,7 @@ describe('newPasswordSlice', () => {
     const payload = 'An error occurred.';
     const nextState = userReducer(
       initialState,
-      newPasswordResetFailure(payload)
+      newPasswordResetFailure(payload),
     );
 
     expect(nextState.error.condition).toBe(true);
