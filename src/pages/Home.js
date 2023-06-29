@@ -34,7 +34,7 @@ const Home = () => {
 
   const [notificationCount, setNotificationCount] = useState(0);
   const { userInfo } = useSelector((state) => state.user);
-  const fullName = userInfo?.userData.fullname;
+  const fullName = userInfo?.userData?.fullname;
   const socket = io.connect('https://team-furebo-e-commerce-bn.onrender.com');
   useEffect(() => {
     if (fullName !== '') {

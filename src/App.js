@@ -27,6 +27,7 @@ import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
 import Completion from './components/payment/Completion';
 import ProductGrid from './components/SellerProductGrid';
 import SingleProduct from './components/SingleProduct';
+import UpdateProduct from './components/UpdateProduct';
 
 const Layout = () => (
   <>
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Home />,
+      },
+      {
+        path: '/updateProduct/:id',
+        element: <UpdateProduct />,
       },
     ],
   },

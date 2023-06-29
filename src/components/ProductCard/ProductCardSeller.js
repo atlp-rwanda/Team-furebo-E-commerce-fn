@@ -14,14 +14,14 @@ const ProductCard = ({ data, onClick }) => {
       <div className="productImage">
         <img src={firstImage} alt="/" />
       </div>
-      <span className="price" style={{ marginBottom: '-30px', fontSize: '26px' }}>
+      <span className="price" style={{ marginBottom: '-30px', fontSize: '18px' }}>
         {data?.category}
       </span>
       <div>
         <h1 style={{ marginBottom: '-20px' }}>{data?.name}</h1>
       </div>
       <div>
-        <span className="price">
+        <span className="price" style={{ marginBottom: '-30px', fontSize: '18px' }}>
           $
           {data?.price}
         </span>

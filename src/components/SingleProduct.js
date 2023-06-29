@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Tooltip, Button } from '@material-tailwind/react';
 import Swal from 'sweetalert2';
-import { deleteProduct } from '../redux/actions/SellerProduct';
-import { singleProduct } from '../redux/slices/sellerProductSlice';
+import { deleteProduct, getSingleProduct } from '../redux/actions/SellerProduct';
+import { singleProduct, setUpdateProduct } from '../redux/slices/sellerProductSlice';
+import Logo from '../assets/images/our-logo.png';
 import '../css/SingleProductStyles/SingleProduct.css';
 
 const SingleProduct = () => {
-  const product = useSelector((state) => state.products.singleProduct);
-
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,6 +17,24 @@ const SingleProduct = () => {
   const {
     pending,
   } = useSelector((state) => state.products);
+  const initialProduct = useSelector((state) => state.products.singleProduct);
+  const [product, setProduct] = useState();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        console.log('inside', product);
+        const response = await getSingleProduct(id);
+        setProduct(response.data);
+        dispatch({ type: 'products/updateSingleProduct', payload: response.data });
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching single product:', error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleDeleteProduct = async (e) => {
     e.preventDefault();
@@ -32,6 +49,9 @@ const SingleProduct = () => {
         cancelButtonColor: '#3085d6',
         cancelButtonText: 'cancel',
         confirmButtonText: 'Yes delete it',
+        customClass: {
+          content: 'warning-window',
+        },
       }).then((result) => {
         if (result.isConfirmed) {
           deleteProduct(product, dispatch, navigate);
@@ -42,11 +62,22 @@ const SingleProduct = () => {
       toast.error('Sorry Product was not deleted', { theme: 'colored' });
     }
   };
-  if (pending) {
+  const handleUpdateProduct = () => {
+    dispatch(setUpdateProduct(product));
+    console.log(product);
+    navigate(`/updateProduct/${product.id}`);
+  };
+
+  if (loading) {
     return (
-      <div className="justify center text-3xl">
-        Loading
-        <span className="animate-bounce">...</span>
+      <div className="message">
+        Please Wait
+        <span className="animate-bounce">
+          {'  '}
+          ...
+        </span>
+        <img className="logo-image2" src={Logo} alt="" width="100px" />
+        <br />
       </div>
     );
   }
@@ -60,14 +91,14 @@ const SingleProduct = () => {
               <div className="image-container">
                 <img
                   className="image-class"
-                  src={item.image[0]}
-                  alt={item.name}
+                  src={item?.image[0]}
+                  alt={item?.name}
                 />
               </div>
               <div className="">
                 <div className="right-side-details">
                   <h3 className="name-class">
-                    {item.name}
+                    {item?.name}
                   </h3>
                   <p className="description-class">
                     It is important to reiterate that a good product description is an investment
@@ -81,7 +112,7 @@ const SingleProduct = () => {
                         Category:
                         {' '}
                         <span className style={{ fontWeight: 'bold' }}>
-                          {item.category}
+                          {item?.category}
                         </span>
                       </p>
                     </li>
@@ -89,22 +120,22 @@ const SingleProduct = () => {
                       <p className="category-class">
                         Quantity:
                         {' '}
-                        <span className style={{ fontWeight: 'bold' }}>{item.quantity}</span>
+                        <span className style={{ fontWeight: 'bold' }}>{item?.quantity}</span>
                       </p>
                     </li>
                     <li>
                       <p className="category-class">
                         Created At:
                         {' '}
-                        <span className style={{ fontWeight: 'bold' }}>{new Date(item.createdAt).toLocaleDateString('en-US')}</span>
+                        <span className style={{ fontWeight: 'bold' }}>{new Date(item?.createdAt).toLocaleDateString('en-US')}</span>
                       </p>
                     </li>
                     <li>
-                      {item.exDate ? (
+                      {item?.exDate ? (
                         <p className="category-class">
                           Expiration Date:
                           {' '}
-                          <span className style={{ fontWeight: 'bold' }}>{new Date(item.exDate).toLocaleDateString('en-US')}</span>
+                          <span className style={{ fontWeight: 'bold' }}>{new Date(item?.exDate).toLocaleDateString('en-US')}</span>
                         </p>
                       ) : null}
                     </li>
@@ -113,14 +144,14 @@ const SingleProduct = () => {
                         Status:
                         {' '}
                         <span className style={{ fontWeight: 'bold' }}>
-                          {item.status}
+                          {item?.status}
                         </span>
                       </p>
                     </li>
                     <p className="price">
                       $
                       {' '}
-                      {item.price}
+                      {item?.price}
                     </p>
                   </ul>
                   <div className="actionButtonAll">
@@ -132,6 +163,7 @@ const SingleProduct = () => {
                           size="lg"
                           variant="outlined"
                           ripple
+                          onClick={() => handleUpdateProduct(product)}
                         >
                           Update
                         </Button>

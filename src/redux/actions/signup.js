@@ -9,7 +9,6 @@ import {
 } from '../slices/signupSlice';
 
 const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
-
 export const signUp = async (authData, dispatch, setAuthData) => {
   dispatch(updateStart());
   try {

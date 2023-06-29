@@ -180,13 +180,11 @@
   }
 }
 @media (max-width: 640px){
-p.price {
-    margin-right: 65%;
+
 }
-}
-@media (max-width: 768px){
+@media (max-width: 820px){
   p.price {
-      margin-left: 4%;
+      margin-left: 2%;
   }
 }
 .pagination li {
