@@ -18,7 +18,7 @@ const ChatPage = () => {
   const [showPicker, setShowPicker] = useState(false);
   const fullName = userInfo?.userData.fullname;
 
-  const socket = io.connect('https://team-furebo-e-commerce-bn.onrender.com');
+  const socket = io.connect('http://127.0.0.1:5002');
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

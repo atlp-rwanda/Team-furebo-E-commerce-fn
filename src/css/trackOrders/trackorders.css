@@ -1,0 +1,171 @@
+.orderHistoryPage .buyersOrder {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  gap: 20px;
+  padding: 20px;
+  width: 80%;
+  background-color: #ffffff;
+  box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.363);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.orderHistoryPage .buyersOrder .Title {
+  text-align: center;
+}
+
+.orderHistoryPage .buyersOrder .Title h1 {
+  font-family: "Baloo Tamma 2", cursive;
+  color: rgb(9, 9, 9);
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.orderHistoryPage .CustomerSupportPage button {
+  padding: 10px 30px;
+  background: rgb(9, 9, 9);
+  color: rgb(243, 243, 243);
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.orderHistoryPage .buyersOrder .TableTitle {
+  display: block;
+}
+
+.orderHistoryPage .buyersOrder .orderTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ececec;
+}
+
+.tableHeader {
+  font-weight: bold;
+  background-color: #f1f1f1;
+}
+
+.tableRow span {
+  font-family: "Baloo Tamma 2", cursive;
+  flex: 1;
+  padding: 4px;
+}
+
+.orderId {
+  font-weight: bold;
+}
+
+.OrderStatus {
+  color: green;
+}
+
+.OrderDetailsPage .orderCard {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  gap: 20px;
+  padding: 20px;
+  width: 70%;
+  background-color: #ffffff;
+  box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.363);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.OrderTitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.OrderTitle h1 {
+  font-family: "Baloo Tamma 2", cursive;
+  color: rgb(9, 9, 9);
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderCardItem {
+  box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.363);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.orderCardItem h3 {
+  font-family: "Baloo Tamma 2", cursive;
+  color: rgb(9, 9, 9);
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+.orderItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+orderCard span {
+  margin-bottom: 5px;
+  font-family: "Baloo Tamma 2", cursive;
+}
+
+.deliveryAddressItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderStatus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(9, 9, 9);
+}
+
+.orderstatusPosition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+  color: rgb(9, 9, 9);
+}
+
+.orderstatusPosition span {
+  margin-bottom: 5px;
+  font-family: "Baloo Tamma 2", cursive;
+  font-weight: bolder;
+}
+
+/* trackorders.css */
+
+/*# sourceMappingURL=trackorders.css.map */

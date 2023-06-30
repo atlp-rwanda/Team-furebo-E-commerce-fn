@@ -27,6 +27,9 @@ import ViewWishlistPage from './pages/Wishlist/ViewWishlistPage';
 import Completion from './components/payment/Completion';
 import ProductGrid from './components/SellerProductGrid';
 import SingleProduct from './components/SingleProduct';
+import BuyersOrders from './components/TrackOrders/buyerOrders';
+import OrderDetails from './components/TrackOrders/orderDetails';
+import CustomerSupport from './components/customerSupport/customerSupport';
 import UpdateProduct from './components/UpdateProduct';
 
 const Layout = () => (
@@ -129,6 +132,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '/purchases',
+        element: <BuyersOrders />,
+      },
+      {
+        path: '/order-details/:id',
+        element: <OrderDetails />,
+      },
+      {
+        path: '/support',
+        element: <CustomerSupport />,
+      },
+      {
+        path: '/dashboard',
+        element: <DashBoard />,
         path: '/updateProduct/:id',
         element: <UpdateProduct />,
       },
@@ -142,10 +159,8 @@ const router = createBrowserRouter([
     path: '/paymentSuccessful',
     element: <Completion />,
   },
-  {
-    path: '/dashboard',
-    element: <DashBoard />,
-  },
+  
+ 
 ]);
 
 const App = () => (

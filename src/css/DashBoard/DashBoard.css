@@ -308,7 +308,9 @@
   border: none;
   padding: 20px 30px;
 }
-.Dashboard .dashBoardMain .usersContainer {
+.Dashboard .dashBoardMain .usersContainer,
+.Dashboard .dashBoardMain .ordersContainer,
+.Dashboard .dashBoardMain .QueriesContainer{
   display: flex;
   width: 100%;
   box-sizing: border-box;
@@ -317,7 +319,9 @@
   padding: 20px;
   background-color: transparent;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer {
+.Dashboard .dashBoardMain .usersContainer .userContainer,
+.Dashboard .dashBoardMain .ordersContainer .orderContainer,
+.Dashboard .dashBoardMain .QueriesContainer .QueryContainer{
   overflow: auto;
   height: 88vh;
   display: flex;
@@ -331,7 +335,9 @@
   border-radius: 10px;
   box-sizing: border-box;
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper,
+.Dashboard .dashBoardMain .ordersContainer .orderContainer .cardWraper,
+.Dashboard .dashBoardMain .QueriesContainer .QueryContainer .cardWraper{
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -344,7 +350,10 @@
   border-radius: 10px;
 }
 @media (max-width: 800px) {
-  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper {
+  .Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper,
+  .Dashboard .dashBoardMain .ordersContainer .orderContainer .cardWraper,
+  .Dashboard .dashBoardMain .ordersContainer .QueryContainer .cardWraper
+   {
     flex-direction: column;
     gap: 10px;
   }
@@ -354,7 +363,20 @@
   .usersContainer
   .userContainer
   .cardWraper
-  .cardWraperInner {
+  .cardWraperInner,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
+  .cardWraper
+  .cardWraperInner,
+  .Dashboard
+  .dashBoardMain
+  .QueriesContainer
+  .QueryContainer
+  .cardWraper
+  .cardWraperInner
+  {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -367,7 +389,21 @@
   .userContainer
   .cardWraper
   .cardWraperInner
-  img {
+  img,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
+  .cardWraper
+  .cardWraperInner
+  img,
+  .Dashboard
+  .dashBoardMain
+  .QueriesContainer
+  .QueryContainer
+  .cardWraper
+  .cardWraperInner
+  img{
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -378,6 +414,18 @@
     .usersContainer
     .userContainer
     .cardWraper
+    .cardWraperInner,
+    .Dashboard
+    .dashBoardMain
+    .ordersContainer
+    .orderContainer
+    .cardWraper
+    .cardWraperInner,
+    .Dashboard
+    .dashBoardMain
+    .QueriesContainer
+    .QueryContainer
+    .cardWraper
     .cardWraperInner {
     flex-direction: column;
   }
@@ -387,7 +435,21 @@
     .userContainer
     .cardWraper
     .cardWraperInner
-    p {
+    p,
+    .Dashboard
+    .dashBoardMain
+    .ordersContainer
+    .orderContainer
+    .cardWraper
+    .cardWraperInner
+    p,
+    .Dashboard
+    .dashBoardMain
+    .QueriesContainer
+    .QueryContainer
+    .cardWraper
+    .cardWraperInner
+    p  {
     font-size: 10px;
   }
   .Dashboard
@@ -396,17 +458,39 @@
     .userContainer
     .cardWraper
     .cardWraperInner
-    h1 {
+    h1,
+    .Dashboard
+    .dashBoardMain
+    .ordersContainer
+    .orderContainer
+    .cardWraper
+    .cardWraperInner
+    h1,
+    .Dashboard
+    .dashBoardMain
+    .QueriesContainer
+    .QueryContainer
+    .cardWraper
+    .cardWraperInner
+    h1{
     font-size: 10px;
+    font-weight: bolder;
   }
 }
 .Dashboard
   .dashBoardMain
-  .usersContainer
-  .userContainer
+  .ordersContainer
+  .orderContainer
   .cardWraper
   .cardWraperInner
-  .cardWraperInnerBody {
+  .cardWraperInnerBody,
+  .Dashboard
+  .dashBoardMain
+  .QueriesContainer
+  .QueryContainer
+  .cardWraper
+  .cardWraperInner
+  .cardWraperInnerBody,{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -420,6 +504,20 @@
     .userContainer
     .cardWraper
     .cardWraperInner
+    .cardWraperInnerBody,
+    .Dashboard
+    .dashBoardMain
+    .ordersContainer
+    .orderContainer
+    .cardWraper
+    .cardWraperInner
+    .cardWraperInnerBody,
+    .Dashboard
+    .dashBoardMain
+    .QueriesContainer
+    .QueryContainer
+    .cardWraper
+    .cardWraperInner
     .cardWraperInnerBody {
     align-items: center;
   }
@@ -429,7 +527,17 @@
   .usersContainer
   .userContainer
   .cardWraper
-  .cardWraperRight {
+  .cardWraperRight,
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
+  .cardWraper
+  .cardWraperRight,
+  .dashBoardMain
+  .QueriesContainer
+  .QueryContainer
+  .cardWraper
+  .cardWraperRight{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -440,6 +548,12 @@
   .dashBoardMain
   .usersContainer
   .userContainer
+  .cardWraper
+  .cardWraperRight
+  .button1,
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
   .cardWraper
   .cardWraperRight
   .button1 {
@@ -455,6 +569,13 @@
     .dashBoardMain
     .usersContainer
     .userContainer
+    .cardWraper
+    .cardWraperRight
+    .button1,
+    .Dashboard
+    .dashBoardMain
+    .ordersContainer
+    .orderContainer
     .cardWraper
     .cardWraperRight
     .button1 {
@@ -517,7 +638,8 @@
     width: 100px;
   }
 }
-.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp {
+.Dashboard .dashBoardMain .usersContainer .userContainer .cardWraper .popUp,
+.Dashboard .dashBoardMain .ordersContainer .orderContainer .cardWraper .popUp {
   position: absolute;
   top: 0;
   left: 0;
@@ -534,6 +656,13 @@
   .userContainer
   .cardWraper
   .popUp
+  .disablePopUp,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
+  .cardWraper
+  .popUp
   .disablePopUp {
   color: #000000;
   font-size: 20px;
@@ -546,7 +675,14 @@
   .userContainer
   .cardWraper
   .popUp
-  .sendingForm {
+  .sendingForm,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
+  .cardWraper
+  .popUp
+  .sendingForm  {
   background-color: #ffffff;
   width: 200px;
   height: auto;
@@ -562,6 +698,14 @@
   .dashBoardMain
   .usersContainer
   .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .checkbox,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
   .cardWraper
   .popUp
   .sendingForm
@@ -582,7 +726,16 @@
   .popUp
   .sendingForm
   .checkbox
-  input {
+  input,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .checkbox
+  input{
   width: 20px;
   height: 20px;
 }
@@ -593,7 +746,7 @@
   .cardWraper
   .popUp
   .sendingForm
-  button {
+  button{
   padding: 5px 20px;
   background-color: #f7685b;
   margin-top: 20px;
@@ -603,9 +756,35 @@
   cursor: pointer;
 }
 .Dashboard
+.dashBoardMain
+.ordersContainer
+.orderContainer
+.cardWraper
+.popUp
+.sendingForm 
+button{
+  padding: 5px 20px;
+  background-color: #131921;
+  color: #ffffff;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.Dashboard
   .dashBoardMain
   .usersContainer
   .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .pending,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
   .cardWraper
   .popUp
   .sendingForm
@@ -621,6 +800,14 @@
   .dashBoardMain
   .usersContainer
   .userContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .successDisplay,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
   .cardWraper
   .popUp
   .sendingForm
@@ -642,7 +829,15 @@
   .cardWraper
   .popUp
   .sendingForm
-  .errorDisplay {
+  .errorDisplay,
+  .Dashboard
+  .dashBoardMain
+  .ordersContainer
+  .orderContainer
+  .cardWraper
+  .popUp
+  .sendingForm
+  .errorDisplay  {
   background-color: #ff6252;
   width: 80%;
   padding: 10px 15px;
@@ -661,7 +856,8 @@
   align-items: center;
 }
 
-.containerUsr {
+.containerUsr, .containerOrd,
+.containerQry {
   width: 100%;
   display: flex;
   flex-direction: column;

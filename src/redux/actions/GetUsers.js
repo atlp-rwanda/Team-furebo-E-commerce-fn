@@ -10,7 +10,7 @@ import {
 } from '../slices/usersSlice';
 
 const API = axios.create({
-  baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api',
+  baseURL: 'http://127.0.0.1:5002/api',
 });
 
 API.interceptors.request.use((req) => {

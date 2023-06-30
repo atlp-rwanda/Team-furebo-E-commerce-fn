@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../css/AuthStyles/Auth.css';
 import googleIcon from '../../assets/images/googleIcon.svg';
 
-const backendURL = 'https://team-furebo-e-commerce-bn.onrender.com';
+const backendURL = 'http://127.0.0.1:5002';
 
 export default function GoogleButton() {
   return (

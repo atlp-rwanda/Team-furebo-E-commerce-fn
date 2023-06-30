@@ -198,6 +198,14 @@ const Navbar = () => {
                     {/* <li>collection</li> */}
                   </>
                 )}
+                {currentUserRole && currentUserRole.name === 'customer' && (
+                  <>
+                    <Link className="link" to="/purchases">
+                      <motion.li variants={item}>Order History</motion.li>
+                    </Link>
+                    {/* <li>collection</li> */}
+                  </>
+                )}
                 <Link className="link" to="/products">
                   <motion.div variants={item}>Product</motion.div>
                 </Link>

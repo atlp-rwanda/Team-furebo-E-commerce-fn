@@ -10,7 +10,9 @@ import {
 } from '../slices/signupSlice';
 import { fetchCartItems } from './Cart/ViewCartItemsAction';
 
-const API = axios.create({ baseURL: 'https://team-furebo-e-commerce-bn.onrender.com/api' });
+const API = axios.create({ baseURL: 'http://127.0.0.1:5002/api' });
+
+
 const signIn = async (authData, dispatch, navigate, setAuthData) => {
   dispatch(updateStart());
   try {
