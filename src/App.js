@@ -30,6 +30,7 @@ import SingleProduct from './components/SingleProduct';
 import BuyersOrders from './components/TrackOrders/buyerOrders';
 import OrderDetails from './components/TrackOrders/orderDetails';
 import CustomerSupport from './components/customerSupport/customerSupport';
+import UpdateProduct from './components/UpdateProduct';
 
 const Layout = () => (
   <>
@@ -145,6 +146,8 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <DashBoard />,
+        path: '/updateProduct/:id',
+        element: <UpdateProduct />,
       },
     ],
   },

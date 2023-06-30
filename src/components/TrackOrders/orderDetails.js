@@ -121,25 +121,29 @@ const OrderDetails = () => {
               )}
             </div>
           </div>
-          <div className="orderCardItem orderStatus">
-            <div className="orderstatusPosition">
-              <span>{order.status}</span>
+          <div className="OtherOrderInfo">
+            <div className="orderCardItem">
+              <div className="orderStatus">
+                <div className="orderstatusPosition">
+                  <span>{order.status}</span>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="orderCardItem">
-            <h3>Payment Method</h3>
-            <span>{order.paymentMethod}</span>
-          </div>
-          <div className="orderCardItem">
-            <h3>Delivery Address</h3>
-            {order.deliveryAddress && (
+            <div className="orderCardItem">
+              <h3>Payment Method</h3>
+              <span>{order.paymentMethod}</span>
+            </div>
+            <div className="orderCardItem">
+              <h3>Delivery Address</h3>
+              {order.deliveryAddress && (
               <div className="deliveryAddressItems">
                 <span>{order.deliveryAddress.country}</span>
                 <span>{order.deliveryAddress.city}</span>
                 <span>{order.deliveryAddress.street}</span>
                 <span>{order.deliveryAddress.zipCode}</span>
               </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

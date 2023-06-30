@@ -105,6 +105,22 @@
   flex-direction: column;
 }
 
+.orderDetails .OtherOrderInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.orderDetails .OtherOrderInfo .orderCardItem {
+  width: calc(25% - 20px);
+  box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.363);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .orderCardItem {
   box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.363);
   border-radius: 10px;

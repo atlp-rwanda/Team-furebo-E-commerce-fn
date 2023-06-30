@@ -403,7 +403,7 @@ const Navbar = () => {
           </Link>
           {currentUserRole && currentUserRole.name === 'merchant' && (
             <>
-              <motion.li variants={item}>collection</motion.li>
+              {/* <motion.li variants={item}>collection</motion.li> */}
               <Link className="link" to="/addproduct">
                 <motion.li variants={item}>addProduct</motion.li>
               </Link>

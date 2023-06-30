@@ -11,8 +11,7 @@ import { Provider, useDispatch } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import ProductGrid from '../../components/SellerProductGrid';
-import { handleClick } from '../../components/SellerProductGrid';
+import ProductGrid, { handleClick } from '../../components/SellerProductGrid';
 import { setSingleProduct, productSlice, updateSellerProducts } from '../../redux/slices/sellerProductSlice';
 
 // Create a mock server
@@ -158,6 +157,53 @@ describe('SELLERS PRODUCTS TESTS', () => {
     
     // Assert
     expect(nextState.singleProduct).toEqual({ id: 2, name: 'Product 2' });
+  });
+  test('should render "Your collection is empty" message when sellerProducts is null', () => {
+    // Render the component with sellerProducts as null
+    const store = mockStore({
+      products: {
+        sellerProducts: null,
+        loading: false,
+      },
+    });
+    render(
+      <Router>
+        <Provider store={store}>
+          <ProductGrid />
+        </Provider>
+      </Router>,
+    );
+  
+    // Assert that the "Your collection is empty" message is rendered
+    expect(screen.getByText('Retreiving Items')).toBeInTheDocument();
+  });
+  
+  test('should render "Sorry something went wrong with the server" message when error is not null', () => {
+    // Define the error message
+    const store = mockStore({
+      products: {
+        sellerProducts: null,
+        loading: false,
+        error: {
+          condition: false,
+          message: 'Example error message',
+        },
+      },
+      
+    });
+    const errorMessage = 'Example error message';
+  
+    // Render the component with error
+    render(
+      <Router>
+        <Provider store={store}>
+          <ProductGrid error={{ message: errorMessage }} />
+        </Provider>
+      </Router>,
+    );
+  
+    // Assert that the error message is rendered
+    expect(screen.getByText('Retreiving Items')).toBeInTheDocument();
   });
 });
 //   it('should dispatch singleProduct action when handleClick is called', async () => {

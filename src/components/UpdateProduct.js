@@ -1,34 +1,49 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-await-in-loop */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
-import '../../css/AddProducts/AddProduct.css';
-import { useDispatch } from 'react-redux';
-import AddProducts from '../../redux/actions/addProduct';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { GrChapterAdd } from 'react-icons/gr';
+import { toast } from 'react-toastify';
+import { singleProduct } from '../redux/slices/sellerProductSlice';
+import { updateProduct } from '../redux/actions/SellerProduct';
+import '../css/UpdateProduct/UpdateProduct.css';
 
-const AddProduct = () => {
-  const [name, setName] = useState('');
-  const [image, setImage] = useState([]);
-  const [price, setPrice] = useState('');
-  const [quantity, setQuantity] = useState(1);
-  const [category, setCategory] = useState('');
-  const [exDate, setExDate] = useState('');
+const UpdateProduct = () => {
+  const product = useSelector((state) => state.products.updateProduct);
+  const [name, setName] = useState(product?.name || '');
+  const [image, setImage] = useState(product?.image || []);
+  const [price, setPrice] = useState(product?.price || '');
+  const [quantity, setQuantity] = useState(product?.quantity || 1);
+  const [category, setCategory] = useState(product?.category || '');
+  const [exDate, setExDate] = useState(product?.exDate || '');
   const [errors, setErrors] = useState({});
-  const [submissionMessage, setSubmissionMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [submissionMessage, setSubmissionMessage] = useState('');
   const cloudName = 'damoif3ob';
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {
+    successCondition, userInfo, error, pending,
+  } = useSelector(
+    (state) => state.products,
+  );
+
+  const pattern = /^(0?[1-9]|1[0-2])\/(0?[1-9]|1\d|2\d|3[01])\/\d{4}$/;
+
+  useEffect(() => {
+    if (product?.exDate) {
+      setExDate(new Date(product.exDate).toLocaleDateString('en-US'));
+    }
+  }, [product]);
   const validateForm = () => {
     const errors = {};
     if (!name) {
       errors.name = 'Name is required';
     }
-    if (image.length < 4) {
-      errors.images = 'At least four images are required';
+    if (image.length <= 4 && image.length >= 8) {
+      errors.images = 'You are only allowed to add "Four" to "Eight" images';
     }
     if (!price) {
       errors.price = 'Price is required';
@@ -45,23 +60,39 @@ const AddProduct = () => {
     if (!category) {
       errors.category = 'Category is required';
     }
-    if (!exDate) {
-      errors.exDate = 'Expired date is required';
-    }
     if (new Date(exDate) <= new Date()) {
       errors.exDate = 'Expired date must be greater than today';
+    }
+    if (!pattern.test(exDate)) {
+      errors.exDate = 'Please enter a valid date';
     }
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
-  const handleChange = e => {
+  const fileInputRef = useRef(null);
+
+  const handleChange = (e) => {
     const files = Array.from(e.target.files);
+    console.log('files', files);
     setImage(files);
   };
+  const handleDelete = (index) => {
+    const updatedImages = [...image];
+    updatedImages.splice(index, 1);
+    setImage(updatedImages);
+  };
+  const handleIconClick = () => {
+    fileInputRef.current.click();
+  };
+  const handleAddImage = (event) => {
+    const file = event.target.files[0];
+    setImage([...image, file]);
+  };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (validateForm()) {
       setLoading(true);
       try {
@@ -75,12 +106,13 @@ const AddProduct = () => {
             {
               method: 'POST',
               body: formData,
-            }
+            },
           );
           const data = await response.json();
           imageURLs.push(data.secure_url);
         }
         const newProduct = {
+          id: product.id,
           name,
           image: imageURLs,
           price,
@@ -88,9 +120,9 @@ const AddProduct = () => {
           category,
           exDate: new Date(exDate).toISOString().slice(0, 10),
         };
+        console.log('new Product', newProduct);
 
-        AddProducts(newProduct, dispatch);
-        setLoading(false);
+        updateProduct(newProduct, dispatch, navigate);
         setName('');
         setImage([]);
         setPrice('');
@@ -102,17 +134,15 @@ const AddProduct = () => {
           setSubmissionMessage('');
         }, 10000);
       } catch (error) {
-        console.error('Error uploading images to Cloudinary:', error);
-        setSubmissionMessage(
-          'Failed to submit the form. Please try again later.'
-        );
         setLoading(false);
+        console.error('Error uploading images to Cloudinary:', error);
+        toast.error(error, { theme: 'colored' });
       }
     }
   };
   return (
-    <div className="add-product-container" data-testid="AddProduct">
-      <h1 className="product-heading">Add Product</h1>
+    <div className="add-product-container" data-testid="UpdateProduct">
+      <h1 className="product-heading">UPDATE Product</h1>
       <div className="form-group-container">
         <div>
           <form className="add-product-form" onSubmit={handleSubmit}>
@@ -123,8 +153,9 @@ const AddProduct = () => {
               <input
                 type="text"
                 id="name"
+                className="placeholder"
                 value={name}
-                onChange={e => setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Product Name"
               />
               {errors.name && <span className="error">{errors.name}</span>}
@@ -133,7 +164,11 @@ const AddProduct = () => {
               <label className="form-group-label" htmlFor="images">
                 Images:
               </label>
-              <input type="file" id="images" multiple onChange={handleChange} />
+              <div className="placeholder">
+                Add Using The
+                <span><GrChapterAdd className="text-upload-icon" /></span>
+                Icon In Image Preview
+              </div>
               {errors.images && <span className="error">{errors.images}</span>}
             </div>
             <div className="form-group">
@@ -143,8 +178,9 @@ const AddProduct = () => {
               <input
                 type="number"
                 id="price"
+                className="placeholder"
                 value={price}
-                onChange={e => setPrice(e.target.value)}
+                onChange={(e) => setPrice(e.target.value)}
                 placeholder="Price"
               />
               {errors.price && <span className="error">{errors.price}</span>}
@@ -156,8 +192,9 @@ const AddProduct = () => {
               <input
                 type="number"
                 id="quantity"
+                className="placeholder"
                 value={quantity}
-                onChange={e => setQuantity(e.target.value)}
+                onChange={(e) => setQuantity(e.target.value)}
                 placeholder="Quantity"
               />
               {errors.quantity && (
@@ -171,8 +208,9 @@ const AddProduct = () => {
               <input
                 type="text"
                 id="category"
+                className="placeholder"
                 value={category}
-                onChange={e => setCategory(e.target.value)}
+                onChange={(e) => setCategory(e.target.value)}
                 placeholder="Category"
               />
               {errors.category && (
@@ -184,21 +222,22 @@ const AddProduct = () => {
                 Expired Date:
               </label>
               <input
-                type="date"
+                type="string"
                 data-testid="exDate-input"
                 id="expiredDate"
+                className="placeholder"
                 value={exDate}
-                onChange={e => setExDate(e.target.value)}
+                onChange={(e) => setExDate(e.target.value)}
               />
               {errors.exDate && <span className="error">{errors.exDate}</span>}
             </div>
             <div>
               <button
-                data-testid="addProduct"
+                data-testid="updateProduct"
                 className="add-product-btn"
                 type="submit"
               >
-                {loading ? 'loading...' : 'Add Product'}
+                {loading ? 'loading...' : 'Update Product'}
               </button>
             </div>
           </form>
@@ -209,20 +248,41 @@ const AddProduct = () => {
               <h2 className="image-heading">Image Preview:</h2>
               <div className="preview-container">
                 {image.map((file, index) => (
-                  <img
-                    className="img-card"
-                    key={index}
-                    src={URL.createObjectURL(file)}
-                    alt={`Preview ${index}`}
-                  />
+                  <div key={index} className="image-container">
+                    <img
+                      className="img-card"
+                      src={file instanceof File ? URL.createObjectURL(file) : file}
+                      alt={`Preview ${index}`}
+                    />
+                    <AiTwotoneDelete
+                      className="delete-image-btn"
+                      onClick={() => handleDelete(index)}
+                      data-testid={`delete-image-${index}`}
+                    />
+                  </div>
                 ))}
               </div>
+
             </div>
           )}
+          <div>
+            <label htmlFor="image-upload" className="upload-label">
+              <GrChapterAdd className="upload-icon" />
+            </label>
+            <input
+              type="file"
+              data-testid="addImage"
+              id="image-upload"
+              className="upload-input"
+              ref={fileInputRef}
+              onChange={handleAddImage}
+              style={{ display: 'none' }}
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;
