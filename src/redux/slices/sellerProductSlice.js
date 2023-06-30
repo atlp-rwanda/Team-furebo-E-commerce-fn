@@ -5,9 +5,9 @@ export const productSlice = createSlice({
   initialState: {
     userInfo: null,
     successCondition: false,
-    products: null,
     sellerProducts: [],
     singleProduct: null,
+    updateProduct: null,
     pending: false,
     error: {
       condition: false,
@@ -23,11 +23,40 @@ export const productSlice = createSlice({
     },
 
     setSingleProduct(state, action) {
-      try {
-        const oneProduct = state.sellerProducts.find((product) => product.id === action.payload);
+      const productId = action.payload;
+      const oneProduct = state.sellerProducts.find((product) => product.id === productId);
+
+      if (oneProduct) {
         return {
           ...state,
           singleProduct: oneProduct,
+          error: {
+            condition: false,
+            message: '',
+          },
+        };
+      }
+      return {
+        ...state,
+        error: {
+          condition: true,
+          message: `Product with ID ${productId} not found.`,
+        },
+      };
+    },
+    updateSingleProduct(state, action) {
+      return {
+        ...state,
+        singleProduct: action.payload,
+      };
+    },
+    setUpdateProduct(state, action) {
+      try {
+        const oneProduct = action.payload;
+        console.log('splice', oneProduct, action.payload);
+        return {
+          ...state,
+          updateProduct: oneProduct,
         };
       } catch (err) {
         return {
@@ -36,6 +65,9 @@ export const productSlice = createSlice({
         };
       }
     },
+
+    // Delete product
+
     deleteStart: (state) => {
       state.pending = true;
     },
@@ -49,10 +81,28 @@ export const productSlice = createSlice({
       state.error.message = action.payload;
       state.pending = false;
     },
+
+    // Update product
+
+    updateStart: (state) => {
+      state.pending = true;
+    },
+    updateSuccess: (state, action) => {
+      state.successCondition = true;
+      state.pending = false;
+      state.userInfo = action.payload;
+    },
+    updateError: (state, action) => {
+      state.error.condition = true;
+      state.error.message = action.payload;
+      state.pending = false;
+    },
   },
 });
 
 export const {
-  setSingleProduct, deleteStart, deleteSuccess, deleteError, updateSellerProducts,
+  setSingleProduct, deleteStart, deleteSuccess, deleteError,
+  setUpdateProduct, updateStart, updateSuccess, updateError,
+  updateSingleProduct, updateSellerProducts,
 } = productSlice.actions;
 export default productSlice.reducer;

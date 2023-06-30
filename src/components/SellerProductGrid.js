@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import Category from './Category';
 import { Latestproducts } from '../constants/Constant';
 import Logo from '../assets/images/our-logo.png';
@@ -20,6 +20,7 @@ const ProductGrid = () => {
   const [sellerProducts, setSelleProducts] = useState(null);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const navigate = useNavigate();
   useEffect(() => {
     const getProducts = async () => {
@@ -45,12 +46,26 @@ const ProductGrid = () => {
   if (loading) {
     return (
       <div className="message">
-        Retriving Items
+        Retreiving Items
         <span className="animate-bounce">
           {'  '}
           ...
         </span>
         <img className="logo-image2" src={Logo} alt="" width="100px" />
+        <br />
+      </div>
+    );
+  }
+  if (!localStorage.getItem('token')) {
+    navigate('/Authentication');
+    return (
+      <div className="justify center text-3xl">
+        Access Denied
+        <span className="animate-bounce">
+          {'  '}
+          ...
+        </span>
+        <img className="logo-image" src={Logo} alt="" width="100px" />
         <br />
       </div>
     );

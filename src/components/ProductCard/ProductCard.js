@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="productCrd" data-testid="ProductCard">
       <div className="images">
-        <img src={product.image[1]} alt="images" />
+        <img src={product.image[0]} alt="images" />
       </div>
       <div className="CardDesc">
         <div className="cardHeader">

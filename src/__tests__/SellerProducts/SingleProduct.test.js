@@ -29,12 +29,13 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       price: 900,
       exDate: '01-01-2024',
       quantity: 10,
+      createdAt: '06-23-2023',
     };
 
     const store = mockStore({
       products: {
         singleProduct: productData,
-        pending: false,
+        loading: false,
       },
     });
 
@@ -49,10 +50,10 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       const singleProduct = screen.queryByTestId('SingleProduct');
       expect(singleProduct).toBeInTheDocument();
 
-      expect(screen.getByText('Television')).toBeInTheDocument();
-      expect(screen.getByText('Electronics')).toBeInTheDocument();
+      expect(screen.getByText('Created At:')).toBeInTheDocument();
+      expect(screen.getByText('Quantity:')).toBeInTheDocument();
       expect(screen.getByText('Category:')).toBeInTheDocument();
-      expect(screen.getByText('Expiration Date:')).toBeInTheDocument();
+      expect(screen.getByText('Status:')).toBeInTheDocument();
     });
     screen.debug();
   });
@@ -71,7 +72,7 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
     const store = mockStore({
       products: {
         singleProduct: productData,
-        pending: false,
+        loading: false,
       },
     });
     const deleteProduct = jest.fn();
@@ -84,10 +85,11 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
         </Router>
       </Provider>,
     );
-
+    await waitFor(() => {
     // Find the delete button and click it
-    const deleteButton = getByTestId('Delete');
-    fireEvent.click(deleteButton);
+      const deleteButton = getByTestId('Delete');
+      fireEvent.click(deleteButton);
+    });
 
     // Wait for the confirmation dialog to appear
     await waitFor(() => {
@@ -122,7 +124,7 @@ describe('SINGLE SELLER PRODUCT TESTS', () => {
       </Router>,
     );
 
-    const loadingElement = getByText('Loading');
+    const loadingElement = getByText('Please Wait');
     expect(loadingElement).toBeInTheDocument();
   });
 });

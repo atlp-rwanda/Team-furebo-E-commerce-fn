@@ -61,7 +61,7 @@ const OrderCard = ({ data, handleOrders }) => {
         </button>
       </div>
       {dismissed && (
-        <div className="popUp">
+        <div className="popUp" data-testid="popUp">
           <div className="sendingForm">
             <div onClick={() => setDismissed(false)} className="disablePopUp">
               X
