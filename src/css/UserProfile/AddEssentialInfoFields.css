@@ -1,0 +1,230 @@
+.essential-info-title-div {
+  background-color: rgba(0, 8, 19, 0.8470588235);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.user-essential-info-fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #f6f7f9;
+}
+.user-essential-info-fields .essential-info {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 800px;
+  padding: 20px;
+  border-radius: 8px;
+}
+.user-essential-info-fields .essential-info:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.user-essential-info-fields .essential-info .essential-info-fields-left-right {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 30px;
+}
+.user-essential-info-fields .essential-info .essential-info-fields-left {
+  flex: 1;
+}
+.user-essential-info-fields .essential-info .essential-info-fields-right {
+  flex: 1;
+}
+.user-essential-info-fields .essential-info .user-field {
+  margin-bottom: 20px;
+}
+.user-essential-info-fields .essential-info .user-field label {
+  font-weight: bold;
+}
+.user-essential-info-fields .essential-info .user-field hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+.user-essential-info-fields .essential-info .gender-field-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.user-essential-info-fields .essential-info .gender-field-container .gender-field {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.user-essential-info-fields .essential-info .gender-field-container .gender-field .gender-span {
+  margin-right: 5px;
+}
+.user-essential-info-fields .essential-info .currency-field-container {
+  display: flex;
+  align-items: center;
+}
+.user-essential-info-fields .essential-info .currency-field-container .currency-field {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.user-essential-info-fields .essential-info .currency-field-container .currency-field span {
+  margin-right: 5px;
+}
+.user-essential-info-fields .essential-info .currency-field-container .currency-field input:hover {
+  background-color: #001225;
+}
+.user-essential-info-fields .billing-address-container {
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 800px;
+  padding: 20px;
+  border-radius: 8px;
+}
+.user-essential-info-fields .billing-address-container:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.user-essential-info-fields .billing-address-container .billing-address-fields-left-right {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px;
+}
+.user-essential-info-fields .billing-address-container .billing-address-fields-left {
+  flex: 1;
+}
+.user-essential-info-fields .billing-address-container .billing-address-fields-right {
+  flex: 1;
+}
+.user-essential-info-fields .next-part-div,
+.user-essential-info-fields .next-part-button,
+.user-essential-info-fields .previous-create-div,
+.user-essential-info-fields .next-part-button {
+  display: flex;
+  justify-content: flex-end;
+}
+.user-essential-info-fields .next-part-div .next-button,
+.user-essential-info-fields .next-part-div .previous-button,
+.user-essential-info-fields .next-part-button .next-button,
+.user-essential-info-fields .next-part-button .previous-button,
+.user-essential-info-fields .previous-create-div .next-button,
+.user-essential-info-fields .previous-create-div .previous-button,
+.user-essential-info-fields .next-part-button .next-button,
+.user-essential-info-fields .next-part-button .previous-button {
+  padding: 10px 20px;
+  background-color: #00060e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.user-essential-info-fields .next-part-div .next-button:hover,
+.user-essential-info-fields .next-part-div .previous-button:hover,
+.user-essential-info-fields .next-part-button .next-button:hover,
+.user-essential-info-fields .next-part-button .previous-button:hover,
+.user-essential-info-fields .previous-create-div .next-button:hover,
+.user-essential-info-fields .previous-create-div .previous-button:hover,
+.user-essential-info-fields .next-part-button .next-button:hover,
+.user-essential-info-fields .next-part-button .previous-button:hover {
+  background-color: #001225;
+}
+.user-essential-info-fields .next-part-div .submit-button,
+.user-essential-info-fields .next-part-button .submit-button,
+.user-essential-info-fields .previous-create-div .submit-button,
+.user-essential-info-fields .next-part-button .submit-button {
+  background-color: #001226;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.user-essential-info-fields .next-part-div .previous-button,
+.user-essential-info-fields .next-part-button .previous-button,
+.user-essential-info-fields .previous-create-div .previous-button,
+.user-essential-info-fields .next-part-button .previous-button {
+  margin-right: 10px;
+}
+.user-essential-info-fields .user-field label {
+  display: block;
+  margin: 5px 0;
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+.user-essential-info-fields .user-field input[type=radio],
+.user-essential-info-fields .user-field input[type=checkbox],
+.user-essential-info-fields .user-field select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+.user-essential-info-fields .user-field input[type=radio]:focus,
+.user-essential-info-fields .user-field input[type=checkbox]:focus,
+.user-essential-info-fields .user-field select:focus {
+  outline: none;
+  border-color: #000a17;
+}
+.user-essential-info-fields .user-field input[type=text],
+.user-essential-info-fields .user-field input[type=date] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+.user-essential-info-fields .user-field input[type=text]:focus,
+.user-essential-info-fields .user-field input[type=date]:focus {
+  outline: none;
+  border-color: #000b18;
+}
+
+@media (max-width: 768px) {
+  .user-essential-info .user-essential-info-fields .essential-info {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .user-essential-info .user-essential-info-fields .essential-info .essential-info-fields-left-right {
+    flex-direction: column;
+  }
+  .user-essential-info .billing-address-container {
+    width: 200px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .user-essential-info .billing-address-container .billing-address-fields-left-right {
+    margin: 0 auto;
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .user-essential-info .user-essential-info-fields .essential-info {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .user-essential-info .user-essential-info-fields .essential-info .essential-info-fields-left-right {
+    flex-direction: column;
+  }
+  .user-essential-info .billing-address-container {
+    width: 200px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .user-essential-info .billing-address-container .billing-address-fields-left-right {
+    margin: 0 auto;
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=AddEssentialInfoFields.css.map */

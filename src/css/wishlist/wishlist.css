@@ -41,44 +41,27 @@
   justify-content: space-between;
   padding: 7px;
 }
-.view-wishlist
-  .wishlist-item
-  .wishlist-item-details
-  .wishlist-item-name-cathegory-field {
+.view-wishlist .wishlist-item .wishlist-item-details .wishlist-item-name-cathegory-field {
   border-color: transparent;
   font-size: 26px;
   line-height: 18px;
   font-style: italic;
 }
-.view-wishlist
-  .wishlist-item
-  .wishlist-item-details
-  .wishlist-item-price-field {
-  background-color: rgba(255, 157, 0, 0.221);
+.view-wishlist .wishlist-item .wishlist-item-details .wishlist-item-price-field {
+  background-color: rgba(0, 1, 35, 0.221);
   justify-content: center;
   font-weight: bolder;
   font-size: 26px;
-  border-color: rgb(255, 183, 0);
 }
-.view-wishlist
-  .wishlist-item
-  .wishlist-item-details
-  .wishlist-item-price-field
-  span {
-  color: #ff9d00;
+.view-wishlist .wishlist-item .wishlist-item-details .wishlist-item-price-field span {
+  color: #000207;
 }
-.view-wishlist
-  .wishlist-item
-  .wishlist-item-details
-  .wishlist-item-stock-field {
-  color: rgb(3, 211, 3);
+.view-wishlist .wishlist-item .wishlist-item-details .wishlist-item-stock-field {
+  color: rgb(0, 14, 31);
   border: none;
   font-weight: bolder;
 }
-.view-wishlist
-  .wishlist-item
-  .wishlist-item-details
-  .wishlist-item-post-date-field {
+.view-wishlist .wishlist-item .wishlist-item-details .wishlist-item-post-date-field {
   border-color: #acacac;
   color: #000000;
   display: flex;
@@ -91,20 +74,11 @@
   align-items: center;
   margin-top: 20px;
 }
-.view-wishlist
-  .wishlist-item
-  .wishlist-item-details
-  .check-delete-conner
-  .browse-same-product {
+.view-wishlist .wishlist-item .wishlist-item-details .check-delete-conner .browse-same-product {
   display: flex;
   justify-content: center;
 }
-.view-wishlist
-  .wishlist-item
-  .wishlist-item-details
-  .check-delete-conner
-  .browse-same-product
-  button {
+.view-wishlist .wishlist-item .wishlist-item-details .check-delete-conner .browse-same-product button {
   cursor: pointer;
   width: 100%;
   border: none;
@@ -119,13 +93,24 @@
   justify-content: flex-end;
 }
 .view-wishlist .wishlist-item-buttons .remove-button {
-  color: rgb(201, 5, 5);
+  color: rgb(1, 15, 33);
   font-size: 30px;
   font-weight: bolder;
   border: none;
   border-radius: 4px;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .wishlist-item {
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .wishlist-item {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=wishlist.css.map */

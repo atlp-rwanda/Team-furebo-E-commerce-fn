@@ -321,7 +321,7 @@ const Navbar = () => {
                     </span>
                   </motion.div>
                   <hr />
-                  <Link to="/view-basic" className="profile-link">
+                  <Link to="/view-profile" className="profile-link">
                     <motion.div variants={item}>Profile</motion.div>
                   </Link>
                   <motion.button
