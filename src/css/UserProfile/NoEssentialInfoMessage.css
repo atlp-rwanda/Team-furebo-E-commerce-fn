@@ -1,0 +1,28 @@
+.no-essential-enfo-message-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+}
+.no-essential-enfo-message-div p {
+  text-align: center;
+  font-size: 26px;
+  margin: 20px;
+}
+.no-essential-enfo-message-div .no-essential-enfo-message {
+  background-color: rgb(7, 7, 34);
+  font-size: 26px;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+.no-essential-enfo-message-div .no-essential-enfo-message:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.no-essential-enfo-message-div .user-icon {
+  font-size: 56px;
+}
+
+/*# sourceMappingURL=NoEssentialInfoMessage.css.map */

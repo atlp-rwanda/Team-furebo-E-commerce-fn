@@ -1,0 +1,271 @@
+.view-user-essential-info .user-essential-info-container .user-essential-info-header {
+  background-color: rgba(0, 8, 19, 0.8470588235);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 20px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 900px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address {
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+  margin: 20px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info {
+  padding: 20px;
+  max-width: 200px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .essential-info-view-left-right {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field {
+  margin-bottom: 20px;
+  width: 400px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field hr {
+  border: none;
+  height: 1px;
+  background-color: #e4e6eb;
+  margin: 10px 0;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field .input-and-span {
+  display: flex;
+  align-items: center;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field .input-and-span input[type=text],
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field .input-and-span input[type=email] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 17px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field .input-and-span span {
+  border: none;
+  padding: 5px;
+  background-color: #f0f2f5;
+  border-radius: 4px;
+  width: 80%;
+  margin-right: 10px;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field .input-and-span svg {
+  fill: #a7a7a7;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .user-field .input-and-span svg:hover {
+  fill: #000813;
+  transform: scale(1.1);
+  color: #fff;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .next-button {
+  padding: 7px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  border: none;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .next-button:hover {
+  background-color: #000914;
+  transform: scale(1.1);
+  color: #fff;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address {
+  max-width: 200px;
+  padding: 20px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .billing-address-view-left-right {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field {
+  margin-bottom: 20px;
+  width: 400px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field hr {
+  border: none;
+  height: 1px;
+  background-color: #e4e6eb;
+  margin: 10px 0;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field .input-and-span {
+  display: flex;
+  align-items: center;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field .input-and-span input[type=text],
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field .input-and-span input[type=email] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 17px;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field .input-and-span span {
+  border: none;
+  padding: 5px;
+  background-color: #f0f2f5;
+  border-radius: 4px;
+  width: 80%;
+  margin-right: 10px;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field .input-and-span svg {
+  fill: #a7a7a7;
+  width: 16px;
+  height: 16px;
+  font-size: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .user-field .input-and-span svg:hover {
+  fill: #000914;
+  transform: scale(1.1);
+  color: #fff;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .previous-button {
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .previous-button:hover {
+  background-color: #000914;
+  transform: scale(1.1);
+  color: #fff;
+}
+.view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .next-part-div {
+  display: flex;
+  justify-content: flex-end;
+}
+.view-user-essential-info .user-essential-info-container .go-view-basic-user-info {
+  margin-top: 20px;
+  text-align: right;
+}
+.view-user-essential-info .user-essential-info-container .go-view-basic-user-info .go-view-basic-user-info-link {
+  color: #1da1f2;
+  text-decoration: none;
+}
+.view-user-essential-info .user-essential-info-container .go-view-basic-user-info .go-view-basic-user-info-link:hover {
+  text-decoration: underline;
+}
+.view-user-essential-info .user-essential-info-container .next-part-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.view-user-essential-info .user-essential-info-container .next-part-button .previous-create-div {
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+.view-user-essential-info .user-essential-info-container .next-part-button .previous-create-div:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .view-user-essential-info .user-essential-info-container .user-essential-info {
+    width: 300px;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address {
+    justify-content: center;
+    margin-right: 50px;
+    width: 200px;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .essential-info-view-left-right {
+    display: flex;
+    flex-direction: column;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .essential-info-view-left-right .user-field {
+    width: 200px;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .essential-info-view-left-right .user-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .essential-info-view-left-right .user-field hr {
+    border: none;
+    height: 1px;
+    background-color: #e4e6eb;
+    margin: 10px 0;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .essential-info-view-left-right .user-field .input-and-span {
+    display: flex;
+    align-items: center;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .essential-info .essential-info-view-left-right .user-field .input-and-span span {
+    font-size: 16px;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .billing-address-view-left-right {
+    display: flex;
+    flex-direction: column;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .billing-address-view-left-right .user-field {
+    width: 200px;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .billing-address-view-left-right .user-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .billing-address-view-left-right .user-field hr {
+    border: none;
+    height: 1px;
+    background-color: #e4e6eb;
+    margin: 10px 0;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .billing-address-view-left-right .user-field .input-and-span {
+    display: flex;
+    align-items: center;
+  }
+  .view-user-essential-info .user-essential-info-container .user-essential-info .user-essential-billing-address .billing-address .billing-address-view-left-right .user-field .input-and-span span {
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=ViewUserEssentialInfoFields.css.map */

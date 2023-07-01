@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../../css/profile/ChangePasswordAtTimeGiven.css';
-import FetchToChangePasswordAtGivenTime from '../../redux/actions/userProfile/FetchToChangePasswordAtGivenTime';
+import { useDispatch, useSelector } from 'react-redux';
+import '../../css/UserProfile/ChangePasswordAtTimeGiven.css';
+import { fetchChangePasswordAtGivenTimeAction } from '../../redux/actions/userProfile/fetchChangePasswordAtGivenTimeAction';
 
 const ChangePasswordAtTimeGiven = () => {
-  const [isExpired, setIsExpired] = useState(false);
+  const dispatch = useDispatch();
+  const isExpired = useSelector((state) => state.changePasswordAtGivenTime.isExpired);
 
   useEffect(() => {
-    const fetchProfileData = async () => {
-      try {
-        const profileData = await FetchToChangePasswordAtGivenTime();
-        setIsExpired(profileData.isExpired);
-      } catch (error) {
-        console.error('Error fetching profile data', error);
-      }
-    };
+    dispatch(fetchChangePasswordAtGivenTimeAction());
+  }, [dispatch]);
 
-    fetchProfileData();
-  }, []);
   if (isExpired) {
     return (
       <div
         data-testid="ChangePasswordAtTimeGiven"
         className="password-expiration-message"
       >
-        Your password has expired, Please{' '}
-        <Link to="/changepassword">change your password</Link>.
+        Your password has expired, Please
+        {' '}
+        <Link to="/changepassword">change your password</Link>
+        .
       </div>
     );
   }

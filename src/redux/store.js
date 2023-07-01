@@ -30,6 +30,13 @@ import clearCartItemReducer from './slices/Cart/ClearCartItemSlice';
 import orderSlice from './slices/getOrderSlice';
 import paymentSlice from './slices/paymentSlice';
 import productSlice from './slices/sellerProductSlice';
+import userProfileReducer from './slices/UserProfile/FetchUserEssentialInfoSlice';
+import basicInfoReducer from './slices/UserProfile/FetchUserBasicInfoSlice';
+import updateUserBasicInfoReducer from './slices/UserProfile/UpdateUserBasicInfoSlice';
+import updateUserEssentialInfoReducer from './slices/UserProfile/UpdateUserEssentialInfoSlice';
+import ChangePasswordAtGivenTimeReducer from './slices/UserProfile/ChangePasswordAtGivenTimeSlice';
+import rateProducts from './slices/rateProductSlice';
+import rateFeedbackSlice from './slices/fetchProductFeedbackSlice';
 
 const persistConfig = {
   key: 'root',
@@ -64,6 +71,13 @@ const reducer = combineReducers({
   deleteCartItem: deleteCartItemReducer,
   clearCartItem: clearCartItemReducer,
   products: productSlice,
+  userProfile: userProfileReducer,
+  basicInfo: basicInfoReducer,
+  updateUserBasicInfo: updateUserBasicInfoReducer,
+  updateUserEssentialInfo: updateUserEssentialInfoReducer,
+  changePasswordAtGivenTime: ChangePasswordAtGivenTimeReducer,
+  rateProduct: rateProducts,
+  getRateFeedback: rateFeedbackSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

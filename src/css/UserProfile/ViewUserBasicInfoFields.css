@@ -1,0 +1,208 @@
+.view-user-basic-infor {
+  background-color: #f0f2f5;
+}
+.view-user-basic-infor .acc-info-title {
+  background-color: rgba(0, 8, 19, 0.8470588235);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 20px;
+}
+.view-user-basic-infor .user-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  box-sizing: border-box;
+  margin-left: 30px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile {
+  border: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-image-container .user-profile-image {
+  width: 250px;
+  height: 250px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-image-container .user-profile-image img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field {
+  display: flex;
+  align-items: center;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span .save-icon,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span .edit-icon,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span .save-icon,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span .edit-icon {
+  cursor: pointer;
+  color: #011c39;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-right: 5px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span .save-icon,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span .save-icon {
+  color: green;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span span,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span span {
+  font-size: 26px;
+  margin-right: 10px;
+  font-weight: bolder;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span svg,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span svg {
+  fill: #a7a7a7;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span svg:hover,
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span svg:hover {
+  fill: #000813;
+  transform: scale(1.1);
+  color: #fff;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span input[type=text],
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span input[type=email],
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span input[type=text],
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span input[type=email] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 17px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field {
+  margin-bottom: 10px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .email {
+  color: #a7a7a7;
+  font-size: 24px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .two-fct-aut-edit-div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .show-edit-icons-div {
+  display: flex;
+  justify-content: flex-end;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .show-edit-icons-div button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .Joined-field {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 14px;
+  color: #a7a7a7;
+}
+.view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .Joined-field .Joined-text {
+  font-weight: normal;
+}
+.view-user-basic-infor .user-profile-container .go-view-essantial-info {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.view-user-basic-infor .user-profile-container .go-view-essantial-info .go-view-essantial-info-link {
+  display: flex;
+  gap: 10px;
+  color: #0070e0;
+  font-style: italic;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.view-user-basic-infor .user-profile-container .go-view-essantial-info .go-view-essantial-info-link:hover {
+  text-decoration: underline;
+}
+.view-user-basic-infor .user-profile-container .go-view-essantial-info:hover {
+  background-color: rgba(0, 31, 63, 0.0392156863);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .view-user-basic-infor .user-profile-container {
+    width: 100%;
+    margin-left: 0;
+  }
+  .view-user-basic-infor .user-profile-container .view-user-profile {
+    padding: 10px;
+  }
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-image-container .user-profile-image {
+    width: 150px;
+    height: 150px;
+  }
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span .save-icon,
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span .edit-icon,
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span .save-icon,
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span .edit-icon {
+    font-size: 16px;
+  }
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span span,
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span span {
+    font-size: 20px;
+  }
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span input[type=text],
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .first-last-name .input-and-span input[type=email],
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span input[type=text],
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .email-field .input-and-span input[type=email] {
+    padding: 10px;
+  }
+  .view-user-basic-infor .user-profile-container .view-user-profile .user-profile-info .Joined-field {
+    font-size: 12px;
+  }
+  .view-user-basic-infor .user-profile-container .go-view-essantial-info {
+    margin: 10px 0;
+  }
+  .view-user-basic-infor .user-profile-container .go-view-essantial-info .go-view-essantial-info-link {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=ViewUserBasicInfoFields.css.map */

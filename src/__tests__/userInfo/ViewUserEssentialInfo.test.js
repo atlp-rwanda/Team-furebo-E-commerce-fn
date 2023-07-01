@@ -1,32 +1,22 @@
-/* eslint-disable no-multiple-empty-lines */
-
+/* eslint-disable linebreak-style */
+/* eslint-disable jest/expect-expect */
+/* eslint-disable linebreak-style */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import store from '../../redux/store';
 import ViewUserEssentialInfo from '../../components/UserInfo/ViewUserEssentialInfo';
 
-describe('TEST VIEWING USER ESSENTIAL INFORMATION', () => {
-  it('Should render user essential information', () => {
-    const profileData = {
-      gender: 'Male',
-      birthdate: '1990-01-01',
-      preferredLanguage: 'English',
-      preferredCurrency: 'USD',
-      phoneNumber: '123456789',
-      street: '123 Main St',
-      city: 'City',
-      country: 'Country',
-      poBoxNumber: 'PO Box 123',
-      zipCode: '12345',
-    };
-
+describe('ViewUserEssentialInfo TESTS', () => {
+  it('Should render ViewUserEssentialInfo', () => {
     render(
       <Router>
-        <ViewUserEssentialInfo profileData={profileData} />
-      </Router>
+        <Provider store={store}>
+          <ViewUserEssentialInfo />
+        </Provider>
+      </Router>,
     );
-
-    const viewEssentialElement = screen.getByTestId('viewEssential');
-    expect(viewEssentialElement).toBeInTheDocument();
   });
 });

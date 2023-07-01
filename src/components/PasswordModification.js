@@ -30,7 +30,7 @@ const PasswordModification = () => {
   );
   useEffect(() => {
     if (successCondition) {
-      navigate('/');
+      navigate('/authentication');
     }
   }, [successCondition, navigate]);
   const handleSubmit = e => {
