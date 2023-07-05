@@ -1,0 +1,61 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+.rate {
+  padding: 1rem;
+}
+
+.star-label {
+  margin: 0 auto;
+}
+form {
+  padding-bottom: 1rem;
+}
+.star-radio {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.rate-review {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.rate-input {
+  background-color: rgb(229, 229, 229);
+  border-radius: 3px;
+  padding: 3px;
+}
+
+.rate-btn {
+  font-size: 1rem;
+  transition: all 0.2s;
+  color: black;
+  padding: 10px;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  text-decoration: none;
+  border: 1px solid black;
+  background-color: rgb(255, 255, 255);
+}
+
+.rate-btn:hover {
+  background-color: black;
+  color: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(2px);
+}
+
+.rate-counter {
+  font-size: 20px;
+  font-weight: 400;
+  padding: 5px;
+  margin-top: 1rem;
+}

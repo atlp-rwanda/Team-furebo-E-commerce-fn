@@ -52,27 +52,48 @@
   align-items: center;
   width: 100%;
 }
-.user-essential-info-fields .essential-info .gender-field-container .gender-field {
+.user-essential-info-fields
+  .essential-info
+  .gender-field-container
+  .gender-field {
   display: flex;
   align-items: center;
   margin-right: 10px;
 }
-.user-essential-info-fields .essential-info .gender-field-container .gender-field .gender-span {
+/* .gender-radio {
+  background-color: aquamarine;
+} */
+.user-essential-info-fields
+  .essential-info
+  .gender-field-container
+  .gender-field
+  .gender-span {
   margin-right: 5px;
 }
 .user-essential-info-fields .essential-info .currency-field-container {
   display: flex;
   align-items: center;
 }
-.user-essential-info-fields .essential-info .currency-field-container .currency-field {
+.user-essential-info-fields
+  .essential-info
+  .currency-field-container
+  .currency-field {
   display: flex;
   align-items: center;
   margin-right: 10px;
 }
-.user-essential-info-fields .essential-info .currency-field-container .currency-field span {
+.user-essential-info-fields
+  .essential-info
+  .currency-field-container
+  .currency-field
+  span {
   margin-right: 5px;
 }
-.user-essential-info-fields .essential-info .currency-field-container .currency-field input:hover {
+.user-essential-info-fields
+  .essential-info
+  .currency-field-container
+  .currency-field
+  input:hover {
   background-color: #001225;
 }
 .user-essential-info-fields .billing-address-container {
@@ -87,16 +108,22 @@
 .user-essential-info-fields .billing-address-container:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.user-essential-info-fields .billing-address-container .billing-address-fields-left-right {
+.user-essential-info-fields
+  .billing-address-container
+  .billing-address-fields-left-right {
   display: flex;
   justify-content: space-between;
   gap: 30px;
   padding: 20px;
 }
-.user-essential-info-fields .billing-address-container .billing-address-fields-left {
+.user-essential-info-fields
+  .billing-address-container
+  .billing-address-fields-left {
   flex: 1;
 }
-.user-essential-info-fields .billing-address-container .billing-address-fields-right {
+.user-essential-info-fields
+  .billing-address-container
+  .billing-address-fields-right {
   flex: 1;
 }
 .user-essential-info-fields .next-part-div,
@@ -157,8 +184,8 @@
   font-size: 20px;
   transition: color 0.3s ease;
 }
-.user-essential-info-fields .user-field input[type=radio],
-.user-essential-info-fields .user-field input[type=checkbox],
+.user-essential-info-fields .user-field input[type='radio'],
+.user-essential-info-fields .user-field input[type='checkbox'],
 .user-essential-info-fields .user-field select {
   width: 100%;
   padding: 8px;
@@ -166,22 +193,22 @@
   border-radius: 4px;
   transition: border-color 0.3s ease;
 }
-.user-essential-info-fields .user-field input[type=radio]:focus,
-.user-essential-info-fields .user-field input[type=checkbox]:focus,
+.user-essential-info-fields .user-field input[type='radio']:focus,
+.user-essential-info-fields .user-field input[type='checkbox']:focus,
 .user-essential-info-fields .user-field select:focus {
   outline: none;
   border-color: #000a17;
 }
-.user-essential-info-fields .user-field input[type=text],
-.user-essential-info-fields .user-field input[type=date] {
+.user-essential-info-fields .user-field input[type='text'],
+.user-essential-info-fields .user-field input[type='date'] {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border-color 0.3s ease;
 }
-.user-essential-info-fields .user-field input[type=text]:focus,
-.user-essential-info-fields .user-field input[type=date]:focus {
+.user-essential-info-fields .user-field input[type='text']:focus,
+.user-essential-info-fields .user-field input[type='date']:focus {
   outline: none;
   border-color: #000b18;
 }
@@ -191,7 +218,10 @@
     width: 300px;
     margin: 0 auto;
   }
-  .user-essential-info .user-essential-info-fields .essential-info .essential-info-fields-left-right {
+  .user-essential-info
+    .user-essential-info-fields
+    .essential-info
+    .essential-info-fields-left-right {
     flex-direction: column;
   }
   .user-essential-info .billing-address-container {
@@ -201,7 +231,9 @@
     align-items: center;
     margin: 0 auto;
   }
-  .user-essential-info .billing-address-container .billing-address-fields-left-right {
+  .user-essential-info
+    .billing-address-container
+    .billing-address-fields-left-right {
     margin: 0 auto;
     flex-direction: column;
   }
@@ -211,7 +243,10 @@
     width: 300px;
     margin: 0 auto;
   }
-  .user-essential-info .user-essential-info-fields .essential-info .essential-info-fields-left-right {
+  .user-essential-info
+    .user-essential-info-fields
+    .essential-info
+    .essential-info-fields-left-right {
     flex-direction: column;
   }
   .user-essential-info .billing-address-container {
@@ -221,7 +256,9 @@
     align-items: center;
     margin: 0 auto;
   }
-  .user-essential-info .billing-address-container .billing-address-fields-left-right {
+  .user-essential-info
+    .billing-address-container
+    .billing-address-fields-left-right {
     margin: 0 auto;
     flex-direction: column;
   }

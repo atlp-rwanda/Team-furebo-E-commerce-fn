@@ -19,7 +19,7 @@ import singleProductsSlice from './slices/proDetailsSlice';
 import recomProductsSlice from './slices/recomProductSlice';
 import checkoutSlice from './slices/checkoutSlice';
 import fetchCartItemsSlice from './slices/fetchCartItemsSlice';
-import addToWishlistReducer from './slices/Wishlist/AddToWishlistSlice';
+import addToWishlistReducer from './slices/Wishlist/AddToWishListSlice';
 import viewWishlistReducer from './slices/Wishlist/ViewWishlistSlice';
 import deleteItemInWishlistReducer from './slices/Wishlist/DeleteItemInWishListSlice';
 import clearWishlistReducer from './slices/Wishlist/ClearWishListSlice';
@@ -30,12 +30,13 @@ import clearCartItemReducer from './slices/Cart/ClearCartItemSlice';
 import orderSlice from './slices/getOrderSlice';
 import paymentSlice from './slices/paymentSlice';
 import productSlice from './slices/sellerProductSlice';
-
 import userProfileReducer from './slices/UserProfile/FetchUserEssentialInfoSlice';
 import basicInfoReducer from './slices/UserProfile/FetchUserBasicInfoSlice';
 import updateUserBasicInfoReducer from './slices/UserProfile/UpdateUserBasicInfoSlice';
 import updateUserEssentialInfoReducer from './slices/UserProfile/UpdateUserEssentialInfoSlice';
 import ChangePasswordAtGivenTimeReducer from './slices/UserProfile/ChangePasswordAtGivenTimeSlice';
+import rateProducts from './slices/rateProductSlice';
+import rateFeedbackSlice from './slices/fetchProductFeedbackSlice';
 
 const persistConfig = {
   key: 'root',
@@ -75,7 +76,8 @@ const reducer = combineReducers({
   updateUserBasicInfo: updateUserBasicInfoReducer,
   updateUserEssentialInfo: updateUserEssentialInfoReducer,
   changePasswordAtGivenTime: ChangePasswordAtGivenTimeReducer,
-
+  rateProduct: rateProducts,
+  getRateFeedback: rateFeedbackSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
