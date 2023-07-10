@@ -19,7 +19,7 @@ import singleProductsSlice from './slices/proDetailsSlice';
 import recomProductsSlice from './slices/recomProductSlice';
 import checkoutSlice from './slices/checkoutSlice';
 import fetchCartItemsSlice from './slices/fetchCartItemsSlice';
-import addToWishlistReducer from './slices/Wishlist/AddToWishlistSlice';
+import addToWishlistReducer from './slices/Wishlist/AddToWishListSlice';
 import viewWishlistReducer from './slices/Wishlist/ViewWishlistSlice';
 import deleteItemInWishlistReducer from './slices/Wishlist/DeleteItemInWishListSlice';
 import clearWishlistReducer from './slices/Wishlist/ClearWishListSlice';

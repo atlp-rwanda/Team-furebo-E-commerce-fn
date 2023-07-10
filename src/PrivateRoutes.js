@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const PrivateRoutes = ({ children }) => {
   const { userInfo } = useSelector((state) => state.user);
@@ -14,6 +15,11 @@ const PrivateRoutes = ({ children }) => {
   //   });
 
   //   console.log(token, 'This is the token');
+  useEffect(() => {
+    if (!userInfo?.token) {
+      toast.warning('Please login', { theme: 'colored' });
+    }
+  }, [userInfo]);
 
   return userInfo?.token ? children : <Navigate to="/authentication" replace />;
 };

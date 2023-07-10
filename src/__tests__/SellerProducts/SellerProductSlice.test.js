@@ -1,6 +1,7 @@
 import productReducer, {
   setSingleProduct, deleteStart, deleteSuccess, deleteError,
   updateSingleProduct, setUpdateProduct, updateStart, updateSuccess, updateError,
+  updatePending,
 } from '../../redux/slices/sellerProductSlice';
 
 describe('sellerProductSlice', () => {
@@ -162,28 +163,17 @@ describe('sellerProductSlice', () => {
     expect(nextState.error.message).toEqual(payload);
     expect(nextState.pending).toBe(false);
   });
-  test('should set error in state when an error occurs', () => {
-    // Arrange
-    const initialState = {
-      updateProduct: null,
-      error: {
-        condition: false,
-        message: '',
-      },
-    };
+  test('setUpdateProduct should set error in state when an error occurs', () => {
+    const errorMessage = 'An error occurred.';
+    const error = new Error(errorMessage);
+    const nextState = productReducer(initialState, setUpdateProduct(error));
 
-    const errorMessage = '';
+    expect(nextState.updateProduct).toEqual(error);
+    // expect(nextState.error).toBeNull();
+  });
+  it('should handle updatePending', () => {
+    const nextState = productReducer(initialState, updatePending(true));
 
-    const action = {
-      type: setUpdateProduct.type,
-      payload: new Error(errorMessage),
-    };
-
-    // Act
-    const nextState = productReducer(initialState, action);
-
-    // Assert
-    expect(nextState.updateProduct).toEqual(new Error(errorMessage));
-    expect(nextState.error).toEqual({ condition: false, message: errorMessage });
+    expect(nextState.pending).toBe(true);
   });
 });

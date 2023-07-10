@@ -135,7 +135,6 @@ const UpdateProduct = () => {
         }, 10000);
       } catch (error) {
         setLoading(false);
-        console.error('Error uploading images to Cloudinary:', error);
         toast.error(error, { theme: 'colored' });
       }
     }

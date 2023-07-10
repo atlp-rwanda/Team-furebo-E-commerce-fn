@@ -2,90 +2,85 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import {
+  NavLink, useNavigate, useParams, useLocation,
+} from 'react-router-dom';
+import { toast } from 'react-toastify';
+import SellerPaginate from './SellerPagination';
 import Category from './Category';
 import { Latestproducts } from '../constants/Constant';
 import Logo from '../assets/images/our-logo.png';
-
+import LoadingMessage from './SellerCollection/LoadingMessage';
+import EmptyCollectionMessage from './SellerCollection/EmptyCollectionMessage';
 // import '../css/HomeStyles/Home.css';
 import '../css/ProducutGridStyles/ProductGrid.css';
 import ProductCard from './ProductCard/ProductCardSeller';
 import Footer from './Footer';
 import { setSingleProduct } from '../redux/slices/sellerProductSlice';
-import { getSellersProducts } from '../redux/actions/SellerProduct';
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 const ProductGrid = () => {
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sellerProducts, setSelleProducts] = useState(null);
+  const [sellerProducts, setSellerProducts] = useState(null);
+  const [totalItems, setTotalItems] = useState(0);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const navigate = useNavigate();
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const sellerProductsResponse = await getSellersProducts();
-        const sellerProductsData = sellerProductsResponse.data.items;
-        setSelleProducts(sellerProductsData);
-        dispatch({ type: 'products/updateSellerProducts', payload: sellerProductsData });
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching profile dataGrid:', error);
-        setError(error);
-        setLoading(false);
-      }
-    };
-    getProducts();
-  }, []);
+  const query = useQuery();
+  const page = query.get('page') || 1;
+  const size = query.get('size') || 8;
+
+  const {
+    pending,
+  } = useSelector((state) => state.products);
+  console.log('pending', pending);
 
   const handleClick = (productId) => {
     dispatch(setSingleProduct(productId));
   };
 
-  if (loading) {
-    return (
-      <div className="message">
-        Retreiving Items
-        <span className="animate-bounce">
-          {'  '}
-          ...
-        </span>
-        <img className="logo-image2" src={Logo} alt="" width="100px" />
-        <br />
-      </div>
-    );
-  }
   if (!localStorage.getItem('token')) {
+    toast.warning('Please login', { theme: 'colored' });
     navigate('/Authentication');
-    return (
-      <div className="justify center text-3xl">
-        Access Denied
-        <span className="animate-bounce">
-          {'  '}
-          ...
-        </span>
-        <img className="logo-image" src={Logo} alt="" width="100px" />
-        <br />
-      </div>
-    );
+    return null;
   }
-  if (!sellerProducts) {
-    return (
-      <div className="message">
-        Your collection is empty
-        {' '}
-        <br />
-        {' '}
-        <br />
-        <img className="logo-image2" src={Logo} alt="" width="100px" />
-        <NavLink to="/addProduct" style={{ color: 'blue', marginTop: '20px' }}>
-          Create a new product
-        </NavLink>
-      </div>
+  console.log('Grid', sellerProducts);
 
-    );
-  }
+  // if (!localStorage.getItem('token')) {
+  //   navigate('/Authentication');
+  //   toast.warning('Please login', { theme: 'colored' });
+  //   return (
+  //     <div className="justify center text-3xl">
+  //       Access Denied
+  //       <span className="animate-bounce">
+  //         {'  '}
+  //         ...
+  //       </span>
+  //       <img className="logo-image" src={Logo} alt="" width="100px" />
+  //       <br />
+  //     </div>
+  //   );
+  // }
+
+  // if (!sellerProducts) {
+  //   return (
+  //     <div className="message">
+  //       Your collection is empty
+  //       {' '}
+  //       <br />
+  //       {' '}
+  //       <br />
+  //       <img className="logo-image2" src={Logo} alt="" width="100px" />
+  //       <NavLink to="/addProduct" style={{ color: 'blue', marginTop: '20px' }}>
+  //         Create a new product
+  //       </NavLink>
+  //     </div>
+
+  //   );
+  // }
+
   if (error) {
     return (
       <div className="message">
@@ -103,16 +98,28 @@ const ProductGrid = () => {
       <div className="latestProducts">
         <div className="latestProductHeader">
           <h1>Seller's Collection</h1>
+          {sellerProducts && (
+          <h1 className="quantity">
+            Items:
+            {' '}
+            {totalItems}
+          </h1>
+          )}
           <hr />
         </div>
-        <div className="latestProductsBody">
-          {sellerProducts.map((pr) => (
-            <NavLink key={pr.id} to={`/sellerProducts/${pr.id}`} className="card-styles">
-              <ProductCard key={pr.id} data={pr} onClick={() => handleClick(pr.id)} />
-            </NavLink>
-          ))}
-        </div>
+        { pending ? (<LoadingMessage />)
+          : !sellerProducts ? (<EmptyCollectionMessage />) : (
+            <div className="latestProductsBody">
+              {sellerProducts?.map((pr) => (
+                <NavLink key={pr.id} to={`/sellerProducts/${pr.id}`} className="card-styles">
+                  <ProductCard key={pr.id} data={pr} onClick={() => handleClick(pr.id)} />
+                </NavLink>
+              ))}
+            </div>
+          )}
+
       </div>
+      <SellerPaginate page={page} size={size} setTotalItems={setTotalItems} setSellerProducts={setSellerProducts} data-testid="paginate-component" />
       <div className="footer">
         <Footer />
       </div>
